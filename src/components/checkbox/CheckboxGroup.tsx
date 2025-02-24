@@ -6,18 +6,13 @@ import {
 } from "react-aria-components";
 
 import { spacings } from "@/styles/tokens";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 
-import { Description, ErrorMessage, ErrorMessageProps, Label } from "../field";
+import { Description, ErrorMessage, Label } from "../field";
 
 export interface CheckboxGroupProps
-  extends Omit<AriaCheckboxGroupProps, "style" | "className" | "children"> {
-  style?: React.CSSProperties;
-  className?: string;
-  children?: React.ReactNode;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
-  errorMessage?: ErrorMessageProps["children"];
-}
+  extends ReplaceAriaRenderProps<AriaCheckboxGroupProps>,
+    FieldsetProps {}
 
 const CheckboxGroup: React.ForwardRefRenderFunction<
   HTMLInputElement,

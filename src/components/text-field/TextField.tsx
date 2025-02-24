@@ -16,18 +16,15 @@ import {
   spacings,
 } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 
-import { ErrorMessage, ErrorMessageProps, Label } from "../field";
+import { ErrorMessage, Label } from "../field";
 import { Description } from "../field/Description";
 
 export interface TextFieldProps
-  extends Omit<AriaTextFieldProps, "className" | "style" | "children"> {
-  style?: React.CSSProperties;
-  className?: string;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
+  extends ReplaceAriaRenderProps<AriaTextFieldProps>,
+    FieldsetProps {
   placeholder?: string;
-  errorMessage?: ErrorMessageProps["children"];
 }
 
 const TextField: React.ForwardRefRenderFunction<

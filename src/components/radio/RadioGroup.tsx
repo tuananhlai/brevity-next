@@ -6,16 +6,13 @@ import {
 } from "react-aria-components";
 
 import { spacings } from "@/styles/tokens";
-import { ReplaceAriaRenderProps } from "@/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 
-import { Description, ErrorMessage, ErrorMessageProps, Label } from "../field";
+import { Description, ErrorMessage, Label } from "../field";
 
 export interface RadioGroupProps
-  extends ReplaceAriaRenderProps<AriaRadioGroupProps> {
-  label?: React.ReactNode;
-  description?: React.ReactNode;
-  errorMessage?: ErrorMessageProps["children"];
-}
+  extends ReplaceAriaRenderProps<AriaRadioGroupProps>,
+    FieldsetProps {}
 
 const RadioGroup: React.ForwardRefRenderFunction<
   HTMLDivElement,
