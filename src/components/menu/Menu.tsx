@@ -1,25 +1,22 @@
-import { css, keyframes } from "@emotion/react";
+import { css } from "@emotion/react";
 import {
   Menu as AriaMenu,
   MenuItem as AriaMenuItem,
   MenuProps as AriaMenuProps,
   MenuItemProps,
-  Popover,
-  PopoverProps,
 } from "react-aria-components";
 
 import {
-  animationTimings,
-  backdropBlurs,
   borderRadiuses,
   colors,
   fontSizes,
   lineHeights,
   queries,
-  shadows,
   spacings,
 } from "@/styles/tokens";
-import { alpha, darkModeSelector } from "@/styles/utils";
+import { darkModeSelector } from "@/styles/utils";
+
+import { Popover, PopoverProps } from "../popover";
 
 export interface MenuProps<T>
   extends Omit<AriaMenuProps<T>, "style" | "className">,
@@ -60,7 +57,6 @@ export function Menu<T extends object>(props: MenuProps<T>) {
       isKeyboardDismissDisabled={isKeyboardDismissDisabled}
       shouldFlip={shouldFlip}
       isNonModal={isNonModal}
-      css={popover}
     >
       <AriaMenu css={menu} {...rest} />
     </Popover>
@@ -73,44 +69,11 @@ export const MenuItem = (props: MenuItemProps) => {
 
 export { MenuTrigger } from "react-aria-components";
 
-const fade = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
-
-const popover = css`
-  &[data-entering] {
-    animation: ${fade} 0.1s ${animationTimings.easeOut};
-  }
-
-  &[data-exiting] {
-    animation: ${fade} 0.1s ${animationTimings.easeIn} reverse;
-  }
-`;
-
 const menu = css`
-  width: max-content;
-  border-radius: ${borderRadiuses.xl};
   padding: ${spacings[1]};
   overflow-y: auto;
   outline: none;
-  background-color: ${alpha(colors.white, 75)};
-  backdrop-filter: ${backdropBlurs.xl};
   min-width: ${spacings[32]};
-  box-shadow:
-    0 0 0 1px ${alpha(colors["zinc-950"], 10)},
-    ${shadows.lg};
-
-  ${darkModeSelector} {
-    background-color: ${alpha(colors["zinc-800"], 75)};
-    box-shadow:
-      inset 0 0 0 1px ${alpha(colors.white, 10)},
-      ${shadows.lg};
-  }
 `;
 
 const menuItem = css`
