@@ -38,7 +38,7 @@ const Select = <T extends object>(
       <Button css={selectBtn}>
         <SelectValue css={selectedValue} />
       </Button>
-      <Popover>
+      <Popover css={popover}>
         <ListBox items={items}>{children}</ListBox>
       </Popover>
     </AriaSelect>
@@ -121,4 +121,8 @@ const selectedValue = css`
   &[data-placeholder] {
     color: ${colors["zinc-500"]};
   }
+`;
+
+const popover = css`
+  width: var(--trigger-width);
 `;

@@ -11,7 +11,6 @@ import {
   borderRadiuses,
   colors,
   shadows,
-  spacings,
 } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
 import { ReplaceAriaRenderProps } from "@/utils";
@@ -42,7 +41,6 @@ const root = css`
   border-radius: ${borderRadiuses.xl};
   backdrop-filter: ${backdropBlurs.xl};
   background-color: ${alpha(colors.white, 75)};
-  min-width: ${spacings[32]};
   box-shadow:
     0 0 0 1px ${alpha(colors["zinc-950"], 10)},
     ${shadows.lg};
