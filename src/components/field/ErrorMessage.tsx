@@ -21,7 +21,7 @@ const root = css`
   line-height: ${lineHeights[6]};
   color: ${colors["red-600"]};
 
-  &[data-disabled] {
+  &:where([data-disabled]) {
     opacity: 50%;
   }
 

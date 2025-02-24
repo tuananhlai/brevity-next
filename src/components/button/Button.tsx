@@ -81,20 +81,20 @@ const base = css`
   font-weight: ${fontWeights.semibold};
   padding: calc(${spacings[2.5]} - 1px) calc(${spacings[3.5]} - 1px);
 
-  &[data-focused] {
+  &:where([data-focused]) {
     outline-offset: 2px;
     outline: 2px solid ${colors["blue-500"]};
   }
 
-  &:not([data-focus-visible]) {
+  &:where(:not([data-focus-visible])) {
     outline: none;
   }
 
-  &[data-disabled] {
+  &:where([data-disabled]) {
     opacity: 0.5;
   }
 
-  &[data-hovered] {
+  &:where([data-hovered]) {
     cursor: pointer;
   }
 
@@ -138,16 +138,6 @@ const primaryStyles = css`
     background-color: var(--btn-bg);
   }
 
-  &[data-hovered]::after,
-  &[data-pressed]::after {
-    background-color: var(--btn-hover-overlay);
-  }
-
-  &[data-disabled] {
-    --btn-before-box-shadow: none;
-    --btn-after-box-shadow: none;
-  }
-
   &::after {
     content: "";
     position: absolute;
@@ -155,6 +145,15 @@ const primaryStyles = css`
     z-index: -10;
     border-radius: var(--btn-after-border-radius);
     box-shadow: inset 0 1px ${alpha(colors.white, 15)};
+  }
+
+  &:where([data-hovered], [data-pressed])::after {
+    background-color: var(--btn-hover-overlay);
+  }
+
+  &:where([data-disabled]) {
+    --btn-before-box-shadow: none;
+    --btn-after-box-shadow: none;
   }
 `;
 
@@ -165,11 +164,11 @@ const secondaryStyles = css`
   --btn-pressed-background-color: ${alpha(colors["zinc-950"], 2.5)};
   --btn-hovered-background-color: ${alpha(colors["zinc-950"], 2.5)};
 
-  &[data-pressed] {
+  &:where([data-pressed]) {
     background-color: var(--btn-pressed-background-color);
   }
 
-  &[data-hovered] {
+  &:where([data-hovered]) {
     background-color: var(--btn-hovered-background-color);
   }
 
@@ -187,8 +186,7 @@ const tertiaryStyles = css`
   background-color: transparent;
   --btn-hovered-background-color: ${alpha(colors["zinc-950"], 5)};
 
-  &[data-pressed],
-  &[data-hovered] {
+  &:where([data-hovered], [data-pressed]) {
     background-color: var(--btn-hovered-background-color);
   }
 
