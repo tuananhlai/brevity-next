@@ -1,0 +1,24 @@
+{{#if shouldForwardRef}}
+import { forwardRef } from "react";
+
+{{/if}}
+export interface {{componentName}}Props {
+  // Add component props.
+}
+
+{{#if shouldForwardRef}}
+const {{componentName}}: React.ForwardRefRenderFunction<HTMLElement, {{componentName}}Props> = (
+  props,
+  ref,
+) => {
+  return <div />;
+};
+
+const _{{componentName}} = /*#__PURE__*/ forwardRef({{componentName}});
+
+export { _{{componentName}} as {{componentName}} };
+{{else}}
+export const {{componentName}}: React.FC<{{componentName}}Props> = (props) => {
+  return <div />;
+}
+{{/if}}

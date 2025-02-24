@@ -1,0 +1,21 @@
+import { Meta, StoryObj } from "@storybook/react";
+import { {{componentName}} } from "./{{componentName}}";
+
+const meta: Meta<typeof {{componentName}}> = {
+  component: {{componentName}},
+  title: "{{componentName}}",
+  argTypes: {},
+};
+export default meta;
+
+type Story = StoryObj<typeof {{componentName}}>;
+
+// Minimal code to render the component correctly.
+export const Default: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  args: {
+    // Add arguments.
+  },
+};
