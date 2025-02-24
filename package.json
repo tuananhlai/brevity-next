@@ -11,7 +11,7 @@
     "build-storybook": "storybook build",
     "generate": "plop",
     "test": "jest --watch",
-    "ci:test": "jest --ci --coverage --outputFile=report.json",
+    "ci:test": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json",
     "chromatic": "npx chromatic --exit-zero-on-changes --only-changed",
     "ci:generate-coverage-badges": "jest-coverage-badges output badges",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",

@@ -1,0 +1,37 @@
+name: "Verify code quality"
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+jobs:
+  test:
+    permissions:
+      pull-requests: write
+      checks: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
+      - uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          package-manager: pnpm
+          test-script: pnpm run ci:test
+          skip-step: install
+  verify-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        uses: ./.github/actions/install-dependencies
+      - name: Lint code
+        run: pnpm run lint
+      - name: Verify code formatting
+        run: pnpm run format:check
+      - name: Check for dependency duplication
+        run: pnpm dedupe --check
