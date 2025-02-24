@@ -1,3 +1,4 @@
+# https://www.chromatic.com/docs/github-actions/#workflow-setup
 name: "Chromatic"
 
 on:
@@ -12,13 +13,15 @@ jobs:
   chromatic-deployment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Install dependencies
         uses: ./.github/actions/install-dependencies
 
       - name: Publish to Chromatic
-        uses: chromaui/action@v1
+        uses: chromaui/action@latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           # https://www.chromatic.com/docs/turbosnap#configure

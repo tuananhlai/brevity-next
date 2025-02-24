@@ -5,6 +5,8 @@ name: "Next.js Bundle Analysis"
 
 on:
   pull_request:
+    branches:
+      - main
   push:
     branches:
       - main # change this if your default branch is named differently
@@ -24,7 +26,7 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Install dependencies
         uses: ./.github/actions/install-dependencies
