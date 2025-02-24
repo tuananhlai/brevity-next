@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import { TextField } from "./TextField";
+import { TextField, TextFieldProps } from "./TextField";
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
@@ -39,30 +39,34 @@ export const VisualTest: Story = {
           alignItems: "center",
         }}
       >
-        <TextField />
-        <TextField placeholder={samplePlaceholder} />
-        <TextField defaultValue={sampleValue} />
-        <TextField label={sampleLabel} />
-        <TextField
+        <ExampleTextField />
+        <ExampleTextField placeholder={samplePlaceholder} />
+        <ExampleTextField defaultValue={sampleValue} />
+        <ExampleTextField label={sampleLabel} />
+        <ExampleTextField
           label={sampleLabel}
           description={sampleDescription}
           defaultValue={sampleValue}
         />
-        <TextField
+        <ExampleTextField
           label={sampleLabel}
           description={sampleDescription}
           defaultValue={sampleValue}
           isDisabled
         />
-        <TextField placeholder={samplePlaceholder} isDisabled />
-        <TextField
+        <ExampleTextField placeholder={samplePlaceholder} isDisabled />
+        <ExampleTextField
           label={sampleLabel}
           isInvalid
           defaultValue={sampleValue}
           errorMessage={sampleErrorMessage}
         />
-        <TextField label={sampleLabel} isRequired />
+        <ExampleTextField label={sampleLabel} isRequired />
       </div>
     );
   },
+};
+
+const ExampleTextField = (props: Partial<TextFieldProps>) => {
+  return <TextField aria-label="Label" {...props} />;
 };
