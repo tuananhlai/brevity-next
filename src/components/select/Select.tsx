@@ -105,7 +105,7 @@ const selectedValue = css`
   padding-bottom: var(--padding-y);
   padding-left: calc(${spacings["3.5"]} - 1px);
   padding-right: calc(${spacings["7"]} - 1px);
-  min-height: 2.75rem;
+  min-height: ${spacings["11"]};
   font-size: ${fontSizes.base};
   line-height: ${lineHeights[6]};
   color: ${colors["zinc-950"]};
@@ -114,7 +114,7 @@ const selectedValue = css`
   ${queries.sm} {
     --padding-y: calc(${spacings["1.5"]} - 1px);
     padding-left: calc(${spacings["3"]} - 1px);
-    min-height: 2.25rem;
+    min-height: ${spacings["9"]};
     font-size: ${fontSizes.sm};
   }
 
