@@ -22,7 +22,7 @@ export const Description: React.FC<DescriptionProps> = (props) => {
 const root = css`
   display: block;
 
-  &[data-disabled] {
+  &:where([data-disabled]) {
     opacity: 50%;
   }
 `;

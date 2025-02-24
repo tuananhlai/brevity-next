@@ -100,7 +100,7 @@ const input = css`
     color: ${colors["zinc-500"]};
   }
 
-  &[data-hovered] {
+  &:where([data-hovered]) {
     border-color: var(--border-hover-color);
   }
 
@@ -108,18 +108,18 @@ const input = css`
     margin-top: ${spacings[3]};
   }
 
-  &[data-invalid] {
+  &:where([data-invalid]) {
     --border-color: ${colors["red-500"]};
     --border-hover-color: ${colors["red-500"]};
   }
 
-  &[data-disabled] {
+  &:where([data-disabled]) {
     opacity: 50%;
     --border-color: ${alpha(colors["zinc-950"], 20)};
     box-shadow: none;
   }
 
-  &[data-focused] {
+  &:where([data-focused]) {
     outline: var(--outline);
     outline-offset: var(--outline-offset);
   }
@@ -131,12 +131,12 @@ const input = css`
     --border-hover-color: ${alpha(colors.white, 20)};
     box-shadow: none;
 
-    &[data-invalid] {
+    &:where([data-invalid]) {
       --border-color: ${colors["red-500"]};
       --border-hover-color: ${colors["red-500"]};
     }
 
-    &[data-disabled] {
+    &:where([data-disabled]) {
       --border-color: ${alpha(colors.white, 15)};
       --border-hover-color: ${alpha(colors.white, 15)};
       background-color: ${alpha(colors.white, 2.5)};

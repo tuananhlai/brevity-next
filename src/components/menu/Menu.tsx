@@ -90,16 +90,16 @@ const menuItem = css`
   width: 100%;
   display: block;
 
-  &[data-focused] {
+  &:where([data-focused]) {
     background-color: ${colors["blue-500"]};
     color: ${colors.white};
   }
 
-  &[data-disabled] {
+  &:where([data-disabled]) {
     opacity: 50%;
   }
 
-  &[data-hovered] {
+  &:where([data-hovered]) {
     cursor: pointer;
   }
 

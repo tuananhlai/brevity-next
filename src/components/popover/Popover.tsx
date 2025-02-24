@@ -45,11 +45,11 @@ const root = css`
     0 0 0 1px ${alpha(colors["zinc-950"], 10)},
     ${shadows.lg};
 
-  &[data-entering] {
+  &:where([data-entering]) {
     animation: ${fade} 0.05s ${animationTimings.easeOut};
   }
 
-  &[data-exiting] {
+  &:where([data-exiting]) {
     animation: ${fade} 0.05s ${animationTimings.easeIn} reverse;
   }
 
