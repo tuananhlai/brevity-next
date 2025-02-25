@@ -56,9 +56,7 @@ const TextField: React.ForwardRefRenderFunction<
         </Label>
       )}
       {description != null && (
-        <Description css={descriptionStyles} isDisabled={isDisabled}>
-          {description}
-        </Description>
+        <Description isDisabled={isDisabled}>{description}</Description>
       )}
       <Input placeholder={placeholder} css={input} />
       <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
@@ -146,12 +144,6 @@ const input = css`
 
     --outline: 2px solid ${colors["blue-500"]};
     --outline-offset: -2px;
-  }
-`;
-
-const descriptionStyles = css`
-  &:not(:first-child) {
-    margin-top: ${spacings[1]};
   }
 `;
 

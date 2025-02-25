@@ -29,9 +29,7 @@ const CheckboxGroup: React.ForwardRefRenderFunction<
         </Label>
       )}
       {description != null && (
-        <Description css={descriptionStyles} isDisabled={isDisabled}>
-          {description}
-        </Description>
+        <Description isDisabled={isDisabled}>{description}</Description>
       )}
       <div css={group}>{children}</div>
       <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
@@ -56,13 +54,7 @@ const group = css`
   gap: ${spacings[3]};
 
   &:not(:first-child) {
-    margin-top: ${spacings[6]};
-  }
-`;
-
-const descriptionStyles = css`
-  &:not(:first-child) {
-    margin-top: ${spacings[1]};
+    margin-top: ${spacings[3]};
   }
 `;
 
