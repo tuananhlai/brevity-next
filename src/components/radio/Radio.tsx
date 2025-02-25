@@ -43,7 +43,7 @@ export { _Radio as Radio };
 
 const root = css`
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: ${spacings[4]};
 
   &:where([data-hovered]) {
@@ -64,6 +64,8 @@ const radioIcon = css`
   --hover-border-color: ${alpha(colors["zinc-950"], 30)};
   --radio-indicator-background-color: transparent;
   --radio-indicator-selected-background-color: ${colors.white};
+  // Align the checkbox icon with the label.
+  margin: 3px 0;
 
   ${queries.sm} {
     --size: 1.0625rem;
