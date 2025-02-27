@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ListBoxItem } from "react-aria-components";
 
 import { Select } from "./Select";
+import { SelectItem } from "./SelectItem";
 
 const meta: Meta<typeof Select> = {
   component: Select,
@@ -20,9 +20,9 @@ export const Default: Story = {
   args: {
     children: (
       <>
-        <ListBoxItem>Option 1</ListBoxItem>
-        <ListBoxItem>Option 2</ListBoxItem>
-        <ListBoxItem>Option 3</ListBoxItem>
+        <SelectItem>Option 1</SelectItem>
+        <SelectItem>Option 2</SelectItem>
+        <SelectItem>Option 3</SelectItem>
       </>
     ),
   },

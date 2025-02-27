@@ -37,6 +37,22 @@ const Select = <T extends object>(
     <AriaSelect ref={ref} className={`bw-select ${className}`} {...rest}>
       <Button css={selectBtn}>
         <SelectValue css={selectedValue} />
+        <span css={arrowContainer}>
+          <svg css={arrow} viewBox="0 0 16 16" aria-hidden="true" fill="none">
+            <path
+              d="M5.75 10.75L8 13L10.25 10.75"
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M10.25 5.25L8 3L5.75 5.25"
+              strokeWidth={1.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
       </Button>
       <Popover css={popover}>
         <ListBox items={items}>{children}</ListBox>
@@ -74,7 +90,7 @@ const selectBtn = css`
     border-radius: ${borderRadiuses.lg};
   }
 
-  &[data-disabled] {
+  &:where([data-disabled]) {
     opacity: 50%;
 
     &::before {
@@ -83,14 +99,14 @@ const selectBtn = css`
     }
   }
 
-  &[data-focused][data-focus-visible] {
+  &:where([data-focused][data-focus-visible]) {
     &::after {
       outline-offset: 2px;
       outline: 2px solid ${colors["blue-500"]};
     }
   }
 
-  &[data-hovered] {
+  &:where([data-hovered]) {
     cursor: pointer;
   }
 `;
@@ -118,11 +134,34 @@ const selectedValue = css`
     font-size: ${fontSizes.sm};
   }
 
-  &[data-placeholder] {
+  &:where([data-placeholder]) {
     color: ${colors["zinc-500"]};
   }
 `;
 
 const popover = css`
   width: var(--trigger-width);
+`;
+
+const arrowContainer = css`
+  position: absolute;
+  inset-block: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  padding-right: ${spacings[2]};
+`;
+
+const arrow = css`
+  width: ${spacings[5]};
+  aspect-ratio: 1 / 1;
+  stroke: ${colors["zinc-500"]};
+
+  &:where(.bw-select[data-disabled] *) {
+    stroke: ${colors["zinc-600"]};
+  }
+
+  ${queries.sm} {
+    width: ${spacings[4]};
+  }
 `;
