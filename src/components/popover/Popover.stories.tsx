@@ -8,6 +8,11 @@ const meta: Meta<typeof Popover> = {
   component: Popover,
   title: "Popover",
   argTypes: {},
+  decorators: [
+    (story) => (
+      <div style={{ width: "1200px", height: "800px" }}>{story()}</div>
+    ),
+  ],
 };
 export default meta;
 

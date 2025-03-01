@@ -85,7 +85,7 @@ const checkboxIconContainer = css`
   --checkbox-check: ${colors.white};
   border: 1px solid ${alpha(colors["zinc-950"], 15)};
   // Align the checkbox icon with the label.
-  margin: 3px 0;
+  margin: 4px 0;
 
   &::before {
     content: "";
