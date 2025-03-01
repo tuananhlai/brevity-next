@@ -16,18 +16,15 @@ import {
   spacings,
 } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 
-import { ErrorMessage, ErrorMessageProps, Label } from "../field";
+import { ErrorMessage, Label } from "../field";
 import { Description } from "../field/Description";
 
 export interface TextFieldProps
-  extends Omit<AriaTextFieldProps, "className" | "style" | "children"> {
-  style?: React.CSSProperties;
-  className?: string;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
+  extends ReplaceAriaRenderProps<AriaTextFieldProps>,
+    FieldsetProps {
   placeholder?: string;
-  errorMessage?: ErrorMessageProps["children"];
 }
 
 const TextField: React.ForwardRefRenderFunction<
@@ -59,9 +56,7 @@ const TextField: React.ForwardRefRenderFunction<
         </Label>
       )}
       {description != null && (
-        <Description css={descriptionStyles} isDisabled={isDisabled}>
-          {description}
-        </Description>
+        <Description isDisabled={isDisabled}>{description}</Description>
       )}
       <Input placeholder={placeholder} css={input} />
       <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
@@ -94,7 +89,7 @@ const input = css`
   --outline-offset: 0;
   border: 1px solid var(--border-color);
   background-color: transparent;
-  box-shadow: ${shadows.sm};
+  box-shadow: ${shadows.xs};
 
   &::placeholder {
     color: ${colors["zinc-500"]};
@@ -149,12 +144,6 @@ const input = css`
 
     --outline: 2px solid ${colors["blue-500"]};
     --outline-offset: -2px;
-  }
-`;
-
-const descriptionStyles = css`
-  &:not(:first-child) {
-    margin-top: ${spacings[1]};
   }
 `;
 

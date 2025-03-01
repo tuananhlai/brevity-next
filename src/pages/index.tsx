@@ -71,7 +71,7 @@ export default function Home() {
                       </CheckboxGroup>
                       <RadioGroup
                         isRequired
-                        css={{ marginTop: spacings[4] }}
+                        css={{ marginTop: spacings[5] }}
                         label="Reason"
                         name="reason"
                         description="Select the reason for your return"
@@ -84,7 +84,7 @@ export default function Home() {
                         <Radio value="4">Other</Radio>
                       </RadioGroup>
                       <TextField
-                        css={{ marginTop: spacings[4] }}
+                        css={{ marginTop: spacings[5] }}
                         name="comments"
                         label="Comments"
                         placeholder="Additional comments"

@@ -44,6 +44,12 @@ export const VisualTest: Story = {
         <ExampleRadio isDisabled />
         <ExampleRadio isSelected />
         <ExampleRadio isSelected isDisabled />
+        <div css={{ width: "200px" }}>
+          <ExampleRadio>
+            Option with very very very very very very very very very very very
+            long text that should wrap.
+          </ExampleRadio>
+        </div>
       </div>
     );
   },
@@ -79,10 +85,11 @@ const ExampleRadio = (
   props: Partial<RadioProps> & { isSelected?: boolean },
 ) => {
   const { isSelected, ...radioProps } = props;
+  const children = props.children ?? "Option";
   return (
     <RadioGroup defaultValue={isSelected ? "example" : undefined}>
       <Radio value="example" {...radioProps}>
-        Example option
+        {children}
       </Radio>
     </RadioGroup>
   );

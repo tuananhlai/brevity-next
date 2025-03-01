@@ -6,18 +6,13 @@ import {
 } from "react-aria-components";
 
 import { spacings } from "@/styles/tokens";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 
-import { Description, ErrorMessage, ErrorMessageProps, Label } from "../field";
+import { Description, ErrorMessage, Label } from "../field";
 
 export interface CheckboxGroupProps
-  extends Omit<AriaCheckboxGroupProps, "style" | "className" | "children"> {
-  style?: React.CSSProperties;
-  className?: string;
-  children?: React.ReactNode;
-  label?: React.ReactNode;
-  description?: React.ReactNode;
-  errorMessage?: ErrorMessageProps["children"];
-}
+  extends ReplaceAriaRenderProps<AriaCheckboxGroupProps>,
+    FieldsetProps {}
 
 const CheckboxGroup: React.ForwardRefRenderFunction<
   HTMLInputElement,
@@ -34,9 +29,7 @@ const CheckboxGroup: React.ForwardRefRenderFunction<
         </Label>
       )}
       {description != null && (
-        <Description css={descriptionStyles} isDisabled={isDisabled}>
-          {description}
-        </Description>
+        <Description isDisabled={isDisabled}>{description}</Description>
       )}
       <div css={group}>{children}</div>
       <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
@@ -61,13 +54,7 @@ const group = css`
   gap: ${spacings[3]};
 
   &:not(:first-child) {
-    margin-top: ${spacings[6]};
-  }
-`;
-
-const descriptionStyles = css`
-  &:not(:first-child) {
-    margin-top: ${spacings[1]};
+    margin-top: ${spacings[3]};
   }
 `;
 

@@ -26,7 +26,7 @@ export const Default: Story = {
     <MenuTrigger defaultOpen>
       <Button>Open Menu</Button>
       <Menu>
-        <MenuItem href="https://google.com">Item 1</MenuItem>
+        <MenuItem href="https://google.com">Use this to go to Google</MenuItem>
         <MenuItem>Item 2</MenuItem>
         <MenuItem>Item 3</MenuItem>
       </Menu>

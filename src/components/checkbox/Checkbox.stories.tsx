@@ -42,11 +42,18 @@ export const VisualTest: Story = {
         <ExampleCheckbox isIndeterminate isSelected isDisabled />
         <ExampleCheckbox isInvalid />
         <ExampleCheckbox isInvalid isSelected />
+        <div css={{ width: "200px" }}>
+          <ExampleCheckbox>
+            Option with very very very very very very very very very very very
+            long text that should wrap.
+          </ExampleCheckbox>
+        </div>
       </div>
     );
   },
 };
 
 const ExampleCheckbox = (props: Partial<CheckboxProps>) => {
-  return <Checkbox {...props}>Option</Checkbox>;
+  const children = props.children ?? "Option";
+  return <Checkbox {...props}>{children}</Checkbox>;
 };
