@@ -19,11 +19,14 @@ import {
   spacings,
 } from "@/styles/tokens";
 import { alpha } from "@/styles/utils";
+import { FieldsetProps } from "@/utils";
 
+import { Description, ErrorMessage, Label } from "../field";
 import { Popover } from "../popover";
 
 export interface SelectProps<T extends object>
-  extends Omit<AriaSelectProps<T>, "children" | "className" | "style"> {
+  extends Omit<AriaSelectProps<T>, "children" | "className" | "style">,
+    FieldsetProps {
   className?: string;
   style?: React.CSSProperties;
   children?: ListBoxProps<T>["children"];
@@ -34,10 +37,27 @@ const Select = <T extends object>(
   props: SelectProps<T>,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
-  const { children, items, className = "", ...rest } = props;
+  const {
+    children,
+    items,
+    className = "",
+    label,
+    description,
+    errorMessage,
+    ...rest
+  } = props;
+  const { isRequired, isDisabled } = rest;
 
   return (
     <AriaSelect ref={ref} className={`bw-select ${className}`} {...rest}>
+      {label != null && (
+        <Label isRequired={isRequired} isDisabled={isDisabled}>
+          {label}
+        </Label>
+      )}
+      {description != null && (
+        <Description isDisabled={isDisabled}>{description}</Description>
+      )}
       <Button className="bw-select-button" css={selectBtn}>
         <SelectValue css={selectedValue} />
         <span css={arrowContainer}>
@@ -62,6 +82,9 @@ const Select = <T extends object>(
           {children}
         </ListBox>
       </Popover>
+      <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
+        {errorMessage}
+      </ErrorMessage>
     </AriaSelect>
   );
 };
@@ -74,8 +97,10 @@ export { _Select as Select };
 
 const selectBtn = css`
   position: relative;
+  display: block;
   width: 100%;
   outline: none;
+  margin-top: ${spacings[3]};
   background-color: transparent;
   border: none;
   padding: 0;
@@ -199,4 +224,8 @@ const listBox = css`
   // ensure that when the user focuses on an item using the keyboard,
   // there's ample space above and below it.
   scroll-padding-block: ${spacings[1]};
+`;
+
+const errorMessageStyles = css`
+  margin-top: ${spacings[3]};
 `;

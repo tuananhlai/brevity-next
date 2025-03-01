@@ -40,7 +40,6 @@ export const VisualTest: Story = {
         }}
       >
         <ExampleSelect />
-        <ExampleSelect defaultSelectedKey={0} />
         <ExampleSelect defaultSelectedKey={2} />
         <ExampleSelect defaultSelectedKey="allison">
           <SelectItem id="allison">
@@ -56,11 +55,18 @@ export const VisualTest: Story = {
             </div>
           </SelectItem>
         </ExampleSelect>
-        <ExampleSelect items={longListOfOptions}>
+        <ExampleSelect items={longListOfOptions} defaultSelectedKey={50}>
           {(item) => <SelectItem>{item.label}</SelectItem>}
         </ExampleSelect>
-        <ExampleSelect isDisabled />
-        <ExampleSelect isInvalid />
+        <ExampleSelect label="Label" />
+        <ExampleSelect label="Label" description="Description" />
+        <ExampleSelect
+          label="Label"
+          description="Description"
+          isInvalid
+          errorMessage="Error message"
+        />
+        <ExampleSelect label="Label" description="Description" isDisabled />
       </div>
     );
   },
