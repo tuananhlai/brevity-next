@@ -165,6 +165,8 @@ const selectedValue = css`
 
 const popover = css`
   width: var(--trigger-width);
+  display: flex;
+  flex-direction: column;
 `;
 
 const arrowContainer = css`
@@ -194,4 +196,7 @@ const listBox = css`
   outline: none;
   padding: ${spacings[1]};
   overflow-y: scroll;
+  // ensure that when the user focuses on an item using the keyboard,
+  // there's ample space above and below it.
+  scroll-padding-block: ${spacings[1]};
 `;

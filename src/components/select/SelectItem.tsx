@@ -22,7 +22,8 @@ const root = css`
   line-height: ${lineHeights[6]};
   outline: none;
   border-radius: ${borderRadiuses.lg};
-  padding: ${spacings["2.5"]} ${spacings["3.5"]} ${spacings["2.5"]} ${spacings[2]};
+  padding: ${spacings["2.5"]} ${spacings["3.5"]} ${spacings["2.5"]}
+    ${spacings[2]};
 
   &:where([data-focused]) {
     background-color: ${colors["blue-500"]};
@@ -39,6 +40,7 @@ const root = css`
 
   ${queries.sm} {
     font-size: ${fontSizes.sm};
-    padding: ${spacings["1.5"]} ${spacings["3"]} ${spacings["1.5"]} ${spacings["1.5"]};
+    padding: ${spacings["1.5"]} ${spacings["3"]} ${spacings["1.5"]}
+      ${spacings["1.5"]};
   }
 `;
