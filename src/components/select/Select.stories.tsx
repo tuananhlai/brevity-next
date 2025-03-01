@@ -41,6 +41,9 @@ export const VisualTest: Story = {
         <ExampleSelect />
         <ExampleSelect defaultSelectedKey={0} />
         <ExampleSelect defaultSelectedKey={2} />
+        <ExampleSelect items={longListOfOptions}>
+          {(item) => <SelectItem>{item.label}</SelectItem>}
+        </ExampleSelect>
         <ExampleSelect isDisabled />
         <ExampleSelect isInvalid />
       </div>
@@ -48,10 +51,24 @@ export const VisualTest: Story = {
   },
 };
 
-const ExampleSelect = (props: Partial<SelectProps<object>>) => (
-  <Select css={{ width: 200 }} {...props}>
-    <SelectItem id={0}>Animal Crossing</SelectItem>
-    <SelectItem id={1}>Super Mario Odyssey</SelectItem>
-    <SelectItem id={2}>Legend of Zelda: Breath of the Wild</SelectItem>
-  </Select>
-);
+const longListOfOptions = Array(10).map((_, index) => ({
+  id: index,
+  label: `Option ${index + 1}`,
+}));
+
+const ExampleSelect = <T extends object>(props: Partial<SelectProps<T>>) => {
+  const defaultChildren: SelectProps<T>["children"] = (
+    <>
+      <SelectItem>Option 1</SelectItem>
+      <SelectItem>Option 2</SelectItem>
+      <SelectItem>Option 3</SelectItem>
+    </>
+  );
+  const { children = defaultChildren, items, ...rest } = props;
+
+  return (
+    <Select css={{ width: 200 }} items={items} {...rest}>
+      {children}
+    </Select>
+  );
+};

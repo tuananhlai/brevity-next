@@ -18,13 +18,14 @@ import {
   spacings,
 } from "@/styles/tokens";
 import { alpha } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils";
 
 import { Popover } from "../popover";
 
 export interface SelectProps<T extends object>
-  extends ReplaceAriaRenderProps<AriaSelectProps<T>> {
-  // Add component props.
+  extends Omit<AriaSelectProps<T>, "children" | "className" | "style"> {
+  className?: string;
+  style?: React.CSSProperties;
+  children?: React.ReactNode | ((item: T) => React.ReactNode);
   items?: Iterable<T>;
 }
 
