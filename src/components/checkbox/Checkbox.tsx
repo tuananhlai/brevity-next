@@ -63,7 +63,7 @@ export { _Checkbox as Checkbox };
 const root = css`
   display: flex;
   gap: ${spacings[4]};
-  align-items: start;
+  align-items: center;
 
   &:where([data-hovered]) {
     cursor: pointer;
@@ -84,8 +84,6 @@ const checkboxIconContainer = css`
   --hover-border-color: ${alpha(colors["zinc-950"], 30)};
   --checkbox-check: ${colors.white};
   border: 1px solid ${alpha(colors["zinc-950"], 15)};
-  // Align the checkbox icon with the label.
-  margin: 4px 0;
 
   &::before {
     content: "";
