@@ -120,6 +120,7 @@ const modalOverlay = css`
   grid-template-rows: 1fr auto;
   overflow-y: auto;
   background-color: ${alpha(colors["zinc-950"], 25)};
+  padding-top: ${spacings[12]};
 
   &:where([data-entering]) {
     animation: ${fade} 0.1s ${animationTimings.easeOut};

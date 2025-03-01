@@ -28,12 +28,16 @@ const _Popover = /*#__PURE__*/ forwardRef(Popover);
 
 export { _Popover as Popover };
 
-const fade = keyframes`
+const open = keyframes`
   from {
     opacity: 0;
+    scale: 0.95;
+    translate: var(--anim-from-translate);
   }
   to {
     opacity: 1;
+    scale: 1;
+    translate: 0;
   }
 `;
 
@@ -45,12 +49,28 @@ const root = css`
     0 0 0 1px ${alpha(colors["zinc-950"], 10)},
     ${shadows.lg};
 
+  &:where([data-placement="bottom"]) {
+    --anim-from-translate: 0 -0.5rem;
+  }
+
+  &:where([data-placement="top"]) {
+    --anim-from-translate: 0 0.5rem;
+  }
+
+  &:where([data-placement="left"]) {
+    --anim-from-translate: 0.5rem 0;
+  }
+
+  &:where([data-placement="right"]) {
+    --anim-from-translate: -0.5rem 0;
+  }
+
   &:where([data-entering]) {
-    animation: ${fade} 0.05s ${animationTimings.easeOut};
+    animation: ${open} 0.05s ${animationTimings.easeOut};
   }
 
   &:where([data-exiting]) {
-    animation: ${fade} 0.05s ${animationTimings.easeIn} reverse;
+    animation: ${open} 0.05s ${animationTimings.easeIn} reverse;
   }
 
   ${darkModeSelector} {
