@@ -5,6 +5,7 @@ import {
   SelectProps as AriaSelectProps,
   Button,
   ListBox,
+  ListBoxProps,
   SelectValue,
 } from "react-aria-components";
 
@@ -25,8 +26,8 @@ export interface SelectProps<T extends object>
   extends Omit<AriaSelectProps<T>, "children" | "className" | "style"> {
   className?: string;
   style?: React.CSSProperties;
-  children?: React.ReactNode | ((item: T) => React.ReactNode);
-  items?: Iterable<T>;
+  children?: ListBoxProps<T>["children"];
+  items?: ListBoxProps<T>["items"];
 }
 
 const Select = <T extends object>(
@@ -62,7 +63,9 @@ const Select = <T extends object>(
   );
 };
 
-const _Select = /*#__PURE__*/ forwardRef(Select);
+const _Select = /*#__PURE__*/ forwardRef(Select) as <T extends object>(
+  props: SelectProps<T> & React.RefAttributes<HTMLDivElement>,
+) => JSX.Element;
 
 export { _Select as Select };
 
