@@ -14,6 +14,7 @@ import {
 } from "@/components/dialog";
 import { Menu, MenuItem, MenuTrigger } from "@/components/menu";
 import { Radio, RadioGroup } from "@/components/radio";
+import { Select, SelectItem } from "@/components/select";
 import { Text } from "@/components/text";
 import { TextField } from "@/components/text-field";
 import { spacings } from "@/styles/tokens";
@@ -83,6 +84,18 @@ export default function Home() {
                         <Radio value="3">I changed my mind</Radio>
                         <Radio value="4">Other</Radio>
                       </RadioGroup>
+                      <Select
+                        css={{ marginTop: spacings[5] }}
+                        label="Refund method"
+                        description="The purchase amount will be refunded using this method"
+                        name="refundMethod"
+                        isRequired
+                      >
+                        <SelectItem>Credit card</SelectItem>
+                        <SelectItem>PayPal</SelectItem>
+                        <SelectItem>Bank transfer</SelectItem>
+                        <SelectItem>Gift card</SelectItem>
+                      </Select>
                       <TextField
                         css={{ marginTop: spacings[5] }}
                         name="comments"
