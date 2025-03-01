@@ -58,7 +58,9 @@ const Select = <T extends object>(
         </span>
       </Button>
       <Popover css={popover}>
-        <ListBox items={items}>{children}</ListBox>
+        <ListBox css={listBox} items={items}>
+          {children}
+        </ListBox>
       </Popover>
     </AriaSelect>
   );
@@ -163,6 +165,8 @@ const selectedValue = css`
 
 const popover = css`
   width: var(--trigger-width);
+  padding: ${spacings[1]};
+  overflow-y: scroll;
 `;
 
 const arrowContainer = css`
@@ -186,4 +190,8 @@ const arrow = css`
   ${queries.sm} {
     width: ${spacings[4]};
   }
+`;
+
+const listBox = css`
+  outline: none;
 `;

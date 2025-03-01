@@ -51,7 +51,7 @@ export const VisualTest: Story = {
   },
 };
 
-const longListOfOptions = Array.from({ length: 10 }, (_, i) => ({
+const longListOfOptions = Array.from({ length: 100 }, (_, i) => ({
   id: i,
   label: `Option ${i + 1}`,
 }));
