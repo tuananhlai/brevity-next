@@ -165,8 +165,6 @@ const selectedValue = css`
 
 const popover = css`
   width: var(--trigger-width);
-  padding: ${spacings[1]};
-  overflow-y: scroll;
 `;
 
 const arrowContainer = css`
@@ -194,4 +192,6 @@ const arrow = css`
 
 const listBox = css`
   outline: none;
+  padding: ${spacings[1]};
+  overflow-y: scroll;
 `;
