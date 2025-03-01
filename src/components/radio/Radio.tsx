@@ -78,7 +78,7 @@ const radioIcon = css`
     z-index: -10;
     border-radius: ${borderRadiuses.full};
     background-color: ${colors.white};
-    box-shadow: ${shadows.default};
+    box-shadow: ${shadows.sm};
   }
 
   &::after {

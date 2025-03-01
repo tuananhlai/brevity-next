@@ -80,7 +80,7 @@ const selectBtn = css`
     inset: 1px;
     border-radius: calc(${borderRadiuses.lg} - 1px);
     background-color: ${colors.white};
-    box-shadow: ${shadows.default};
+    box-shadow: ${shadows.sm};
   }
 
   &::after {

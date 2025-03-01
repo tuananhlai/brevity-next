@@ -112,7 +112,7 @@ const primaryStyles = css`
   color: ${colors.white};
   --btn-hover-overlay: ${alpha(colors.white, 10)};
   --btn-before-display: initial;
-  --btn-before-box-shadow: ${shadows.default};
+  --btn-before-box-shadow: ${shadows.sm};
   --btn-after-inset: 0;
   --btn-after-border-radius: calc(${borderRadiuses.lg} - 1px);
   --btn-after-box-shadow: inset 0 1px ${alpha(colors.white, 15)};
@@ -134,7 +134,7 @@ const primaryStyles = css`
     inset: 0;
     z-index: -10;
     border-radius: calc(${borderRadiuses.lg} - 1px);
-    box-shadow: ${shadows.default};
+    box-shadow: ${shadows.sm};
     background-color: var(--btn-bg);
   }
 

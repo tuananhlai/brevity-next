@@ -89,7 +89,7 @@ const input = css`
   --outline-offset: 0;
   border: 1px solid var(--border-color);
   background-color: transparent;
-  box-shadow: ${shadows.sm};
+  box-shadow: ${shadows.xs};
 
   &::placeholder {
     color: ${colors["zinc-500"]};

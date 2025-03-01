@@ -89,8 +89,8 @@ export const lineHeights = {
 } as const;
 
 export const shadows = {
-  default: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
-  sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+  sm: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+  xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
   md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -1px rgb(0 0 0 / 0.1)",
   lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
   xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04)",
@@ -99,8 +99,8 @@ export const shadows = {
 } as const;
 
 export const borderRadiuses = {
-  sm: "0.125rem",
-  default: "0.25rem",
+  xs: "0.125rem",
+  sm: "0.25rem",
   md: "0.375rem",
   lg: "0.5rem",
   xl: "0.75rem",
@@ -159,8 +159,8 @@ export const animationTimings = {
 } as const;
 
 export const backdropBlurs = {
-  sm: "blur(4px)",
-  default: "blur(8px)",
+  xs: "blur(4px)",
+  sm: "blur(8px)",
   md: "blur(12px)",
   lg: "blur(16px)",
   xl: "blur(24px)",

@@ -94,7 +94,7 @@ const checkboxIconContainer = css`
     z-index: -10;
     border-radius: calc(0.3125rem - 1px);
     background-color: ${colors.white};
-    box-shadow: ${shadows.default};
+    box-shadow: ${shadows.sm};
   }
 
   &::after {
