@@ -35,7 +35,7 @@ const Select = <T extends object>(
   const { children, items, className = "", ...rest } = props;
   return (
     <AriaSelect ref={ref} className={`bw-select ${className}`} {...rest}>
-      <Button css={selectBtn}>
+      <Button className="bw-select-button" css={selectBtn}>
         <SelectValue css={selectedValue} />
         <span css={arrowContainer}>
           <svg css={arrow} viewBox="0 0 16 16" aria-hidden="true" fill="none">
@@ -66,13 +66,13 @@ const _Select = /*#__PURE__*/ forwardRef(Select);
 export { _Select as Select };
 
 const selectBtn = css`
-  background-color: transparent;
-  border: none;
-  padding: 0;
-
   position: relative;
   width: 100%;
   outline: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
 
   &::before {
     content: "";
@@ -101,7 +101,7 @@ const selectBtn = css`
 
   &:where([data-focused][data-focus-visible]) {
     &::after {
-      outline-offset: 2px;
+      outline-offset: -2px;
       outline: 2px solid ${colors["blue-500"]};
     }
   }
@@ -126,16 +126,33 @@ const selectedValue = css`
   line-height: ${lineHeights[6]};
   color: ${colors["zinc-950"]};
   border: 1px solid ${alpha(colors["zinc-950"], 10)};
+  background-color: transparent;
+  // Show the selected option in one line only.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:where(.bw-select-button[data-hovered] *) {
+    border-color: ${alpha(colors["zinc-950"], 20)};
+  }
+
+  &:where(.bw-select[data-invalid] *) {
+    border-color: ${colors["red-500"]};
+  }
+
+  &:where(.bw-select[data-disabled] *) {
+    border-color: ${alpha(colors["zinc-950"], 20)};
+  }
+
+  &[data-placeholder] {
+    color: ${colors["zinc-500"]};
+  }
 
   ${queries.sm} {
     --padding-y: calc(${spacings["1.5"]} - 1px);
     padding-left: calc(${spacings["3"]} - 1px);
     min-height: ${spacings["9"]};
     font-size: ${fontSizes.sm};
-  }
-
-  &:where([data-placeholder]) {
-    color: ${colors["zinc-500"]};
   }
 `;
 
