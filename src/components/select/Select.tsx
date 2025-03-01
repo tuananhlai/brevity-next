@@ -35,6 +35,7 @@ const Select = <T extends object>(
   ref: React.ForwardedRef<HTMLDivElement>,
 ) => {
   const { children, items, className = "", ...rest } = props;
+
   return (
     <AriaSelect ref={ref} className={`bw-select ${className}`} {...rest}>
       <Button className="bw-select-button" css={selectBtn}>

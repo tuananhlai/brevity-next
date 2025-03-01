@@ -41,21 +41,9 @@ export const VisualTest: Story = {
         <ExampleSelect />
         <ExampleSelect defaultSelectedKey={0} />
         <ExampleSelect defaultSelectedKey={2} />
-        <ExampleSelect>
-          <SelectItem>Option 1</SelectItem>
-          <SelectItem>Option 2</SelectItem>
-          <SelectItem>Option 3</SelectItem>
-          <SelectItem>Option 4</SelectItem>
-          <SelectItem>Option 5</SelectItem>
-          <SelectItem>Option 6</SelectItem>
-          <SelectItem>Option 7</SelectItem>
-          <SelectItem>Option 8</SelectItem>
-          <SelectItem>Option 9</SelectItem>
-          <SelectItem>Option 10</SelectItem>
-        </ExampleSelect>
-        <Select items={longListOfOptions}>
+        <ExampleSelect items={longListOfOptions}>
           {(item) => <SelectItem>{item.label}</SelectItem>}
-        </Select>
+        </ExampleSelect>
         <ExampleSelect isDisabled />
         <ExampleSelect isInvalid />
       </div>
@@ -63,9 +51,9 @@ export const VisualTest: Story = {
   },
 };
 
-const longListOfOptions = Array(10).map((_, index) => ({
-  id: index,
-  label: `Option ${index + 1}`,
+const longListOfOptions = Array.from({ length: 10 }, (_, i) => ({
+  id: i,
+  label: `Option ${i + 1}`,
 }));
 
 const ExampleSelect = <T extends object>(props: Partial<SelectProps<T>>) => {
