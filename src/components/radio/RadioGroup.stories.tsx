@@ -55,7 +55,7 @@ export const VisualTest: Story = {
   },
 };
 
-export const VisualTestRadioGroup: Story = {
+export const RadioGroupVisualTest: Story = {
   render: () => {
     return (
       <div
