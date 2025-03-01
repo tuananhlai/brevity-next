@@ -1,5 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
 
+import { colors } from "@/styles/tokens";
+
+import { Avatar } from "../avatar";
 import { Select, SelectProps } from "./Select";
 import { SelectItem } from "./SelectItem";
 
@@ -41,6 +44,20 @@ export const VisualTest: Story = {
         <ExampleSelect />
         <ExampleSelect defaultSelectedKey={0} />
         <ExampleSelect defaultSelectedKey={2} />
+        <ExampleSelect defaultSelectedKey="allison">
+          <SelectItem id="allison">
+            <div css={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Avatar color="blue" size="sm" initials="A" alt="" />
+              Allison
+            </div>
+          </SelectItem>
+          <SelectItem>
+            <div css={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <Avatar size="sm" initials="B" alt="" />
+              Brock
+            </div>
+          </SelectItem>
+        </ExampleSelect>
         <ExampleSelect items={longListOfOptions}>
           {(item) => <SelectItem>{item.label}</SelectItem>}
         </ExampleSelect>
