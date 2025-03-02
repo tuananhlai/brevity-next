@@ -18,7 +18,7 @@ import {
   shadows,
   spacings,
 } from "@/styles/tokens";
-import { alpha } from "@/styles/utils";
+import { alpha, darkModeSelector } from "@/styles/utils";
 import { FieldsetProps } from "@/utils";
 
 import { Description, ErrorMessage, Label } from "../field";
@@ -59,7 +59,7 @@ const Select = <T extends object>(
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
       <Button className="bw-select-button" css={selectBtn}>
-        <SelectValue css={selectedValue} />
+        <SelectValue css={[selectedValue, selectedValueVars]} />
         <span css={arrowContainer}>
           <svg css={arrow} viewBox="0 0 16 16" aria-hidden="true" fill="none">
             <path
@@ -141,14 +141,38 @@ const selectBtn = css`
   &:where([data-hovered]) {
     cursor: pointer;
   }
+
+  ${darkModeSelector} {
+    &::before {
+      display: none;
+    }
+  }
+`;
+
+const selectedValueVars = css`
+  --selected-value-color: ${colors["zinc-950"]};
+  --selected-value-background-color: transparent;
+  --selected-value-border-color: ${alpha(colors["zinc-950"], 10)};
+  --selected-value-hover-border-color: ${alpha(colors["zinc-950"], 20)};
+  --selected-value-invalid-border-color: ${colors["red-500"]};
+  --selected-value-disabled-border-color: ${alpha(colors["zinc-950"], 20)};
+
+  ${darkModeSelector} {
+    --selected-value-color: ${colors.white};
+    --selected-value-border-color: ${alpha(colors.white, 10)};
+    --selected-value-hover-border-color: ${alpha(colors.white, 10)};
+    --selected-value-invalid-border-color: ${colors["red-600"]};
+    --selected-value-disabled-border-color: ${alpha(colors.white, 15)};
+    --selected-value-background-color: ${alpha(colors["zinc-950"], 5)};
+  }
 `;
 
 const selectedValue = css`
-  --padding-y: calc(${spacings["2.5"]} - 1px);
   position: relative;
   display: block;
   width: 100%;
   border-radius: ${borderRadiuses.lg};
+  --padding-y: calc(${spacings["2.5"]} - 1px);
   padding-top: var(--padding-y);
   padding-bottom: var(--padding-y);
   padding-left: calc(${spacings["3.5"]} - 1px);
@@ -156,24 +180,24 @@ const selectedValue = css`
   min-height: ${spacings["11"]};
   font-size: ${fontSizes.base};
   line-height: ${lineHeights[6]};
-  color: ${colors["zinc-950"]};
-  border: 1px solid ${alpha(colors["zinc-950"], 10)};
-  background-color: transparent;
+  color: var(--selected-value-color);
+  border: 1px solid var(--selected-value-border-color);
+  background-color: var(--selected-value-background-color);
   // Show the selected option in one line only.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
   &:where(.bw-select-button[data-hovered] *) {
-    border-color: ${alpha(colors["zinc-950"], 20)};
+    border-color: var(--selected-value-hover-border-color);
   }
 
   &:where(.bw-select[data-invalid] *) {
-    border-color: ${colors["red-500"]};
+    border-color: var(--selected-value-invalid-border-color);
   }
 
   &:where(.bw-select[data-disabled] *) {
-    border-color: ${alpha(colors["zinc-950"], 20)};
+    border-color: var(--selected-value-disabled-border-color);
   }
 
   &[data-placeholder] {

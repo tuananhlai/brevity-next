@@ -164,19 +164,19 @@ const secondaryStyles = css`
   --btn-pressed-background-color: ${alpha(colors["zinc-950"], 2.5)};
   --btn-hovered-background-color: ${alpha(colors["zinc-950"], 2.5)};
 
+  ${darkModeSelector} {
+    border-color: ${alpha(colors.white, 15)};
+    color: ${colors.white};
+    --btn-pressed-background-color: ${alpha(colors.white, 5)};
+    --btn-hovered-background-color: ${alpha(colors.white, 5)};
+  }
+
   &:where([data-pressed]) {
     background-color: var(--btn-pressed-background-color);
   }
 
   &:where([data-hovered]) {
     background-color: var(--btn-hovered-background-color);
-  }
-
-  ${darkModeSelector} {
-    border-color: ${alpha(colors.white, 0.15)};
-    color: ${colors.white};
-    --btn-pressed-background-color: ${alpha(colors.white, 5)};
-    --btn-hovered-background-color: ${alpha(colors.white, 5)};
   }
 `;
 
@@ -186,13 +186,13 @@ const tertiaryStyles = css`
   background-color: transparent;
   --btn-hovered-background-color: ${alpha(colors["zinc-950"], 5)};
 
-  &:where([data-hovered], [data-pressed]) {
-    background-color: var(--btn-hovered-background-color);
-  }
-
   ${darkModeSelector} {
     color: ${colors.white};
     --btn-hovered-background-color: ${alpha(colors.white, 10)};
+  }
+
+  &:where([data-hovered], [data-pressed]) {
+    background-color: var(--btn-hovered-background-color);
   }
 `;
 

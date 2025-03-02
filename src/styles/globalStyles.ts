@@ -75,6 +75,9 @@ export const globalStyles = css`
 
   :root {
     color: ${colors["zinc-950"]};
+    transition:
+      color 0.1s ease,
+      background-color 0.1s ease;
 
     ${darkModeSelector} {
       color: ${colors.white};
