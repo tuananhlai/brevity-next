@@ -17,7 +17,7 @@ import {
 } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
 
-import { TouchTarget } from "../TouchTarget";
+import { TouchTarget } from "../../TouchTarget";
 
 export interface ButtonProps
   extends Omit<AriaButtonProps, "children" | "className" | "style"> {

@@ -16,6 +16,15 @@ module.exports = function main(plop) {
         name: "shouldForwardRef",
         message: "Should the component be wrapped in `React.forwardRef`?",
       },
+      {
+        type: "list",
+        name: "location",
+        message: "Where should the component be created?",
+        choices: [
+          { name: "components", value: "./src/components" },
+          { name: "components/ui", value: "./src/components/ui" },
+        ],
+      },
     ],
     actions(answers) {
       /** @type{ import("plop").ActionType[] } */
@@ -23,12 +32,12 @@ module.exports = function main(plop) {
 
       if (!answers) return actions;
 
-      const { componentName, shouldForwardRef } = answers;
+      const { componentName, shouldForwardRef, location } = answers;
 
       actions.push({
         type: "addMany",
         templateFiles: "internals/plop-templates/component/**",
-        destination: `./src/components/{{dashCase componentName}}`,
+        destination: `${location}/{{dashCase componentName}}`,
         data: { componentName, shouldForwardRef },
         base: "internals/plop-templates/component",
       });

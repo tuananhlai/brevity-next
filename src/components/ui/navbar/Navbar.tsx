@@ -13,7 +13,7 @@ import {
 } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
 
-import { TouchTarget } from "../TouchTarget";
+import { TouchTarget } from "../../TouchTarget";
 import { ButtonProps } from "../button";
 
 export interface NavbarProps extends HTMLAttributes<HTMLElement> {
