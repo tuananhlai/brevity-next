@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useId } from "react";
 import { Form } from "react-aria-components";
 
+import { ArticleRenderer } from "@/components/article-renderer";
 import { AvatarButton } from "@/components/avatar/Avatar";
 import { Button } from "@/components/button";
 import { Checkbox, CheckboxGroup } from "@/components/checkbox";
@@ -124,6 +125,37 @@ export default function Home() {
               <MenuItem>Item 3</MenuItem>
             </Menu>
           </MenuTrigger>
+          <DialogTrigger>
+            <Button>Read terms of service</Button>
+            <Dialog>
+              <DialogTitle>Terms of Service</DialogTitle>
+              <DialogBody>
+                <ArticleRenderer>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                    eos amet ad! Iste asperiores quibusdam facere voluptatum,
+                    nihil excepturi commodi ullam odit dolorem maxime! Minus
+                    dignissimos id sit dicta. Autem?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                    eos amet ad! Iste asperiores quibusdam facere voluptatum,
+                    nihil excepturi commodi ullam odit dolorem maxime! Minus
+                    dignissimos id sit dicta. Autem?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                    eos amet ad! Iste asperiores quibusdam facere voluptatum,
+                    nihil excepturi commodi ullam odit dolorem maxime! Minus
+                    dignissimos id sit dicta. Autem?
+                  </p>
+                </ArticleRenderer>
+              </DialogBody>
+              <DialogActions>
+                <Button>Accept</Button>
+              </DialogActions>
+            </Dialog>
+          </DialogTrigger>
         </div>
       </main>
     </>
