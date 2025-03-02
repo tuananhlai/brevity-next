@@ -1,4 +1,5 @@
 import { Global, css } from "@emotion/react";
+import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
 import { RouterProvider } from "react-aria-components";
 
@@ -26,9 +27,14 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
+const inter = Inter({
+  subsets: ["latin"],
+});
+
 const globalFont = css`
   :root {
     font-family:
+      ${inter.style.fontFamily},
       -apple-system,
       BlinkMacSystemFont,
       avenir next,

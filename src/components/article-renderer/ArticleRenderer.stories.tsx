@@ -49,7 +49,8 @@ export const Default: Story = {
         </pre>
         <p>
           This is a <a href="https://example.com">link</a> to an external
-          website.
+          website. これは
+          <a href="https://example.com">外部ウェブサイトへのリンク</a>です。
         </p>
         <hr />
         <strong>Strong text</strong> and <em>emphasized text</em> can be used
