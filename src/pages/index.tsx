@@ -126,36 +126,54 @@ export default function Home() {
             </Menu>
           </MenuTrigger>
           <DialogTrigger>
-            <Button>Read terms of service</Button>
+            <Button variant="secondary">Read terms of service</Button>
             <Dialog>
-              <DialogTitle>Terms of Service</DialogTitle>
-              <DialogBody>
-                <ArticleRenderer>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                    eos amet ad! Iste asperiores quibusdam facere voluptatum,
-                    nihil excepturi commodi ullam odit dolorem maxime! Minus
-                    dignissimos id sit dicta. Autem?
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                    eos amet ad! Iste asperiores quibusdam facere voluptatum,
-                    nihil excepturi commodi ullam odit dolorem maxime! Minus
-                    dignissimos id sit dicta. Autem?
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
-                    eos amet ad! Iste asperiores quibusdam facere voluptatum,
-                    nihil excepturi commodi ullam odit dolorem maxime! Minus
-                    dignissimos id sit dicta. Autem?
-                  </p>
-                </ArticleRenderer>
-              </DialogBody>
-              <DialogActions>
-                <Button>Accept</Button>
-              </DialogActions>
+              {({ close }) => (
+                <>
+                  <DialogTitle>Terms of Service</DialogTitle>
+                  <DialogBody>
+                    <ArticleRenderer>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Vel eos amet ad! Iste asperiores quibusdam facere
+                        voluptatum, nihil excepturi commodi ullam odit dolorem
+                        maxime! Minus dignissimos id sit dicta. Autem?
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Vel eos amet ad! Iste asperiores quibusdam facere
+                        voluptatum, nihil excepturi commodi ullam odit dolorem
+                        maxime! Minus dignissimos id sit dicta. Autem?
+                      </p>
+                      <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Vel eos amet ad! Iste asperiores quibusdam facere
+                        voluptatum, nihil excepturi commodi ullam odit dolorem
+                        maxime! Minus dignissimos id sit dicta. Autem?
+                      </p>
+                    </ArticleRenderer>
+                  </DialogBody>
+                  <DialogActions>
+                    <Button onPress={close}>Accept</Button>
+                  </DialogActions>
+                </>
+              )}
             </Dialog>
           </DialogTrigger>
+          <Button
+            variant="tertiary"
+            onPress={() => {
+              if (
+                document.documentElement.getAttribute("data-mode") === "dark"
+              ) {
+                document.documentElement.setAttribute("data-mode", "light");
+              } else {
+                document.documentElement.setAttribute("data-mode", "dark");
+              }
+            }}
+          >
+            Toggle dark mode
+          </Button>
         </div>
       </main>
     </>
