@@ -3,21 +3,21 @@ import { useId } from "react";
 import { Form } from "react-aria-components";
 
 import { ArticleRenderer } from "@/components/article-renderer";
-import { AvatarButton } from "@/components/avatar/Avatar";
-import { Button } from "@/components/button";
-import { Checkbox, CheckboxGroup } from "@/components/checkbox";
+import { AvatarButton } from "@/components/ui/avatar/Avatar";
+import { Button } from "@/components/ui/button";
+import { Checkbox, CheckboxGroup } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogActions,
   DialogBody,
   DialogTitle,
   DialogTrigger,
-} from "@/components/dialog";
-import { Menu, MenuItem, MenuTrigger } from "@/components/menu";
-import { Radio, RadioGroup } from "@/components/radio";
-import { Select, SelectItem } from "@/components/select";
-import { Text } from "@/components/text";
-import { TextField } from "@/components/text-field";
+} from "@/components/ui/dialog";
+import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu";
+import { Radio, RadioGroup } from "@/components/ui/radio";
+import { Select, SelectItem } from "@/components/ui/select";
+import { Text } from "@/components/ui/text";
+import { TextField } from "@/components/ui/text-field";
 import { spacings } from "@/styles/tokens";
 
 export default function Home() {
