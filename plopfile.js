@@ -1,9 +1,15 @@
+const path = require("path");
+const fs = require("fs");
+
+const featuresDir = path.join(process.cwd(), "src/features");
+const features = fs.readdirSync(featuresDir);
+
 /**
  * @param {import("plop").NodePlopAPI} plop
  */
 module.exports = function main(plop) {
   plop.setGenerator("component", {
-    description: "this is a skeleton plopfile",
+    description: "Generate a React component",
     prompts: [
       {
         type: "input",
@@ -21,8 +27,9 @@ module.exports = function main(plop) {
         name: "location",
         message: "Where should the component be created?",
         choices: [
-          { name: "components", value: "./src/components" },
-          { name: "components/ui", value: "./src/components/ui" },
+          "components",
+          "components/ui",
+          ...features.map((v) => `features/${v}/components`),
         ],
       },
     ],
@@ -37,9 +44,52 @@ module.exports = function main(plop) {
       actions.push({
         type: "addMany",
         templateFiles: "internals/plop-templates/component/**",
-        destination: `${location}/{{dashCase componentName}}`,
+        destination: `./src/${location}/{{dashCase componentName}}`,
         data: { componentName, shouldForwardRef },
         base: "internals/plop-templates/component",
+      });
+
+      return actions;
+    },
+  });
+
+  plop.setGenerator("feature", {
+    description: "Generate a feature folder structure",
+    prompts: [
+      {
+        type: "input",
+        name: "featureName",
+        message: "Enter the feature name:",
+      },
+      {
+        type: "checkbox",
+        name: "folders",
+        message: "Select folders to generate:",
+        choices: [
+          { name: "api", value: "api", checked: true },
+          { name: "assets", value: "assets", checked: false },
+          { name: "components", value: "components", checked: true },
+          { name: "hooks", value: "hooks", checked: false },
+          { name: "stores", value: "stores", checked: false },
+          { name: "types", value: "types", checked: false },
+          { name: "utils", value: "utils", checked: false },
+        ],
+      },
+    ],
+    actions(answers) {
+      /** @type{ import("plop").ActionType[] } */
+      const actions = [];
+
+      if (!answers) return actions;
+
+      const { folders } = answers;
+
+      folders.forEach((folder) => {
+        actions.push({
+          type: "add",
+          path: `src/features/{{kebabCase featureName}}/${folder}/.gitkeep`,
+          template: "",
+        });
       });
 
       return actions;
