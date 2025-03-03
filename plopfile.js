@@ -1,3 +1,9 @@
+const path = require("path");
+const fs = require("fs");
+
+const featuresDir = path.join(process.cwd(), "src/features");
+const features = fs.readdirSync(featuresDir);
+
 /**
  * @param {import("plop").NodePlopAPI} plop
  */
@@ -21,8 +27,9 @@ module.exports = function main(plop) {
         name: "location",
         message: "Where should the component be created?",
         choices: [
-          { name: "components", value: "./src/components" },
-          { name: "components/ui", value: "./src/components/ui" },
+          "components",
+          "components/ui",
+          ...features.map((v) => `features/${v}/components`),
         ],
       },
     ],
@@ -37,7 +44,7 @@ module.exports = function main(plop) {
       actions.push({
         type: "addMany",
         templateFiles: "internals/plop-templates/component/**",
-        destination: `${location}/{{dashCase componentName}}`,
+        destination: `./src/${location}/{{dashCase componentName}}`,
         data: { componentName, shouldForwardRef },
         base: "internals/plop-templates/component",
       });
