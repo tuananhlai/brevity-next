@@ -24,7 +24,6 @@ export const Default: Story = {
       position: "Author Position",
     },
     authorHref: "/author",
-    categories: ["Category 1", "Category 2"],
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste commodi iure itaque reprehenderit tenetur reiciendis sint asperiores quos aperiam cupiditate? Natus voluptates exercitationem eius eveniet asperiores reiciendis delectus ipsum quos!",
     href: "/blog",
