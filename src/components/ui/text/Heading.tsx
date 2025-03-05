@@ -28,16 +28,17 @@ const _Heading = /*#__PURE__*/ forwardRef(Heading);
 export { _Heading as Heading };
 
 const root = css`
+  --heading-color: ${colors["zinc-950"]};
+  ${darkModeSelector} {
+    --heading-color: ${colors.white};
+  }
+
   font-size: ${fontSizes["2xl"]};
   line-height: ${lineHeights[8]};
   font-weight: ${fontWeights.semibold};
-  color: ${colors["zinc-950"]};
+  color: var(--heading-color);
 
   ${queries.sm} {
     font-size: ${fontSizes["xl"]};
-  }
-
-  ${darkModeSelector} {
-    color: ${colors.white};
   }
 `;

@@ -140,7 +140,7 @@ export const colors = {
   "red-950": "rgb(69 10 10)",
 
   // Zinc Shades
-  "zinc-50": "rgb(250 250 250",
+  "zinc-50": "rgb(250 250 250)",
   "zinc-100": "rgb(244 244 245)",
   "zinc-200": "rgb(228 228 231)",
   "zinc-300": "rgb(212 212 216)",

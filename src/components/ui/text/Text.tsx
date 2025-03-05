@@ -22,15 +22,16 @@ const _Text = /*#__PURE__*/ forwardRef(Text);
 export { _Text as Text };
 
 const root = css`
+  --text-color: ${colors["zinc-500"]};
+  ${darkModeSelector} {
+    --text-color: ${colors["zinc-400"]};
+  }
+
   font-size: ${fontSizes.base};
   line-height: ${lineHeights[6]};
-  color: ${colors["zinc-500"]};
+  color: var(--text-color);
 
   ${queries.sm} {
     font-size: ${fontSizes.sm};
-  }
-
-  ${darkModeSelector} {
-    color: ${colors["zinc-400"]};
   }
 `;

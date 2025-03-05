@@ -41,11 +41,25 @@ module.exports = function main(plop) {
 
       const { componentName, shouldForwardRef, location } = answers;
 
+      let storybookComponentName;
+      switch (location) {
+        case "components":
+          storybookComponentName = componentName;
+          break;
+        case "components/ui":
+          storybookComponentName = `ui/${componentName}`;
+          break;
+        default:
+          const featureName = location.split("/")[1];
+          storybookComponentName = `features/${featureName}/${componentName}`;
+          break;
+      }
+
       actions.push({
         type: "addMany",
         templateFiles: "internals/plop-templates/component/**",
         destination: `./src/${location}/{{dashCase componentName}}`,
-        data: { componentName, shouldForwardRef },
+        data: { componentName, shouldForwardRef, storybookComponentName },
         base: "internals/plop-templates/component",
       });
 
