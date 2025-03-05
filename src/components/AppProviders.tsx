@@ -1,9 +1,8 @@
 import { Global, css } from "@emotion/react";
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
-import { RouterProvider } from "react-aria-components";
 
-import { globalStyles } from "@/styles/globalStyles";
+import { Provider } from "./ui/provider";
 
 declare module "react-aria-components" {
   interface RouterConfig {
@@ -16,13 +15,10 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <Global styles={globalStyles} />
       <Global styles={globalFont} />
-      <RouterProvider
-        navigate={(href, opts) => router.push(href, undefined, opts)}
-      >
+      <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
         {children}
-      </RouterProvider>
+      </Provider>
     </>
   );
 };
