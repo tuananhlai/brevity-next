@@ -85,6 +85,7 @@ const root = css`
   --description-color: ${colors["zinc-600"]};
   --author-name-color: ${colors["zinc-900"]};
   --author-position-color: ${colors["zinc-600"]};
+  --avatar-background-color: ${colors["zinc-50"]};
 
   ${darkModeSelector} {
     --title-color: ${colors["zinc-100"]};
@@ -92,6 +93,7 @@ const root = css`
     --description-color: ${colors["zinc-400"]};
     --author-name-color: ${colors["zinc-300"]};
     --author-position-color: ${colors["zinc-500"]};
+    --avatar-background-color: ${colors["zinc-800"]};
   }
 `;
 
@@ -140,7 +142,7 @@ const authorContainer = css`
 
 const authorAvatar = css`
   border-radius: ${borderRadiuses.full};
-  background-color: ${colors["zinc-50"]};
+  background-color: var(--avatar-background-color);
 `;
 
 const authorName = css`
