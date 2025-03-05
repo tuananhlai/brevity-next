@@ -33,11 +33,11 @@ const root = css`
   font-weight: ${fontWeights.semibold};
   color: ${colors["zinc-950"]};
 
-  ${queries.sm} {
-    font-size: ${fontSizes["xl"]};
-  }
-
   ${darkModeSelector} {
     color: ${colors.white};
+  }
+
+  ${queries.sm} {
+    font-size: ${fontSizes["xl"]};
   }
 `;

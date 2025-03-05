@@ -18,13 +18,15 @@ export const Default: Story = {
   },
   args: {
     author: {
-      avatarURL: "https://example.com/avatar.png",
+      avatarURL:
+        "https://gravatar.com/avatar/515c8955d83d1a52b0e253576916b991?s=400&d=robohash&r=x",
       name: "Author Name",
       position: "Author Position",
     },
     authorHref: "/author",
     categories: ["Category 1", "Category 2"],
-    description: "Description",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste commodi iure itaque reprehenderit tenetur reiciendis sint asperiores quos aperiam cupiditate? Natus voluptates exercitationem eius eveniet asperiores reiciendis delectus ipsum quos!",
     href: "/blog",
     publishedAt: new Date(2021, 1, 1),
     title: "Blog Title",
