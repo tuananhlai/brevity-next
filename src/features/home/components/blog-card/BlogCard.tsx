@@ -97,8 +97,8 @@ const root = css`
   --author-position-color: ${colors["zinc-600"]};
 
   ${darkModeSelector} {
-    --title-color: ${colors["zinc-300"]};
-    --hover-title-color: ${colors["zinc-400"]};
+    --title-color: ${colors["zinc-100"]};
+    --hover-title-color: ${colors["zinc-300"]};
     --description-color: ${colors["zinc-400"]};
     --author-name-color: ${colors["zinc-300"]};
     --author-position-color: ${colors["zinc-500"]};
