@@ -49,7 +49,7 @@ const root = css`
     color: ${colors.white};
   }
 
-  &:where([data-disabled]) {
+  &[data-disabled] {
     opacity: 50%;
   }
 `;

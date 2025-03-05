@@ -46,7 +46,7 @@ const root = css`
   align-items: center;
   gap: ${spacings[4]};
 
-  &:where([data-hovered]) {
+  &[data-hovered] {
     cursor: pointer;
   }
 `;

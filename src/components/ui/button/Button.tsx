@@ -81,20 +81,20 @@ const base = css`
   font-weight: ${fontWeights.semibold};
   padding: calc(${spacings[2.5]} - 1px) calc(${spacings[3.5]} - 1px);
 
-  &:where([data-focused]) {
+  &[data-focused] {
     outline-offset: 2px;
     outline: 2px solid ${colors["blue-500"]};
   }
 
-  &:where(:not([data-focus-visible])) {
+  &:not([data-focus-visible]) {
     outline: none;
   }
 
-  &:where([data-disabled]) {
+  &[data-disabled] {
     opacity: 0.5;
   }
 
-  &:where([data-hovered]) {
+  &[data-hovered] {
     cursor: pointer;
   }
 
@@ -138,6 +138,16 @@ const primaryStyles = css`
     background-color: var(--btn-bg);
   }
 
+  &[data-hovered]::after,
+  &[data-pressed]::after {
+    background-color: var(--btn-hover-overlay);
+  }
+
+  &[data-disabled] {
+    --btn-before-box-shadow: none;
+    --btn-after-box-shadow: none;
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -145,15 +155,6 @@ const primaryStyles = css`
     z-index: -10;
     border-radius: var(--btn-after-border-radius);
     box-shadow: inset 0 1px ${alpha(colors.white, 15)};
-  }
-
-  &:where([data-hovered], [data-pressed])::after {
-    background-color: var(--btn-hover-overlay);
-  }
-
-  &:where([data-disabled]) {
-    --btn-before-box-shadow: none;
-    --btn-after-box-shadow: none;
   }
 `;
 
@@ -171,11 +172,11 @@ const secondaryStyles = css`
     --btn-hovered-background-color: ${alpha(colors.white, 5)};
   }
 
-  &:where([data-pressed]) {
+  &[data-pressed] {
     background-color: var(--btn-pressed-background-color);
   }
 
-  &:where([data-hovered]) {
+  &[data-hovered] {
     background-color: var(--btn-hovered-background-color);
   }
 `;
@@ -186,13 +187,14 @@ const tertiaryStyles = css`
   background-color: transparent;
   --btn-hovered-background-color: ${alpha(colors["zinc-950"], 5)};
 
+  &[data-pressed],
+  &[data-hovered] {
+    background-color: var(--btn-hovered-background-color);
+  }
+
   ${darkModeSelector} {
     color: ${colors.white};
     --btn-hovered-background-color: ${alpha(colors.white, 10)};
-  }
-
-  &:where([data-hovered], [data-pressed]) {
-    background-color: var(--btn-hovered-background-color);
   }
 `;
 

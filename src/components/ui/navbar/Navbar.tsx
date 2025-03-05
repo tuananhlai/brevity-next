@@ -91,15 +91,16 @@ const item = css`
     line-height: ${lineHeights[5]};
   }
 
-  &:where(:not([data-focus-visible])) {
+  &:not([data-focus-visible]) {
     outline: none;
   }
 
-  &:where([data-hovered]) {
+  &[data-hovered] {
     cursor: pointer;
   }
 
-  &:where([data-hovered], [data-pressed]) {
+  &[data-hovered],
+  &[data-pressed] {
     background-color: var(--navbar-item-hover-bg-color);
   }
 

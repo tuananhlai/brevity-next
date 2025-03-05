@@ -108,11 +108,11 @@ const modalOverlay = css`
   background-color: ${alpha(colors["zinc-950"], 25)};
   padding: ${spacings[2]};
 
-  &:where([data-entering]) {
+  &[data-entering] {
     animation: ${fade} 0.1s ${animationTimings.easeOut};
   }
 
-  &:where([data-exiting]) {
+  &[data-exiting] {
     animation: ${fade} 0.1s ${animationTimings.easeIn} reverse;
   }
 
@@ -127,11 +127,11 @@ const modal = css`
   width: 100%;
   max-width: var(--modal-max-width);
 
-  &:where([data-entering]) {
+  &[data-entering] {
     animation: var(--enter-animation);
   }
 
-  &:where([data-exiting]) {
+  &[data-exiting] {
     animation: var(--exit-animation);
   }
 `;

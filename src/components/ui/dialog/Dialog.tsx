@@ -122,11 +122,11 @@ const modalOverlay = css`
   background-color: ${alpha(colors["zinc-950"], 25)};
   padding-top: ${spacings[12]};
 
-  &:where([data-entering]) {
+  &[data-entering] {
     animation: ${fade} 0.1s ${animationTimings.easeOut};
   }
 
-  &:where([data-exiting]) {
+  &[data-exiting] {
     animation: ${fade} 0.1s ${animationTimings.easeIn} reverse;
   }
 
@@ -157,11 +157,11 @@ const modal = css`
   --enter-animation: ${slideUp} 0.1s ${animationTimings.easeOut};
   --exit-animation: ${slideUp} 0.1s ${animationTimings.easeIn} reverse;
 
-  &:where([data-entering]) {
+  &[data-entering] {
     animation: var(--enter-animation);
   }
 
-  &:where([data-exiting]) {
+  &[data-exiting] {
     animation: var(--exit-animation);
   }
 

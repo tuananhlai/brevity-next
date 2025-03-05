@@ -140,11 +140,11 @@ const avatarBtn = css`
   outline-offset: 2px;
   outline: 2px solid ${colors["blue-500"]};
 
-  &:where([data-hovered]) {
+  &[data-hovered] {
     cursor: pointer;
   }
 
-  &:where(:not([data-focus-visible])) {
+  &:not([data-focus-visible]) {
     outline: none;
   }
 `;
