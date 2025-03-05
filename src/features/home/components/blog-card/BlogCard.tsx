@@ -1,7 +1,7 @@
 import { css } from "@emotion/react";
 import Image from "next/image";
 import Link from "next/link";
-import { DateFormatter, useDateFormatter, useLocale } from "react-aria";
+import { useDateFormatter } from "react-aria";
 
 import { Heading, Text } from "@/components/ui/text";
 import {
@@ -25,20 +25,10 @@ export interface BlogCardProps {
   href: string;
   authorHref: string;
   description?: string;
-  /** @default [] */
-  categories?: string[];
 }
 
 export const BlogCard: React.FC<BlogCardProps> = (props) => {
-  const {
-    title,
-    publishedAt,
-    href,
-    authorHref,
-    author,
-    description,
-    categories = [],
-  } = props;
+  const { title, publishedAt, href, authorHref, author, description } = props;
 
   const dateFormatter = useDateFormatter({
     dateStyle: "medium",
