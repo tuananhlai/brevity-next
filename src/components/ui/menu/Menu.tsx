@@ -5,7 +5,6 @@ import {
   MenuProps as AriaMenuProps,
   MenuItemProps,
 } from "react-aria-components";
-
 import {
   borderRadiuses,
   colors,
@@ -15,7 +14,6 @@ import {
   spacings,
 } from "@/styles/tokens";
 import { darkModeSelector } from "@/styles/utils";
-
 import { Popover, PopoverProps } from "../popover";
 
 export interface MenuProps<T>

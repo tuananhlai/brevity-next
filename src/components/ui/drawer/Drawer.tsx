@@ -8,7 +8,6 @@ import {
   ModalOverlay,
   ModalOverlayProps,
 } from "react-aria-components";
-
 import {
   animationTimings,
   borderRadiuses,

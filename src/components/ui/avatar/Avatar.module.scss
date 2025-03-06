@@ -1,0 +1,59 @@
+@use "src/styles/tokens" as *;
+@use "src/styles/utils" as *;
+
+.root {
+  display: inline-grid;
+  place-items: center;
+  border-radius: $radius-full;
+}
+
+.initialsIcon {
+  width: var(--avatar-width);
+  aspect-ratio: 1 / 1;
+  fill: currentColor;
+  padding: 5%;
+  font-size: 48px;
+  font-weight: $weight-medium;
+  text-transform: uppercase;
+  border-radius: 50%;
+
+  &:where([data-color="blue"]) {
+    background-color: $color-blue-500;
+    color: $color-white;
+  }
+
+  &:where([data-color="black"]) {
+    background-color: $color-zinc-900;
+    color: $color-white;
+
+    #{$dark-mode-selector} {
+      background-color: $color-white;
+      color: $color-black;
+    }
+  }
+}
+
+.img {
+  width: var(--avatar-width);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+.avatarBtn {
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  outline-offset: 2px;
+  outline: 2px solid $color-blue-500;
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  &:where(:not([data-focus-visible])) {
+    outline: none;
+  }
+}

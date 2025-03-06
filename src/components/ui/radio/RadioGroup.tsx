@@ -4,10 +4,8 @@ import {
   RadioGroup as AriaRadioGroup,
   RadioGroupProps as AriaRadioGroupProps,
 } from "react-aria-components";
-
 import { spacings } from "@/styles/tokens";
 import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
-
 import { Description, ErrorMessage, Label } from "../field";
 
 export interface RadioGroupProps

@@ -1,6 +1,5 @@
 import { css } from "@emotion/react";
 import { ListBoxItem, ListBoxItemProps } from "react-aria-components";
-
 import {
   borderRadiuses,
   colors,

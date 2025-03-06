@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from "@storybook/react";
-
 import { Checkbox } from "./Checkbox";
 import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup";
 

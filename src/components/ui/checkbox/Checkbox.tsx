@@ -5,7 +5,6 @@ import {
   Checkbox as AriaCheckbox,
   CheckboxProps as AriaCheckboxProps,
 } from "react-aria-components";
-
 import { colors, queries, shadows, spacings } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
 

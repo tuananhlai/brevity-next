@@ -1,7 +1,6 @@
 import { Global, css } from "@emotion/react";
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
-
 import { Provider } from "./ui/provider";
 
 declare module "react-aria-components" {

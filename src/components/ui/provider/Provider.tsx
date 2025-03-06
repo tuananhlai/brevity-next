@@ -1,7 +1,6 @@
 import { Global } from "@emotion/react";
 import { ComponentProps } from "react";
 import { RouterProvider } from "react-aria-components";
-
 import { globalStyles } from "@/styles/globalStyles";
 
 export interface ProviderProps {

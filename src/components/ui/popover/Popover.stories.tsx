@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { DialogTrigger } from "react-aria-components";
-
 import { Button } from "../button";
 import { Popover } from "./Popover";
 

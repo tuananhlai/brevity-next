@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { LuLogIn } from "react-icons/lu";
-
 import { AvatarButton } from "../avatar";
 import { Menu, MenuItem, MenuTrigger } from "../menu";
 import { Navbar, NavbarLink, NavbarSpacer } from "./Navbar";
