@@ -32,9 +32,6 @@ importers:
       react-icons:
         specifier: ^5.5.0
         version: 5.5.0(react@18.3.1)
-      sass:
-        specifier: ^1.85.1
-        version: 1.85.1
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^1.6.1
@@ -120,6 +117,9 @@ importers:
       prettier:
         specifier: ^3.5.1
         version: 3.5.1
+      sass:
+        specifier: ^1.85.1
+        version: 1.85.1
       storybook:
         specifier: ^8.5.8
         version: 8.5.8(prettier@3.5.1)
