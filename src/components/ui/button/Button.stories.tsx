@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
+
 import { Button } from "./Button";
 
 const meta: Meta<typeof Button> = {
@@ -28,14 +30,7 @@ export const VisualTest: Story = {
     const sampleChildren = "Button";
 
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "32px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid cellWidth="100px">
         <Button>{sampleChildren}</Button>
         <Button variant="secondary">{sampleChildren}</Button>
         <Button variant="tertiary">{sampleChildren}</Button>
@@ -50,7 +45,7 @@ export const VisualTest: Story = {
         <Button variant="destructive" isDisabled>
           {sampleChildren}
         </Button>
-      </div>
+      </VisualTestGrid>
     );
   },
 };
