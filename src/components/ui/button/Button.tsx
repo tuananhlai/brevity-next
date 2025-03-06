@@ -5,6 +5,8 @@ import {
   ButtonProps as AriaButtonProps,
 } from "react-aria-components";
 
+import { cn } from "@/styles/utils";
+
 import { TouchTarget } from "../TouchTarget";
 import styles from "./Button.module.scss";
 
@@ -48,8 +50,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   return (
     <AriaButton
       ref={ref}
-      className={classNames(buttonClassNames)}
-      css={buttonClassNames}
+      className={cn(buttonClassNames, classNames)}
       {...rest}
     >
       <TouchTarget>{children}</TouchTarget>

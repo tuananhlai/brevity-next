@@ -9,3 +9,5 @@ export const alpha = (color: string, alphaValue: number) => {
 
 export const darkModeSelector =
   '&:where([data-mode="dark"], [data-mode="dark"] *)';
+
+export { default as cn } from "classnames";
