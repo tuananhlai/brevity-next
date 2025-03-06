@@ -29,7 +29,7 @@ export const VisualTest: Story = {
 
     return (
       <div
-        css={{
+        style={{
           display: "flex",
           gap: "32px",
           flexWrap: "wrap",
