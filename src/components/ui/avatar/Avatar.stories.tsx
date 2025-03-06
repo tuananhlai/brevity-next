@@ -1,7 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-
 import { Avatar } from "./Avatar";
 
 const meta: Meta<typeof Avatar> = {

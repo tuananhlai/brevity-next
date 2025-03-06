@@ -1,5 +1,4 @@
 import { css } from "@emotion/react";
-
 import { Text, TextProps } from "../text";
 
 export interface DescriptionProps extends Omit<TextProps, "slot"> {

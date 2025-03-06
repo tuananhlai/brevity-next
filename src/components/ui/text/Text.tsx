@@ -4,7 +4,6 @@ import {
   Text as AriaText,
   TextProps as AriaTextProps,
 } from "react-aria-components";
-
 import { colors, fontSizes, lineHeights, queries } from "@/styles/tokens";
 import { darkModeSelector } from "@/styles/utils";
 

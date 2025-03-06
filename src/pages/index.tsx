@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useId } from "react";
 import { Form } from "react-aria-components";
-
 import { ArticleRenderer } from "@/components/article-renderer";
 import { AvatarButton } from "@/components/ui/avatar/Avatar";
 import { Button } from "@/components/ui/button";

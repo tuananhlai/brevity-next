@@ -3,7 +3,6 @@ import {
   Label as AriaLabel,
   LabelProps as AriaLabelProps,
 } from "react-aria-components";
-
 import {
   colors,
   fontSizes,

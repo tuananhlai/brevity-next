@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from "@storybook/react";
-
 import { Button } from "../button";
 import { Menu, MenuItem, MenuTrigger } from "./Menu";
 

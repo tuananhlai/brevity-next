@@ -1,12 +1,9 @@
-import classNames from "classnames";
 import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
   ButtonProps as AriaButtonProps,
 } from "react-aria-components";
-
 import { cn } from "@/styles/utils";
-
 import { TouchTarget } from "../TouchTarget";
 import styles from "./Button.module.scss";
 
@@ -29,7 +26,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   props,
   ref,
 ) => {
-  const { variant = "primary", children, ...rest } = props;
+  const { variant = "primary", children, className, ...rest } = props;
 
   const buttonClassNames = [styles.base];
   switch (variant) {
@@ -48,11 +45,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   }
 
   return (
-    <AriaButton
-      ref={ref}
-      className={cn(buttonClassNames, classNames)}
-      {...rest}
-    >
+    <AriaButton ref={ref} className={cn(buttonClassNames, className)} {...rest}>
       <TouchTarget>{children}</TouchTarget>
     </AriaButton>
   );

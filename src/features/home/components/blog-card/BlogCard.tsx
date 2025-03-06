@@ -2,7 +2,6 @@ import { css } from "@emotion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDateFormatter } from "react-aria";
-
 import { Heading, Text } from "@/components/ui/text";
 import {
   borderRadiuses,

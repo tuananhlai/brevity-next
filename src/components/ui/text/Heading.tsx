@@ -4,7 +4,6 @@ import {
   Heading as AriaHeading,
   HeadingProps as AriaHeadingProps,
 } from "react-aria-components";
-
 import {
   colors,
   fontSizes,

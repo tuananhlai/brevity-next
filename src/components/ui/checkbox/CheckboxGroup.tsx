@@ -4,10 +4,8 @@ import {
   CheckboxGroup as AriaCheckboxGroup,
   CheckboxGroupProps as AriaCheckboxGroupProps,
 } from "react-aria-components";
-
 import { spacings } from "@/styles/tokens";
 import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
-
 import { Description, ErrorMessage, Label } from "../field";
 
 export interface CheckboxGroupProps
