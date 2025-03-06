@@ -74,9 +74,14 @@ export interface AvatarButtonProps
 }
 
 export const AvatarButton: React.FC<AvatarButtonProps> = (props) => {
-  const { initials, src, color, size, label, ...buttonProps } = props;
+  const { initials, src, color, size, label, className, ...buttonProps } =
+    props;
   return (
-    <Button className={styles.avatarBtn} aria-label={label} {...buttonProps}>
+    <Button
+      className={cn(styles.avatarBtn, className)}
+      aria-label={label}
+      {...buttonProps}
+    >
       <Avatar alt="" initials={initials} src={src} color={color} size={size} />
     </Button>
   );
