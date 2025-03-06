@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Checkbox, CheckboxProps } from "./Checkbox";
 
 const meta: Meta<typeof Checkbox> = {
@@ -25,14 +26,7 @@ export const Default: Story = {
 export const VisualTest: Story = {
   render: () => {
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "32px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid>
         <ExampleCheckbox />
         <ExampleCheckbox isDisabled />
         <ExampleCheckbox isSelected />
@@ -41,13 +35,11 @@ export const VisualTest: Story = {
         <ExampleCheckbox isIndeterminate isSelected isDisabled />
         <ExampleCheckbox isInvalid />
         <ExampleCheckbox isInvalid isSelected />
-        <div css={{ width: "200px" }}>
-          <ExampleCheckbox>
-            Option with very very very very very very very very very very very
-            long text that should wrap.
-          </ExampleCheckbox>
-        </div>
-      </div>
+        <ExampleCheckbox>
+          Option with very very very very very very very very very very very
+          long text that should wrap.
+        </ExampleCheckbox>
+      </VisualTestGrid>
     );
   },
 };
