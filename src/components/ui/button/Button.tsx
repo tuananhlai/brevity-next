@@ -1,23 +1,16 @@
 import { css } from "@emotion/react";
+import classNames from "classnames";
 import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
   ButtonProps as AriaButtonProps,
 } from "react-aria-components";
 
-import {
-  borderRadiuses,
-  colors,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  queries,
-  shadows,
-  spacings,
-} from "@/styles/tokens";
+import { borderRadiuses, colors, shadows } from "@/styles/tokens";
 import { alpha, darkModeSelector } from "@/styles/utils";
 
 import { TouchTarget } from "../TouchTarget";
+import styles from "./Button.module.scss";
 
 export interface ButtonProps
   extends Omit<AriaButtonProps, "children" | "className" | "style"> {
@@ -40,24 +33,31 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 ) => {
   const { variant = "primary", children, ...rest } = props;
 
-  const styles = [base];
+  const buttonStyles = [];
   switch (variant) {
     case "primary":
-      styles.push(primaryStyles);
+      buttonStyles.push(primaryStyles);
       break;
     case "secondary":
-      styles.push(secondaryStyles);
-      break;
-    case "tertiary":
-      styles.push(tertiaryStyles);
+      buttonStyles.push(secondaryStyles);
       break;
     case "destructive":
-      styles.push(primaryStyles, destructiveColorStyles);
+      buttonStyles.push(primaryStyles, destructiveColorStyles);
       break;
   }
 
+  const buttonClassNames = [styles.base];
+  if (variant === "tertiary") {
+    buttonClassNames.push(styles.tertiary);
+  }
+
   return (
-    <AriaButton ref={ref} css={styles} {...rest}>
+    <AriaButton
+      ref={ref}
+      className={classNames(buttonClassNames)}
+      css={buttonStyles}
+      {...rest}
+    >
       <TouchTarget>{children}</TouchTarget>
     </AriaButton>
   );
@@ -66,43 +66,6 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 const _Button = /*#__PURE__*/ forwardRef(Button);
 
 export { _Button as Button };
-
-const base = css`
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  column-gap: ${spacings[2]};
-  border-radius: ${borderRadiuses.lg};
-  border-width: 1px;
-  font-size: ${fontSizes.base};
-  line-height: ${lineHeights[6]};
-  font-weight: ${fontWeights.semibold};
-  padding: calc(${spacings[2.5]} - 1px) calc(${spacings[3.5]} - 1px);
-
-  &:where([data-focused]) {
-    outline-offset: 2px;
-    outline: 2px solid ${colors["blue-500"]};
-  }
-
-  &:where(:not([data-focus-visible])) {
-    outline: none;
-  }
-
-  &:where([data-disabled]) {
-    opacity: 0.5;
-  }
-
-  &:where([data-hovered]) {
-    cursor: pointer;
-  }
-
-  ${queries.sm} {
-    padding: calc(${spacings[1.5]} - 1px) calc(${spacings[3]} - 1px);
-    font-size: ${fontSizes.sm};
-  }
-`;
 
 const primaryStyles = css`
   --btn-bg: ${colors["zinc-900"]};
@@ -176,22 +139,6 @@ const secondaryStyles = css`
   }
 
   &:where([data-hovered]) {
-    background-color: var(--btn-hovered-background-color);
-  }
-`;
-
-const tertiaryStyles = css`
-  border: transparent;
-  color: ${colors["zinc-950"]};
-  background-color: transparent;
-  --btn-hovered-background-color: ${alpha(colors["zinc-950"], 5)};
-
-  ${darkModeSelector} {
-    color: ${colors.white};
-    --btn-hovered-background-color: ${alpha(colors.white, 10)};
-  }
-
-  &:where([data-hovered], [data-pressed]) {
     background-color: var(--btn-hovered-background-color);
   }
 `;

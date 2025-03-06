@@ -1,0 +1,55 @@
+@use "../../../styles/tokens.scss" as *;
+@use "../../../styles/utils.scss" as *;
+
+.base {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: spacing(2);
+  border-radius: $radius-lg;
+  border-width: 1px;
+  font-size: $font-base;
+  line-height: $line-6;
+  font-weight: $weight-semibold;
+  padding: calc(spacing(2.5) - 1px) calc(spacing(3.5) - 1px);
+
+  &:where([data-focused]) {
+    outline-offset: 2px;
+    outline: 2px solid $color-blue-500;
+  }
+
+  &:where(:not([data-focus-visible])) {
+    outline: none;
+  }
+
+  &:where([data-disabled]) {
+    opacity: 0.5;
+  }
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  @media #{$query-sm} {
+    padding: calc(spacing(1.5) - 1px) calc(spacing(3) - 1px);
+    font-size: $font-sm;
+  }
+}
+
+.tertiary {
+  border: transparent;
+  color: $color-zinc-950;
+  background-color: transparent;
+  --btn-hovered-background-color: #{alpha($color-zinc-950, 5)};
+
+  #{$dark-mode-selector} {
+    color: $color-white;
+    --btn-hovered-background-color: #{alpha($color-white, 10)};
+  }
+
+  &:where([data-hovered], [data-pressed]) {
+    background-color: var(--btn-hovered-background-color);
+  }
+}
