@@ -139,10 +139,10 @@
 .destructive {
   color: $color-white;
   --btn-border: #{alpha($color-red-700, 90)};
-  --btn-bg: $color-red-600;
+  --btn-bg: #{$color-red-600};
   --btn-hover-overlay: #{alpha($color-white, 10)};
 
   #{$dark-mode-selector} {
-    --btn-bg: $color-red-600;
+    --btn-bg: #{$color-red-600};
   }
 }
