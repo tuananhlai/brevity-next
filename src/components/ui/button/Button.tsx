@@ -35,9 +35,6 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 
   const buttonStyles = [];
   switch (variant) {
-    case "primary":
-      buttonStyles.push(primaryStyles);
-      break;
     case "secondary":
       buttonStyles.push(secondaryStyles);
       break;
@@ -47,7 +44,9 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   }
 
   const buttonClassNames = [styles.base];
-  if (variant === "tertiary") {
+  if (variant === "primary") {
+    buttonClassNames.push(styles.primary);
+  } else if (variant === "tertiary") {
     buttonClassNames.push(styles.tertiary);
   }
 
