@@ -1,7 +1,8 @@
-import type { Preview } from "@storybook/react";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
-import { AppProviders } from "../src/components/AppProviders";
+import type { Preview } from "@storybook/react";
 import React from "react";
+import "@/styles/globals.scss";
+import { AppProviders } from "../src/components/AppProviders";
 
 const preview: Preview = {
   parameters: {

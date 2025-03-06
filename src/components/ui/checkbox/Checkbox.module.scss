@@ -1,0 +1,160 @@
+@use "src/styles/tokens" as *;
+@use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  gap: spacing(4);
+  align-items: center;
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+}
+
+.checkboxIconContainer {
+  flex-shrink: 0;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-content: center;
+  aspect-ratio: 1 / 1;
+  width: 1.125rem;
+  border-radius: 0.3125rem;
+  border: 1px solid alpha($color-zinc-950, 15);
+  --checked-bg: #{$color-zinc-900};
+  --checked-border: #{alpha($color-zinc-950, 90)};
+  --hover-border-color: #{alpha($color-zinc-950, 30)};
+  --checkbox-check: #{$color-white};
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+    border-radius: calc(0.3125rem - 1px);
+    background-color: $color-white;
+    box-shadow: $shadow-sm;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: calc(0.3125rem - 1px);
+    box-shadow: inset 0 1px alpha($color-white, 15);
+  }
+
+  &:where(.root[data-selected] *) {
+    border-color: transparent;
+    background-color: var(--checked-border);
+    --hover-border-color: transparent;
+
+    &::before {
+      background-color: var(--checked-bg);
+    }
+  }
+
+  &:where(.root[data-hovered] *) {
+    border-color: var(--hover-border-color);
+  }
+
+  &:where(.root[data-focused] *) {
+    outline: 2px solid $color-blue-500;
+    outline-offset: 2px;
+  }
+
+  &:where(.root:not([data-focus-visible]) *) {
+    outline: none;
+  }
+
+  &:where(.root[data-disabled] *) {
+    opacity: 50%;
+    border-color: alpha($color-zinc-950, 25);
+    background-color: alpha($color-zinc-950, 5);
+    --checkbox-check: #{alpha($color-zinc-950, 50)};
+
+    &::before {
+      background-color: transparent;
+    }
+  }
+
+  #{$dark-mode-selector} {
+    background-color: alpha($color-white, 5);
+    border-color: alpha($color-white, 15);
+    --checked-bg: #{$color-zinc-600};
+    --hover-border-color: #{alpha($color-white, 30)};
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      inset: -1px;
+      display: none;
+      border-radius: 0.3125rem;
+    }
+
+    &:where(.root[data-selected] *) {
+      background-color: var(--checked-bg);
+      border-color: alpha($color-white, 5);
+      --hover-border-color: #{alpha($color-white, 5)};
+
+      &::after {
+        display: block;
+      }
+    }
+
+    &:where(.root[data-disabled] *) {
+      border-color: alpha($color-white, 20);
+      background-color: alpha($color-white, 2.5);
+      --checkbox-check: #{alpha($color-white, 50)};
+    }
+
+    &:where(.root[data-disabled][data-selected] *) {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.checkboxIcon {
+  aspect-ratio: 1 / 1;
+  width: spacing(4);
+  stroke: var(--checkbox-check);
+  opacity: 0;
+
+  &:where(.root[data-selected] *) {
+    opacity: 100%;
+  }
+}
+
+.checkmark {
+  opacity: 100%;
+
+  &:where(.root[data-indeterminate] *) {
+    opacity: 0;
+  }
+}
+
+.indeterminateIcon {
+  opacity: 0;
+
+  &:where(.root[data-indeterminate] *) {
+    opacity: 100%;
+  }
+}
+
+.label {
+  &:where(.root[data-disabled] *) {
+    opacity: 50%;
+  }
+
+  &:where(.root[data-invalid] *) {
+    color: $color-red-600;
+
+    #{$dark-mode-selector} {
+      color: $color-red-500;
+    }
+  }
+}
