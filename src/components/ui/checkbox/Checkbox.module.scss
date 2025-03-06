@@ -116,6 +116,10 @@
       }
     }
   }
+
+  @media #{$query-sm} {
+    width: spacing(4);
+  }
 }
 
 .checkboxIcon {
@@ -126,6 +130,10 @@
 
   &:where(.root[data-selected] *) {
     opacity: 100%;
+  }
+
+  @media #{$query-sm} {
+    width: spacing(3.5);
   }
 }
 
