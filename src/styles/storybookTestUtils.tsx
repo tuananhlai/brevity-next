@@ -11,7 +11,7 @@ export const VisualTestGrid = (props: VisualTestGridProps) => {
         display: "grid",
         gridTemplateColumns: `repeat(auto-fill, ${cellWidth})`,
         gap: "24px",
-        alignItems: "start",
+        alignItems: "center",
         justifyItems: "center",
       }}
     >
