@@ -1,6 +1,7 @@
-import classNames from "classnames";
 import Image from "next/image";
 import { Button, ButtonProps } from "react-aria-components";
+
+import { cn } from "@/styles/utils";
 
 import styles from "./Avatar.module.scss";
 
@@ -32,7 +33,7 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
         ["--avatar-width" as string]: `${sizeToWidth[size]}px`,
         ...style,
       }}
-      className={classNames(styles.root, className)}
+      className={cn(styles.root, className)}
     >
       {src != null ? (
         <Image

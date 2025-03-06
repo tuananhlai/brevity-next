@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
+
 import { Avatar } from "./Avatar";
 
 const meta: Meta<typeof Avatar> = {
@@ -22,14 +24,7 @@ export const Default: Story = {
 export const VisualTest: Story = {
   render: () => {
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "16px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid cellWidth="50px">
         <Avatar initials="JD" alt="" size="sm" />
         <Avatar initials="JD" alt="" size="md" />
         <Avatar initials="JD" alt="" size="lg" />
@@ -39,7 +34,7 @@ export const VisualTest: Story = {
           alt=""
           src="https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3&w=256&h=256&q=80"
         />
-      </div>
+      </VisualTestGrid>
     );
   },
 };
