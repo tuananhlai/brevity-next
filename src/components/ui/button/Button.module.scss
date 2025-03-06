@@ -97,6 +97,29 @@
   }
 }
 
+.secondary {
+  color: $color-zinc-950;
+  border-color: alpha($color-zinc-950, 10);
+  background-color: transparent;
+  --btn-pressed-background-color: #{alpha($color-zinc-950, 2.5)};
+  --btn-hovered-background-color: #{alpha($color-zinc-950, 2.5)};
+
+  #{$dark-mode-selector} {
+    border-color: alpha($color-white, 15);
+    color: $color-white;
+    --btn-pressed-background-color: #{alpha($color-white, 5)};
+    --btn-hovered-background-color: #{alpha($color-white, 5)};
+  }
+
+  &:where([data-pressed]) {
+    background-color: var(--btn-pressed-background-color);
+  }
+
+  &:where([data-hovered]) {
+    background-color: var(--btn-hovered-background-color);
+  }
+}
+
 .tertiary {
   border: transparent;
   color: $color-zinc-950;
@@ -110,5 +133,16 @@
 
   &:where([data-hovered], [data-pressed]) {
     background-color: var(--btn-hovered-background-color);
+  }
+}
+
+.destructive {
+  color: $color-white;
+  --btn-border: #{alpha($color-red-700, 90)};
+  --btn-bg: $color-red-600;
+  --btn-hover-overlay: #{alpha($color-white, 10)};
+
+  #{$dark-mode-selector} {
+    --btn-bg: $color-red-600;
   }
 }
