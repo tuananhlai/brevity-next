@@ -1,0 +1,17 @@
+@use "src/styles/tokens.scss" as *;
+@use "src/styles/utils.scss" as *;
+
+.root {
+  color: $color-zinc-950;
+  font-size: $font-2xl;
+  line-height: $line-8;
+  font-weight: $weight-semibold;
+
+  #{$dark-mode-selector} {
+    color: $color-white;
+  }
+
+  @media #{$query-sm} {
+    font-size: $font-xl;
+  }
+}
