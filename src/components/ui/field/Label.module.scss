@@ -16,7 +16,7 @@
     font-size: var(--bw-font-sm);
   }
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     color: var(--bw-color-white);
   }
 }

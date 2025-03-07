@@ -74,7 +74,7 @@ h6 {
     color 0.1s ease,
     background-color 0.1s ease;
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     color: var(--bw-color-white);
     background-color: var(--bw-color-zinc-900);
   }

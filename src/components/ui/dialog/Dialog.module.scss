@@ -28,7 +28,7 @@
     padding: spacing(16) spacing(8);
   }
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     background-color: alpha(var(--bw-color-zinc-950), 50);
   }
 }
@@ -63,7 +63,7 @@
     margin-bottom: auto;
   }
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     background-color: var(--bw-color-zinc-900);
   }
 }
@@ -83,7 +83,7 @@
     font-size: var(--bw-font-base);
   }
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     color: var(--bw-color-white);
   }
 }

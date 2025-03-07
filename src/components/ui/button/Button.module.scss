@@ -38,6 +38,9 @@
 }
 
 .primary {
+  border-color: transparent;
+  background-color: var(--btn-border);
+  color: var(--bw-color-white);
   --btn-bg: var(--bw-color-zinc-900);
   --btn-border: #{alpha(var(--bw-color-zinc-950), 90)};
   --btn-hover-overlay: #{alpha(var(--bw-color-white), 10)};
@@ -47,7 +50,7 @@
   --btn-after-border-radius: calc(var(--bw-radius-lg) - 1px);
   --btn-after-box-shadow: inset 0 1px #{alpha(var(--bw-color-white), 15)};
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     background-color: var(--btn-bg);
     border-color: alpha(var(--bw-color-white), 5);
 
@@ -58,11 +61,6 @@
     --btn-after-border-radius: var(--bw-radius-lg);
   }
 
-  border-color: transparent;
-  background-color: var(--btn-border);
-  color: var(--bw-color-white);
-
-  // Before Pseudo-element
   &::before {
     content: "";
     display: var(--btn-before-display);
@@ -74,7 +72,6 @@
     background-color: var(--btn-bg);
   }
 
-  // After Pseudo-element
   &::after {
     content: "";
     position: absolute;
@@ -84,12 +81,10 @@
     box-shadow: inset 0 1px #{alpha(var(--bw-color-white), 15)};
   }
 
-  // Hovered and Pressed States
   &:where([data-hovered], [data-pressed])::after {
     background-color: var(--btn-hover-overlay);
   }
 
-  // Disabled State
   &:where([data-disabled]) {
     --btn-before-box-shadow: none;
     --btn-after-box-shadow: none;
@@ -103,7 +98,7 @@
   --btn-pressed-background-color: #{alpha(var(--bw-color-zinc-950), 2.5)};
   --btn-hovered-background-color: #{alpha(var(--bw-color-zinc-950), 2.5)};
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     border-color: alpha(var(--bw-color-white), 15);
     color: var(--bw-color-white);
     --btn-pressed-background-color: #{alpha(var(--bw-color-white), 5)};
@@ -125,7 +120,7 @@
   background-color: transparent;
   --btn-hovered-background-color: #{alpha(var(--bw-color-zinc-950), 5)};
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     color: var(--bw-color-white);
     --btn-hovered-background-color: #{alpha(var(--bw-color-white), 10)};
   }
@@ -141,7 +136,7 @@
   --btn-bg: var(--bw-color-red-600);
   --btn-hover-overlay: #{alpha(var(--bw-color-white), 10)};
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     --btn-bg: var(--bw-color-red-600);
   }
 }

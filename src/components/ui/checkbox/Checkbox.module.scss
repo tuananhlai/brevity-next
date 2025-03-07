@@ -77,7 +77,7 @@
     }
   }
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     background-color: alpha(var(--bw-color-white), 5);
     border-color: alpha(var(--bw-color-white), 15);
     --checked-bg: var(--bw-color-zinc-600);
@@ -160,7 +160,7 @@
   &:where(.root[data-invalid] *) {
     color: var(--bw-color-red-600);
 
-    #{$dark-mode-selector} {
+    @include dark-mode {
       color: var(--bw-color-red-500);
     }
   }

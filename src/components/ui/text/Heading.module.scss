@@ -6,7 +6,7 @@
   line-height: var(--bw-line-8);
   font-weight: var(--bw-weight-semibold);
 
-  #{$dark-mode-selector} {
+  @include dark-mode {
     color: var(--bw-color-white);
   }
 

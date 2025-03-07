@@ -25,7 +25,7 @@
     background-color: var(--bw-color-zinc-900);
     color: var(--bw-color-white);
 
-    #{$dark-mode-selector} {
+    @include dark-mode {
       background-color: var(--bw-color-white);
       color: var(--bw-color-black);
     }
