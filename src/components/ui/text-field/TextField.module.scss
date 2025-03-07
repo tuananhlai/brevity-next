@@ -1,0 +1,83 @@
+@use "src/styles/tokens" as *;
+@use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  font-size: $font-size-base;
+  line-height: $line-height-6;
+  color: $color-zinc-950;
+  appearance: none;
+  border-radius: $radius-lg;
+  padding: calc(spacing(2.5) - 1px) calc(spacing(3.5) - 1px);
+  --border-color: #{alpha($color-zinc-950, 10)};
+  --border-hover-color: #{alpha($color-zinc-950, 20)};
+  --outline: none;
+  --outline-offset: 0;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  box-shadow: $shadow-xs;
+
+  &::placeholder {
+    color: $color-zinc-500;
+  }
+
+  &:where([data-hovered]) {
+    border-color: var(--border-hover-color);
+  }
+
+  &:not(:first-child) {
+    margin-top: spacing(3);
+  }
+
+  &:where([data-invalid]) {
+    --border-color: #{$color-red-500};
+    --border-hover-color: #{$color-red-500};
+  }
+
+  &:where([data-disabled]) {
+    opacity: 50%;
+    --border-color: #{alpha($color-zinc-950, 20)};
+    box-shadow: none;
+  }
+
+  &:where([data-focused]) {
+    outline: var(--outline);
+    outline-offset: var(--outline-offset);
+  }
+
+  #{$dark-mode-selector} {
+    color: $color-white;
+    background-color: alpha($color-white, 5);
+    --border-color: #{alpha($color-white, 10)};
+    --border-hover-color: #{alpha($color-white, 20)};
+    box-shadow: none;
+
+    &:where([data-invalid]) {
+      --border-color: #{$color-red-500};
+      --border-hover-color: $color-red-500;
+    }
+
+    &:where([data-disabled]) {
+      --border-color: #{alpha($color-white, 15)};
+      --border-hover-color: #{alpha($color-white, 15)};
+      background-color: alpha($color-white, 2.5);
+    }
+  }
+
+  @media #{$query-sm} {
+    padding: calc(spacing(1.5) - 1px) calc(spacing(3) - 1px);
+    font-size: $font-size-sm;
+
+    --outline: 2px solid $color-blue-500;
+    --outline-offset: -2px;
+  }
+}
+
+.errorMessage {
+  margin-top: spacing(3);
+}
