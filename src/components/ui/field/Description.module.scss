@@ -1,0 +1,7 @@
+.root {
+  display: block;
+
+  &:where([data-disabled]) {
+    opacity: 50%;
+  }
+}
