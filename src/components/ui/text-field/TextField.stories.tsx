@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { TextField, TextFieldProps } from "./TextField";
 
 const meta: Meta<typeof TextField> = {
@@ -30,14 +31,7 @@ export const VisualTest: Story = {
     const sampleErrorMessage = "Error message";
 
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "32px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid>
         <ExampleTextField />
         <ExampleTextField placeholder={samplePlaceholder} />
         <ExampleTextField defaultValue={sampleValue} />
@@ -61,7 +55,7 @@ export const VisualTest: Story = {
           errorMessage={sampleErrorMessage}
         />
         <ExampleTextField label={sampleLabel} isRequired />
-      </div>
+      </VisualTestGrid>
     );
   },
 };

@@ -7,8 +7,8 @@
 
 .input {
   width: 100%;
-  font-size: var(--bw-font-size-base);
-  line-height: var(--bw-line-height-6);
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
   color: var(--bw-color-zinc-950);
   appearance: none;
   border-radius: var(--bw-radius-lg);
@@ -70,7 +70,7 @@
 
   @media #{$query-sm} {
     padding: calc(spacing(1.5) - 1px) calc(spacing(3) - 1px);
-    font-size: var(--bw-font-size-sm);
+    font-size: var(--bw-font-sm);
 
     --outline: 2px solid var(--bw-color-blue-500);
     --outline-offset: -2px;
