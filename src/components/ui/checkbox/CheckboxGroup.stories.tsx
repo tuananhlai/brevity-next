@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Checkbox } from "./Checkbox";
 import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup";
 
@@ -32,14 +33,7 @@ export const Default: Story = {
 export const VisualTest: Story = {
   render: () => {
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "32px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid cellWidth="150px">
         <ExampleCheckboxGroup aria-label="Label" />
         <ExampleCheckboxGroup label="Label" />
         <ExampleCheckboxGroup label="Label" description="Description" />
@@ -54,7 +48,7 @@ export const VisualTest: Story = {
           description="Description"
           isDisabled
         />
-      </div>
+      </VisualTestGrid>
     );
   },
 };
