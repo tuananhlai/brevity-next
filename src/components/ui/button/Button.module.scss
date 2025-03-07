@@ -17,7 +17,7 @@
 
   &:where([data-focused]) {
     outline-offset: 2px;
-    outline: 2px solid $color-blue-500;
+    outline: 2px solid var(--bw-color-blue-500);
   }
 
   &:where(:not([data-focus-visible])) {
@@ -39,29 +39,29 @@
 }
 
 .primary {
-  --btn-bg: #{$color-zinc-900};
+  --btn-bg: var(--bw-color-zinc-900);
   --btn-border: #{alpha($color-zinc-950, 90)};
   --btn-hover-overlay: #{alpha($color-white, 10)};
   --btn-before-display: initial;
-  --btn-before-box-shadow: #{$shadow-sm};
+  --btn-before-box-shadow: var(--bw-shadow-sm);
   --btn-after-inset: 0;
-  --btn-after-border-radius: calc(#{$radius-lg} - 1px);
+  --btn-after-border-radius: calc(var(--bw-radius-lg) - 1px);
   --btn-after-box-shadow: inset 0 1px #{alpha($color-white, 15)};
 
   #{$dark-mode-selector} {
     background-color: var(--btn-bg);
     border-color: alpha($color-white, 5);
 
-    --btn-bg: #{$color-zinc-600};
+    --btn-bg: var(--bw-color-zinc-600);
     --btn-hover-overlay: #{alpha($color-white, 5)};
     --btn-before-display: none;
     --btn-after-inset: -1px;
-    --btn-after-border-radius: #{$radius-lg};
+    --btn-after-border-radius: var(--bw-radius-lg);
   }
 
   border-color: transparent;
   background-color: var(--btn-border);
-  color: $color-white;
+  color: var(--bw-color-white);
 
   // Before Pseudo-element
   &::before {
@@ -70,8 +70,8 @@
     position: absolute;
     inset: 0;
     z-index: -10;
-    border-radius: calc(#{$radius-lg} - 1px);
-    box-shadow: $shadow-sm;
+    border-radius: calc(var(--bw-radius-lg) - 1px);
+    box-shadow: var(--bw-shadow-sm);
     background-color: var(--btn-bg);
   }
 
@@ -98,7 +98,7 @@
 }
 
 .secondary {
-  color: $color-zinc-950;
+  color: var(--bw-color-zinc-950);
   border-color: alpha($color-zinc-950, 10);
   background-color: transparent;
   --btn-pressed-background-color: #{alpha($color-zinc-950, 2.5)};
@@ -106,7 +106,7 @@
 
   #{$dark-mode-selector} {
     border-color: alpha($color-white, 15);
-    color: $color-white;
+    color: var(--bw-color-white);
     --btn-pressed-background-color: #{alpha($color-white, 5)};
     --btn-hovered-background-color: #{alpha($color-white, 5)};
   }
@@ -122,12 +122,12 @@
 
 .tertiary {
   border: transparent;
-  color: $color-zinc-950;
+  color: var(--bw-color-zinc-950);
   background-color: transparent;
   --btn-hovered-background-color: #{alpha($color-zinc-950, 5)};
 
   #{$dark-mode-selector} {
-    color: $color-white;
+    color: var(--bw-color-white);
     --btn-hovered-background-color: #{alpha($color-white, 10)};
   }
 
@@ -137,12 +137,12 @@
 }
 
 .destructive {
-  color: $color-white;
+  color: var(--bw-color-white);
   --btn-border: #{alpha($color-red-700, 90)};
-  --btn-bg: #{$color-red-600};
+  --btn-bg: var(--bw-color-red-600);
   --btn-hover-overlay: #{alpha($color-white, 10)};
 
   #{$dark-mode-selector} {
-    --btn-bg: #{$color-red-600};
+    --btn-bg: var(--bw-color-red-600);
   }
 }

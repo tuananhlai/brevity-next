@@ -6,7 +6,7 @@
   user-select: none;
   font-size: $font-base;
   line-height: $line-6;
-  color: $color-zinc-950;
+  color: var(--bw-color-zinc-950);
   font-weight: $weight-medium;
 
   &:where([data-disabled]) {
@@ -18,6 +18,6 @@
   }
 
   #{$dark-mode-selector} {
-    color: $color-white;
+    color: var(--bw-color-white);
   }
 }

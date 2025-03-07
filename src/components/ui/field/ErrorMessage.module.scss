@@ -5,7 +5,7 @@
   display: block;
   font-size: $font-base;
   line-height: $line-6;
-  color: $color-red-600;
+  color: var(--bw-color-red-600);
 
   &:where([data-disabled]) {
     opacity: 50%;
@@ -16,6 +16,6 @@
   }
 
   #{$dark-mode-selector} {
-    color: $color-red-500;
+    color: var(--bw-color-red-500);
   }
 }

@@ -21,10 +21,10 @@
   width: 1.125rem;
   border-radius: 0.3125rem;
   border: 1px solid alpha($color-zinc-950, 15);
-  --checked-bg: #{$color-zinc-900};
+  --checked-bg: var(--bw-color-zinc-900);
   --checked-border: #{alpha($color-zinc-950, 90)};
   --hover-border-color: #{alpha($color-zinc-950, 30)};
-  --checkbox-check: #{$color-white};
+  --checkbox-check: var(--bw-color-white);
 
   &::before {
     content: "";
@@ -32,8 +32,8 @@
     inset: 0;
     z-index: -10;
     border-radius: calc(0.3125rem - 1px);
-    background-color: $color-white;
-    box-shadow: $shadow-sm;
+    background-color: var(--bw-color-white);
+    box-shadow: var(--bw-shadow-sm);
   }
 
   &::after {
@@ -59,7 +59,7 @@
   }
 
   &:where(.root[data-focused] *) {
-    outline: 2px solid $color-blue-500;
+    outline: 2px solid var(--bw-color-blue-500);
     outline-offset: 2px;
   }
 
@@ -81,7 +81,7 @@
   #{$dark-mode-selector} {
     background-color: alpha($color-white, 5);
     border-color: alpha($color-white, 15);
-    --checked-bg: #{$color-zinc-600};
+    --checked-bg: var(--bw-color-zinc-600);
     --hover-border-color: #{alpha($color-white, 30)};
 
     &::before {
@@ -159,10 +159,10 @@
   }
 
   &:where(.root[data-invalid] *) {
-    color: $color-red-600;
+    color: var(--bw-color-red-600);
 
     #{$dark-mode-selector} {
-      color: $color-red-500;
+      color: var(--bw-color-red-500);
     }
   }
 }

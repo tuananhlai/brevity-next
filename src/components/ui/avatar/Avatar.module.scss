@@ -18,17 +18,17 @@
   border-radius: 50%;
 
   &:where([data-color="blue"]) {
-    background-color: $color-blue-500;
-    color: $color-white;
+    background-color: var(--bw-color-blue-500);
+    color: var(--bw-color-white);
   }
 
   &:where([data-color="black"]) {
-    background-color: $color-zinc-900;
-    color: $color-white;
+    background-color: var(--bw-color-zinc-900);
+    color: var(--bw-color-white);
 
     #{$dark-mode-selector} {
-      background-color: $color-white;
-      color: $color-black;
+      background-color: var(--bw-color-white);
+      color: var(--bw-color-black);
     }
   }
 }
@@ -47,7 +47,7 @@
   border-radius: 50%;
   padding: 0;
   outline-offset: 2px;
-  outline: 2px solid $color-blue-500;
+  outline: 2px solid var(--bw-color-blue-500);
 
   &:where([data-hovered]) {
     cursor: pointer;
