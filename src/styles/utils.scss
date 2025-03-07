@@ -1,5 +1,22 @@
 @function alpha($color, $alphaValue) {
-  @return rgba($color, $alphaValue / 100);
+  @return unquote("color-mix(in srgb, #{$color} #{$alphaValue}%, transparent)");
 }
 
 $dark-mode-selector: '&:where([data-mode="dark"], [data-mode="dark"] *)';
+
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1536px;
+
+$query-sm: "(min-width: #{$breakpoint-sm})";
+$query-md: "(min-width: #{$breakpoint-md})";
+$query-lg: "(min-width: #{$breakpoint-lg})";
+$query-xl: "(min-width: #{$breakpoint-xl})";
+$query-xxl: "(min-width: #{$breakpoint-xxl})";
+$query-forcedColors: "(forced-colors: active)";
+
+@function spacing($size) {
+  @return $size * 0.25rem;
+}
