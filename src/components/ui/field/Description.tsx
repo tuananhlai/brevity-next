@@ -1,5 +1,6 @@
-import { css } from "@emotion/react";
+import { cn } from "@/styles/utils";
 import { Text, TextProps } from "../text";
+import styles from "./Description.module.scss";
 
 export interface DescriptionProps extends Omit<TextProps, "slot"> {
   children: React.ReactNode;
@@ -7,21 +8,13 @@ export interface DescriptionProps extends Omit<TextProps, "slot"> {
 }
 
 export const Description: React.FC<DescriptionProps> = (props) => {
-  const { isDisabled, ...rest } = props;
+  const { isDisabled, className, ...rest } = props;
   return (
     <Text
       data-disabled={isDisabled || undefined}
       slot="description"
-      css={root}
+      className={cn(styles.root, className)}
       {...rest}
     />
   );
 };
-
-const root = css`
-  display: block;
-
-  &:where([data-disabled]) {
-    opacity: 50%;
-  }
-`;

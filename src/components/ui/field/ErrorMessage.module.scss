@@ -1,0 +1,21 @@
+@use "src/styles/tokens.scss" as *;
+@use "src/styles/utils.scss" as *;
+
+.root {
+  display: block;
+  font-size: $font-base;
+  line-height: $line-6;
+  color: $color-red-600;
+
+  &:where([data-disabled]) {
+    opacity: 50%;
+  }
+
+  @media #{$query-sm} {
+    font-size: $font-sm;
+  }
+
+  #{$dark-mode-selector} {
+    color: $color-red-500;
+  }
+}

@@ -1,16 +1,10 @@
-import { css } from "@emotion/react";
 import {
   Label as AriaLabel,
   LabelProps as AriaLabelProps,
 } from "react-aria-components";
-import {
-  colors,
-  fontSizes,
-  fontWeights,
-  lineHeights,
-  queries,
-} from "@/styles/tokens";
-import { darkModeSelector } from "@/styles/utils";
+import { colors } from "@/styles/tokens";
+import { cn } from "@/styles/utils";
+import styles from "./Label.module.scss";
 
 export interface LabelProps extends AriaLabelProps {
   children: React.ReactNode;
@@ -19,9 +13,13 @@ export interface LabelProps extends AriaLabelProps {
 }
 
 export const Label: React.FC<LabelProps> = (props) => {
-  const { children, isRequired, isDisabled, ...rest } = props;
+  const { children, isRequired, isDisabled, className, ...rest } = props;
   return (
-    <AriaLabel data-disabled={isDisabled || undefined} css={root} {...rest}>
+    <AriaLabel
+      data-disabled={isDisabled || undefined}
+      className={cn(styles.root, className)}
+      {...rest}
+    >
       {children}
       {isRequired && (
         <span aria-hidden css={{ color: colors["red-500"] }}>
@@ -31,24 +29,3 @@ export const Label: React.FC<LabelProps> = (props) => {
     </AriaLabel>
   );
 };
-
-const root = css`
-  display: block;
-  user-select: none;
-  font-size: ${fontSizes.base};
-  line-height: ${lineHeights[6]};
-  color: ${colors["zinc-950"]};
-  font-weight: ${fontWeights.medium};
-
-  ${queries.sm} {
-    font-size: ${fontSizes.sm};
-  }
-
-  ${darkModeSelector} {
-    color: ${colors.white};
-  }
-
-  &:where([data-disabled]) {
-    opacity: 50%;
-  }
-`;
