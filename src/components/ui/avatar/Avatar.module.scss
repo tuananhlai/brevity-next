@@ -1,10 +1,9 @@
-@use "src/styles/tokens" as *;
 @use "src/styles/utils" as *;
 
 .root {
   display: inline-grid;
   place-items: center;
-  border-radius: $radius-full;
+  border-radius: var(--bw-radius-full);
 }
 
 .initialsIcon {
@@ -13,7 +12,7 @@
   fill: currentColor;
   padding: 5%;
   font-size: 48px;
-  font-weight: $weight-medium;
+  font-weight: var(--bw-weight-medium);
   text-transform: uppercase;
   border-radius: 50%;
 

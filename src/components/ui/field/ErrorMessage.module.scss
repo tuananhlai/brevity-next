@@ -1,10 +1,9 @@
-@use "src/styles/tokens.scss" as *;
 @use "src/styles/utils.scss" as *;
 
 .root {
   display: block;
-  font-size: $font-base;
-  line-height: $line-6;
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
   color: var(--bw-color-red-600);
 
   &:where([data-disabled]) {
@@ -12,7 +11,7 @@
   }
 
   @media #{$query-sm} {
-    font-size: $font-sm;
+    font-size: var(--bw-font-sm);
   }
 
   #{$dark-mode-selector} {
