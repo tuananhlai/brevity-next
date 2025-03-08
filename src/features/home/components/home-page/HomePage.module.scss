@@ -35,3 +35,20 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.logo {
+  font-size: var(--bw-font-xl);
+  font-weight: var(--bw-weight-semibold);
+  letter-spacing: -0.025em;
+  text-decoration: none;
+  text-underline-offset: 0.125rem;
+  padding-left: spacing(2);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}

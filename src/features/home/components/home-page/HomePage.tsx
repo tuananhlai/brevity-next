@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import Link from "next/link";
 import { Heading } from "react-aria-components";
 import { LuArrowRight } from "react-icons/lu";
 import { LinkButton } from "@/components/ui/button";
@@ -12,7 +13,9 @@ export const HomePage: NextPage = () => {
     <>
       <header className={styles.header}>
         <Navbar>
-          <NavbarLink href="/">Brevity</NavbarLink>
+          <Link className={styles.logo} href="/">
+            Brevity
+          </Link>
           <NavbarSpacer />
           <NavbarLink href="/login">Login / Sign Up</NavbarLink>
         </Navbar>
