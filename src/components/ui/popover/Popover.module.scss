@@ -1,0 +1,54 @@
+@use "src/styles/utils" as *;
+
+@keyframes open {
+  from {
+    opacity: 0;
+    scale: 0.95;
+    translate: var(--anim-from-translate);
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0;
+  }
+}
+
+.root {
+  border-radius: var(--bw-radius-xl);
+  backdrop-filter: var(--bw-blur-xl);
+  background-color: alpha(var(--bw-color-white), 75);
+  box-shadow:
+    0 0 0 1px alpha(var(--bw-color-zinc-950), 10),
+    var(--bw-shadow-lg);
+
+  &[data-placement="bottom"] {
+    --anim-from-translate: 0 -0.5rem;
+  }
+
+  &[data-placement="top"] {
+    --anim-from-translate: 0 0.5rem;
+  }
+
+  &[data-placement="left"] {
+    --anim-from-translate: 0.5rem 0;
+  }
+
+  &[data-placement="right"] {
+    --anim-from-translate: -0.5rem 0;
+  }
+
+  &[data-entering] {
+    animation: open 0.05s var(--bw-timing-easeout);
+  }
+
+  &[data-exiting] {
+    animation: open 0.05s var(--bw-timing-easein) reverse;
+  }
+
+  @include dark-mode {
+    background-color: alpha(var(--bw-color-zinc-800), 75);
+    box-shadow:
+      inset 0 0 0 1px alpha(var(--bw-color-white), 10),
+      var(--bw-shadow-lg);
+  }
+}
