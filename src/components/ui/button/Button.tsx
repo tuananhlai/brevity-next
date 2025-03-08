@@ -4,7 +4,7 @@ import {
   ButtonProps as AriaButtonProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { TouchTarget } from "../TouchTarget";
+import { TouchTarget } from "../touch-target";
 import styles from "./Button.module.scss";
 
 export interface ButtonProps
