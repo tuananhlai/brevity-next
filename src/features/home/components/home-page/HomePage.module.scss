@@ -2,6 +2,12 @@
 
 .header {
   padding: spacing(2) 0;
+  border-bottom: 1px solid var(--bw-color-zinc-200);
+  position: sticky;
+  top: 0;
+  backdrop-filter: var(--bw-blur-xl);
+  background-color: alpha(var(--bw-color-white), 65);
+  z-index: 1;
 }
 
 .main {
@@ -9,12 +15,8 @@
   padding-bottom: spacing(6);
 }
 
-.section:nth-child(odd) {
+.section {
   padding: 0 spacing(4);
-}
-
-.sectionTitle {
-  margin-bottom: spacing(1);
 }
 
 .blogs {
@@ -27,7 +29,7 @@
   padding-bottom: spacing(5);
 
   &:not(:last-child) {
-    border-bottom: 1px solid var(--bw-color-zinc-300);
+    border-bottom: 1px solid var(--bw-color-zinc-200);
   }
 }
 

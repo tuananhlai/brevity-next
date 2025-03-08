@@ -33,7 +33,7 @@
 }
 
 .title {
-  font-size: var(--bw-font-lg);
+  font-size: var(--bw-font-xl);
   color: var(--title-color);
 }
 
@@ -43,20 +43,26 @@
 }
 
 .description {
-  margin-top: spacing(3);
+  margin-top: spacing(2);
   font-size: var(--bw-font-sm);
   line-height: var(--bw-line-6);
   color: var(--description-color);
 
-  @include line-clamp(3);
+  @include line-clamp(2);
+}
+
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: spacing(3);
 }
 
 .authorContainer {
   position: relative;
   display: flex;
   align-items: center;
-  gap: spacing(4);
-  margin-top: spacing(4);
+  gap: spacing(2);
 }
 
 .authorAvatar {
@@ -67,7 +73,7 @@
 .authorName {
   font-size: var(--bw-font-sm);
   color: var(--author-name-color);
-  font-weight: var(--bw-weight-semibold);
+  font-weight: var(--bw-weight-medium);
 }
 
 .authorNameLink {
@@ -75,12 +81,11 @@
   text-decoration: none;
 }
 
-.authorPosition {
-  color: var(--author-position-color);
-  font-size: var(--bw-font-sm);
-}
-
 .spanner {
   position: absolute;
   inset: 0;
+}
+
+.bookMarkButton {
+  aspect-ratio: 1 / 1;
 }

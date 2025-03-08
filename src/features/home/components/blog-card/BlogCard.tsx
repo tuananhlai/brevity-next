@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useDateFormatter } from "react-aria";
+import { LuBookmark } from "react-icons/lu";
+import { Button } from "@/components/ui/button";
 import { Heading, Text } from "@/components/ui/text";
 import { cn } from "@/styles/utils";
 import styles from "./BlogCard.module.scss";
@@ -58,25 +60,29 @@ export const BlogCard: React.FC<BlogCardProps> = (props) => {
           {description}
         </Text>
       </div>
-      <div className={styles.authorContainer}>
-        <Image
-          className={styles.authorAvatar}
-          src={author.avatarURL}
-          alt=""
-          width={40}
-          height={40}
-        />
-        <div>
+      <div className={styles.bottomBar}>
+        <div className={styles.authorContainer}>
+          <Image
+            className={styles.authorAvatar}
+            src={author.avatarURL}
+            alt=""
+            width={24}
+            height={24}
+          />
           <Text elementType="p" className={styles.authorName}>
             <Link href={authorHref} className={styles.authorNameLink}>
               <span className={styles.spanner} />
               {author.name}
             </Link>
           </Text>
-          <Text elementType="p" className={styles.authorPosition}>
-            {author.position}
-          </Text>
         </div>
+        <Button
+          className={styles.bookMarkButton}
+          variant="tertiary"
+          aria-label="Bookmark"
+        >
+          <LuBookmark />
+        </Button>
       </div>
     </article>
   );

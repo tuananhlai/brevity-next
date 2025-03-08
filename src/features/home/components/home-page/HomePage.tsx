@@ -22,9 +22,7 @@ export const HomePage: NextPage = () => {
       </header>
       <main className={styles.main}>
         <section className={styles.section}>
-          <Heading className={styles.sectionTitle} level={2}>
-            Newest Posts
-          </Heading>
+          <Heading level={2}>Newest Posts</Heading>
           <div className={styles.blogs}>
             {mockData.map((props, index) => (
               <div key={index} className={styles.blogCard}>
@@ -34,7 +32,7 @@ export const HomePage: NextPage = () => {
           </div>
           <div className={styles.readMoreContainer}>
             <LinkButton variant="tertiary" href="/blog/newest">
-              Read more
+              View all
               <LuArrowRight />
             </LinkButton>
           </div>
