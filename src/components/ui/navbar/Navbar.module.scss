@@ -1,0 +1,53 @@
+@use "src/styles/utils" as *;
+
+.root {
+  --navbar-gap: #{spacing(4)};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--navbar-gap);
+  padding: 0 spacing(2.5);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  border-radius: var(--bw-radius-lg);
+  padding: spacing(2);
+  text-align: left;
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
+  font-weight: var(--bw-weight-medium);
+  color: var(--bw-color-zinc-950);
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  --navbar-item-hover-bg-color: #{alpha(var(--bw-color-zinc-950), 5)};
+
+  @include screen-sm {
+    font-size: var(--bw-font-sm);
+    line-height: var(--bw-line-5);
+  }
+
+  &:where(:not([data-focus-visible])) {
+    outline: none;
+  }
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  &:where([data-hovered], [data-pressed]) {
+    background-color: var(--navbar-item-hover-bg-color);
+  }
+
+  @include dark-mode {
+    --navbar-item-hover-bg-color: alpha(var(--bw-color-white), 5);
+    color: var(--bw-color-white);
+  }
+}

@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Radio, RadioProps } from "./Radio";
 import { RadioGroup, RadioGroupProps } from "./RadioGroup";
 
@@ -31,40 +32,24 @@ export const Default: Story = {
 export const VisualTest: Story = {
   render: () => {
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "32px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid>
         <ExampleRadio />
         <ExampleRadio isDisabled />
         <ExampleRadio isSelected />
         <ExampleRadio isSelected isDisabled />
-        <div css={{ width: "200px" }}>
-          <ExampleRadio>
-            Option with very very very very very very very very very very very
-            long text that should wrap.
-          </ExampleRadio>
-        </div>
-      </div>
+        <ExampleRadio>
+          Option with very very very very very very very very very very very
+          long text that should wrap.
+        </ExampleRadio>
+      </VisualTestGrid>
     );
   },
 };
 
-export const RadioGroupVisualTest: Story = {
+export const VisualTestRadioGroup: Story = {
   render: () => {
     return (
-      <div
-        css={{
-          display: "flex",
-          gap: "32px",
-          flexWrap: "wrap",
-          alignItems: "center",
-        }}
-      >
+      <VisualTestGrid cellWidth="150px">
         <ExampleRadioGroup aria-label="Label" />
         <ExampleRadioGroup label="Label" />
         <ExampleRadioGroup label="Label" description="Description" />
@@ -75,7 +60,7 @@ export const RadioGroupVisualTest: Story = {
           errorMessage="Error message"
         />
         <ExampleRadioGroup label="Label" description="Description" isDisabled />
-      </div>
+      </VisualTestGrid>
     );
   },
 };

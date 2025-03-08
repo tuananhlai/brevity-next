@@ -1,0 +1,86 @@
+@use "src/styles/utils" as *;
+
+.root {
+  --title-color: var(--bw-color-zinc-900);
+  --hover-title-color: var(--bw-color-zinc-600);
+  --description-color: var(--bw-color-zinc-600);
+  --author-name-color: var(--bw-color-zinc-900);
+  --author-position-color: var(--bw-color-zinc-600);
+  --avatar-background-color: var(--bw-color-zinc-50);
+
+  @include dark-mode {
+    --title-color: var(--bw-color-zinc-100);
+    --hover-title-color: var(--bw-color-zinc-300);
+    --description-color: var(--bw-color-zinc-400);
+    --author-name-color: var(--bw-color-zinc-300);
+    --author-position-color: var(--bw-color-zinc-500);
+    --avatar-background-color: var(--bw-color-zinc-800);
+  }
+}
+
+.publishedAt {
+  font-size: var(--bw-font-sm);
+  color: var(--bw-color-zinc-500);
+}
+
+.header {
+  position: relative;
+  margin-top: spacing(3);
+
+  &:hover > h3 {
+    color: var(--hover-title-color);
+  }
+}
+
+.title {
+  font-size: var(--bw-font-lg);
+  color: var(--title-color);
+}
+
+.titleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.description {
+  margin-top: spacing(5);
+  font-size: var(--bw-font-sm);
+  line-height: var(--bw-line-6);
+  color: var(--description-color);
+
+  @include line-clamp(3);
+}
+
+.authorContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: spacing(4);
+  margin-top: spacing(8);
+}
+
+.authorAvatar {
+  border-radius: var(--bw-radius-full);
+  background-color: var(--avatar-background-color);
+}
+
+.authorName {
+  font-size: var(--bw-font-sm);
+  color: var(--author-name-color);
+  font-weight: var(--bw-weight-semibold);
+}
+
+.authorNameLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.authorPosition {
+  color: var(--author-position-color);
+  font-size: var(--bw-font-sm);
+}
+
+.spanner {
+  position: absolute;
+  inset: 0;
+}

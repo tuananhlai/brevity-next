@@ -1,12 +1,11 @@
-import { css } from "@emotion/react";
 import { forwardRef } from "react";
 import {
   RadioGroup as AriaRadioGroup,
   RadioGroupProps as AriaRadioGroupProps,
 } from "react-aria-components";
-import { spacings } from "@/styles/tokens";
 import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 import { Description, ErrorMessage, Label } from "../field";
+import styles from "./RadioGroup.module.scss";
 
 export interface RadioGroupProps
   extends ReplaceAriaRenderProps<AriaRadioGroupProps>,
@@ -28,8 +27,8 @@ const RadioGroup: React.ForwardRefRenderFunction<
       {description != null && (
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
-      <div css={group}>{children}</div>
-      <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
+      <div className={styles.group}>{children}</div>
+      <ErrorMessage className={styles.errorMessage} isDisabled={isDisabled}>
         {errorMessage}
       </ErrorMessage>
     </AriaRadioGroup>
@@ -39,17 +38,3 @@ const RadioGroup: React.ForwardRefRenderFunction<
 const _RadioGroup = /*#__PURE__*/ forwardRef(RadioGroup);
 
 export { _RadioGroup as RadioGroup };
-
-const group = css`
-  display: flex;
-  flex-direction: column;
-  gap: ${spacings[3]};
-
-  &:not(:first-child) {
-    margin-top: ${spacings[3]};
-  }
-`;
-
-const errorMessageStyles = css`
-  margin-top: ${spacings[3]};
-`;
