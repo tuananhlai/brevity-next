@@ -1,5 +1,7 @@
 import { NextPage } from "next";
 import { Heading } from "react-aria-components";
+import { LuArrowRight } from "react-icons/lu";
+import { LinkButton } from "@/components/ui/button";
 import { Navbar } from "@/components/ui/navbar";
 import { NavbarLink, NavbarSpacer } from "@/components/ui/navbar/Navbar";
 import { BlogCard, BlogCardProps } from "../blog-card";
@@ -15,7 +17,7 @@ export const HomePage: NextPage = () => {
           <NavbarLink href="/login">Login / Sign Up</NavbarLink>
         </Navbar>
       </header>
-      <main>
+      <main className={styles.main}>
         <section className={styles.section}>
           <Heading className={styles.sectionTitle} level={2}>
             Newest Posts
@@ -26,6 +28,12 @@ export const HomePage: NextPage = () => {
                 <BlogCard {...props} />
               </div>
             ))}
+          </div>
+          <div className={styles.readMoreContainer}>
+            <LinkButton variant="tertiary" href="/blog/newest">
+              Read more
+              <LuArrowRight />
+            </LinkButton>
           </div>
         </section>
       </main>

@@ -4,12 +4,17 @@
   padding: spacing(2) 0;
 }
 
+.main {
+  padding-top: spacing(3);
+  padding-bottom: spacing(6);
+}
+
 .section:nth-child(odd) {
   padding: 0 spacing(4);
 }
 
 .sectionTitle {
-  margin-bottom: spacing(3);
+  margin-bottom: spacing(1);
 }
 
 .blogs {
@@ -24,4 +29,9 @@
   &:not(:last-child) {
     border-bottom: 1px solid var(--bw-color-zinc-300);
   }
+}
+
+.readMoreContainer {
+  display: flex;
+  justify-content: end;
 }
