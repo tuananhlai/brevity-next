@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDateFormatter } from "react-aria";
 import { Heading, Text } from "@/components/ui/text";
+import { cn } from "@/styles/utils";
 import styles from "./BlogCard.module.scss";
 
 export interface BlogCardProps {
@@ -15,17 +16,29 @@ export interface BlogCardProps {
   href: string;
   authorHref: string;
   description?: string;
+
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 export const BlogCard: React.FC<BlogCardProps> = (props) => {
-  const { title, publishedAt, href, authorHref, author, description } = props;
+  const {
+    title,
+    publishedAt,
+    href,
+    authorHref,
+    author,
+    description,
+    className,
+    style,
+  } = props;
 
   const dateFormatter = useDateFormatter({
     dateStyle: "medium",
   });
 
   return (
-    <article className={styles.root}>
+    <article className={cn(styles.root, className)} style={style}>
       <div>
         <time
           className={styles.publishedAt}

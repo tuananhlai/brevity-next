@@ -1,15 +1,16 @@
 import { HTMLAttributes } from "react";
 import { Button, Link, LinkProps } from "react-aria-components";
-import { TouchTarget } from "../TouchTarget";
+import { cn } from "@/styles/utils";
 import { ButtonProps } from "../button";
+import { TouchTarget } from "../touch-target";
 import styles from "./Navbar.module.scss";
 
 export interface NavbarProps extends HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
 
-export const Navbar: React.FC<NavbarProps> = (props) => {
-  return <nav className={styles.root} {...props} />;
+export const Navbar: React.FC<NavbarProps> = ({ className, ...props }) => {
+  return <nav className={cn(styles.root, className)} {...props} />;
 };
 
 export const NavbarSpacer = () => <div className={styles.spacer} />;
@@ -21,9 +22,9 @@ export interface NavbarLinkProps extends LinkProps {
 }
 
 export const NavbarLink: React.FC<NavbarLinkProps> = (props) => {
-  const { children, ...rest } = props;
+  const { children, className, ...rest } = props;
   return (
-    <Link className={styles.item} {...rest}>
+    <Link className={cn(styles.item, className)} {...rest}>
       <TouchTarget>{children}</TouchTarget>
     </Link>
   );
@@ -37,9 +38,9 @@ export interface NavbarButtonProps
 }
 
 export const NavbarButton: React.FC<NavbarButtonProps> = (props) => {
-  const { children, ...rest } = props;
+  const { children, className, ...rest } = props;
   return (
-    <Button className={styles.item} {...rest}>
+    <Button className={cn(styles.item, className)} {...rest}>
       <TouchTarget>{children}</TouchTarget>
     </Button>
   );

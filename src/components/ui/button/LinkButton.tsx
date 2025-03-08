@@ -1,31 +1,17 @@
+import { LinkDOMProps } from "@react-types/shared";
 import React, { forwardRef } from "react";
-import {
-  Button as AriaButton,
-  ButtonProps as AriaButtonProps,
-} from "react-aria-components";
+import { Link } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import { TouchTarget } from "../touch-target";
+import { ButtonProps } from "./Button";
 import styles from "./Button.module.scss";
 
-export interface ButtonProps
-  extends Omit<AriaButtonProps, "children" | "className" | "style"> {
-  children: React.ReactNode;
-  style?: React.CSSProperties;
-  className?: string;
-  /** @default 'primary' */
-  variant?: ButtonVariant;
-}
+export interface LinkButtonProps extends ButtonProps, LinkDOMProps {}
 
-export type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "destructive";
-
-const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
-  props,
-  ref,
-) => {
+const LinkButton: React.ForwardRefRenderFunction<
+  HTMLAnchorElement,
+  LinkButtonProps
+> = (props, ref) => {
   const { variant = "primary", children, className, ...rest } = props;
 
   const buttonClassNames = [styles.base];
@@ -45,12 +31,12 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   }
 
   return (
-    <AriaButton ref={ref} className={cn(buttonClassNames, className)} {...rest}>
+    <Link ref={ref} className={cn(buttonClassNames, className)} {...rest}>
       <TouchTarget>{children}</TouchTarget>
-    </AriaButton>
+    </Link>
   );
 };
 
-const _Button = /*#__PURE__*/ forwardRef(Button);
+const _LinkButton = /*#__PURE__*/ forwardRef(LinkButton);
 
-export { _Button as Button };
+export { _LinkButton as LinkButton };

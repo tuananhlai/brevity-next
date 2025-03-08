@@ -13,6 +13,7 @@
   line-height: var(--bw-line-6);
   font-weight: var(--bw-weight-semibold);
   padding: calc(spacing(2.5) - 1px) calc(spacing(3.5) - 1px);
+  text-decoration: none;
 
   &:where([data-focused]) {
     outline-offset: 2px;

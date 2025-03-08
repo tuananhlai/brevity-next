@@ -1,0 +1,37 @@
+@use "src/styles/utils" as *;
+
+.header {
+  padding: spacing(2) 0;
+}
+
+.main {
+  padding-top: spacing(3);
+  padding-bottom: spacing(6);
+}
+
+.section:nth-child(odd) {
+  padding: 0 spacing(4);
+}
+
+.sectionTitle {
+  margin-bottom: spacing(1);
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogCard {
+  padding-top: spacing(5);
+  padding-bottom: spacing(5);
+
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--bw-color-zinc-300);
+  }
+}
+
+.readMoreContainer {
+  display: flex;
+  justify-content: flex-end;
+}
