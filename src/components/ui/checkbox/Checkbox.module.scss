@@ -116,7 +116,7 @@
     }
   }
 
-  @media #{$query-sm} {
+  @include screen-sm {
     width: spacing(4);
   }
 }
@@ -131,7 +131,7 @@
     opacity: 100%;
   }
 
-  @media #{$query-sm} {
+  @include screen-sm {
     width: spacing(3.5);
   }
 }

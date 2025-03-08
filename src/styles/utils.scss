@@ -1,23 +1,46 @@
 @use "sass:string";
 
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1536px;
+
+@mixin screen-sm {
+  @media (min-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin screen-md {
+  @media (min-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+@mixin screen-lg {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin screen-xl {
+  @media (min-width: $breakpoint-xl) {
+    @content;
+  }
+}
+
+@mixin screen-2xl {
+  @media (min-width: $breakpoint-2xl) {
+    @content;
+  }
+}
+
 @function alpha($color, $alphaValue) {
   @return string.unquote(
     "color-mix(in srgb, #{$color} #{$alphaValue}%, transparent)"
   );
 }
-
-$breakpoint-sm: 640px;
-$breakpoint-md: 768px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
-$breakpoint-xxl: 1536px;
-
-$query-sm: "(min-width: #{$breakpoint-sm})";
-$query-md: "(min-width: #{$breakpoint-md})";
-$query-lg: "(min-width: #{$breakpoint-lg})";
-$query-xl: "(min-width: #{$breakpoint-xl})";
-$query-xxl: "(min-width: #{$breakpoint-xxl})";
-$query-forcedColors: "(forced-colors: active)";
 
 @function spacing($size) {
   @return $size * 0.25rem;

@@ -10,7 +10,7 @@
     opacity: 50%;
   }
 
-  @media #{$query-sm} {
+  @include screen-sm {
     font-size: var(--bw-font-sm);
   }
 

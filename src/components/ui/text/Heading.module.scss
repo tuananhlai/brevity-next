@@ -10,7 +10,7 @@
     color: var(--bw-color-white);
   }
 
-  @media #{$query-sm} {
+  @include screen-sm {
     font-size: var(--bw-font-xl);
   }
 }

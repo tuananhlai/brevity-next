@@ -31,7 +31,7 @@
     cursor: pointer;
   }
 
-  @media #{$query-sm} {
+  @include screen-sm {
     padding: calc(spacing(1.5) - 1px) calc(spacing(3) - 1px);
     font-size: var(--bw-font-sm);
   }

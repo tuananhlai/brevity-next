@@ -9,7 +9,7 @@
     color: var(--bw-color-zinc-400);
   }
 
-  @media #{$query-sm} {
+  @include screen-sm {
     font-size: var(--bw-font-sm);
   }
 }
