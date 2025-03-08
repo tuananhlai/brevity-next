@@ -1,21 +1,27 @@
 @use "src/styles/utils" as *;
 
-.container {
+.header {
+  padding: spacing(2) 0;
+}
+
+.section:nth-child(odd) {
+  padding: 0 spacing(4);
+}
+
+.sectionTitle {
+  margin-bottom: spacing(3);
+}
+
+.blogs {
   display: flex;
-  gap: spacing(4);
-  justify-content: center;
-  align-items: center;
-  padding: spacing(8);
+  flex-direction: column;
 }
 
-.dialogBody {
-  margin-top: spacing(2);
-}
+.blogCard {
+  padding-top: spacing(5);
+  padding-bottom: spacing(5);
 
-.form {
-  margin-top: spacing(6);
-}
-
-.mt5 {
-  margin-top: spacing(5);
+  &:not(:last-child) {
+    border-bottom: 1px solid var(--bw-color-zinc-300);
+  }
 }

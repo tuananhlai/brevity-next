@@ -15,6 +15,7 @@
 
 .item {
   display: flex;
+  position: relative;
   min-width: 0;
   align-items: center;
   border-radius: var(--bw-radius-lg);
