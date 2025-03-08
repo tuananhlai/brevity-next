@@ -1,0 +1,43 @@
+@use "src/styles/utils" as *;
+
+.menu {
+  padding: spacing(1);
+  overflow-y: auto;
+  outline: none;
+  min-width: spacing(32);
+}
+
+.menuItem {
+  border-radius: var(--bw-radius-lg);
+  padding: spacing(2.5) spacing(3.5);
+  outline: none;
+  text-align: left;
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
+  color: var(--bw-color-zinc-950);
+  text-decoration: none;
+  width: 100%;
+  display: block;
+
+  &:where([data-focused]) {
+    background-color: var(--bw-color-blue-500);
+    color: var(--bw-color-white);
+  }
+
+  &:where([data-disabled]) {
+    opacity: 50%;
+  }
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  @include screen-sm {
+    padding: spacing(1.5) spacing(3);
+    font-size: var(--bw-font-sm);
+  }
+
+  @include dark-mode {
+    color: var(--bw-color-white);
+  }
+}
