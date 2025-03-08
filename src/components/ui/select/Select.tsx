@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import { forwardRef } from "react";
 import {
   Select as AriaSelect,
@@ -8,19 +7,11 @@ import {
   ListBoxProps,
   SelectValue,
 } from "react-aria-components";
-import {
-  borderRadiuses,
-  colors,
-  fontSizes,
-  lineHeights,
-  queries,
-  shadows,
-  spacings,
-} from "@/styles/tokens";
-import { alpha, darkModeSelector } from "@/styles/utils";
+import { cn } from "@/styles/utils";
 import { FieldsetProps } from "@/utils";
 import { Description, ErrorMessage, Label } from "../field";
 import { Popover } from "../popover";
+import styles from "./Select.module.scss";
 
 export interface SelectProps<T extends object>
   extends Omit<AriaSelectProps<T>, "children" | "className" | "style">,
@@ -47,7 +38,7 @@ const Select = <T extends object>(
   const { isRequired, isDisabled } = rest;
 
   return (
-    <AriaSelect ref={ref} className={`bw-select ${className}`} {...rest}>
+    <AriaSelect ref={ref} className={cn(styles.root, className)} {...rest}>
       {label != null && (
         <Label isRequired={isRequired} isDisabled={isDisabled}>
           {label}
@@ -56,10 +47,15 @@ const Select = <T extends object>(
       {description != null && (
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
-      <Button className="bw-select-button" css={selectBtn}>
-        <SelectValue css={[selectedValue, selectedValueVars]} />
-        <span css={arrowContainer}>
-          <svg css={arrow} viewBox="0 0 16 16" aria-hidden="true" fill="none">
+      <Button className={styles.selectBtn}>
+        <SelectValue className={styles.selectedValue} />
+        <span className={styles.arrowContainer}>
+          <svg
+            className={styles.arrow}
+            viewBox="0 0 16 16"
+            aria-hidden="true"
+            fill="none"
+          >
             <path
               d="M5.75 10.75L8 13L10.25 10.75"
               strokeWidth={1.5}
@@ -75,12 +71,12 @@ const Select = <T extends object>(
           </svg>
         </span>
       </Button>
-      <Popover css={popover}>
-        <ListBox css={listBox} items={items}>
+      <Popover className={styles.popover}>
+        <ListBox className={styles.listBox} items={items}>
           {children}
         </ListBox>
       </Popover>
-      <ErrorMessage css={errorMessageStyles} isDisabled={isDisabled}>
+      <ErrorMessage className={styles.errorMessage} isDisabled={isDisabled}>
         {errorMessage}
       </ErrorMessage>
     </AriaSelect>
@@ -92,162 +88,3 @@ const _Select = /*#__PURE__*/ forwardRef(Select) as <T extends object>(
 ) => JSX.Element;
 
 export { _Select as Select };
-
-const selectBtn = css`
-  position: relative;
-  display: block;
-  width: 100%;
-  outline: none;
-  margin-top: ${spacings[3]};
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  text-align: left;
-
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    border-radius: calc(${borderRadiuses.lg} - 1px);
-    background-color: ${colors.white};
-    box-shadow: ${shadows.sm};
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: ${borderRadiuses.lg};
-  }
-
-  &:where([data-disabled]) {
-    opacity: 50%;
-
-    &::before {
-      background-color: ${alpha(colors["zinc-950"], 5)};
-      box-shadow: none;
-    }
-  }
-
-  &:where([data-focused][data-focus-visible]) {
-    &::after {
-      outline-offset: -2px;
-      outline: 2px solid ${colors["blue-500"]};
-    }
-  }
-
-  &:where([data-hovered]) {
-    cursor: pointer;
-  }
-
-  ${darkModeSelector} {
-    &::before {
-      display: none;
-    }
-  }
-`;
-
-const selectedValueVars = css`
-  --selected-value-color: ${colors["zinc-950"]};
-  --selected-value-background-color: transparent;
-  --selected-value-border-color: ${alpha(colors["zinc-950"], 10)};
-  --selected-value-hover-border-color: ${alpha(colors["zinc-950"], 20)};
-  --selected-value-invalid-border-color: ${colors["red-500"]};
-  --selected-value-disabled-border-color: ${alpha(colors["zinc-950"], 20)};
-
-  ${darkModeSelector} {
-    --selected-value-color: ${colors.white};
-    --selected-value-border-color: ${alpha(colors.white, 10)};
-    --selected-value-hover-border-color: ${alpha(colors.white, 10)};
-    --selected-value-invalid-border-color: ${colors["red-600"]};
-    --selected-value-disabled-border-color: ${alpha(colors.white, 15)};
-    --selected-value-background-color: ${alpha(colors["zinc-950"], 5)};
-  }
-`;
-
-const selectedValue = css`
-  position: relative;
-  display: block;
-  width: 100%;
-  border-radius: ${borderRadiuses.lg};
-  --padding-y: calc(${spacings["2.5"]} - 1px);
-  padding-top: var(--padding-y);
-  padding-bottom: var(--padding-y);
-  padding-left: calc(${spacings["3.5"]} - 1px);
-  padding-right: calc(${spacings["7"]} - 1px);
-  min-height: ${spacings["11"]};
-  font-size: ${fontSizes.base};
-  line-height: ${lineHeights[6]};
-  color: var(--selected-value-color);
-  border: 1px solid var(--selected-value-border-color);
-  background-color: var(--selected-value-background-color);
-  // Show the selected option in one line only.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  &:where(.bw-select-button[data-hovered] *) {
-    border-color: var(--selected-value-hover-border-color);
-  }
-
-  &:where(.bw-select[data-invalid] *) {
-    border-color: var(--selected-value-invalid-border-color);
-  }
-
-  &:where(.bw-select[data-disabled] *) {
-    border-color: var(--selected-value-disabled-border-color);
-  }
-
-  &[data-placeholder] {
-    color: ${colors["zinc-500"]};
-  }
-
-  ${queries.sm} {
-    --padding-y: calc(${spacings["1.5"]} - 1px);
-    padding-left: calc(${spacings["3"]} - 1px);
-    min-height: ${spacings["9"]};
-    font-size: ${fontSizes.sm};
-  }
-`;
-
-const popover = css`
-  width: var(--trigger-width);
-  display: flex;
-  flex-direction: column;
-`;
-
-const arrowContainer = css`
-  position: absolute;
-  inset-block: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  padding-right: ${spacings[2]};
-`;
-
-const arrow = css`
-  width: ${spacings[5]};
-  aspect-ratio: 1 / 1;
-  stroke: ${colors["zinc-500"]};
-
-  &:where(.bw-select[data-disabled] *) {
-    stroke: ${colors["zinc-600"]};
-  }
-
-  ${queries.sm} {
-    width: ${spacings[4]};
-  }
-`;
-
-const listBox = css`
-  outline: none;
-  padding: ${spacings[1]};
-  overflow-y: scroll;
-  // ensure that when the user focuses on an item using the keyboard,
-  // there's ample space above and below it.
-  scroll-padding-block: ${spacings[1]};
-`;
-
-const errorMessageStyles = css`
-  margin-top: ${spacings[3]};
-`;
