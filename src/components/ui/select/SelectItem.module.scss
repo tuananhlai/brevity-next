@@ -1,0 +1,27 @@
+@use "src/styles/utils" as *;
+
+.root {
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
+  outline: none;
+  border-radius: var(--bw-radius-lg);
+  padding: spacing(2.5) spacing(3.5) spacing(2.5) spacing(2);
+
+  &:where([data-focused]) {
+    background-color: var(--bw-color-blue-500);
+    color: var(--bw-color-white);
+  }
+
+  &:where([data-disabled]) {
+    opacity: 50%;
+  }
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  @include screen-sm {
+    font-size: var(--bw-font-sm);
+    padding: spacing(1.5) spacing(3) spacing(1.5) spacing(1.5);
+  }
+}
