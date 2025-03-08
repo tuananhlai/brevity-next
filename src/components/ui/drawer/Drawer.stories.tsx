@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Form } from "react-aria-components";
-import { spacings } from "@/styles/tokens";
 import { Button } from "../button";
 import { Text } from "../text";
 import { TextField } from "../text-field";
@@ -25,7 +24,7 @@ export const Default: Story = {
       <Button>Open drawer</Button>
       <Drawer>
         {({ close }) => (
-          <div css={{ padding: spacings[8] }}>
+          <div style={{ padding: "2rem" }}>
             <DrawerTitle>Drawer title</DrawerTitle>
             <Text>This is the body for the drawer.</Text>
             <Form
@@ -37,16 +36,16 @@ export const Default: Story = {
             >
               <TextField
                 name="reason"
-                css={{ marginTop: spacings[2] }}
+                style={{ marginTop: "0.5rem" }}
                 label="Label"
               />
             </Form>
             <div
-              css={{
+              style={{
                 display: "flex",
                 justifyContent: "end",
-                gap: spacings[4],
-                marginTop: spacings[4],
+                gap: "1rem",
+                marginTop: "1rem",
               }}
             >
               <Button onPress={close} variant="secondary">

@@ -1,4 +1,3 @@
-import { Global, css } from "@emotion/react";
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
 import { Provider } from "./ui/provider";
@@ -14,7 +13,25 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <Global styles={globalFont} />
+      <style jsx global>{`
+        :root {
+          font-family:
+            ${inter.style.fontFamily},
+            -apple-system,
+            BlinkMacSystemFont,
+            avenir next,
+            avenir,
+            segoe ui,
+            helvetica neue,
+            Cantarell,
+            Ubuntu,
+            roboto,
+            noto,
+            helvetica,
+            arial,
+            sans-serif;
+        }
+      `}</style>
       <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
         {children}
       </Provider>
@@ -25,23 +42,3 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
 const inter = Inter({
   subsets: ["latin"],
 });
-
-const globalFont = css`
-  :root {
-    font-family:
-      ${inter.style.fontFamily},
-      -apple-system,
-      BlinkMacSystemFont,
-      avenir next,
-      avenir,
-      segoe ui,
-      helvetica neue,
-      Cantarell,
-      Ubuntu,
-      roboto,
-      noto,
-      helvetica,
-      arial,
-      sans-serif;
-  }
-`;

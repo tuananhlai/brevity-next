@@ -2,7 +2,6 @@ import {
   Label as AriaLabel,
   LabelProps as AriaLabelProps,
 } from "react-aria-components";
-import { colors } from "@/styles/tokens";
 import { cn } from "@/styles/utils";
 import styles from "./Label.module.scss";
 
@@ -22,7 +21,7 @@ export const Label: React.FC<LabelProps> = (props) => {
     >
       {children}
       {isRequired && (
-        <span aria-hidden css={{ color: colors["red-500"] }}>
+        <span aria-hidden className={styles.requiredIndicator}>
           {" *"}
         </span>
       )}

@@ -17,7 +17,7 @@ import { Radio, RadioGroup } from "@/components/ui/radio";
 import { Select, SelectItem } from "@/components/ui/select";
 import { Text } from "@/components/ui/text";
 import { TextField } from "@/components/ui/text-field";
-import { spacings } from "@/styles/tokens";
+import styles from "./index.module.scss";
 
 export default function Home() {
   const formId = useId();
@@ -31,22 +31,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div
-          css={{
-            display: "flex",
-            gap: "16px",
-            justifyContent: "center",
-            alignItems: "center",
-            padding: "32px",
-          }}
-        >
+        <div className={styles.container}>
           <DialogTrigger>
             <Button>Return order</Button>
             <Dialog>
               {({ close }) => (
                 <>
                   <DialogTitle>Return Order</DialogTitle>
-                  <DialogBody css={{ marginTop: spacings[2] }}>
+                  <DialogBody className={styles.dialogBody}>
                     <Text>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
                       Vel eos amet ad! Iste asperiores quibusdam facere
@@ -59,7 +51,7 @@ export default function Home() {
                         e.preventDefault();
                         close();
                       }}
-                      css={{ marginTop: spacings[6] }}
+                      className={styles.form}
                     >
                       <CheckboxGroup
                         isRequired
@@ -72,7 +64,7 @@ export default function Home() {
                       </CheckboxGroup>
                       <RadioGroup
                         isRequired
-                        css={{ marginTop: spacings[5] }}
+                        className={styles.mt5}
                         label="Reason"
                         name="reason"
                         description="Select the reason for your return"
@@ -85,7 +77,7 @@ export default function Home() {
                         <Radio value="4">Other</Radio>
                       </RadioGroup>
                       <Select
-                        css={{ marginTop: spacings[5] }}
+                        className={styles.mt5}
                         label="Refund method"
                         description="The purchase amount will be refunded using this method"
                         name="refundMethod"
@@ -97,7 +89,7 @@ export default function Home() {
                         <SelectItem>Gift card</SelectItem>
                       </Select>
                       <TextField
-                        css={{ marginTop: spacings[5] }}
+                        className={styles.mt5}
                         name="comments"
                         label="Comments"
                         placeholder="Additional comments"

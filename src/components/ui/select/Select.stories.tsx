@@ -42,13 +42,13 @@ export const VisualTest: Story = {
         <ExampleSelect defaultSelectedKey={2} />
         <ExampleSelect defaultSelectedKey="allison">
           <SelectItem id="allison">
-            <div css={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <Avatar color="blue" size="sm" initials="A" alt="" />
               Allison
             </div>
           </SelectItem>
           <SelectItem>
-            <div css={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
               <Avatar size="sm" initials="B" alt="" />
               Brock
             </div>
@@ -87,7 +87,7 @@ const ExampleSelect = <T extends object>(props: Partial<SelectProps<T>>) => {
   const { children = defaultChildren, items, ...rest } = props;
 
   return (
-    <Select aria-label="Example" css={{ width: 200 }} items={items} {...rest}>
+    <Select aria-label="Example" style={{ width: 200 }} items={items} {...rest}>
       {children}
     </Select>
   );

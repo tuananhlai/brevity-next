@@ -27,7 +27,7 @@ export const Default: Story = {
       <DialogTrigger defaultOpen>
         <Button>Open popover</Button>
         <Popover placement="bottom start">
-          <div css={{ padding: 16 }}>
+          <div style={{ padding: 16 }}>
             <p>Popover content</p>
           </div>
         </Popover>
