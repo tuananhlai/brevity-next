@@ -1,8 +1,10 @@
-@function alpha($color, $alphaValue) {
-  @return unquote("color-mix(in srgb, #{$color} #{$alphaValue}%, transparent)");
-}
+@use "sass:string";
 
-$dark-mode-selector: '&:where([data-mode="dark"], [data-mode="dark"] *)';
+@function alpha($color, $alphaValue) {
+  @return string.unquote(
+    "color-mix(in srgb, #{$color} #{$alphaValue}%, transparent)"
+  );
+}
 
 $breakpoint-sm: 640px;
 $breakpoint-md: 768px;
@@ -19,4 +21,10 @@ $query-forcedColors: "(forced-colors: active)";
 
 @function spacing($size) {
   @return $size * 0.25rem;
+}
+
+@mixin dark-mode {
+  &:where([data-mode="dark"], [data-mode="dark"] *) {
+    @content;
+  }
 }
