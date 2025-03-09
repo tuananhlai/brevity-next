@@ -15,7 +15,9 @@ export const Default: Story = {
   parameters: {
     layout: "centered",
   },
-  args: {
-    // Add arguments.
-  },
+  render: () => (
+    <div style={{ width: 300 }}>
+      <SignInForm />
+    </div>
+  ),
 };

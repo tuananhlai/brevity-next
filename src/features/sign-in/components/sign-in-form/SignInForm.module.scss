@@ -1,1 +1,29 @@
 @use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.password {
+  margin-top: spacing(5);
+}
+
+.rememberMe {
+  margin-top: spacing(3);
+}
+
+.submitBtn {
+  margin-top: spacing(3);
+}
+
+.thirdPartyAuthButtonContainer {
+  display: flex;
+  margin-top: spacing(2);
+  gap: spacing(2);
+}
+
+.thirdPartyAuthButton {
+  height: spacing(10);
+  flex-grow: 1;
+}
