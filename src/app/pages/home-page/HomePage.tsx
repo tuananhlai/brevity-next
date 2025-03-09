@@ -1,8 +1,6 @@
 import { NextPage } from "next";
-import Link from "next/link";
-import { LuArrowRight, LuLogIn } from "react-icons/lu";
-import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
-import { ToggleColorSchemeButton } from "@/components/toggle-color-scheme-button";
+import { LuArrowRight } from "react-icons/lu";
+import { StackedLayout } from "@/components/stacked-layout";
 import { LinkButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
 import { BlogCard, BlogCardProps } from "@/features/home/components/blog-card";
@@ -10,18 +8,8 @@ import styles from "./HomePage.module.scss";
 
 export const HomePage: NextPage = () => {
   return (
-    <div className={styles.root}>
-      <header className={styles.header}>
-        <Navbar>
-          <Link className={styles.logo} href="/">
-            Brevity
-          </Link>
-          <NavbarSpacer />
-          <LoginLink />
-          <ToggleColorSchemeButton />
-        </Navbar>
-      </header>
-      <main className={styles.main}>
+    <StackedLayout className={styles.root}>
+      <div className={styles.main}>
         <section className={styles.section}>
           <Heading level={2}>Newest Posts</Heading>
           <div className={styles.blogs}>
@@ -38,9 +26,8 @@ export const HomePage: NextPage = () => {
             </LinkButton>
           </div>
         </section>
-      </main>
-      <footer></footer>
-    </div>
+      </div>
+    </StackedLayout>
   );
 };
 
@@ -102,22 +89,3 @@ const mockData: BlogCardProps[] = [
     title: "Blog Title",
   },
 ];
-
-const LoginLink = () => {
-  const href = "/login";
-  return (
-    <>
-      <NavbarLink className={styles.loginLink} href={href}>
-        Sign in
-        <LuLogIn />
-      </NavbarLink>
-      <NavbarLink
-        className={styles.mobileLoginLink}
-        href={href}
-        aria-label="Sign in"
-      >
-        <LuLogIn />
-      </NavbarLink>
-    </>
-  );
-};
