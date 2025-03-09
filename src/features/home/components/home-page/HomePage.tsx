@@ -4,7 +4,7 @@ import { LuArrowRight, LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
 import { LinkButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
-import { BlogCard, BlogCardProps } from "../blog-card";
+import { BlogCard, BlogCardProps } from "@/features/home/components/blog-card";
 import styles from "./HomePage.module.scss";
 
 export const HomePage: NextPage = () => {
