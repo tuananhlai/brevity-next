@@ -1,5 +1,4 @@
 import { Form } from "react-aria-components";
-import { Heading } from "@/components/ui/text";
 import { TextField } from "@/components/ui/text-field";
 import styles from "./SignInForm.module.scss";
 
@@ -15,6 +14,7 @@ export interface SignInFormValues {
 
 export const SignInForm: React.FC<SignInFormProps> = (props) => {
   const { id, onSubmit } = props;
+
   return (
     <Form
       id={id}
@@ -28,9 +28,6 @@ export const SignInForm: React.FC<SignInFormProps> = (props) => {
         });
       }}
     >
-      <Heading className={styles.heading} level={1}>
-        Sign in with your account
-      </Heading>
       <TextField
         name="email"
         className={styles.email}
