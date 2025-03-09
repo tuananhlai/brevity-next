@@ -1,9 +1,8 @@
 import { NextPage } from "next";
 import Link from "next/link";
 import { LuArrowRight, LuLogIn } from "react-icons/lu";
+import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
 import { LinkButton } from "@/components/ui/button";
-import { Navbar } from "@/components/ui/navbar";
-import { NavbarLink, NavbarSpacer } from "@/components/ui/navbar/Navbar";
 import { Heading } from "@/components/ui/text";
 import { BlogCard, BlogCardProps } from "../blog-card";
 import styles from "./HomePage.module.scss";

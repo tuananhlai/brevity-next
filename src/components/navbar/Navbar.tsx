@@ -1,8 +1,8 @@
 import { HTMLAttributes } from "react";
 import { Button, Link, LinkProps } from "react-aria-components";
+import { ButtonProps } from "@/components/ui/button";
+import { TouchTarget } from "@/components/ui/touch-target";
 import { cn } from "@/styles/utils";
-import { ButtonProps } from "../button";
-import { TouchTarget } from "../touch-target";
 import styles from "./Navbar.module.scss";
 
 export interface NavbarProps extends HTMLAttributes<HTMLElement> {

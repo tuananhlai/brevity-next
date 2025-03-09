@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { LuLogIn } from "react-icons/lu";
-import { AvatarButton } from "../avatar";
-import { Menu, MenuItem, MenuTrigger } from "../menu";
+import { AvatarButton } from "@/components/ui/avatar";
+import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu";
 import { Navbar, NavbarLink, NavbarSpacer } from "./Navbar";
 
 const meta: Meta<typeof Navbar> = {
