@@ -3,7 +3,7 @@
 .root {
   --title-color: var(--bw-color-zinc-900);
   --hover-title-color: var(--bw-color-zinc-600);
-  --description-color: var(--bw-color-zinc-600);
+  --description-color: var(--bw-color-zinc-500);
   --author-name-color: var(--bw-color-zinc-900);
   --author-position-color: var(--bw-color-zinc-600);
   --avatar-background-color: var(--bw-color-zinc-50);
@@ -73,7 +73,7 @@
 .authorName {
   font-size: var(--bw-font-sm);
   color: var(--author-name-color);
-  font-weight: var(--bw-weight-medium);
+  font-weight: var(--bw-weight-normal);
 }
 
 .authorNameLink {

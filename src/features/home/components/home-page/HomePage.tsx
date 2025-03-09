@@ -1,10 +1,10 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import { Heading } from "react-aria-components";
-import { LuArrowRight } from "react-icons/lu";
+import { LuArrowRight, LuLogIn } from "react-icons/lu";
 import { LinkButton } from "@/components/ui/button";
 import { Navbar } from "@/components/ui/navbar";
 import { NavbarLink, NavbarSpacer } from "@/components/ui/navbar/Navbar";
+import { Heading } from "@/components/ui/text";
 import { BlogCard, BlogCardProps } from "../blog-card";
 import styles from "./HomePage.module.scss";
 
@@ -17,7 +17,7 @@ export const HomePage: NextPage = () => {
             Brevity
           </Link>
           <NavbarSpacer />
-          <NavbarLink href="/login">Login / Sign Up</NavbarLink>
+          <LoginLink />
         </Navbar>
       </header>
       <main className={styles.main}>
@@ -101,3 +101,22 @@ const mockData: BlogCardProps[] = [
     title: "Blog Title",
   },
 ];
+
+const LoginLink = () => {
+  const href = "/login";
+  return (
+    <>
+      <NavbarLink className={styles.loginLink} href={href}>
+        Sign in
+        <LuLogIn />
+      </NavbarLink>
+      <NavbarLink
+        className={styles.mobileLoginLink}
+        href={href}
+        aria-label="Sign in"
+      >
+        <LuLogIn />
+      </NavbarLink>
+    </>
+  );
+};
