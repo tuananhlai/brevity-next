@@ -10,24 +10,9 @@
 }
 
 .email {
-  margin-top: spacing(6);
+  margin-top: spacing(10);
 }
 
 .password {
   margin-top: spacing(4);
-}
-
-.submitBtn {
-  margin-top: spacing(6);
-}
-
-.thirdPartyAuthButtonContainer {
-  display: flex;
-  margin-top: spacing(2);
-  gap: spacing(2);
-}
-
-.thirdPartyAuthButton {
-  height: spacing(10);
-  flex-grow: 1;
 }

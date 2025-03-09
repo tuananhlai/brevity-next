@@ -31,7 +31,7 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
 };
 
 const LoginLink = () => {
-  const href = "/login";
+  const href = "/sign-in";
   return (
     <>
       <NavbarLink className={styles.loginLink} href={href}>

@@ -1,5 +1,37 @@
 import { NextPage } from "next";
+import { useId } from "react";
+import { FaFacebook, FaGoogle } from "react-icons/fa6";
+import { Button } from "@/components/ui/button";
+import { SignInForm } from "@/features/sign-in/components/sign-in-form";
+import styles from "./SignInPage.module.scss";
 
 export const SignInPage: NextPage = () => {
-  return <div />;
+  const formId = useId();
+
+  return (
+    <main className={styles.root}>
+      <SignInForm id={formId} />
+      <Button form={formId} className={styles.submitBtn} type="submit">
+        Sign in
+      </Button>
+      <div className={styles.thirdPartyAuthButtonContainer}>
+        <Button
+          className={styles.thirdPartyAuthButton}
+          variant="secondary"
+          aria-label="Sign in with Google"
+        >
+          <FaGoogle />
+          Google
+        </Button>
+        <Button
+          className={styles.thirdPartyAuthButton}
+          variant="secondary"
+          aria-label="Sign in with Facebook"
+        >
+          <FaFacebook />
+          Facebook
+        </Button>
+      </div>
+    </main>
+  );
 };
