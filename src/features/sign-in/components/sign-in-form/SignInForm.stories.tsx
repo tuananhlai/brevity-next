@@ -17,7 +17,7 @@ export const Default: Story = {
   },
   render: () => (
     <div style={{ width: 300 }}>
-      <SignInForm />
+      <SignInForm onSubmit={console.log} />
     </div>
   ),
 };
