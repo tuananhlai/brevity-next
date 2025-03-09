@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
-import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
-import { ToggleColorSchemeButton } from "@/components/toggle-color-scheme-button";
+import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
+import { SignInFormDialog } from "@/features/sign-in/components/sign-in-form-dialog";
 import { cn } from "@/styles/utils";
+import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
 import styles from "./StackedLayout.module.scss";
 
 export interface StackedLayoutProps {
@@ -21,7 +22,9 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
             Brevity
           </Link>
           <NavbarSpacer />
-          <LoginLink />
+          <SignInFormDialog>
+            <LoginButton />
+          </SignInFormDialog>
           <ToggleColorSchemeButton />
         </Navbar>
       </header>
@@ -30,21 +33,16 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
   );
 };
 
-const LoginLink = () => {
-  const href = "/sign-in";
+const LoginButton = () => {
   return (
     <>
-      <NavbarLink className={styles.loginLink} href={href}>
+      <NavbarButton className={styles.loginLink}>
         Sign in
         <LuLogIn />
-      </NavbarLink>
-      <NavbarLink
-        className={styles.mobileLoginLink}
-        href={href}
-        aria-label="Sign in"
-      >
+      </NavbarButton>
+      <NavbarButton className={styles.mobileLoginLink} aria-label="Sign in">
         <LuLogIn />
-      </NavbarLink>
+      </NavbarButton>
     </>
   );
 };
