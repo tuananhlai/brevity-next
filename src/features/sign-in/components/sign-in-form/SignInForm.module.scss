@@ -5,16 +5,20 @@
   flex-direction: column;
 }
 
-.password {
-  margin-top: spacing(5);
+.heading {
+  align-self: center;
 }
 
-.rememberMe {
-  margin-top: spacing(3);
+.email {
+  margin-top: spacing(6);
+}
+
+.password {
+  margin-top: spacing(4);
 }
 
 .submitBtn {
-  margin-top: spacing(3);
+  margin-top: spacing(6);
 }
 
 .thirdPartyAuthButtonContainer {
