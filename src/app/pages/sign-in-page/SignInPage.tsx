@@ -14,7 +14,7 @@ export const SignInPage: NextPage = () => {
       <Heading className={styles.heading} level={1}>
         Sign in with your account
       </Heading>
-      <SignInForm id={formId} />
+      <SignInForm className={styles.signInForm} id={formId} />
       <Button form={formId} className={styles.submitBtn} type="submit">
         Sign in
       </Button>

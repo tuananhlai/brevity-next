@@ -1,10 +1,12 @@
 import { Form } from "react-aria-components";
 import { TextField } from "@/components/ui/text-field";
+import { cn } from "@/styles/utils";
 import styles from "./SignInForm.module.scss";
 
 export interface SignInFormProps {
   id?: string;
   onSubmit?: (values: SignInFormValues) => void;
+  className?: string;
 }
 
 export interface SignInFormValues {
@@ -13,12 +15,12 @@ export interface SignInFormValues {
 }
 
 export const SignInForm: React.FC<SignInFormProps> = (props) => {
-  const { id, onSubmit } = props;
+  const { id, onSubmit, className } = props;
 
   return (
     <Form
       id={id}
-      className={styles.root}
+      className={cn(styles.root, className)}
       onSubmit={(e) => {
         e.preventDefault();
         const data = Object.fromEntries(new FormData(e.currentTarget));
@@ -28,13 +30,7 @@ export const SignInForm: React.FC<SignInFormProps> = (props) => {
         });
       }}
     >
-      <TextField
-        name="email"
-        className={styles.email}
-        label="Email"
-        type="email"
-        isRequired
-      />
+      <TextField name="email" label="Email" type="email" isRequired />
       <TextField
         name="password"
         className={styles.password}
