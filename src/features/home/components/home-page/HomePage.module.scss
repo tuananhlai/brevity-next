@@ -2,19 +2,21 @@
 
 .header {
   padding: spacing(2) 0;
+  border-bottom: 1px solid var(--bw-color-zinc-100);
+  position: sticky;
+  top: 0;
+  backdrop-filter: var(--bw-blur-xl);
+  background-color: alpha(var(--bw-color-white), 50);
+  z-index: 1;
 }
 
 .main {
   padding-top: spacing(3);
-  padding-bottom: spacing(6);
+  padding-bottom: spacing(4);
 }
 
-.section:nth-child(odd) {
+.section {
   padding: 0 spacing(4);
-}
-
-.sectionTitle {
-  margin-bottom: spacing(1);
 }
 
 .blogs {
@@ -25,13 +27,45 @@
 .blogCard {
   padding-top: spacing(5);
   padding-bottom: spacing(5);
-
-  &:not(:last-child) {
-    border-bottom: 1px solid var(--bw-color-zinc-300);
-  }
+  border-bottom: 1px solid var(--bw-color-zinc-100);
 }
 
 .readMoreContainer {
   display: flex;
   justify-content: flex-end;
+  margin-top: spacing(3);
+}
+
+.logo {
+  font-size: var(--bw-font-xl);
+  font-weight: var(--bw-weight-semibold);
+  letter-spacing: -0.025em;
+  text-decoration: none;
+  text-underline-offset: 0.125rem;
+  padding-left: spacing(2);
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.loginLink {
+  font-weight: var(--bw-weight-normal);
+  display: none;
+
+  @include screen-sm {
+    display: flex;
+  }
+}
+
+.mobileLoginLink {
+  font-weight: var(--bw-weight-normal);
+
+  @include screen-sm {
+    display: none;
+  }
 }

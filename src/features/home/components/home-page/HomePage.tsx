@@ -1,10 +1,10 @@
 import { NextPage } from "next";
-import { Heading } from "react-aria-components";
-import { LuArrowRight } from "react-icons/lu";
+import Link from "next/link";
+import { LuArrowRight, LuLogIn } from "react-icons/lu";
+import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
 import { LinkButton } from "@/components/ui/button";
-import { Navbar } from "@/components/ui/navbar";
-import { NavbarLink, NavbarSpacer } from "@/components/ui/navbar/Navbar";
-import { BlogCard, BlogCardProps } from "../blog-card";
+import { Heading } from "@/components/ui/text";
+import { BlogCard, BlogCardProps } from "@/features/home/components/blog-card";
 import styles from "./HomePage.module.scss";
 
 export const HomePage: NextPage = () => {
@@ -12,16 +12,16 @@ export const HomePage: NextPage = () => {
     <>
       <header className={styles.header}>
         <Navbar>
-          <NavbarLink href="/">Brevity</NavbarLink>
+          <Link className={styles.logo} href="/">
+            Brevity
+          </Link>
           <NavbarSpacer />
-          <NavbarLink href="/login">Login / Sign Up</NavbarLink>
+          <LoginLink />
         </Navbar>
       </header>
       <main className={styles.main}>
         <section className={styles.section}>
-          <Heading className={styles.sectionTitle} level={2}>
-            Newest Posts
-          </Heading>
+          <Heading level={2}>Newest Posts</Heading>
           <div className={styles.blogs}>
             {mockData.map((props, index) => (
               <div key={index} className={styles.blogCard}>
@@ -31,7 +31,7 @@ export const HomePage: NextPage = () => {
           </div>
           <div className={styles.readMoreContainer}>
             <LinkButton variant="tertiary" href="/blog/newest">
-              Read more
+              View all
               <LuArrowRight />
             </LinkButton>
           </div>
@@ -100,3 +100,22 @@ const mockData: BlogCardProps[] = [
     title: "Blog Title",
   },
 ];
+
+const LoginLink = () => {
+  const href = "/login";
+  return (
+    <>
+      <NavbarLink className={styles.loginLink} href={href}>
+        Sign in
+        <LuLogIn />
+      </NavbarLink>
+      <NavbarLink
+        className={styles.mobileLoginLink}
+        href={href}
+        aria-label="Sign in"
+      >
+        <LuLogIn />
+      </NavbarLink>
+    </>
+  );
+};
