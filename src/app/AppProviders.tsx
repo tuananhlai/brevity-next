@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
-import { Provider } from "./ui/provider";
+import { Provider } from "@/components/ui/provider";
 
 declare module "react-aria-components" {
   interface RouterConfig {

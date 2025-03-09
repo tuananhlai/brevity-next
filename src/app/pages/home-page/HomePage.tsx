@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 import { LuArrowRight, LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
+import { ToggleColorSchemeButton } from "@/components/toggle-color-scheme-button";
 import { LinkButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
 import { BlogCard, BlogCardProps } from "@/features/home/components/blog-card";
@@ -9,7 +10,7 @@ import styles from "./HomePage.module.scss";
 
 export const HomePage: NextPage = () => {
   return (
-    <>
+    <div className={styles.root}>
       <header className={styles.header}>
         <Navbar>
           <Link className={styles.logo} href="/">
@@ -17,6 +18,7 @@ export const HomePage: NextPage = () => {
           </Link>
           <NavbarSpacer />
           <LoginLink />
+          <ToggleColorSchemeButton />
         </Navbar>
       </header>
       <main className={styles.main}>
@@ -38,7 +40,7 @@ export const HomePage: NextPage = () => {
         </section>
       </main>
       <footer></footer>
-    </>
+    </div>
   );
 };
 
