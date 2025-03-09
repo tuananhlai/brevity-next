@@ -1,39 +1,29 @@
 @use "src/styles/utils" as *;
 
+.root {
+  --header-border-bottom-color: var(--bw-color-zinc-100);
+
+  @include dark-mode {
+    --header-border-bottom-color: transparent;
+  }
+}
+
 .header {
   padding: spacing(2) 0;
-  border-bottom: 1px solid var(--bw-color-zinc-100);
+  border-bottom: 1px solid var(--header-border-bottom-color);
   position: sticky;
   top: 0;
   backdrop-filter: var(--bw-blur-xl);
   background-color: alpha(var(--bw-color-white), 50);
   z-index: 1;
-}
+  transition:
+    background-color 0.1s ease,
+    border 0.1s ease;
 
-.main {
-  padding-top: spacing(3);
-  padding-bottom: spacing(4);
-}
-
-.section {
-  padding: 0 spacing(4);
-}
-
-.blogs {
-  display: flex;
-  flex-direction: column;
-}
-
-.blogCard {
-  padding-top: spacing(5);
-  padding-bottom: spacing(5);
-  border-bottom: 1px solid var(--bw-color-zinc-100);
-}
-
-.readMoreContainer {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: spacing(3);
+  @include dark-mode {
+    background-color: var(--bw-color-zinc-900);
+    backdrop-filter: none;
+  }
 }
 
 .logo {

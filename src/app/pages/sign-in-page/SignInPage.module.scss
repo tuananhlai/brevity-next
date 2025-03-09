@@ -1,0 +1,32 @@
+@use "src/styles/utils" as *;
+
+.root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: spacing(8);
+}
+
+.heading {
+  align-self: center;
+}
+
+.signInForm {
+  margin-top: spacing(6);
+}
+
+.submitBtn {
+  margin-top: spacing(6);
+}
+
+.thirdPartyAuthButtonContainer {
+  display: flex;
+  margin-top: spacing(2);
+  gap: spacing(2);
+}
+
+.thirdPartyAuthButton {
+  height: spacing(10);
+  flex-grow: 1;
+}

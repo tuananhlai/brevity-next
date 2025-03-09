@@ -49,7 +49,7 @@
   }
 
   @include dark-mode {
-    --navbar-item-hover-bg-color: alpha(var(--bw-color-white), 5);
+    --navbar-item-hover-bg-color: #{alpha(var(--bw-color-white), 5)};
     color: var(--bw-color-white);
   }
 }

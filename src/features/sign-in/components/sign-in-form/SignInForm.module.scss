@@ -1,0 +1,10 @@
+@use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.password {
+  margin-top: spacing(4);
+}

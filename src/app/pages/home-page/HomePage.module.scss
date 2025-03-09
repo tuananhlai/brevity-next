@@ -1,0 +1,36 @@
+@use "src/styles/utils" as *;
+
+.root {
+  --blogCard-border-bottom-color: var(--bw-color-zinc-100);
+
+  @include dark-mode {
+    --blogCard-border-bottom-color: var(--bw-color-zinc-800);
+  }
+}
+
+.main {
+  padding-top: spacing(3);
+  padding-bottom: spacing(4);
+}
+
+.section {
+  padding: 0 spacing(4);
+}
+
+.blogs {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogCard {
+  padding-top: spacing(5);
+  padding-bottom: spacing(5);
+  border-bottom: 1px solid var(--blogCard-border-bottom-color);
+  transition: border 0.1s ease;
+}
+
+.readMoreContainer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: spacing(3);
+}

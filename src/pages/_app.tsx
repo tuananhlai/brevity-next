@@ -1,5 +1,5 @@
 import type { AppProps } from "next/app";
-import { AppProviders } from "@/components/AppProviders";
+import { AppProviders } from "@/app/AppProviders";
 import "@/styles/globals.scss";
 import "@/styles/tokens.css";
 
