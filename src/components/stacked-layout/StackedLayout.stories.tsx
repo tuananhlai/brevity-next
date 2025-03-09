@@ -13,9 +13,21 @@ type Story = StoryObj<typeof StackedLayout>;
 // Minimal code to render the component correctly.
 export const Default: Story = {
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   args: {
-    children: "Main Content",
+    children: (
+      <div
+        style={{
+          width: "100%",
+          display: "grid",
+          placeItems: "center",
+          height: "200px",
+          backgroundColor: "var(--bw-color-zinc-100)",
+        }}
+      >
+        Main Content
+      </div>
+    ),
   },
 };
