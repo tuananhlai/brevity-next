@@ -8,9 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@grafana/faro-react':
+      '@grafana/faro-web-sdk':
         specifier: ^1.14.1
-        version: 1.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 1.14.1
       '@grafana/faro-web-tracing':
         specifier: ^1.14.1
         version: 1.14.1
@@ -1005,19 +1005,6 @@ packages:
   '@grafana/faro-core@1.14.1':
     resolution: {integrity: sha512-wPQEJ3Ow4s5m+scrHUHAbwCTMoXlXgwdjtO5PCKCimaI5q4nzFHp5D2FpFGDul2WfRVzwWvkhX6A7CGTui/myw==}
     engines: {node: '>=18.0.0'}
-
-  '@grafana/faro-react@1.14.1':
-    resolution: {integrity: sha512-tmoQE6TUdlepizWUNjbtjU1/HBxO9rBHhwx9FvEh7qIJDkdJdZoE2lG3VTQPhT013WuT5rnTnsS6g3L1HoqYeA==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-router-dom: ^4.0.0 || ^5.0.0 || ^6.0.0
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-router-dom:
-        optional: true
 
   '@grafana/faro-web-sdk@1.14.1':
     resolution: {integrity: sha512-Ii1xdpYysBfHO7XbK05uCXGwskDzLH7CYSdXU2gC8loRDR5PiqPzEczzVFeNhzGRcQzcecYWMxOzeucXdhNilw==}
@@ -4047,9 +4034,6 @@ packages:
 
   hmac-drbg@1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==}
-
-  hoist-non-react-statics@3.3.2:
-    resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
 
   homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
@@ -7336,17 +7320,6 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/otlp-transformer': 0.57.2(@opentelemetry/api@1.9.0)
-
-  '@grafana/faro-react@1.14.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@grafana/faro-web-sdk': 1.14.1
-      '@grafana/faro-web-tracing': 1.14.1
-      hoist-non-react-statics: 3.3.2
-      react: 18.3.1
-    optionalDependencies:
-      react-dom: 18.3.1(react@18.3.1)
-    transitivePeerDependencies:
-      - supports-color
 
   '@grafana/faro-web-sdk@1.14.1':
     dependencies:
@@ -11476,10 +11449,6 @@ snapshots:
       hash.js: 1.1.7
       minimalistic-assert: 1.0.1
       minimalistic-crypto-utils: 1.0.1
-
-  hoist-non-react-statics@3.3.2:
-    dependencies:
-      react-is: 16.13.1
 
   homedir-polyfill@1.0.3:
     dependencies:

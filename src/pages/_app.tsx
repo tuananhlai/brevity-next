@@ -1,4 +1,4 @@
-import { getWebInstrumentations, initializeFaro } from "@grafana/faro-react";
+import { getWebInstrumentations, initializeFaro } from "@grafana/faro-web-sdk";
 import { TracingInstrumentation } from "@grafana/faro-web-tracing";
 import type { AppProps } from "next/app";
 import { AppProviders } from "@/app/AppProviders";
