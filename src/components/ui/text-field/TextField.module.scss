@@ -12,7 +12,7 @@
   color: var(--bw-color-zinc-950);
   appearance: none;
   border-radius: var(--bw-radius-lg);
-  padding: calc(spacing(2.5) - 1px) calc(spacing(3.5) - 1px);
+  padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
   --border-color: #{alpha(var(--bw-color-zinc-950), 10)};
   --border-hover-color: #{alpha(var(--bw-color-zinc-950), 20)};
   --outline: none;
@@ -30,7 +30,7 @@
   }
 
   &:not(:first-child) {
-    margin-top: spacing(3);
+    margin-top: var(--bw-space-3);
   }
 
   &:where([data-invalid]) {
@@ -69,7 +69,7 @@
   }
 
   @include screen-sm {
-    padding: calc(spacing(1.5) - 1px) calc(spacing(3) - 1px);
+    padding: calc(var(--bw-space-1-5) - 1px) calc(var(--bw-space-3) - 1px);
     font-size: var(--bw-font-sm);
 
     --outline: 2px solid var(--bw-color-blue-500);
@@ -78,5 +78,5 @@
 }
 
 .errorMessage {
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
 }

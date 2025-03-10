@@ -102,4 +102,36 @@
   --bw-blur-xl: blur(24px);
   --bw-blur-2xl: blur(40px);
   --bw-blur-3xl: blur(64px);
+
+  --bw-space-0: 0;
+  --bw-space-0-5: 0.125rem;
+  --bw-space-1: 0.25rem;
+  --bw-space-1-5: 0.375rem;
+  --bw-space-2: 0.5rem;
+  --bw-space-2-5: 0.625rem;
+  --bw-space-3: 0.75rem;
+  --bw-space-3-5: 0.875rem;
+  --bw-space-4: 1rem;
+  --bw-space-5: 1.25rem;
+  --bw-space-6: 1.5rem;
+  --bw-space-7: 1.75rem;
+  --bw-space-8: 2rem;
+  --bw-space-9: 2.25rem;
+  --bw-space-10: 2.5rem;
+  --bw-space-11: 2.75rem;
+  --bw-space-12: 3rem;
+  --bw-space-14: 3.5rem;
+  --bw-space-16: 4rem;
+  --bw-space-20: 5rem;
+  --bw-space-24: 6rem;
+  --bw-space-28: 7rem;
+  --bw-space-32: 8rem;
+  --bw-space-36: 9rem;
+  --bw-space-40: 10rem;
+  --bw-space-48: 12rem;
+  --bw-space-56: 14rem;
+  --bw-space-64: 16rem;
+  --bw-space-72: 18rem;
+  --bw-space-80: 20rem;
+  --bw-space-96: 24rem;
 }

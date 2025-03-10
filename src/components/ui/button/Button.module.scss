@@ -6,13 +6,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  column-gap: spacing(2);
+  column-gap: var(--bw-space-2);
   border-radius: var(--bw-radius-lg);
   border-width: 1px;
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
   font-weight: var(--bw-weight-semibold);
-  padding: calc(spacing(2.5) - 1px) calc(spacing(3.5) - 1px);
+  padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
   text-decoration: none;
 
   &:where([data-focused]) {
@@ -33,7 +33,7 @@
   }
 
   @include screen-sm {
-    padding: calc(spacing(1.5) - 1px) calc(spacing(3) - 1px);
+    padding: calc(var(--bw-space-1-5) - 1px) calc(var(--bw-space-3) - 1px);
     font-size: var(--bw-font-sm);
   }
 }

@@ -9,12 +9,12 @@
 }
 
 .main {
-  padding-top: spacing(3);
-  padding-bottom: spacing(4);
+  padding-top: var(--bw-space-3);
+  padding-bottom: var(--bw-space-4);
 }
 
 .section {
-  padding: 0 spacing(4);
+  padding: 0 var(--bw-space-4);
 }
 
 .blogs {
@@ -23,8 +23,8 @@
 }
 
 .blogCard {
-  padding-top: spacing(5);
-  padding-bottom: spacing(5);
+  padding-top: var(--bw-space-5);
+  padding-bottom: var(--bw-space-5);
   border-bottom: 1px solid var(--blogCard-border-bottom-color);
   transition: border 0.1s ease;
 }
@@ -32,5 +32,5 @@
 .readMoreContainer {
   display: flex;
   justify-content: flex-end;
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
 }

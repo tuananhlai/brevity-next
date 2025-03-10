@@ -3,13 +3,13 @@
 .group {
   display: flex;
   flex-direction: column;
-  gap: spacing(3);
+  gap: var(--bw-space-3);
 
   &:not(:first-child) {
-    margin-top: spacing(3);
+    margin-top: var(--bw-space-3);
   }
 }
 
 .errorMessage {
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
 }

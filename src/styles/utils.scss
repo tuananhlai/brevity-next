@@ -42,10 +42,6 @@ $breakpoint-2xl: 1536px;
   );
 }
 
-@function spacing($size) {
-  @return $size * 0.25rem;
-}
-
 @mixin dark-mode {
   &:where([data-mode="dark"], [data-mode="dark"] *) {
     @content;
