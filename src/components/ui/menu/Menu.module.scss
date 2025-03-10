@@ -1,15 +1,15 @@
 @use "src/styles/utils" as *;
 
 .menu {
-  padding: spacing(1);
+  padding: var(--bw-space-1);
   overflow-y: auto;
   outline: none;
-  min-width: spacing(32);
+  min-width: var(--bw-space-32);
 }
 
 .menuItem {
   border-radius: var(--bw-radius-lg);
-  padding: spacing(2.5) spacing(3.5);
+  padding: var(--bw-space-2-5) var(--bw-space-3-5);
   outline: none;
   text-align: left;
   font-size: var(--bw-font-base);
@@ -33,7 +33,7 @@
   }
 
   @include screen-sm {
-    padding: spacing(1.5) spacing(3);
+    padding: var(--bw-space-1-5) var(--bw-space-3);
     font-size: var(--bw-font-sm);
   }
 

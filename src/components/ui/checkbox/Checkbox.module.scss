@@ -2,7 +2,7 @@
 
 .root {
   display: flex;
-  gap: spacing(4);
+  gap: var(--bw-space-4);
   align-items: center;
 
   &:where([data-hovered]) {
@@ -117,13 +117,13 @@
   }
 
   @include screen-sm {
-    width: spacing(4);
+    width: var(--bw-space-4);
   }
 }
 
 .checkboxIcon {
   aspect-ratio: 1 / 1;
-  width: spacing(4);
+  width: var(--bw-space-4);
   stroke: var(--checkbox-check);
   opacity: 0;
 
@@ -132,7 +132,7 @@
   }
 
   @include screen-sm {
-    width: spacing(3.5);
+    width: var(--bw-space-3-5);
   }
 }
 

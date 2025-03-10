@@ -11,7 +11,7 @@
 
 @keyframes slideFromLeft {
   from {
-    transform: translateX(calc(spacing(3) * -1));
+    transform: translateX(calc(var(--bw-space-3) * -1));
   }
   to {
     transform: translateX(0);
@@ -20,7 +20,7 @@
 
 @keyframes slideFromRight {
   from {
-    transform: translateX(spacing(3));
+    transform: translateX(var(--bw-space-3));
   }
   to {
     transform: translateX(0);
@@ -36,7 +36,7 @@
   align-items: stretch;
   overflow-y: auto;
   background-color: #{alpha(var(--bw-color-zinc-950), 25)};
-  padding: spacing(2);
+  padding: var(--bw-space-2);
 
   &:where([data-entering]) {
     animation: fade 0.1s var(--bw-timing-easeout);

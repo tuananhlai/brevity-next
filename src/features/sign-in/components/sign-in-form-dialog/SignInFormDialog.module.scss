@@ -2,23 +2,23 @@
 
 .description {
   display: block;
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
 }
 
 .dialogBody {
-  margin-top: spacing(4);
-  padding-bottom: spacing(2);
+  margin-top: var(--bw-space-4);
+  padding-bottom: var(--bw-space-2);
 }
 
 .submitBtn {
-  margin-top: spacing(6);
+  margin-top: var(--bw-space-6);
   width: 100%;
 }
 
 .thirdPartyAuthButtonContainer {
   display: flex;
-  margin-top: spacing(2);
-  gap: spacing(2);
+  margin-top: var(--bw-space-2);
+  gap: var(--bw-space-2);
 }
 
 .thirdPartyAuthButton {

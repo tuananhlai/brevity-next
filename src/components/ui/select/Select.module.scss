@@ -9,7 +9,7 @@
   display: block;
   width: 100%;
   outline: none;
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
   background-color: transparent;
   border: none;
   padding: 0;
@@ -81,12 +81,12 @@
   display: block;
   width: 100%;
   border-radius: var(--bw-radius-lg);
-  --padding-y: calc(#{spacing(2.5)} - 1px);
+  --padding-y: calc(#{var(--bw-space-2-5)} - 1px);
   padding-top: var(--padding-y);
   padding-bottom: var(--padding-y);
-  padding-left: calc(spacing(3.5) - 1px);
-  padding-right: calc(spacing(7) - 1px);
-  min-height: spacing(11);
+  padding-left: calc(var(--bw-space-3-5) - 1px);
+  padding-right: calc(var(--bw-space-7) - 1px);
+  min-height: var(--bw-space-11);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
   color: var(--selected-value-color);
@@ -113,9 +113,9 @@
   }
 
   @include screen-sm {
-    --padding-y: calc(#{spacing(1.5)} - 1px);
-    padding-left: calc(spacing(3) - 1px);
-    min-height: spacing(9);
+    --padding-y: calc(#{var(--bw-space-1-5)} - 1px);
+    padding-left: calc(var(--bw-space-3) - 1px);
+    min-height: var(--bw-space-9);
     font-size: var(--bw-font-sm);
   }
 }
@@ -132,11 +132,11 @@
   right: 0;
   display: flex;
   align-items: center;
-  padding-right: spacing(2);
+  padding-right: var(--bw-space-2);
 }
 
 .arrow {
-  width: spacing(5);
+  width: var(--bw-space-5);
   aspect-ratio: 1 / 1;
   stroke: var(--bw-color-zinc-500);
 
@@ -145,17 +145,17 @@
   }
 
   @include screen-sm {
-    width: spacing(4);
+    width: var(--bw-space-4);
   }
 }
 
 .listBox {
   outline: none;
-  padding: spacing(1);
+  padding: var(--bw-space-1);
   overflow-y: scroll;
-  scroll-padding-block: spacing(1);
+  scroll-padding-block: var(--bw-space-1);
 }
 
 .errorMessage {
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
 }

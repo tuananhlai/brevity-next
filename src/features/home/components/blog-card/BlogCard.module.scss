@@ -25,7 +25,7 @@
 
 .header {
   position: relative;
-  margin-top: spacing(1);
+  margin-top: var(--bw-space-1);
 
   &:hover > h3 {
     color: var(--hover-title-color);
@@ -43,7 +43,7 @@
 }
 
 .description {
-  margin-top: spacing(2);
+  margin-top: var(--bw-space-2);
   font-size: var(--bw-font-sm);
   line-height: var(--bw-line-6);
   color: var(--description-color);
@@ -55,14 +55,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: spacing(3);
+  margin-top: var(--bw-space-3);
 }
 
 .authorContainer {
   position: relative;
   display: flex;
   align-items: center;
-  gap: spacing(2);
+  gap: var(--bw-space-2);
 }
 
 .authorAvatar {

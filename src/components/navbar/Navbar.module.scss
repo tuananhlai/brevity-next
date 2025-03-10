@@ -1,12 +1,12 @@
 @use "src/styles/utils" as *;
 
 .root {
-  --navbar-gap: #{spacing(4)};
+  --navbar-gap: var(--bw-space-4);
   width: 100%;
   display: flex;
   align-items: center;
   gap: var(--navbar-gap);
-  padding: 0 spacing(2.5);
+  padding: 0 var(--bw-space-2-5);
 }
 
 .spacer {
@@ -18,9 +18,9 @@
   position: relative;
   min-width: 0;
   align-items: center;
-  gap: spacing(2);
+  gap: var(--bw-space-2);
   border-radius: var(--bw-radius-lg);
-  padding: spacing(2);
+  padding: var(--bw-space-2);
   text-align: left;
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);

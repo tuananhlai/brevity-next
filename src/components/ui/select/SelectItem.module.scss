@@ -5,7 +5,8 @@
   line-height: var(--bw-line-6);
   outline: none;
   border-radius: var(--bw-radius-lg);
-  padding: spacing(2.5) spacing(3.5) spacing(2.5) spacing(2);
+  padding: var(--bw-space-2-5) var(--bw-space-3-5) var(--bw-space-2-5)
+    var(--bw-space-2);
 
   &:where([data-focused]) {
     background-color: var(--bw-color-blue-500);
@@ -22,6 +23,7 @@
 
   @include screen-sm {
     font-size: var(--bw-font-sm);
-    padding: spacing(1.5) spacing(3) spacing(1.5) spacing(1.5);
+    padding: var(--bw-space-1-5) var(--bw-space-3) var(--bw-space-1-5)
+      var(--bw-space-1-5);
   }
 }
