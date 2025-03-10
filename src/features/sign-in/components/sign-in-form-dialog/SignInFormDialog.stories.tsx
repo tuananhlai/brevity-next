@@ -22,6 +22,7 @@ export const Default: Story = {
     layout: "centered",
   },
   args: {
+    defaultOpen: true,
     children: <Button>Open Dialog</Button>,
   },
 };

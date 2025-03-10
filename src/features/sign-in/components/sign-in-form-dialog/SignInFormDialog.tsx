@@ -1,4 +1,5 @@
 import { useId } from "react";
+import { DialogTriggerProps } from "react-aria-components";
 import { FaFacebook, FaGoogle } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,17 +15,18 @@ import {
 } from "@/features/sign-in/components/sign-in-form/SignInForm";
 import styles from "./SignInFormDialog.module.scss";
 
-export interface SignInFormDialogProps {
+export interface SignInFormDialogProps
+  extends Pick<DialogTriggerProps, "defaultOpen" | "isOpen" | "onOpenChange"> {
   children: React.ReactElement;
   onSubmit?: (values: SignInFormValues) => void;
 }
 
 export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
-  const { children, onSubmit } = props;
+  const { children, onSubmit, ...dialogTriggerProps } = props;
   const formId = useId();
 
   return (
-    <DialogTrigger>
+    <DialogTrigger {...dialogTriggerProps}>
       {children}
       <Dialog size="md">
         {({ close }) => (
