@@ -14,9 +14,6 @@ importers:
       '@grafana/faro-web-tracing':
         specifier: ^1.14.1
         version: 1.14.1
-      '@grafana/faro-webpack-plugin':
-        specifier: ^0.1.2
-        version: 0.1.2(esbuild@0.25.0)
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -45,6 +42,9 @@ importers:
       '@chromatic-com/storybook':
         specifier: ^1.6.1
         version: 1.9.0(react@18.3.1)
+      '@grafana/faro-webpack-plugin':
+        specifier: ^0.1.2
+        version: 0.1.2(esbuild@0.25.0)
       '@react-types/shared':
         specifier: ^3.28.0
         version: 3.28.0(react@18.3.1)
