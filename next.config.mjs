@@ -20,7 +20,7 @@ const nextConfig = {
         new FaroSourceMapUploaderPlugin({
           appName: "brevity-web",
           endpoint: "https://faro-api-prod-us-east-0.grafana.net/faro/api/v1",
-          appId: "brevity-web",
+          appId: "2927",
           stackId: "865143",
           // instructions on how to obtain your API key are in the documentation
           // https://grafana.com/docs/grafana-cloud/monitor-applications/frontend-observability/sourcemap-upload-plugins/#obtain-an-api-key
