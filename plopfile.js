@@ -109,4 +109,33 @@ module.exports = function main(plop) {
       return actions;
     },
   });
+
+  plop.setGenerator("page", {
+    description: "Generate a page",
+    prompts: [
+      {
+        type: "input",
+        name: "componentName",
+        message: "What is the name of the page (PascalCase)?",
+      },
+    ],
+    actions(answers) {
+      /** @type{ import("plop").ActionType[] } */
+      const actions = [];
+
+      if (!answers) return actions;
+
+      const { componentName } = answers;
+
+      actions.push({
+        type: "addMany",
+        templateFiles: "internals/plop-templates/page/**",
+        destination: `./src/app/pages/{{dashCase componentName}}`,
+        data: { componentName },
+        base: "internals/plop-templates/page",
+      });
+
+      return actions;
+    },
+  });
 };
