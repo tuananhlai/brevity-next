@@ -1,6 +1,5 @@
 import { LuMoon } from "react-icons/lu";
-import { Button } from "@/components/ui/button";
-import styles from "./ToggleColorSchemeButton.module.scss";
+import { NavbarButton } from "@/components/navbar";
 
 export const ToggleColorSchemeButton: React.FC = () => {
   const toggleColorScheme = () => {
@@ -14,12 +13,8 @@ export const ToggleColorSchemeButton: React.FC = () => {
   };
 
   return (
-    <Button
-      className={styles.root}
-      variant="tertiary"
-      onPress={toggleColorScheme}
-    >
+    <NavbarButton variant="tertiary" onPress={toggleColorScheme}>
       <LuMoon />
-    </Button>
+    </NavbarButton>
   );
 };

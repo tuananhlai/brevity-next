@@ -1,23 +1,18 @@
 @use "src/styles/utils" as *;
 
-.root {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: spacing(8);
+.description {
+  display: block;
+  margin-top: spacing(3);
 }
 
-.heading {
-  align-self: center;
-}
-
-.signInForm {
-  margin-top: spacing(6);
+.dialogBody {
+  margin-top: spacing(4);
+  padding-bottom: spacing(2);
 }
 
 .submitBtn {
   margin-top: spacing(6);
+  width: 100%;
 }
 
 .thirdPartyAuthButtonContainer {
@@ -27,6 +22,5 @@
 }
 
 .thirdPartyAuthButton {
-  height: spacing(10);
   flex-grow: 1;
 }

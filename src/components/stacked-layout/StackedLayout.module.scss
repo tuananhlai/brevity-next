@@ -44,7 +44,6 @@
 }
 
 .loginLink {
-  font-weight: var(--bw-weight-normal);
   display: none;
 
   @include screen-sm {
@@ -53,8 +52,6 @@
 }
 
 .mobileLoginLink {
-  font-weight: var(--bw-weight-normal);
-
   @include screen-sm {
     display: none;
   }
