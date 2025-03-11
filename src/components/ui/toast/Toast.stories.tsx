@@ -1,21 +1,29 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Toast } from "./Toast";
+import { Button } from "@/components/ui/button";
+import { toast } from "./Toast";
 
-const meta: Meta<typeof Toast> = {
-  component: Toast,
+const meta: Meta = {
   title: "ui/Toast",
   argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof Toast>;
+type Story = StoryObj;
 
 // Minimal code to render the component correctly.
 export const Default: Story = {
-  parameters: {
-    layout: "centered",
-  },
-  args: {
-    // Add arguments.
+  render: () => {
+    return (
+      <Button
+        onPress={() =>
+          toast.success({
+            title: "Success",
+            description: "This is a success toast",
+          })
+        }
+      >
+        Show toast
+      </Button>
+    );
   },
 };

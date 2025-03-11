@@ -1,1 +1,38 @@
 @use "src/styles/utils" as *;
+
+.toastRoot {
+  position: fixed;
+  top: var(--bw-space-4);
+  right: var(--bw-space-4);
+}
+
+.toast {
+  position: relative;
+  display: flex;
+  gap: var(--bw-space-3);
+  align-items: flex-start;
+  padding: var(--bw-space-3);
+}
+
+.toastIcon {
+  padding-top: var(--bw-space-1);
+  font-size: var(--bw-font-xl);
+}
+
+.toastContent {
+}
+
+.toastTitle {
+  font-weight: var(--bw-weight-medium);
+  color: var(--bw-color-zinc-950);
+
+  @include dark-mode {
+    color: var(--bw-color-zinc-50);
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: var(--bw-space-1);
+  right: var(--bw-space-1);
+}
