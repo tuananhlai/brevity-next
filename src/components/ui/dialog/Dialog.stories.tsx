@@ -10,7 +10,7 @@ import {
 
 const meta: Meta<typeof Dialog> = {
   component: Dialog,
-  title: "Dialog",
+  title: "ui/Dialog",
   argTypes: {},
   decorators: [
     (story) => (

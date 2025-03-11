@@ -7,7 +7,7 @@ import { Drawer, DrawerTitle, DrawerTrigger } from "./Drawer";
 
 const meta: Meta<typeof Drawer> = {
   component: Drawer,
-  title: "Drawer",
+  title: "ui/Drawer",
   argTypes: {},
   decorators: [
     (story) => <div style={{ width: "100vw", height: "100vh" }}>{story()}</div>,

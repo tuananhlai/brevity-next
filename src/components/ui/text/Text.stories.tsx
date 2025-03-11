@@ -3,7 +3,7 @@ import { Text } from "./Text";
 
 const meta: Meta<typeof Text> = {
   component: Text,
-  title: "Text",
+  title: "ui/Text",
   argTypes: {},
 };
 export default meta;

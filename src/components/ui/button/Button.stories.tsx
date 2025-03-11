@@ -4,7 +4,7 @@ import { Button } from "./Button";
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  title: "Button",
+  title: "ui/Button",
   argTypes: {},
 };
 export default meta;

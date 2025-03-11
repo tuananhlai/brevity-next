@@ -4,7 +4,7 @@ import { TextField, TextFieldProps } from "./TextField";
 
 const meta: Meta<typeof TextField> = {
   component: TextField,
-  title: "TextField",
+  title: "ui/TextField",
   argTypes: {},
 };
 export default meta;

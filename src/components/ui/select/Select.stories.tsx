@@ -5,7 +5,7 @@ import { SelectItem } from "./SelectItem";
 
 const meta: Meta<typeof Select> = {
   component: Select,
-  title: "Select",
+  title: "ui/Select",
   argTypes: {},
 };
 export default meta;
