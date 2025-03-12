@@ -1,20 +1,25 @@
 import {
+  UNSTABLE_ToastQueue as AriaToastQueue,
   UNSTABLE_ToastRegion as AriaToastRegion,
   Button,
   UNSTABLE_Toast as Toast,
   UNSTABLE_ToastContent as ToastContent,
   ToastOptions,
-  UNSTABLE_ToastQueue as ToastQueue,
 } from "react-aria-components";
-import { LuCircleCheckBig, LuX } from "react-icons/lu";
+import { LuCircleCheckBig, LuTriangleAlert, LuX } from "react-icons/lu";
 import { Text } from "@/components/ui/text";
+import { TouchTarget } from "@/components/ui/touch-target";
 import styles from "./Toast.module.scss";
 
-const queue = new ToastQueue<React.ReactNode>();
+export interface ToastRegionProps {
+  queue: ToastQueue;
+}
 
-export const ToastRegion: React.FC = () => {
+export const ToastRegion: React.FC<ToastRegionProps> = (props) => {
+  const { queue } = props;
+
   return (
-    <AriaToastRegion queue={queue}>
+    <AriaToastRegion className={styles.toastRegion} queue={queue.ariaQueue}>
       {({ toast }) => (
         <Toast className={styles.toastRoot} toast={toast}>
           {toast.content}
@@ -53,8 +58,33 @@ export const ToastDescription: React.FC<ToastDescriptionProps> = ({
 export const ToastCloseButton: React.FC = () => {
   return (
     <Button className={styles.closeBtn} slot="close">
-      <LuX />
+      <TouchTarget>
+        <LuX />
+      </TouchTarget>
     </Button>
+  );
+};
+
+export interface DefaultToastLayoutProps {
+  variant: "success" | "danger";
+  title: React.ReactNode;
+  description: React.ReactNode;
+  icon: React.ReactNode;
+}
+
+export const DefaultToastLayout: React.FC<DefaultToastLayoutProps> = (
+  props,
+) => {
+  const { title, description, icon, variant } = props;
+  return (
+    <div className={styles.toast} data-variant={variant}>
+      <div className={styles.toastIcon}>{icon}</div>
+      <ToastContent>
+        <ToastTitle>{title}</ToastTitle>
+        <ToastDescription>{description}</ToastDescription>
+      </ToastContent>
+      <ToastCloseButton />
+    </div>
   );
 };
 
@@ -63,21 +93,38 @@ export interface ToastParams {
   description: string;
 }
 
-export const toast = {
-  success: (params: ToastParams, options?: ToastOptions) => {
+export class ToastQueue {
+  ariaQueue: AriaToastQueue<React.ReactNode>;
+
+  constructor(opts?: { maxVisibleToasts?: number }) {
+    this.ariaQueue = new AriaToastQueue<React.ReactNode>(opts);
+  }
+
+  success(params: ToastParams, options?: ToastOptions) {
     const { title, description } = params;
-    queue.add(
-      <div className={styles.toast}>
-        <div className={styles.toastIcon}>
-          <LuCircleCheckBig />
-        </div>
-        <ToastContent className={styles.toastContent}>
-          <ToastTitle>{title}</ToastTitle>
-          <ToastDescription>{description}</ToastDescription>
-        </ToastContent>
-        <ToastCloseButton />
-      </div>,
+
+    this.ariaQueue.add(
+      <DefaultToastLayout
+        variant="success"
+        title={title}
+        description={description}
+        icon={<LuCircleCheckBig />}
+      />,
       options,
     );
-  },
-};
+  }
+
+  danger(params: ToastParams, options?: ToastOptions) {
+    const { title, description } = params;
+
+    this.ariaQueue.add(
+      <DefaultToastLayout
+        variant="danger"
+        title={title}
+        description={description}
+        icon={<LuTriangleAlert />}
+      />,
+      options,
+    );
+  }
+}

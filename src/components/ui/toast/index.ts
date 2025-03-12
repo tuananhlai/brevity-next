@@ -1,1 +1,1 @@
-export { ToastRegion } from "./Toast";
+export { ToastRegion, ToastQueue } from "./Toast";
