@@ -4,7 +4,7 @@ import { Menu, MenuItem, MenuTrigger } from "./Menu";
 
 const meta: Meta<typeof Menu> = {
   component: Menu,
-  title: "Menu",
+  title: "ui/Menu",
   argTypes: {},
   decorators: [
     (story) => (

@@ -1,12 +1,15 @@
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
 import { Provider } from "@/components/ui/provider";
+import { ToastQueue, ToastRegion } from "@/components/ui/toast";
 
 declare module "react-aria-components" {
   interface RouterConfig {
     routerOptions: NonNullable<Parameters<NextRouter["push"]>[2]>;
   }
 }
+
+const queue = new ToastQueue();
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -35,6 +38,7 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
       <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
         {children}
       </Provider>
+      <ToastRegion queue={queue} />
     </>
   );
 };

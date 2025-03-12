@@ -5,7 +5,7 @@ import { RadioGroup, RadioGroupProps } from "./RadioGroup";
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,
-  title: "Radio",
+  title: "ui/Radio",
   argTypes: {},
 };
 export default meta;

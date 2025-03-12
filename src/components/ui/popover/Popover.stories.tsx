@@ -5,7 +5,7 @@ import { Popover } from "./Popover";
 
 const meta: Meta<typeof Popover> = {
   component: Popover,
-  title: "Popover",
+  title: "ui/Popover",
   argTypes: {},
   decorators: [
     (story) => (

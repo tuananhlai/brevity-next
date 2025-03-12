@@ -3,7 +3,7 @@ import { Heading } from "./Heading";
 
 const meta: Meta<typeof Heading> = {
   component: Heading,
-  title: "Heading",
+  title: "ui/Heading",
   argTypes: {},
 };
 export default meta;

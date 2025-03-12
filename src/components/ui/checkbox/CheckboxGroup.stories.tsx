@@ -5,7 +5,7 @@ import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup";
 
 const meta: Meta<typeof CheckboxGroup> = {
   component: CheckboxGroup,
-  title: "CheckboxGroup",
+  title: "ui/CheckboxGroup",
   argTypes: {},
 };
 export default meta;
