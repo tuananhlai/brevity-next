@@ -4,17 +4,14 @@
   position: fixed;
   display: flex;
   flex-direction: column;
-  gap: var(--bw-space-4);
-  top: var(--bw-space-4);
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% - var(--bw-space-8));
+  gap: var(--bw-space-3);
+  top: var(--bw-space-3);
+  left: var(--bw-space-3);
+  right: var(--bw-space-3);
+  width: calc(100% - var(--bw-space-6));
 
   @include screen-sm {
-    transform: none;
     left: initial;
-    top: var(--bw-space-4);
-    right: var(--bw-space-4);
     width: var(--bw-space-80);
   }
 }
