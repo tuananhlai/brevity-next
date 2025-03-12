@@ -4,7 +4,7 @@
   position: fixed;
   inset: 0;
   width: 100vw;
-  min-height: 100%;
+  height: var(--visual-viewport-height);
   display: grid;
   grid-template-rows: 1fr auto;
   overflow-y: auto;
