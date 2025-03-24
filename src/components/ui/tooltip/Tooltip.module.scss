@@ -1,0 +1,17 @@
+@use "src/styles/utils" as *;
+
+.root {
+  --bw-tooltip-background-color: var(--bw-color-zinc-800);
+
+  @include dark-mode {
+    --bw-tooltip-background-color: var(--bw-color-zinc-600);
+  }
+}
+
+.root {
+  background-color: var(--bw-tooltip-background-color);
+  color: var(--bw-color-white);
+  border-radius: var(--bw-radius-md);
+  padding: var(--bw-space-1) var(--bw-space-2);
+  font-size: var(--bw-font-sm);
+}
