@@ -18,7 +18,7 @@ const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (
   props,
   ref,
 ) => {
-  const { offset = 4, className, ...rest } = props;
+  const { offset = 6, className, ...rest } = props;
 
   return (
     <AriaTooltip

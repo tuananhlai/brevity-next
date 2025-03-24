@@ -1,17 +1,26 @@
 @use "src/styles/utils" as *;
 
 .root {
-  --bw-tooltip-background-color: var(--bw-color-zinc-800);
-
+  --bw-tooltip-background-color: var(--bw-color-white);
+  --bw-tooltip-color: var(--bw-color-black);
+  --bw-tooltip-border-color: var(--bw-color-zinc-200);
   @include dark-mode {
     --bw-tooltip-background-color: var(--bw-color-zinc-600);
+    --bw-tooltip-color: var(--bw-color-white);
+    --bw-tooltip-border-color: transparent;
   }
 }
 
 .root {
   background-color: var(--bw-tooltip-background-color);
-  color: var(--bw-color-white);
+  color: var(--bw-tooltip-color);
   border-radius: var(--bw-radius-md);
-  padding: var(--bw-space-1) var(--bw-space-2);
-  font-size: var(--bw-font-sm);
+  box-shadow: var(--bw-shadow-sm);
+  border: 1px solid var(--bw-tooltip-border-color);
+  padding: var(--bw-space-1-5) var(--bw-space-2-5);
+
+  @include screen-sm {
+    font-size: var(--bw-font-sm);
+    padding: var(--bw-space-1) var(--bw-space-2);
+  }
 }

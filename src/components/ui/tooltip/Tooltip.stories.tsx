@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { TooltipTrigger } from "react-aria-components";
-import { Button } from "@/components/ui/button";
+import { Button, TooltipTrigger } from "react-aria-components";
+import { LuPencil } from "react-icons/lu";
 import { Tooltip } from "./Tooltip";
 
 const meta: Meta<typeof Tooltip> = {
@@ -20,7 +20,9 @@ export const Default: Story = {
   render: () => {
     return (
       <TooltipTrigger delay={500}>
-        <Button>Open tooltip</Button>
+        <Button>
+          <LuPencil />
+        </Button>
         <Tooltip>Tooltip content</Tooltip>
       </TooltipTrigger>
     );
