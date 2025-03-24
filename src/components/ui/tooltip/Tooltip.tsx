@@ -1,17 +1,32 @@
 import { forwardRef } from "react";
-import { Tooltip as AriaTooltip } from "react-aria-components";
+import {
+  Tooltip as AriaTooltip,
+  TooltipProps as AriaTooltipProps,
+} from "react-aria-components";
+import { cn } from "@/styles/utils";
+import { ReplaceAriaRenderProps } from "@/utils";
 import styles from "./Tooltip.module.scss";
 
-export interface TooltipProps {
-  // Add component props.
+export interface TooltipProps extends ReplaceAriaRenderProps<AriaTooltipProps> {
+  /**
+   * @default 4
+   */
+  offset?: number;
 }
 
 const Tooltip: React.ForwardRefRenderFunction<HTMLDivElement, TooltipProps> = (
   props,
   ref,
 ) => {
+  const { offset = 4, className, ...rest } = props;
+
   return (
-    <AriaTooltip offset={4} ref={ref} className={styles.root} {...props} />
+    <AriaTooltip
+      offset={offset}
+      ref={ref}
+      className={cn(styles.root, className)}
+      {...rest}
+    />
   );
 };
 
