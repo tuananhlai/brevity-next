@@ -8,7 +8,18 @@ const meta: Meta<typeof Tooltip> = {
   title: "ui/Tooltip",
   argTypes: {},
   decorators: [
-    (story) => <div style={{ width: "200px", height: "200px" }}>{story()}</div>,
+    (story) => (
+      <div
+        style={{
+          width: "200px",
+          height: "200px",
+          display: "grid",
+          placeContent: "center",
+        }}
+      >
+        {story()}
+      </div>
+    ),
   ],
 };
 export default meta;
