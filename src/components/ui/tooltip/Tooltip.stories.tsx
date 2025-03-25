@@ -19,7 +19,7 @@ export const Default: Story = {
   },
   render: () => {
     return (
-      <TooltipTrigger delay={500}>
+      <TooltipTrigger defaultOpen delay={500}>
         <Button>
           <LuPencil />
         </Button>
