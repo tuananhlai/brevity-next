@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import {
   SignInForm,
@@ -47,7 +48,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
               <Button form={formId} className={styles.submitBtn} type="submit">
                 Sign in
               </Button>
-              <div className={styles.thirdPartyAuthButtonContainer}>
+              <Flex gap="var(--bw-space-2)" className={styles.flex1}>
                 <Button
                   className={styles.thirdPartyAuthButton}
                   variant="secondary"
@@ -64,7 +65,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                   <FaFacebook />
                   Facebook
                 </Button>
-              </div>
+              </Flex>
             </DialogBody>
           </>
         )}

@@ -52,17 +52,11 @@
 }
 
 .bottomBar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: var(--bw-space-3);
 }
 
 .authorContainer {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--bw-space-2);
 }
 
 .authorAvatar {

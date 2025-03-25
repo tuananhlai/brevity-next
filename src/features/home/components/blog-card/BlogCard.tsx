@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useDateFormatter } from "react-aria";
 import { LuBookmark } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
+import { Flex } from "@/components/ui/layout";
 import { Heading, Text } from "@/components/ui/text";
 import { cn } from "@/styles/utils";
 import styles from "./BlogCard.module.scss";
@@ -60,8 +61,12 @@ export const BlogCard: React.FC<BlogCardProps> = (props) => {
           {description}
         </Text>
       </div>
-      <div className={styles.bottomBar}>
-        <div className={styles.authorContainer}>
+      <Flex justify="space-between" align="center" className={styles.bottomBar}>
+        <Flex
+          gap="var(--bw-space-2)"
+          align="center"
+          className={styles.authorContainer}
+        >
           <Image
             className={styles.authorAvatar}
             src={author.avatarURL}
@@ -75,7 +80,7 @@ export const BlogCard: React.FC<BlogCardProps> = (props) => {
               {author.name}
             </Link>
           </Text>
-        </div>
+        </Flex>
         <Button
           className={styles.bookMarkButton}
           variant="tertiary"
@@ -83,7 +88,7 @@ export const BlogCard: React.FC<BlogCardProps> = (props) => {
         >
           <LuBookmark />
         </Button>
-      </div>
+      </Flex>
     </article>
   );
 };
