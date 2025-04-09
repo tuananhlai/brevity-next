@@ -27,25 +27,32 @@ it("should open when the trigger is clicked", async () => {
   expect(screen.getByRole("dialog")).toBeInTheDocument();
 });
 
-it("should close when the primary action is clicked", async () => {
+it("should invoke onPrimaryAction and close when the primary action is clicked", async () => {
+  const onPrimaryAction = jest.fn();
   render(
     <DialogTrigger defaultOpen>
-      <ExampleAlertDialog primaryActionLabel="Confirm" />
+      <ExampleAlertDialog
+        primaryActionLabel="Confirm"
+        onPrimaryAction={onPrimaryAction}
+      />
     </DialogTrigger>,
   );
 
   await userEvent.click(screen.getByRole("button", { name: "Confirm" }));
+  expect(onPrimaryAction).toHaveBeenCalled();
   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 });
 
-it("should close when the cancel action is clicked", async () => {
+it("should invoke onCancel and close when the cancel action is clicked", async () => {
+  const onCancel = jest.fn();
   render(
     <DialogTrigger defaultOpen>
-      <ExampleAlertDialog cancelLabel="Cancel" />
+      <ExampleAlertDialog cancelLabel="Cancel" onCancel={onCancel} />
     </DialogTrigger>,
   );
 
   await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+  expect(onCancel).toHaveBeenCalled();
   expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
 });
 
