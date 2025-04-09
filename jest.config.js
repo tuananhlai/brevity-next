@@ -14,6 +14,7 @@ const config = {
   collectCoverageFrom: [
     "src/components/**/*.{js,jsx,ts,tsx}",
     "!**/*.stories.{js,jsx,ts,tsx}",
+    "!**/index.{js,jsx,ts,tsx}",
   ],
   coverageReporters: ["json-summary"],
 };

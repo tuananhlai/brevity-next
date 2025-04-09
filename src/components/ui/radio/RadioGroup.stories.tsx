@@ -30,6 +30,11 @@ export const Default: Story = {
 };
 
 export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: () => {
     return (
       <VisualTestGrid>
@@ -47,6 +52,11 @@ export const VisualTest: Story = {
 };
 
 export const VisualTestRadioGroup: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: () => {
     return (
       <VisualTestGrid cellWidth="150px">

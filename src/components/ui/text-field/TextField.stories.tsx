@@ -23,6 +23,11 @@ export const Default: Story = {
 };
 
 export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: () => {
     const sampleLabel = "Label";
     const sampleDescription = "Description";

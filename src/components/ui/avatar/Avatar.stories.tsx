@@ -20,6 +20,11 @@ export const Default: Story = {
 };
 
 export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: () => {
     return (
       <VisualTestGrid cellWidth="50px">
