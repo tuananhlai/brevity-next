@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
 import { Provider } from "@/components/ui/provider";
@@ -10,6 +11,7 @@ declare module "react-aria-components" {
 }
 
 const queue = new ToastQueue();
+const queryClient = new QueryClient();
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -35,9 +37,11 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
             sans-serif;
         }
       `}</style>
-      <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
-        {children}
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
+          {children}
+        </Provider>
+      </QueryClientProvider>
       <ToastRegion queue={queue} />
     </>
   );

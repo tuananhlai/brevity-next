@@ -3,19 +3,33 @@ import { LuArrowRight } from "react-icons/lu";
 import { StackedLayout } from "@/components/stacked-layout";
 import { LinkButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
+import { useGetArticlePreviews } from "@/features/home/api/getArticlePreviews";
 import { BlogCard, BlogCardProps } from "@/features/home/components/blog-card";
 import styles from "./HomePage.module.scss";
 
 export const HomePage: NextPage = () => {
+  const { data = { items: [] } } = useGetArticlePreviews();
+
   return (
     <StackedLayout className={styles.root}>
       <div className={styles.main}>
         <section className={styles.section}>
           <Heading level={2}>Newest Posts</Heading>
           <div className={styles.blogs}>
-            {mockData.map((props, index) => (
+            {data.items.map((v, index) => (
               <div key={index} className={styles.blogCard}>
-                <BlogCard {...props} />
+                <BlogCard
+                  author={{
+                    name: v.authorDisplayName,
+                    avatarURL: "",
+                    position: "",
+                  }}
+                  authorHref={v.authorID}
+                  description={v.description}
+                  href={v.slug}
+                  publishedAt={new Date(v.createdAt)}
+                  title={v.title}
+                />
               </div>
             ))}
           </div>
