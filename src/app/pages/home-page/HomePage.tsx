@@ -16,8 +16,8 @@ export const HomePage: NextPage = () => {
         <section className={styles.section}>
           <Heading level={2}>Newest Posts</Heading>
           <div className={styles.blogs}>
-            {data.items.map((v, index) => (
-              <div key={index} className={styles.blogCard}>
+            {data.items.map((v) => (
+              <div key={v.id} className={styles.blogCard}>
                 <BlogCard
                   author={{
                     name: v.authorDisplayName,
