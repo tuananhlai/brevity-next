@@ -21,12 +21,11 @@ export const HomePage: NextPage = () => {
                 <BlogCard
                   author={{
                     name: v.authorDisplayName,
-                    avatarURL: "",
-                    position: "",
+                    avatarURL: getDefaultAvatarURL(v.authorID),
                   }}
                   authorHref={v.authorID}
                   description={v.description}
-                  href={v.slug}
+                  href={`/blog/${v.slug}`}
                   publishedAt={new Date(v.createdAt)}
                   title={v.title}
                 />
@@ -43,4 +42,8 @@ export const HomePage: NextPage = () => {
       </div>
     </StackedLayout>
   );
+};
+
+const getDefaultAvatarURL = (authorID: string): string => {
+  return `https://api.dicebear.com/9.x/glass/jpg?seed=${authorID}`;
 };

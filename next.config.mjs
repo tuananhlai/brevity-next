@@ -10,7 +10,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "gravatar.com",
+        hostname: "api.dicebear.com",
       },
     ],
   },
