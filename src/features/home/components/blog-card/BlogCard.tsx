@@ -14,7 +14,6 @@ export interface BlogCardProps {
   author: {
     name: string;
     avatarURL: string;
-    position: string;
   };
   href: string;
   authorHref: string;

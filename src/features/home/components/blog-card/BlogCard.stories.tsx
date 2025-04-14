@@ -20,7 +20,6 @@ export const Default: Story = {
       avatarURL:
         "https://gravatar.com/avatar/515c8955d83d1a52b0e253576916b991?s=400&d=robohash&r=x",
       name: "Author Name",
-      position: "Author Position",
     },
     authorHref: "/author",
     description:
