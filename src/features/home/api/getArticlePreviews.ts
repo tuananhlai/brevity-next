@@ -25,8 +25,12 @@ export interface ArticlePreview {
   slug: string;
   title: string;
   description?: string;
-  authorID: string;
-  authorDisplayName: string;
+  author: {
+    id: string;
+    username: string;
+    displayName?: string;
+    avatarURL?: string;
+  };
   createdAt: string;
   updatedAt: string;
 }

@@ -20,10 +20,10 @@ export const HomePage: NextPage = () => {
               <div key={v.id} className={styles.blogCard}>
                 <BlogCard
                   author={{
-                    name: v.authorDisplayName,
-                    avatarURL: getDefaultAvatarURL(v.authorID),
+                    name: v.author.displayName ?? v.author.username,
+                    avatarURL: getDefaultAvatarURL(v.author.id),
                   }}
-                  authorHref={v.authorID}
+                  authorHref={v.author.username}
                   description={v.description}
                   href={`/blog/${v.slug}`}
                   publishedAt={new Date(v.createdAt)}
