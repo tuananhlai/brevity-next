@@ -5,9 +5,9 @@ import { LinkButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
 import { useGetArticlePreviews } from "@/features/home/api/getArticlePreviews";
 import { BlogCard } from "@/features/home/components/blog-card";
-import styles from "./HomePage.module.scss";
+import styles from "./Home.module.scss";
 
-export const HomePage: NextPage = () => {
+export const Home: NextPage = () => {
   const { data = { items: [] } } = useGetArticlePreviews();
 
   return (
@@ -25,7 +25,7 @@ export const HomePage: NextPage = () => {
                   }}
                   authorHref={v.author.username}
                   description={v.description}
-                  href={`/blog/${v.slug}`}
+                  href={`/article/${v.slug}`}
                   publishedAt={new Date(v.createdAt)}
                   title={v.title}
                 />

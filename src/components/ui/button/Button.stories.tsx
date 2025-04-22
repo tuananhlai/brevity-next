@@ -20,6 +20,9 @@ export const Default: Story = {
     // Add arguments.
     children: "Button",
     variant: "primary",
+    onPress: () => {
+      console.log("Button pressed");
+    },
   },
 };
 
