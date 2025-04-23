@@ -16,13 +16,15 @@ export interface ProviderProps {
   navigate: ComponentProps<typeof RouterProvider>["navigate"];
   /**
    * The default theme to be used for the application.
+   *
+   * @default "light"
    */
-  defaultTheme: Theme;
+  defaultTheme?: Theme;
   children: React.ReactNode;
 }
 
 export const Provider: React.FC<ProviderProps> = (props) => {
-  const { children, navigate, defaultTheme } = props;
+  const { children, navigate, defaultTheme = "light" } = props;
 
   return (
     <ThemeProvider defaultTheme={defaultTheme}>

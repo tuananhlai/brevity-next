@@ -1,5 +1,3 @@
-import { UseQueryResult, useQuery } from "@tanstack/react-query";
-
 export const getArticleDetails = async (
   req: GetArticleDetailsRequest,
 ): Promise<GetArticleDetailsResponse> => {
@@ -8,15 +6,6 @@ export const getArticleDetails = async (
   ).then((res) => res.json());
 
   return res;
-};
-
-export const useGetArticleDetails = (
-  req: GetArticleDetailsRequest,
-): UseQueryResult<GetArticleDetailsResponse> => {
-  return useQuery({
-    queryKey: ["article-details", req],
-    queryFn: () => getArticleDetails(req),
-  });
 };
 
 export interface GetArticleDetailsRequest {
