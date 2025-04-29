@@ -1,20 +1,17 @@
+import { ToggleButton } from "react-aria-components";
 import { LuMoon } from "react-icons/lu";
-import { NavbarButton } from "@/components/navbar";
+import { useTheme } from "@/components/ui/provider";
 
 export const ToggleColorSchemeButton: React.FC = () => {
-  const toggleColorScheme = () => {
-    const isDarkColorScheme =
-      document.documentElement.getAttribute("data-mode") === "dark";
-
-    document.documentElement.setAttribute(
-      "data-mode",
-      isDarkColorScheme ? "light" : "dark",
-    );
-  };
+  const { theme, setTheme } = useTheme();
 
   return (
-    <NavbarButton variant="tertiary" onPress={toggleColorScheme}>
+    <ToggleButton
+      aria-label="Use dark mode"
+      isSelected={theme === "dark"}
+      onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
       <LuMoon />
-    </NavbarButton>
+    </ToggleButton>
   );
 };

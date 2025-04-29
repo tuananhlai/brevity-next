@@ -73,7 +73,7 @@ module.exports = function main(plop) {
       {
         type: "input",
         name: "featureName",
-        message: "Enter the feature name:",
+        message: "Enter the feature name (dash-case):",
       },
       {
         type: "checkbox",
