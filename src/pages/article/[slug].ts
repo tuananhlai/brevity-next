@@ -1,12 +1,11 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ViewArticleProps } from "@/app/pages/view-article/ViewArticle";
-import { getArticlePreviews } from "@/features/home/api/getArticlePreviews";
-import { getArticleDetails } from "@/features/view-article/api/getArticleDetails";
+import { apiClient } from "@/lib/api-client";
 
 export { ViewArticle as default } from "@/app/pages/view-article";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articlePreviews = await getArticlePreviews();
+  const articlePreviews = await apiClient.getArticlePreviews();
 
   return {
     paths: articlePreviews.items.map((item) => ({
@@ -27,7 +26,7 @@ export const getStaticProps: GetStaticProps<ViewArticleProps> = async ({
     };
   }
 
-  const articleDetails = await getArticleDetails({ slug });
+  const articleDetails = await apiClient.getArticleDetails({ slug });
 
   return {
     props: {
