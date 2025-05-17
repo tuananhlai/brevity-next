@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useId } from "react";
 import { DialogTriggerProps } from "react-aria-components";
 import { FaFacebook, FaGoogle } from "react-icons/fa6";
@@ -45,26 +46,33 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                   close();
                 }}
               />
-              <Button form={formId} className={styles.submitBtn} type="submit">
-                Sign in
-              </Button>
-              <Flex gap="var(--bw-space-2)" className={styles.flex1}>
-                <Button
-                  className={styles.thirdPartyAuthButton}
-                  variant="secondary"
-                  aria-label="Sign in with Google"
-                >
-                  <FaGoogle />
-                  Google
+              <Text>
+                <Link href="/forgot-password" className={styles.forgotPassword}>
+                  Forgot your password?
+                </Link>
+              </Text>
+              <Flex direction="column" gap="var(--bw-space-2)">
+                <Button form={formId} type="submit">
+                  Sign in
                 </Button>
-                <Button
-                  className={styles.thirdPartyAuthButton}
-                  variant="secondary"
-                  aria-label="Sign in with Facebook"
-                >
-                  <FaFacebook />
-                  Facebook
-                </Button>
+                <Flex gap="var(--bw-space-2)">
+                  <Button
+                    className={styles.thirdPartyAuthButton}
+                    variant="secondary"
+                    aria-label="Sign in with Google"
+                  >
+                    <FaGoogle />
+                    Google
+                  </Button>
+                  <Button
+                    className={styles.thirdPartyAuthButton}
+                    variant="secondary"
+                    aria-label="Sign in with Facebook"
+                  >
+                    <FaFacebook />
+                    Facebook
+                  </Button>
+                </Flex>
               </Flex>
             </DialogBody>
           </>
