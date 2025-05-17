@@ -6,6 +6,15 @@ import { getArticleDetails } from "@/features/view-article/api/getArticleDetails
 export { ViewArticle as default } from "@/app/pages/view-article";
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  // Because the backend is not deployed yet, I temporarily
+  // disable the static generation.
+  if (process.env.NODE_ENV !== "development") {
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
+
   const articlePreviews = await getArticlePreviews();
 
   return {
