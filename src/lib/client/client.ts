@@ -6,28 +6,77 @@ import {
 
 export class APIClient {
   private baseURL: string;
+  private authToken: string | null = null;
 
   constructor(baseURL: string) {
     this.baseURL = baseURL;
   }
 
+  setAuthToken(token: string) {
+    this.authToken = token;
+  }
+
   async getArticleDetails(
     req: GetArticleDetailsRequest,
   ): Promise<GetArticleDetailsResponse> {
-    return this.fetchWithResponse<GetArticleDetailsResponse>(
-      `/v1/articles/${req.slug}`,
-    );
+    return this.getJSON<GetArticleDetailsResponse>(`/v1/articles/${req.slug}`);
   }
 
   async getArticlePreviews(): Promise<GetArticlePreviewsResponse> {
-    return this.fetchWithResponse<GetArticlePreviewsResponse>(
-      `/v1/article-previews`,
-    );
+    return this.getJSON<GetArticlePreviewsResponse>(`/v1/article-previews`);
   }
 
-  private async fetchWithResponse<T>(url: string): Promise<T> {
-    const res = await fetch(new URL(url, this.baseURL));
+  private async getJSON<Response>(
+    url: string,
+    options?: Omit<FetchOptions, "method">,
+  ): Promise<Response> {
+    return this.doFetchJSON<Response>(url, { method: "GET", ...options });
+  }
+
+  /**
+   * @param data - The data to send in the request body. It must be JSON serializable.
+   */
+  private async postJSON<Response>(
+    url: string,
+    data: unknown,
+    options?: Omit<FetchOptions, "method" | "body">,
+  ): Promise<Response> {
+    return this.doFetchJSON<Response>(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      ...options,
+    });
+  }
+
+  private async doFetchJSON<Response>(
+    url: string,
+    opts: FetchOptions,
+  ): Promise<Response> {
+    const { headers, ...rest } = opts;
+
+    let fetchHeaders: HeadersInit = {};
+    if (this.authToken) {
+      fetchHeaders = {
+        Authorization: `Bearer ${this.authToken}`,
+        ...headers,
+      };
+    }
+
+    const res = await fetch(this.getURL(url), {
+      ...rest,
+      headers: fetchHeaders,
+    });
 
     return res.json();
   }
+
+  private getURL(path: string): URL {
+    return new URL(path, this.baseURL);
+  }
+}
+
+interface FetchOptions {
+  method: "GET" | "POST" | "PUT" | "DELETE";
+  body?: BodyInit;
+  headers?: Record<string, string>;
 }
