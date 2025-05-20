@@ -1,0 +1,60 @@
+@use "src/styles/utils" as *;
+
+.table {
+  min-width: 100%;
+  text-align: left;
+  font-size: var(--bw-font-sm);
+  line-height: var(--bw-line-6);
+  color: var(--bw-color-zinc-950);
+
+  @include dark-mode {
+    color: var(--bw-color-white);
+  }
+}
+
+.column {
+  color: var(--bw-color-zinc-500);
+  font-weight: var(--bw-weight-medium);
+  border-bottom: 1px solid alpha(var(--bw-color-zinc-950), 10);
+  padding: var(--bw-space-2) var(--bw-space-4);
+
+  &:where(:first-child) {
+    padding-left: var(--bw-space-1);
+  }
+
+  &:where(:last-child) {
+    padding-right: var(--bw-space-1);
+  }
+
+  @include screen-sm {
+    &:where(:first-child) {
+      padding-left: var(--bw-space-2);
+    }
+
+    &:where(:last-child) {
+      padding-right: var(--bw-space-2);
+    }
+  }
+}
+
+.cell {
+  padding: var(--bw-space-4);
+
+  &:where(:first-child) {
+    padding-left: var(--bw-space-1);
+  }
+
+  &:where(:last-child) {
+    padding-right: var(--bw-space-1);
+  }
+
+  @include screen-sm {
+    &:where(:first-child) {
+      padding-left: var(--bw-space-2);
+    }
+
+    &:where(:last-child) {
+      padding-right: var(--bw-space-2);
+    }
+  }
+}
