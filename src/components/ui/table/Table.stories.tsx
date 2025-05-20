@@ -6,6 +6,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TableCheckboxCell } from "@/components/ui/table/TableCheckboxCell";
+import { TableCheckboxColumn } from "@/components/ui/table/TableCheckboxColumn";
 import { Table } from "./Table";
 
 const meta: Meta<typeof Table> = {
@@ -23,21 +25,6 @@ export const Default: Story = {
     layout: "centered",
   },
   render: () => {
-    const data = [
-      {
-        id: 1,
-        name: "John Doe",
-        email: "john.doe@example.com",
-        phone: "123-456-7890",
-      },
-      {
-        id: 2,
-        name: "Jane Doe",
-        email: "jane.doe@example.com",
-        phone: "123-456-7890",
-      },
-    ];
-
     return (
       <Table>
         <TableHeader>
@@ -45,7 +32,7 @@ export const Default: Story = {
           <TableColumn>Email</TableColumn>
           <TableColumn>Phone</TableColumn>
         </TableHeader>
-        <TableBody items={data}>
+        <TableBody items={sampleRows}>
           {(item) => (
             <TableRow key={item.id}>
               <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
@@ -60,3 +47,48 @@ export const Default: Story = {
     );
   },
 };
+
+export const Selection: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    return (
+      <Table selectionMode="multiple" defaultSelectedKeys={[1]}>
+        <TableHeader>
+          <TableCheckboxColumn />
+          <TableColumn isRowHeader>Name</TableColumn>
+          <TableColumn>Email</TableColumn>
+          <TableColumn>Phone</TableColumn>
+        </TableHeader>
+        <TableBody items={sampleRows}>
+          {(item) => (
+            <TableRow key={item.id}>
+              <TableCheckboxCell />
+              <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
+                {item.name}
+              </TableCell>
+              <TableCell>{item.email}</TableCell>
+              <TableCell>{item.phone}</TableCell>
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    );
+  },
+};
+
+const sampleRows = [
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john.doe@example.com",
+    phone: "123-456-7890",
+  },
+  {
+    id: 2,
+    name: "Jane Doe",
+    email: "jane.doe@example.com",
+    phone: "123-456-7890",
+  },
+];
