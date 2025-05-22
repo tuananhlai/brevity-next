@@ -27,21 +27,54 @@ const Checkbox: React.ForwardRefRenderFunction<
       {...rest}
       inputRef={ref}
     >
-      {({ isSelected, isIndeterminate }) => (
-        <>
-          <span className={styles.checkboxIconContainer} aria-hidden>
-            <svg
-              className={styles.checkboxIcon}
-              viewBox="0 0 14 14"
-              fill="none"
-            >
-              {getCheckedIcon(isSelected, isIndeterminate)}
-            </svg>
-          </span>
+      {({
+        isSelected,
+        isIndeterminate,
+        isHovered,
+        isDisabled,
+        isFocused,
+        isFocusVisible,
+        isInvalid,
+      }) => {
+        let state = "unselected";
+        if (isIndeterminate) {
+          state = "indeterminate";
+        } else if (isSelected) {
+          state = "selected";
+        }
 
-          {children != null && <span className={styles.label}>{children}</span>}
-        </>
-      )}
+        return (
+          <>
+            <span
+              className={styles.checkboxIconContainer}
+              aria-hidden
+              data-state={state}
+              data-hovered={isHovered || undefined}
+              data-disabled={isDisabled || undefined}
+              data-focused={isFocused || undefined}
+              data-focus-visible={isFocusVisible || undefined}
+            >
+              <svg
+                className={styles.checkboxIcon}
+                viewBox="0 0 14 14"
+                fill="none"
+              >
+                {getCheckedIcon(isSelected, isIndeterminate)}
+              </svg>
+            </span>
+
+            {children != null && (
+              <span
+                className={styles.label}
+                data-invalid={isInvalid || undefined}
+                data-disabled={isDisabled || undefined}
+              >
+                {children}
+              </span>
+            )}
+          </>
+        );
+      }}
     </AriaCheckbox>
   );
 };
