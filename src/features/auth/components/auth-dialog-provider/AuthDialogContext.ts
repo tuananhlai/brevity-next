@@ -1,9 +1,9 @@
 import { createContext, useContext } from "react";
 
-export type AuthDialogContextValue = {
+export interface AuthDialogContextValue {
   signIn: () => Promise<void>;
   signUp: () => Promise<void>;
-};
+}
 
 export const AuthDialogContext = createContext<AuthDialogContextValue | null>(
   null,
