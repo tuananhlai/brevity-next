@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import { StackedLayout } from "@/components/stacked-layout";
-import { GetArticleDetailsResponse } from "@/features/view-article/api/getArticleDetails";
 import { ArticleRenderer } from "@/features/view-article/components/article-renderer";
+import { GetArticleDetailsResponse } from "@/lib/client";
 import styles from "./ViewArticle.module.scss";
 
 export interface ViewArticleProps {

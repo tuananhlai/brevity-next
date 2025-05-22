@@ -31,6 +31,7 @@ it("calls 'onPress' when the button is pressed", async () => {
   expect(onPress).toHaveBeenCalledTimes(1);
 });
 
+/** @see https://www.w3.org/WAI/ARIA/apg/patterns/button/ */
 describe("WAI-ARIA Compliance", () => {
   it("has correct accessibility role", () => {
     render(<ExampleButton />);
