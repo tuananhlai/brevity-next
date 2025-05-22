@@ -1,2 +1,2 @@
 export { SignUpForm } from "./SignUpForm";
-export type { SignUpFormProps } from "./SignUpForm";
+export type { SignUpFormProps, SignUpFormValues } from "./SignUpForm";

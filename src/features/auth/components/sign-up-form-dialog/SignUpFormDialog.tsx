@@ -10,22 +10,22 @@ import {
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import {
-  SignInForm,
-  SignInFormValues,
-} from "@/features/auth/components/sign-in-form/SignInForm";
+  SignUpForm,
+  SignUpFormValues,
+} from "@/features/auth/components/sign-up-form";
 import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
 } from "@/features/auth/components/third-party-auth-button";
-import styles from "./SignInFormDialog.module.scss";
+import styles from "./SignUpFormDialog.module.scss";
 
-export interface SignInFormDialogProps
+export interface SignUpFormDialogProps
   extends Pick<DialogTriggerProps, "defaultOpen" | "isOpen" | "onOpenChange"> {
   children: React.ReactElement;
-  onSubmit?: (values: SignInFormValues) => void;
+  onSubmit?: (values: SignUpFormValues) => void;
 }
 
-export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
+export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
   const { children, onSubmit, ...dialogTriggerProps } = props;
   const formId = useId();
 
@@ -35,13 +35,13 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
       <Dialog size="md">
         {({ close }) => (
           <>
-            <DialogTitle>Sign in with your account</DialogTitle>
+            <DialogTitle>Sign up with your account</DialogTitle>
             <Text className={styles.description}>
-              Save your favorite articles, follow authors, and more by signing
-              in.
+              Create an account to save your favorite articles, follow authors,
+              and more.
             </Text>
             <DialogBody className={styles.dialogBody}>
-              <SignInForm
+              <SignUpForm
                 id={formId}
                 onSubmit={(v) => {
                   onSubmit?.(v);
@@ -49,7 +49,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                 }}
               />
               <Button form={formId} className={styles.submitBtn} type="submit">
-                Sign in
+                Sign up
               </Button>
               <Flex gap="var(--bw-space-2)" className={styles.flex1}>
                 <SignInWithGoogleButton
