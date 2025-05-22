@@ -116,7 +116,7 @@
 }
 
 .tertiary {
-  border: transparent;
+  border-color: transparent;
   color: var(--bw-color-zinc-950);
   background-color: transparent;
   --btn-hovered-background-color: #{alpha(var(--bw-color-zinc-950), 5)};
