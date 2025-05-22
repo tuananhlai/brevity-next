@@ -1,10 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogActions, DialogTitle } from "@/components/ui/dialog";
 import styles from "./AlertDialog.module.scss";
 
 export type CloseFn = () => void;
@@ -16,13 +11,13 @@ export interface AlertDialogProps {
   /** @default 'Confirm' */
   primaryActionLabel?: string;
   /** @default 'Cancel' */
-  secondaryActionLabel?: string;
+  cancel?: string;
   onPrimaryAction: (close: CloseFn) => void;
   /**
    * The function to invoke when the secondary action button is pressed. If empty,
    * the secondary action button will not be shown.
    */
-  onSecondaryAction?: (close: CloseFn) => void;
+  onCancel?: (close: CloseFn) => void;
 }
 
 export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
@@ -30,24 +25,21 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     title,
     children,
     primaryActionLabel = "Confirm",
-    secondaryActionLabel = "Cancel",
+    cancel = "Cancel",
     onPrimaryAction,
-    onSecondaryAction,
+    onCancel,
   } = props;
 
   return (
-    <Dialog>
+    <Dialog classNames={{ modal: styles.modal }}>
       {({ close }) => (
         <>
           <DialogTitle>{title}</DialogTitle>
-          <DialogBody className={styles.dialogBody}>{children}</DialogBody>
+          <p className={styles.dialogBody}>{children}</p>
           <DialogActions>
-            {onSecondaryAction != null && (
-              <Button
-                variant="secondary"
-                onPress={() => onSecondaryAction(close)}
-              >
-                {secondaryActionLabel}
+            {onCancel != null && (
+              <Button variant="tertiary" onPress={() => onCancel(close)}>
+                {cancel}
               </Button>
             )}
             <Button onPress={() => onPrimaryAction(close)}>

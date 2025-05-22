@@ -12,6 +12,11 @@ import styles from "./Dialog.module.scss";
 
 export interface DialogProps
   extends Omit<AriaDialogProps, "className" | "slot" | "style"> {
+  classNames?: {
+    overlay?: string;
+    modal?: string;
+    dialog?: string;
+  };
   /** @default 'lg' */
   size?: DialogSize;
   isDismissDisabled?: boolean;
@@ -25,6 +30,7 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     isDismissDisabled,
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
+    classNames,
     ...rest
   } = props;
 
@@ -32,16 +38,19 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     <ModalOverlay
       isDismissable={!isDismissDisabled}
       isKeyboardDismissDisabled={isKeyboardDismissDisabled}
-      className={styles.root}
+      className={cn(styles.root, classNames?.overlay)}
       shouldCloseOnInteractOutside={shouldCloseOnInteractOutside}
     >
       <Modal
         style={{
           ["--modal-sm-max-width" as string]: sizeToMaxWidth[size],
         }}
-        className={styles.modal}
+        className={cn(styles.modal, classNames?.modal)}
       >
-        <AriaDialog className={styles.dialog} {...rest} />
+        <AriaDialog
+          className={cn(styles.dialog, classNames?.dialog)}
+          {...rest}
+        />
       </Modal>
     </ModalOverlay>
   );

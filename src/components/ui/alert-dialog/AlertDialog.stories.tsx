@@ -5,7 +5,7 @@ import { AlertDialog } from "./AlertDialog";
 
 const meta: Meta<typeof AlertDialog> = {
   component: AlertDialog,
-  title: "AlertDialog",
+  title: "ui/AlertDialog",
   argTypes: {},
 };
 export default meta;
@@ -21,11 +21,12 @@ export const Default: Story = {
     <DialogTrigger>
       <Button>Open Dialog</Button>
       <AlertDialog
-        title="Alert Dialog"
+        title="Are you sure you want to refund this payment?"
         onPrimaryAction={(close) => close()}
-        onSecondaryAction={(close) => close()}
+        onCancel={(close) => close()}
       >
-        This is an alert dialog
+        The refund will be reflected in the customer’s bank account 2 to 3
+        business days after processing.
       </AlertDialog>
     </DialogTrigger>
   ),
