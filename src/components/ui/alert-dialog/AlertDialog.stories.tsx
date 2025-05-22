@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { DialogTrigger } from "react-aria-components";
 import { Button } from "@/components/ui/button";
+import { DialogTrigger } from "@/components/ui/dialog";
 import { AlertDialog } from "./AlertDialog";
 
 const meta: Meta<typeof AlertDialog> = {
   component: AlertDialog,
-  title: "ui/AlertDialog",
+  title: "AlertDialog",
   argTypes: {},
 };
 export default meta;
@@ -17,21 +17,16 @@ export const Default: Story = {
   parameters: {
     layout: "centered",
   },
-  render: () => {
-    return (
-      <DialogTrigger defaultOpen>
-        <Button>Open Alert Dialog</Button>
-        <AlertDialog
-          title="Alert Dialog"
-          primaryActionLabel="Confirm"
-          cancelLabel="Cancel"
-        >
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique
-          dolores autem dolorum architecto commodi rem unde. Suscipit, excepturi
-          nam et soluta alias aspernatur. Facere aspernatur suscipit maxime ut
-          rerum veritatis.
-        </AlertDialog>
-      </DialogTrigger>
-    );
-  },
+  render: () => (
+    <DialogTrigger>
+      <Button>Open Dialog</Button>
+      <AlertDialog
+        title="Alert Dialog"
+        onPrimaryAction={(close) => close()}
+        onSecondaryAction={(close) => close()}
+      >
+        This is an alert dialog
+      </AlertDialog>
+    </DialogTrigger>
+  ),
 };

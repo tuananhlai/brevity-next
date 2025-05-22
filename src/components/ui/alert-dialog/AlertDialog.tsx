@@ -5,17 +5,24 @@ import {
   DialogBody,
   DialogTitle,
 } from "@/components/ui/dialog";
+import styles from "./AlertDialog.module.scss";
+
+export type CloseFn = () => void;
 
 export interface AlertDialogProps {
   title: React.ReactNode;
+  /** The content of the dialog. */
   children: React.ReactNode;
-  /** @default "Confirm" */
+  /** @default 'Confirm' */
   primaryActionLabel?: string;
-  /** @default "Cancel" */
-  cancelLabel?: string;
-
-  onPrimaryAction?: () => void;
-  onCancel?: () => void;
+  /** @default 'Cancel' */
+  secondaryActionLabel?: string;
+  onPrimaryAction: (close: CloseFn) => void;
+  /**
+   * The function to invoke when the secondary action button is pressed. If empty,
+   * the secondary action button will not be shown.
+   */
+  onSecondaryAction?: (close: CloseFn) => void;
 }
 
 export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
@@ -23,33 +30,27 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     title,
     children,
     primaryActionLabel = "Confirm",
-    cancelLabel = "Cancel",
+    secondaryActionLabel = "Cancel",
     onPrimaryAction,
-    onCancel,
+    onSecondaryAction,
   } = props;
+
   return (
     <Dialog>
       {({ close }) => (
         <>
           <DialogTitle>{title}</DialogTitle>
-          <DialogBody>{children}</DialogBody>
+          <DialogBody className={styles.dialogBody}>{children}</DialogBody>
           <DialogActions>
-            <Button
-              variant="secondary"
-              onPress={() => {
-                onCancel?.();
-                close();
-              }}
-            >
-              {cancelLabel}
-            </Button>
-            <Button
-              variant="primary"
-              onPress={() => {
-                onPrimaryAction?.();
-                close();
-              }}
-            >
+            {onSecondaryAction != null && (
+              <Button
+                variant="secondary"
+                onPress={() => onSecondaryAction(close)}
+              >
+                {secondaryActionLabel}
+              </Button>
+            )}
+            <Button onPress={() => onPrimaryAction(close)}>
               {primaryActionLabel}
             </Button>
           </DialogActions>
