@@ -21,7 +21,7 @@ import styles from "./SignUpFormDialog.module.scss";
 
 export interface SignUpFormDialogProps
   extends Pick<DialogTriggerProps, "defaultOpen" | "isOpen" | "onOpenChange"> {
-  children: React.ReactElement;
+  children?: React.ReactElement;
   onSubmit?: (values: SignUpFormValues) => void;
 }
 

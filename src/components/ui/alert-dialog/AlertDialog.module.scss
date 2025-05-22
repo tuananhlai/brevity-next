@@ -1,0 +1,16 @@
+@use "src/styles/utils.scss" as *;
+
+.modal {
+  @include screen-sm {
+    padding: var(--bw-space-6);
+  }
+}
+
+.dialogBody {
+  color: var(--bw-color-text-tertiary);
+  margin-top: var(--bw-space-3);
+
+  @include screen-sm {
+    margin-top: var(--bw-space-2);
+  }
+}

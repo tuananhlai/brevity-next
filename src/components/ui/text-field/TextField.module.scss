@@ -29,7 +29,7 @@
     border-color: var(--border-hover-color);
   }
 
-  &:not(:first-child) {
+  &:where(:not(:first-child)) {
     margin-top: var(--bw-space-3);
   }
 
@@ -74,9 +74,17 @@
 
     --outline: 2px solid var(--bw-color-blue-500);
     --outline-offset: -2px;
+
+    &:where(:not(:first-child)) {
+      margin-top: var(--bw-space-1-5);
+    }
   }
 }
 
 .errorMessage {
   margin-top: var(--bw-space-3);
+
+  @include screen-sm {
+    margin-top: var(--bw-space-1-5);
+  }
 }

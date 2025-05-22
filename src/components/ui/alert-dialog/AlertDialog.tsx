@@ -1,21 +1,23 @@
 import { Button } from "@/components/ui/button";
-import {
-  Dialog,
-  DialogActions,
-  DialogBody,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogActions, DialogTitle } from "@/components/ui/dialog";
+import styles from "./AlertDialog.module.scss";
+
+export type CloseFn = () => void;
 
 export interface AlertDialogProps {
   title: React.ReactNode;
+  /** The content of the dialog. */
   children: React.ReactNode;
-  /** @default "Confirm" */
+  /** @default 'Confirm' */
   primaryActionLabel?: string;
-  /** @default "Cancel" */
-  cancelLabel?: string;
-
-  onPrimaryAction?: () => void;
-  onCancel?: () => void;
+  /** @default 'Cancel' */
+  cancel?: string;
+  onPrimaryAction: (close: CloseFn) => void;
+  /**
+   * The function to invoke when the secondary action button is pressed. If empty,
+   * the secondary action button will not be shown.
+   */
+  onCancel?: (close: CloseFn) => void;
 }
 
 export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
@@ -23,33 +25,24 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     title,
     children,
     primaryActionLabel = "Confirm",
-    cancelLabel = "Cancel",
+    cancel = "Cancel",
     onPrimaryAction,
     onCancel,
   } = props;
+
   return (
-    <Dialog>
+    <Dialog classNames={{ modal: styles.modal }}>
       {({ close }) => (
         <>
           <DialogTitle>{title}</DialogTitle>
-          <DialogBody>{children}</DialogBody>
+          <p className={styles.dialogBody}>{children}</p>
           <DialogActions>
-            <Button
-              variant="secondary"
-              onPress={() => {
-                onCancel?.();
-                close();
-              }}
-            >
-              {cancelLabel}
-            </Button>
-            <Button
-              variant="primary"
-              onPress={() => {
-                onPrimaryAction?.();
-                close();
-              }}
-            >
+            {onCancel != null && (
+              <Button variant="tertiary" onPress={() => onCancel(close)}>
+                {cancel}
+              </Button>
+            )}
+            <Button onPress={() => onPrimaryAction(close)}>
               {primaryActionLabel}
             </Button>
           </DialogActions>

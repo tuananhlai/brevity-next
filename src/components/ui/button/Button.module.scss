@@ -130,14 +130,3 @@
     background-color: var(--btn-hovered-background-color);
   }
 }
-
-.destructive {
-  color: var(--bw-color-white);
-  --btn-border: #{alpha(var(--bw-color-red-700), 90)};
-  --btn-bg: var(--bw-color-red-600);
-  --btn-hover-overlay: #{alpha(var(--bw-color-white), 10)};
-
-  @include dark-mode {
-    --btn-bg: var(--bw-color-red-600);
-  }
-}

@@ -65,6 +65,7 @@
 
   @include dark-mode {
     background-color: var(--bw-color-zinc-900);
+    border: 1px solid alpha(var(--bw-color-white), 10);
   }
 }
 

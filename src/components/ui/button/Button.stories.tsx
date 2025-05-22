@@ -40,15 +40,11 @@ export const VisualTest: Story = {
         <Button>{sampleChildren}</Button>
         <Button variant="secondary">{sampleChildren}</Button>
         <Button variant="tertiary">{sampleChildren}</Button>
-        <Button variant="destructive">{sampleChildren}</Button>
         <Button isDisabled>{sampleChildren}</Button>
         <Button variant="secondary" isDisabled>
           {sampleChildren}
         </Button>
         <Button variant="tertiary" isDisabled>
-          {sampleChildren}
-        </Button>
-        <Button variant="destructive" isDisabled>
           {sampleChildren}
         </Button>
       </VisualTestGrid>

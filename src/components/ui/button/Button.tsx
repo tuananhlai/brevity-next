@@ -16,11 +16,7 @@ export interface ButtonProps
   variant?: ButtonVariant;
 }
 
-export type ButtonVariant =
-  | "primary"
-  | "secondary"
-  | "tertiary"
-  | "destructive";
+export type ButtonVariant = "primary" | "secondary" | "tertiary";
 
 const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   props,
@@ -38,9 +34,6 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       break;
     case "tertiary":
       buttonClassNames.push(styles.tertiary);
-      break;
-    case "destructive":
-      buttonClassNames.push(styles.primary, styles.destructive);
       break;
   }
 

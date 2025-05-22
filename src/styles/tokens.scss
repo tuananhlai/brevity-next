@@ -145,6 +145,7 @@
 
   --bw-color-text-on-brand: var(--bw-color-white);
   --bw-color-text-primary: var(--bw-color-zinc-900);
+  --bw-color-text-tertiary: var(--bw-color-zinc-500);
   --bw-color-text-error-primary: var(--bw-color-red-600);
 
   @include dark-mode {
@@ -154,6 +155,7 @@
 
     --bw-color-text-on-brand: var(--bw-color-white);
     --bw-color-text-primary: var(--bw-color-white);
+    --bw-color-text-tertiary: var(--bw-color-zinc-400);
     --bw-color-text-error-primary: var(--bw-color-red-500);
   }
 }
