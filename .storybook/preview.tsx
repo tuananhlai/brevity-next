@@ -2,7 +2,7 @@ import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import type { Preview } from "@storybook/react";
 import React from "react";
 import "@/styles/globals.scss";
-import "@/styles/tokens.css";
+import "@/styles/tokens.scss";
 import { AppProviders } from "../src/app/AppProviders";
 
 const preview: Preview = {

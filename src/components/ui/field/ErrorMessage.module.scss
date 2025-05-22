@@ -4,7 +4,7 @@
   display: block;
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  color: var(--bw-color-red-600);
+  color: var(--bw-color-text-error-primary);
 
   &:where([data-disabled]) {
     opacity: 50%;
@@ -12,9 +12,5 @@
 
   @include screen-sm {
     font-size: var(--bw-font-sm);
-  }
-
-  @include dark-mode {
-    color: var(--bw-color-red-500);
   }
 }

@@ -4,7 +4,7 @@ import { SignInFormDialog } from "./SignInFormDialog";
 
 const meta: Meta<typeof SignInFormDialog> = {
   component: SignInFormDialog,
-  title: "features/sign-in/SignInFormDialog",
+  title: "features/auth/SignInFormDialog",
   argTypes: {},
   decorators: [
     (story) => (

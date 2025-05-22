@@ -1,3 +1,5 @@
+@use "src/styles/utils.scss" as *;
+
 :root {
   --bw-font-xs: 0.75rem;
   --bw-font-sm: 0.875rem;
@@ -134,4 +136,24 @@
   --bw-space-72: 18rem;
   --bw-space-80: 20rem;
   --bw-space-96: 24rem;
+}
+
+:root {
+  --bw-color-bg-brand-solid: var(--bw-color-zinc-900);
+  --bw-color-bg-error-solid: var(--bw-color-red-600);
+  --bw-color-bg-primary: var(--bw-color-white);
+
+  --bw-color-text-on-brand: var(--bw-color-white);
+  --bw-color-text-primary: var(--bw-color-zinc-900);
+  --bw-color-text-error-primary: var(--bw-color-red-600);
+
+  @include dark-mode {
+    --bw-color-bg-brand-solid: var(--bw-color-zinc-600);
+    --bw-color-bg-error-solid: var(--bw-color-red-500);
+    --bw-color-bg-primary: var(--bw-color-zinc-900);
+
+    --bw-color-text-on-brand: var(--bw-color-white);
+    --bw-color-text-primary: var(--bw-color-white);
+    --bw-color-text-error-primary: var(--bw-color-red-500);
+  }
 }
