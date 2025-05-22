@@ -36,6 +36,7 @@ export const VisualTest: Story = {
         <ExampleCheckbox isDisabled />
         <ExampleCheckbox isSelected />
         <ExampleCheckbox isDisabled isSelected />
+        <ExampleCheckbox isIndeterminate />
         <ExampleCheckbox isIndeterminate isSelected />
         <ExampleCheckbox isIndeterminate isSelected isDisabled />
         <ExampleCheckbox isInvalid />

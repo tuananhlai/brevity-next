@@ -27,30 +27,48 @@ const Checkbox: React.ForwardRefRenderFunction<
       {...rest}
       inputRef={ref}
     >
-      <span className={styles.checkboxIconContainer} aria-hidden>
-        <svg className={styles.checkboxIcon} viewBox="0 0 14 14" fill="none">
-          {/* Checkmark icon */}
-          <path
-            className={styles.checkmark}
-            d="M3 8L6 11L11 3.5"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          {/* Indeterminate icon */}
-          <path
-            className={styles.indeterminateIcon}
-            d="M3 7H11"
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </span>
+      {({ isSelected, isIndeterminate }) => (
+        <>
+          <span className={styles.checkboxIconContainer} aria-hidden>
+            <svg
+              className={styles.checkboxIcon}
+              viewBox="0 0 14 14"
+              fill="none"
+            >
+              {getCheckedIcon(isSelected, isIndeterminate)}
+            </svg>
+          </span>
 
-      <span className={styles.label}>{children}</span>
+          {children != null && <span className={styles.label}>{children}</span>}
+        </>
+      )}
     </AriaCheckbox>
   );
+};
+
+/** Return the icon to be displayed based on the checkbox state. */
+const getCheckedIcon = (isSelected: boolean, isIndeterminate: boolean) => {
+  if (isIndeterminate) {
+    return (
+      <path
+        d="M3 7H11"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    );
+  } else if (isSelected) {
+    return (
+      <path
+        d="M3 8L6 11L11 3.5"
+        strokeWidth={2}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    );
+  }
+
+  return null;
 };
 
 const _Checkbox = /*#__PURE__*/ forwardRef(Checkbox);
