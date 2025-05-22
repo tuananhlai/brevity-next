@@ -40,8 +40,17 @@ export const SignUpForm: React.FC<SignUpFormProps> = (props) => {
         });
       }}
     >
-      <TextField name="username" label="Username" isRequired />
-      <TextField name="displayName" label="Display name" />
+      <TextField
+        name="username"
+        label="Username"
+        isRequired
+        description="The handle of your account."
+      />
+      <TextField
+        name="displayName"
+        label="Display name"
+        description="The name to be displayed on your profile."
+      />
       <TextField name="email" label="Email" type="email" isRequired />
       <TextField name="password" label="Password" type="password" isRequired />
     </Form>
