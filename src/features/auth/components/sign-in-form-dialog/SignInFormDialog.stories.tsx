@@ -26,3 +26,15 @@ export const Default: Story = {
     children: <Button>Open Dialog</Button>,
   },
 };
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  args: {
+    defaultOpen: true,
+    children: <Button>Open Dialog</Button>,
+  },
+};
