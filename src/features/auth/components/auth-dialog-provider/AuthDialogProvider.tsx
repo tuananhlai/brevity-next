@@ -18,9 +18,9 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
 ) => {
   const { children } = props;
   const [signInDialogProps, setSignInDialogProps] =
-    useState<SignInFormDialogProps | null>(null);
+    useState<SignInFormDialogProps>({ isOpen: false });
   const [signUpDialogProps, setSignUpDialogProps] =
-    useState<SignUpFormDialogProps | null>(null);
+    useState<SignUpFormDialogProps>({ isOpen: false });
 
   const signIn = useCallback(async () => {
     let resolveFn: () => void;
@@ -32,12 +32,12 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
       isOpen: true,
       onOpenChange: () => {
         resolveFn();
-        setSignInDialogProps(null);
+        setSignInDialogProps({ isOpen: false });
       },
       onSubmit: (values) => {
         console.log(values);
         resolveFn();
-        setSignUpDialogProps(null);
+        setSignUpDialogProps({ isOpen: false });
       },
     });
 
@@ -54,12 +54,12 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
       isOpen: true,
       onOpenChange: () => {
         resolveFn();
-        setSignUpDialogProps(null);
+        setSignUpDialogProps({ isOpen: false });
       },
       onSubmit: (values) => {
         console.log(values);
         resolveFn();
-        setSignUpDialogProps(null);
+        setSignUpDialogProps({ isOpen: false });
       },
     });
 

@@ -1,6 +1,11 @@
 import { useId } from "react";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogBody, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogBody,
+  DialogProps,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import {
@@ -13,16 +18,17 @@ import {
 } from "@/features/auth/components/third-party-auth-button";
 import styles from "./SignUpFormDialog.module.scss";
 
-export interface SignUpFormDialogProps {
+export interface SignUpFormDialogProps
+  extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
   onSubmit?: (values: SignUpFormValues) => void;
 }
 
 export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
-  const { onSubmit } = props;
+  const { onSubmit, isOpen, onOpenChange } = props;
   const formId = useId();
 
   return (
-    <Dialog size="md">
+    <Dialog size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
       {({ close }) => (
         <>
           <DialogTitle>Sign up with your account</DialogTitle>

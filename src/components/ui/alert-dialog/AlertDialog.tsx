@@ -1,5 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogActions, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogActions,
+  DialogBody,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import styles from "./AlertDialog.module.scss";
 
 export type CloseFn = () => void;
@@ -35,7 +40,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
       {({ close }) => (
         <>
           <DialogTitle>{title}</DialogTitle>
-          <p className={styles.dialogBody}>{children}</p>
+          <DialogBody className={styles.dialogBody}>{children}</DialogBody>
           <DialogActions>
             {onCancel != null && (
               <Button variant="tertiary" onPress={() => onCancel(close)}>

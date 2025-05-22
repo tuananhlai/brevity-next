@@ -6,12 +6,14 @@ import {
   HeadingProps,
   Modal,
   ModalOverlay,
+  ModalOverlayProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Dialog.module.scss";
 
 export interface DialogProps
-  extends Omit<AriaDialogProps, "className" | "slot" | "style"> {
+  extends Omit<AriaDialogProps, "className" | "slot" | "style">,
+    Pick<ModalOverlayProps, "isOpen" | "onOpenChange"> {
   classNames?: {
     overlay?: string;
     modal?: string;
@@ -31,11 +33,15 @@ export const Dialog: React.FC<DialogProps> = (props) => {
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
     classNames,
+    isOpen,
+    onOpenChange,
     ...rest
   } = props;
 
   return (
     <ModalOverlay
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}
       isDismissable={!isDismissDisabled}
       isKeyboardDismissDisabled={isKeyboardDismissDisabled}
       className={cn(styles.root, classNames?.overlay)}

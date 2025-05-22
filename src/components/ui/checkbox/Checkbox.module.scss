@@ -20,10 +20,10 @@
   width: 1.125rem;
   border-radius: 0.3125rem;
   border: 1px solid alpha(var(--bw-color-zinc-950), 15);
+  color: var(--bw-color-white);
   --checked-bg: var(--bw-color-zinc-900);
   --checked-border: #{alpha(var(--bw-color-zinc-950), 90)};
   --hover-border-color: #{alpha(var(--bw-color-zinc-950), 30)};
-  --checkbox-check: var(--bw-color-white);
 
   &::before {
     content: "";
@@ -70,7 +70,7 @@
     opacity: 50%;
     border-color: alpha(var(--bw-color-zinc-950), 25);
     background-color: alpha(var(--bw-color-zinc-950), 5);
-    --checkbox-check: #{alpha(var(--bw-color-zinc-950), 50)};
+    color: alpha(var(--bw-color-zinc-950), 50);
 
     &::before {
       background-color: transparent;
@@ -110,7 +110,7 @@
     &:where([data-disabled]) {
       border-color: alpha(var(--bw-color-white), 20);
       background-color: alpha(var(--bw-color-white), 2.5);
-      --checkbox-check: #{alpha(var(--bw-color-white), 50)};
+      color: alpha(var(--bw-color-white), 50);
     }
 
     &:where([data-disabled]:not([data-state="unselected"])) {
@@ -124,7 +124,6 @@
 .checkboxIcon {
   aspect-ratio: 1 / 1;
   width: var(--bw-space-4);
-  stroke: var(--checkbox-check);
 
   @include screen-sm {
     width: var(--bw-space-3-5);

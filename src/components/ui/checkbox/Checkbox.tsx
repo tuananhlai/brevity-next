@@ -88,6 +88,7 @@ const getCheckedIcon = (isSelected: boolean, isIndeterminate: boolean) => {
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
+        stroke="currentColor"
       />
     );
   } else if (isSelected) {
@@ -97,6 +98,7 @@ const getCheckedIcon = (isSelected: boolean, isIndeterminate: boolean) => {
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
+        stroke="currentColor"
       />
     );
   }

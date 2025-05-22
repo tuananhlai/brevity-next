@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Checkbox, CheckboxProps } from "@/components/ui/checkbox/Checkbox";
 
@@ -76,7 +76,9 @@ describe("WAI-ARIA Compliance", () => {
     const checkbox = screen.getByRole("checkbox");
 
     expect(checkbox).not.toBeChecked();
-    checkbox.focus();
+    act(() => {
+      checkbox.focus();
+    });
     await userEvent.keyboard(" ");
     expect(checkbox).toBeChecked();
   });
