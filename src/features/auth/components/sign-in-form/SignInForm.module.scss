@@ -3,8 +3,5 @@
 .root {
   display: flex;
   flex-direction: column;
-}
-
-.password {
-  margin-top: var(--bw-space-4);
+  gap: var(--bw-space-4);
 }

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
-import { SignInFormDialog } from "@/features/sign-in/components/sign-in-form-dialog";
+import { SignInFormDialog } from "@/features/auth/components/sign-in-form-dialog";
 import { cn } from "@/styles/utils";
 import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
 import styles from "./StackedLayout.module.scss";

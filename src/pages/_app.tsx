@@ -3,7 +3,7 @@ import { TracingInstrumentation } from "@grafana/faro-web-tracing";
 import type { AppProps } from "next/app";
 import { AppProviders } from "@/app/AppProviders";
 import "@/styles/globals.scss";
-import "@/styles/tokens.css";
+import "@/styles/tokens.scss";
 
 if (typeof window !== "undefined" && process.env.NODE_ENV === "production") {
   initializeFaro({

@@ -1,20 +1,23 @@
 import Link from "next/link";
 import { useId } from "react";
-import { DialogTriggerProps } from "react-aria-components";
-import { FaFacebook, FaGoogle } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogBody,
   DialogTitle,
   DialogTrigger,
+  DialogTriggerProps,
 } from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import {
   SignInForm,
   SignInFormValues,
-} from "@/features/sign-in/components/sign-in-form/SignInForm";
+} from "@/features/auth/components/sign-in-form/SignInForm";
+import {
+  SignInWithAppleButton,
+  SignInWithGoogleButton,
+} from "@/features/auth/components/third-party-auth-button";
 import styles from "./SignInFormDialog.module.scss";
 
 export interface SignInFormDialogProps
@@ -56,22 +59,12 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                   Sign in
                 </Button>
                 <Flex gap="var(--bw-space-2)">
-                  <Button
+                  <SignInWithGoogleButton
                     className={styles.thirdPartyAuthButton}
-                    variant="secondary"
-                    aria-label="Sign in with Google"
-                  >
-                    <FaGoogle />
-                    Google
-                  </Button>
-                  <Button
+                  />
+                  <SignInWithAppleButton
                     className={styles.thirdPartyAuthButton}
-                    variant="secondary"
-                    aria-label="Sign in with Facebook"
-                  >
-                    <FaFacebook />
-                    Facebook
-                  </Button>
+                  />
                 </Flex>
               </Flex>
             </DialogBody>

@@ -3,7 +3,7 @@ import { SignInForm } from "./SignInForm";
 
 const meta: Meta<typeof SignInForm> = {
   component: SignInForm,
-  title: "features/sign-in/SignInForm",
+  title: "features/auth/SignInForm",
   argTypes: {},
 };
 export default meta;
