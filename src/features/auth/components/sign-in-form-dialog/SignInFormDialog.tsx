@@ -22,7 +22,7 @@ import styles from "./SignInFormDialog.module.scss";
 
 export interface SignInFormDialogProps
   extends Pick<DialogTriggerProps, "defaultOpen" | "isOpen" | "onOpenChange"> {
-  children: React.ReactElement;
+  children?: React.ReactElement;
   onSubmit?: (values: SignInFormValues) => void;
 }
 
