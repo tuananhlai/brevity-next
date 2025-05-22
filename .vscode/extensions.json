@@ -3,6 +3,7 @@
     "dbaeumer.vscode-eslint",
     "orta.vscode-jest",
     "esbenp.prettier-vscode",
-    "vunguyentuan.vscode-css-variables"
+    "vunguyentuan.vscode-css-variables",
+    "viijay-kr.react-ts-css"
   ]
 }

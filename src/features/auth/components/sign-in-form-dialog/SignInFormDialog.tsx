@@ -13,7 +13,7 @@ import { Text } from "@/components/ui/text";
 import {
   SignInForm,
   SignInFormValues,
-} from "@/features/sign-in/components/sign-in-form/SignInForm";
+} from "@/features/auth/components/sign-in-form/SignInForm";
 import styles from "./SignInFormDialog.module.scss";
 
 export interface SignInFormDialogProps
