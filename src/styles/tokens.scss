@@ -148,6 +148,8 @@
   --bw-color-text-tertiary: var(--bw-color-zinc-500);
   --bw-color-text-error-primary: var(--bw-color-red-600);
 
+  --bw-color-outline-primary: var(--bw-color-blue-500);
+
   @include dark-mode {
     --bw-color-bg-brand-solid: var(--bw-color-zinc-600);
     --bw-color-bg-error-solid: var(--bw-color-red-500);
@@ -157,5 +159,7 @@
     --bw-color-text-primary: var(--bw-color-white);
     --bw-color-text-tertiary: var(--bw-color-zinc-400);
     --bw-color-text-error-primary: var(--bw-color-red-500);
+
+    --bw-color-outline-primary: var(--bw-color-blue-400);
   }
 }

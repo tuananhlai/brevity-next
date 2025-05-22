@@ -55,3 +55,7 @@ $breakpoint-2xl: 1536px;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@mixin outline-primary {
+  outline: 2px solid var(--bw-color-outline-primary);
+}

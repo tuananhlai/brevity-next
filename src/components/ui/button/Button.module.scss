@@ -17,7 +17,7 @@
 
   &:where([data-focused]) {
     outline-offset: 2px;
-    outline: 2px solid var(--bw-color-blue-500);
+    @include outline-primary;
   }
 
   &:where(:not([data-focus-visible])) {

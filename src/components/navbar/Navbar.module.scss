@@ -36,6 +36,10 @@
     line-height: var(--bw-line-5);
   }
 
+  &:where([data-focused]) {
+    @include outline-primary;
+  }
+
   &:where(:not([data-focus-visible])) {
     outline: none;
   }

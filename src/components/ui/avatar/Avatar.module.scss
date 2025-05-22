@@ -46,7 +46,7 @@
   border-radius: 50%;
   padding: 0;
   outline-offset: 2px;
-  outline: 2px solid var(--bw-color-blue-500);
+  @include outline-primary;
 
   &:where([data-hovered]) {
     cursor: pointer;

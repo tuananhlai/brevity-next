@@ -72,7 +72,7 @@
     padding: calc(var(--bw-space-1-5) - 1px) calc(var(--bw-space-3) - 1px);
     font-size: var(--bw-font-sm);
 
-    --outline: 2px solid var(--bw-color-blue-500);
+    --outline: 2px solid var(--bw-color-outline-primary);
     --outline-offset: -2px;
 
     &:where(:not(:first-child)) {
