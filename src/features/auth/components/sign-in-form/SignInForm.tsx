@@ -31,13 +31,7 @@ export const SignInForm: React.FC<SignInFormProps> = (props) => {
       }}
     >
       <TextField name="email" label="Email" type="email" isRequired />
-      <TextField
-        name="password"
-        className={styles.password}
-        label="Password"
-        type="password"
-        isRequired
-      />
+      <TextField name="password" label="Password" type="password" isRequired />
     </Form>
   );
 };
