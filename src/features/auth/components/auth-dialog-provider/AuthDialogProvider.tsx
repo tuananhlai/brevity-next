@@ -8,7 +8,6 @@ import {
   SignUpFormDialog,
   SignUpFormDialogProps,
 } from "@/features/auth/components/sign-up-form-dialog";
-import styles from "./AuthDialogProvider.module.scss";
 
 export interface AuthDialogProviderProps {
   children: React.ReactNode;
