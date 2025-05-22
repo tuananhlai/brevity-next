@@ -1,7 +1,5 @@
 import { NextPage } from "next";
-import { LuArrowRight } from "react-icons/lu";
 import { StackedLayout } from "@/components/stacked-layout";
-import { LinkButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
 import { useGetArticlePreviews } from "@/features/home/api/getArticlePreviews";
 import { BlogCard } from "@/features/home/components/blog-card";
@@ -31,12 +29,6 @@ export const Home: NextPage = () => {
                 />
               </div>
             ))}
-          </div>
-          <div className={styles.readMoreContainer}>
-            <LinkButton variant="tertiary" href="/blog/newest">
-              View all
-              <LuArrowRight />
-            </LinkButton>
           </div>
         </section>
       </div>
