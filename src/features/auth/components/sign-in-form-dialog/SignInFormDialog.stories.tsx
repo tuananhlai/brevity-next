@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@/components/ui/button";
+import { DialogTrigger } from "@/components/ui/dialog";
 import { SignInFormDialog } from "./SignInFormDialog";
 
 const meta: Meta<typeof SignInFormDialog> = {
@@ -18,12 +19,13 @@ type Story = StoryObj<typeof SignInFormDialog>;
 
 // Minimal code to render the component correctly.
 export const Default: Story = {
-  parameters: {
-    layout: "centered",
-  },
-  args: {
-    defaultOpen: true,
-    children: <Button>Open Dialog</Button>,
+  render: () => {
+    return (
+      <DialogTrigger defaultOpen>
+        <Button>Open Dialog</Button>
+        <SignInFormDialog />
+      </DialogTrigger>
+    );
   },
 };
 
@@ -33,8 +35,12 @@ export const VisualTest: Story = {
       disableSnapshot: false,
     },
   },
-  args: {
-    defaultOpen: true,
-    children: <Button>Open Dialog</Button>,
+  render: () => {
+    return (
+      <DialogTrigger defaultOpen>
+        <Button>Open Dialog</Button>
+        <SignInFormDialog />
+      </DialogTrigger>
+    );
   },
 };

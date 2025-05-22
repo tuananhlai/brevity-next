@@ -56,8 +56,6 @@ export const Dialog: React.FC<DialogProps> = (props) => {
   );
 };
 
-export { DialogTrigger } from "react-aria-components";
-
 export const DialogTitle = ({
   className,
   ...props
