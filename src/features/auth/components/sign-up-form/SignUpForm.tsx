@@ -41,15 +41,9 @@ export const SignUpForm: React.FC<SignUpFormProps> = (props) => {
       }}
     >
       <TextField name="username" label="Username" isRequired />
-      <TextField name="displayName" label="Display Name" />
+      <TextField name="displayName" label="Display name" />
       <TextField name="email" label="Email" type="email" isRequired />
-      <TextField
-        name="password"
-        className={styles.password}
-        label="Password"
-        type="password"
-        isRequired
-      />
+      <TextField name="password" label="Password" type="password" isRequired />
     </Form>
   );
 };
