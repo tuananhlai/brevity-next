@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
+import { DialogTrigger } from "@/components/ui/dialog";
 import { SignInFormDialog } from "@/features/auth/components/sign-in-form-dialog";
 import { cn } from "@/styles/utils";
 import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
@@ -22,9 +23,10 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
             Brevity
           </Link>
           <NavbarSpacer />
-          <SignInFormDialog>
+          <DialogTrigger>
             <LoginButton />
-          </SignInFormDialog>
+            <SignInFormDialog />
+          </DialogTrigger>
           <ToggleColorSchemeButton />
         </Navbar>
       </header>
