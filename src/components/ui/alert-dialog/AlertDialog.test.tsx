@@ -15,7 +15,7 @@ it("should have the correct title and content", () => {
   );
 
   expect(
-    screen.getByRole("dialog", { name: "Test Title" }),
+    screen.getByRole("alertdialog", { name: "Test Title" }),
   ).toBeInTheDocument();
   expect(screen.getByText("Test Content")).toBeInTheDocument();
 });
