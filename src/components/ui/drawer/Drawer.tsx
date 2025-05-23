@@ -11,7 +11,8 @@ import { cn } from "@/styles/utils";
 import styles from "./Drawer.module.scss";
 
 export interface DrawerProps
-  extends Omit<DialogProps, "className" | "slot" | "style"> {
+  extends Omit<DialogProps, "className" | "slot" | "style">,
+    Pick<ModalOverlayProps, "isOpen" | "onOpenChange"> {
   /** @default 'left' */
   position?: DrawerPosition;
   /** @default 'md' */
@@ -28,6 +29,8 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
     shouldCloseOnInteractOutside,
     position = "left",
     size = "md",
+    isOpen,
+    onOpenChange,
     ...rest
   } = props;
 
@@ -45,6 +48,8 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
 
   return (
     <ModalOverlay
+      isOpen={isOpen}
+      onOpenChange={onOpenChange}
       isDismissable={!isDismissDisabled}
       isKeyboardDismissDisabled={isKeyboardDismissDisabled}
       className={cn(modalOverlayClassNames)}
@@ -64,7 +69,7 @@ export const Drawer: React.FC<DrawerProps> = (props) => {
 
 export type DrawerPosition = "left" | "right";
 export type DrawerSize = "md" | "lg";
-export { DialogTrigger as DrawerTrigger } from "react-aria-components";
+
 export const DrawerTitle = (props: Omit<HeadingProps, "slot">) => {
   return <Heading slot="title" className={styles.drawerTitle} {...props} />;
 };

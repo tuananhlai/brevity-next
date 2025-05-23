@@ -29,7 +29,7 @@ export const Default: Story = {
           <LuLogIn />
         </NavbarLink>
         <MenuTrigger>
-          <AvatarButton initials="JD" label={"Open Menu"} />
+          <AvatarButton initials="JD" aria-label={"Open Menu"} />
           <Menu>
             <MenuItem href="/profile">Profile</MenuItem>
             <MenuItem href="/settings">Settings</MenuItem>

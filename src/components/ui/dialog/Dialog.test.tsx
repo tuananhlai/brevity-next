@@ -3,6 +3,28 @@ import userEvent from "@testing-library/user-event";
 import { Button, DialogTrigger } from "react-aria-components";
 import { Dialog, DialogBody, DialogTitle } from "@/components/ui/dialog";
 
+it("should be open when `isOpen` is true", () => {
+  render(
+    <Dialog isOpen>
+      <DialogTitle>Dialog Title</DialogTitle>
+    </Dialog>,
+  );
+
+  expect(screen.getByText("Dialog Title")).toBeInTheDocument();
+});
+
+it("should have the correct role and name", () => {
+  render(
+    <Dialog isOpen>
+      <DialogTitle>Dialog Title</DialogTitle>
+    </Dialog>,
+  );
+
+  expect(
+    screen.getByRole("dialog", { name: "Dialog Title" }),
+  ).toBeInTheDocument();
+});
+
 it("should open the dialog when the trigger is clicked", async () => {
   render(
     <DialogTrigger>
@@ -17,48 +39,6 @@ it("should open the dialog when the trigger is clicked", async () => {
   expect(screen.queryByText("Dialog Title")).not.toBeInTheDocument();
   await userEvent.click(screen.getByRole("button", { name: "Open Dialog" }));
   expect(screen.getByText("Dialog Title")).toBeInTheDocument();
-});
-
-it("should open the dialog by default when `defaultOpen` is true", async () => {
-  render(
-    <DialogTrigger defaultOpen>
-      <Button>Open Dialog</Button>
-      <Dialog>
-        <DialogTitle>Dialog Title</DialogTitle>
-        <DialogBody>Dialog Body</DialogBody>
-      </Dialog>
-    </DialogTrigger>,
-  );
-
-  expect(screen.getByText("Dialog Title")).toBeInTheDocument();
-});
-
-it("should have the correct role", () => {
-  render(
-    <DialogTrigger defaultOpen>
-      <Button>Open Dialog</Button>
-      <Dialog>
-        <DialogTitle>Dialog Title</DialogTitle>
-        <DialogBody>Dialog Body</DialogBody>
-      </Dialog>
-    </DialogTrigger>,
-  );
-
-  expect(screen.getByRole("dialog")).toBeInTheDocument();
-});
-
-it("should be labelled by the dialog title", () => {
-  render(
-    <DialogTrigger defaultOpen>
-      <Button>Open Dialog</Button>
-      <Dialog>
-        <DialogTitle>Dialog Title</DialogTitle>
-        <DialogBody>Dialog Body</DialogBody>
-      </Dialog>
-    </DialogTrigger>,
-  );
-
-  expect(screen.getByRole("dialog")).toHaveAccessibleName("Dialog Title");
 });
 
 it("should close the dialog when the overlay is clicked", async () => {
@@ -110,5 +90,25 @@ describe("WAI-ARIA Compliance", () => {
 
     await userEvent.keyboard("{Esc}");
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+  });
+
+  it("should trap focus when the dialog is open", async () => {
+    render(
+      <DialogTrigger defaultOpen>
+        <Button>Open Dialog</Button>
+        <Dialog>
+          <DialogTitle>Dialog Title</DialogTitle>
+          <DialogBody>
+            <Button>Button 1</Button>
+          </DialogBody>
+        </Dialog>
+      </DialogTrigger>,
+    );
+
+    expect(screen.getByRole("dialog")).toHaveFocus();
+    await userEvent.tab();
+    expect(screen.getByRole("button", { name: "Button 1" })).toHaveFocus();
+    await userEvent.tab();
+    expect(screen.getByRole("button", { name: "Button 1" })).toHaveFocus();
   });
 });

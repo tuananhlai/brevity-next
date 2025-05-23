@@ -68,16 +68,23 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
 export interface AvatarButtonProps
   extends Omit<ButtonProps, "style" | "className" | "children">,
     Omit<AvatarProps, "alt"> {
-  label: string;
+  "aria-label": string;
 }
 
 export const AvatarButton: React.FC<AvatarButtonProps> = (props) => {
-  const { initials, src, color, size, label, className, ...buttonProps } =
-    props;
+  const {
+    initials,
+    src,
+    color,
+    size,
+    "aria-label": ariaLabel,
+    className,
+    ...buttonProps
+  } = props;
   return (
     <Button
       className={cn(styles.avatarBtn, className)}
-      aria-label={label}
+      aria-label={ariaLabel}
       {...buttonProps}
     >
       <Avatar alt="" initials={initials} src={src} color={color} size={size} />
