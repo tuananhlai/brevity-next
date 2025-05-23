@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { BlogCard } from "./BlogCard";
+import { ArticleCard } from "./ArticleCard";
 
-const meta: Meta<typeof BlogCard> = {
-  component: BlogCard,
-  title: "features/home/BlogCard",
+const meta: Meta<typeof ArticleCard> = {
+  component: ArticleCard,
+  title: "features/home/ArticleCard",
   argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof BlogCard>;
+type Story = StoryObj<typeof ArticleCard>;
 
 // Minimal code to render the component correctly.
 export const Default: Story = {
@@ -24,8 +24,8 @@ export const Default: Story = {
     authorHref: "/author",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste commodi iure itaque reprehenderit tenetur reiciendis sint asperiores quos aperiam cupiditate? Natus voluptates exercitationem eius eveniet asperiores reiciendis delectus ipsum quos!",
-    href: "/blog",
+    href: "/article",
     publishedAt: new Date(2021, 1, 1),
-    title: "Blog Title",
+    title: "Article Title",
   },
 };

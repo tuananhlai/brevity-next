@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
 import {
+  Table,
   TableBody,
   TableCell,
+  TableCheckboxCell,
+  TableCheckboxColumn,
   TableColumn,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { TableCheckboxCell } from "@/components/ui/table/TableCheckboxCell";
-import { TableCheckboxColumn } from "@/components/ui/table/TableCheckboxColumn";
-import { Table } from "./Table";
+} from "./index";
 
 const meta: Meta<typeof Table> = {
   component: Table,

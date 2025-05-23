@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { StackedLayout } from "@/components/stacked-layout";
 import { Heading } from "@/components/ui/text";
 import { useGetArticlePreviews } from "@/features/home/api/getArticlePreviews";
-import { BlogCard } from "@/features/home/components/blog-card";
+import { ArticleCard } from "@/features/home/components/article-card";
 import styles from "./Home.module.scss";
 
 export const Home: NextPage = () => {
@@ -16,7 +16,7 @@ export const Home: NextPage = () => {
           <div className={styles.blogs}>
             {data.items.map((v) => (
               <div key={v.id} className={styles.blogCard}>
-                <BlogCard
+                <ArticleCard
                   author={{
                     name: v.author.displayName ?? v.author.username,
                     avatarURL: getDefaultAvatarURL(v.author.id),

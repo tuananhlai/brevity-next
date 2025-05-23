@@ -1,2 +1,2 @@
-export { ConfirmProvider } from "./ConfirmProvider";
+export { ConfirmProvider, useConfirm } from "./ConfirmProvider";
 export type { ConfirmProviderProps } from "./ConfirmProvider";

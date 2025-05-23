@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
 import { Heading, Text } from "@/components/ui/text";
 import { cn } from "@/styles/utils";
-import styles from "./BlogCard.module.scss";
+import styles from "./ArticleCard.module.scss";
 
-export interface BlogCardProps {
+export interface ArticleCardProps {
   title: string;
   publishedAt: Date;
   author: {
@@ -23,7 +23,7 @@ export interface BlogCardProps {
   style?: React.CSSProperties;
 }
 
-export const BlogCard: React.FC<BlogCardProps> = (props) => {
+export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   const {
     title,
     publishedAt,

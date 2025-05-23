@@ -35,6 +35,11 @@
       padding-right: var(--bw-space-2);
     }
   }
+
+  @include dark-mode {
+    color: var(--bw-color-zinc-400);
+    border-bottom: 1px solid alpha(var(--bw-color-white), 10);
+  }
 }
 
 .cell {

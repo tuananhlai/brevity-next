@@ -23,7 +23,7 @@
   box-shadow: var(--bw-shadow-lg);
 
   @include dark-mode {
-    background-color: var(--bw-color-zinc-900);
+    background-color: var(--bw-color-zinc-800);
     box-shadow:
       inset 0 0 0 1px alpha(var(--bw-color-white), 10),
       var(--bw-shadow-lg);

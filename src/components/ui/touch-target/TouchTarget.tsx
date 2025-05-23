@@ -12,7 +12,7 @@ import styles from "./TouchTarget.module.scss";
  *   </TouchTarget>
  * </button>
  */
-export const TouchTarget = ({ children }: { children: React.ReactNode }) => {
+export const TouchTarget = ({ children }: { children?: React.ReactNode }) => {
   return (
     <>
       <span className={styles.touchTarget} aria-hidden />
