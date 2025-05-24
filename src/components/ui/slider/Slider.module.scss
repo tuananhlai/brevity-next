@@ -1,0 +1,31 @@
+@use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--bw-space-3);
+  width: 100%;
+}
+
+.trackRoot {
+  position: relative;
+}
+
+.track {
+  height: var(--bw-space-2);
+  background-color: var(--bw-color-zinc-300);
+}
+
+.fill {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  background-color: var(--bw-color-bg-brand-solid);
+}
+
+.thumb {
+  aspect-ratio: 1 / 1;
+  width: var(--bw-space-6);
+
+  background-color: black;
+}

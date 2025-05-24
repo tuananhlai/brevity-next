@@ -31,7 +31,7 @@
   position: fixed;
   inset: 0;
   width: 100vw;
-  min-height: 100%;
+  height: var(--visual-viewport-height);
   display: flex;
   align-items: stretch;
   overflow-y: auto;
@@ -52,22 +52,12 @@
 }
 
 .modal {
-  background-color: var(--bw-color-white);
-  border-radius: var(--bw-radius-xl);
-  width: 100%;
-  max-width: var(--modal-max-width);
-
   &:where([data-entering]) {
     animation: var(--enter-animation);
   }
 
   &:where([data-exiting]) {
     animation: var(--exit-animation);
-  }
-
-  @include dark-mode {
-    background-color: var(--bw-color-zinc-900);
-    border: 1px solid alpha(var(--bw-color-white), 10);
   }
 }
 
@@ -76,7 +66,17 @@
 }
 
 .dialog {
+  width: 100%;
+  min-height: 100%;
+  max-width: var(--modal-max-width);
   outline: none;
+  background-color: var(--bw-color-white);
+  border-radius: var(--bw-radius-xl);
+
+  @include dark-mode {
+    background-color: var(--bw-color-zinc-900);
+    border: 1px solid alpha(var(--bw-color-white), 10);
+  }
 }
 
 .drawerTitle {
