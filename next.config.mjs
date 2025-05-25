@@ -16,6 +16,7 @@ const nextConfig = {
   },
   webpack: (config, { dev }) => {
     if (!dev) {
+      // Pushing the application source map to Grafana Faro for debugging production issues.
       config.plugins.push(
         new FaroSourceMapUploaderPlugin({
           appName: "brevity-web",

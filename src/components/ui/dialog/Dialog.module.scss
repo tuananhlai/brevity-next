@@ -35,15 +35,10 @@
 
 .modal {
   grid-row-start: 2;
-
-  background-color: var(--bw-color-white);
-  width: 100%;
-  box-shadow: var(--bw-shadow-lg);
-  min-width: 0;
-  border-top-left-radius: var(--bw-radius-3xl);
-  border-top-right-radius: var(--bw-radius-3xl);
-  padding: var(--bw-space-8);
   justify-self: center;
+  width: 100%;
+  min-width: 0;
+
   --enter-animation: slideUp 0.1s var(--bw-timing-easeout);
   --exit-animation: slideUp 0.1s var(--bw-timing-easein) reverse;
 
@@ -59,18 +54,26 @@
     --enter-animation: zoom 0.1s var(--bw-timing-easeout);
     --exit-animation: none;
     max-width: var(--modal-sm-max-width);
-    border-radius: var(--bw-radius-2xl);
     margin-bottom: auto;
+  }
+}
+
+.dialog {
+  outline: none;
+  background-color: var(--bw-color-white);
+  box-shadow: var(--bw-shadow-lg);
+  border-top-left-radius: var(--bw-radius-3xl);
+  border-top-right-radius: var(--bw-radius-3xl);
+  padding: var(--bw-space-8);
+
+  @include screen-sm {
+    border-radius: var(--bw-radius-2xl);
   }
 
   @include dark-mode {
     background-color: var(--bw-color-zinc-900);
     border: 1px solid alpha(var(--bw-color-white), 10);
   }
-}
-
-.dialog {
-  outline: none;
 }
 
 .dialogTitle {

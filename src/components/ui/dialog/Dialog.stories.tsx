@@ -68,3 +68,16 @@ export const Controlled: Story = {
     );
   },
 };
+
+export const VisualTest: Story = {
+  render: () => (
+    <Dialog isOpen>
+      <DialogTitle>Title</DialogTitle>
+      <DialogBody>Content</DialogBody>
+      <DialogActions>
+        <Button>Cancel</Button>
+        <Button>Submit</Button>
+      </DialogActions>
+    </Dialog>
+  ),
+};
