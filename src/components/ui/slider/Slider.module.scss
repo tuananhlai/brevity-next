@@ -1,13 +1,17 @@
 @use "src/styles/utils" as *;
 
 .root {
-  display: flex;
-  flex-direction: column;
-  gap: var(--bw-space-3);
   width: 100%;
 }
 
+.container {
+  &:where(:not(:first-child)) {
+    margin-top: var(--bw-space-1);
+  }
+}
+
 .trackRoot {
+  flex-grow: 1;
   position: relative;
 }
 
@@ -24,8 +28,13 @@
 }
 
 .thumb {
+  top: 50%;
   aspect-ratio: 1 / 1;
   width: var(--bw-space-6);
+  border-radius: var(--bw-radius-full);
+  background-color: var(--bw-color-bg-brand-solid);
+}
 
-  background-color: black;
+.output {
+  width: var(--bw-space-6);
 }

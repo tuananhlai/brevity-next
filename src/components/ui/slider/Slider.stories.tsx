@@ -18,7 +18,7 @@ export const Default: Story = {
   render: () => {
     return (
       <div style={{ width: "300px" }}>
-        <Slider label="Slider" />
+        <Slider label="Slider" description="This is a slider" />
       </div>
     );
   },

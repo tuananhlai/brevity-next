@@ -1,45 +1,69 @@
+import { useId } from "react";
 import {
   Slider as AriaSlider,
   SliderProps as AriaSliderProps,
   SliderOutput,
   SliderThumb,
   SliderTrack,
+  TooltipTrigger,
 } from "react-aria-components";
-import { Label } from "@/components/ui/field";
+import { Description, Label } from "@/components/ui/field";
 import { Flex } from "@/components/ui/layout";
+import { Tooltip } from "@/components/ui/tooltip";
 import { cn } from "@/styles/utils";
 import { ReplaceAriaRenderProps } from "@/utils";
 import styles from "./Slider.module.scss";
 
-export interface SliderProps extends ReplaceAriaRenderProps<AriaSliderProps> {
-  label: React.ReactNode;
+// Only allow horizontal orientation for now.
+export interface SliderProps
+  extends Omit<ReplaceAriaRenderProps<AriaSliderProps>, "orientation"> {
+  label?: React.ReactNode;
+  description?: React.ReactNode;
 }
 
 export const Slider: React.FC<SliderProps> = (props) => {
-  const { className, label } = props;
+  const {
+    className,
+    label,
+    description,
+    "aria-describedby": ariaDescribedby,
+    ...rest
+  } = props;
+
+  const descriptionId = useId();
 
   return (
-    <AriaSlider className={cn(styles.root, className)}>
-      <Flex justify="space-between" align="center">
-        <Label>{label}</Label>
-        <SliderOutput />
+    <AriaSlider
+      className={cn(styles.root, className)}
+      aria-describedby={cn(
+        ariaDescribedby,
+        description != null && descriptionId,
+      )}
+      {...rest}
+    >
+      {label != null && <Label>{label}</Label>}
+      {description != null && (
+        <Description id={descriptionId}>{description}</Description>
+      )}
+      <Flex className={styles.container} gap="var(--bw-space-5)" align="center">
+        <SliderTrack className={styles.trackRoot}>
+          {({ state }) => {
+            return (
+              <>
+                <div className={styles.track} />
+                <div
+                  className={styles.fill}
+                  style={{
+                    width: `${state.getThumbPercent(0) * 100}%`,
+                  }}
+                />
+                <SliderThumb className={styles.thumb} />
+              </>
+            );
+          }}
+        </SliderTrack>
+        <SliderOutput className={styles.output} />
       </Flex>
-      <SliderTrack className={styles.trackRoot}>
-        {({ state }) => {
-          return (
-            <>
-              <div className={styles.track} />
-              <div
-                className={styles.fill}
-                style={{
-                  width: `${state.getThumbPercent(0) * 100}%`,
-                }}
-              />
-              <SliderThumb className={styles.thumb} />
-            </>
-          );
-        }}
-      </SliderTrack>
     </AriaSlider>
   );
 };
