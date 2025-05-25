@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Slider } from "./Slider";
 
 const meta: Meta<typeof Slider> = {
@@ -18,8 +19,37 @@ export const Default: Story = {
   render: () => {
     return (
       <div style={{ width: "300px" }}>
-        <Slider label="Slider" description="This is a slider" />
+        <Slider
+          defaultValue={50}
+          label="Slider"
+          description="This is a slider"
+        />
       </div>
+    );
+  },
+};
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: () => {
+    return (
+      <VisualTestGrid cellWidth="200px">
+        <Slider aria-label="Label" minValue={0} maxValue={100} value={0} />
+        <Slider aria-label="Label" minValue={0} maxValue={100} value={50} />
+        <Slider aria-label="Label" minValue={0} maxValue={100} value={100} />
+        <Slider label="Label" minValue={0} maxValue={100} value={50} />
+        <Slider
+          label="Label"
+          description="This is a slider"
+          minValue={0}
+          maxValue={100}
+          value={50}
+        />
+      </VisualTestGrid>
     );
   },
 };

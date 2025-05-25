@@ -5,11 +5,9 @@ import {
   SliderOutput,
   SliderThumb,
   SliderTrack,
-  TooltipTrigger,
 } from "react-aria-components";
 import { Description, Label } from "@/components/ui/field";
 import { Flex } from "@/components/ui/layout";
-import { Tooltip } from "@/components/ui/tooltip";
 import { cn } from "@/styles/utils";
 import { ReplaceAriaRenderProps } from "@/utils";
 import styles from "./Slider.module.scss";
@@ -46,17 +44,18 @@ export const Slider: React.FC<SliderProps> = (props) => {
         <Description id={descriptionId}>{description}</Description>
       )}
       <Flex className={styles.container} gap="var(--bw-space-5)" align="center">
-        <SliderTrack className={styles.trackRoot}>
+        <SliderTrack className={styles.track}>
           {({ state }) => {
             return (
               <>
-                <div className={styles.track} />
                 <div
-                  className={styles.fill}
+                  className={styles.trackFilled}
                   style={{
                     width: `${state.getThumbPercent(0) * 100}%`,
                   }}
                 />
+                {/* TODO: make the thumb transition smoothly to the new value when
+                the user clicks on the track. */}
                 <SliderThumb className={styles.thumb} />
               </>
             );

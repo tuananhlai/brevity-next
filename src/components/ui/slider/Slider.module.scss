@@ -10,31 +10,55 @@
   }
 }
 
-.trackRoot {
+.track {
   flex-grow: 1;
   position: relative;
-}
-
-.track {
   height: var(--bw-space-2);
-  background-color: var(--bw-color-zinc-300);
+  background-color: var(--bw-color-zinc-200);
+  border-radius: var(--bw-radius-full);
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  @include dark-mode {
+    background-color: var(--bw-color-zinc-800);
+  }
 }
 
-.fill {
+.trackFilled {
   position: absolute;
   height: 100%;
   top: 0;
   background-color: var(--bw-color-bg-brand-solid);
+  border-radius: var(--bw-radius-full);
 }
 
 .thumb {
   top: 50%;
   aspect-ratio: 1 / 1;
   width: var(--bw-space-6);
-  border-radius: var(--bw-radius-full);
-  background-color: var(--bw-color-bg-brand-solid);
+  border-radius: var(--bw-radius-xl);
+  border: 2px solid var(--bw-color-bg-brand-solid);
+  background-color: var(--bw-color-white);
+  box-shadow: var(--bw-shadow-sm);
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  &:where([data-focus-visible]) {
+    @include outline-primary;
+    outline-offset: 1px;
+  }
+
+  @include dark-mode {
+    background-color: var(--bw-color-zinc-100);
+  }
 }
 
 .output {
-  width: var(--bw-space-6);
+  flex-shrink: 0;
+  // TODO: Make this dynamic based on the max value.
+  width: var(--bw-space-8);
 }
