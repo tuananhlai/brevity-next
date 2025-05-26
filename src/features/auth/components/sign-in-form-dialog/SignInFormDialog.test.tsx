@@ -1,11 +1,12 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "react-aria-components";
 import { DialogTrigger } from "@/components/ui/dialog";
+import { renderWithProviders } from "@/utils/testutils";
 import { SignInFormDialog } from "./SignInFormDialog";
 
 it("should open the dialog when the trigger button is clicked", async () => {
-  render(
+  renderWithProviders(
     <DialogTrigger>
       <Button>Open</Button>
       <SignInFormDialog />
@@ -19,7 +20,7 @@ it("should open the dialog when the trigger button is clicked", async () => {
 
 it("should submit the form and close the dialog when the submit button is clicked", async () => {
   const onSubmit = jest.fn();
-  render(
+  renderWithProviders(
     <DialogTrigger>
       <Button>Open</Button>
       <SignInFormDialog onSubmit={onSubmit} />

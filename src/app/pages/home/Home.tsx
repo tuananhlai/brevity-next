@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import { NextPage } from "next";
 import { StackedLayout } from "@/components/stacked-layout";
 import { Heading } from "@/components/ui/text";
@@ -12,7 +13,9 @@ export const Home: NextPage = () => {
     <StackedLayout className={styles.root}>
       <div className={styles.main}>
         <section className={styles.section}>
-          <Heading level={2}>Newest Posts</Heading>
+          <Heading level={2}>
+            <Trans>Newest Posts</Trans>
+          </Heading>
           <div className={styles.blogs}>
             {data.items.map((v) => (
               <div key={v.id} className={styles.blogCard}>

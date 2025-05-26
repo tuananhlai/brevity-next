@@ -1,3 +1,5 @@
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
@@ -36,13 +38,18 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
 };
 
 const LoginButton = () => {
+  const { _ } = useLingui();
+
   return (
     <>
       <NavbarButton className={styles.loginLink}>
-        Sign in
+        <Trans>Sign in</Trans>
         <LuLogIn />
       </NavbarButton>
-      <NavbarButton className={styles.mobileLoginLink} aria-label="Sign in">
+      <NavbarButton
+        className={styles.mobileLoginLink}
+        aria-label={_(msg`Sign in`)}
+      >
         <LuLogIn />
       </NavbarButton>
     </>

@@ -1,10 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthDialogProvider } from "@/features/auth/components/auth-dialog-provider";
+import { renderWithProviders } from "@/utils/testutils";
 import { useAuthDialog } from "./AuthDialogContext";
 
 it("should open sign in dialog when `signIn` is called", async () => {
-  render(
+  renderWithProviders(
     <AuthDialogProvider>
       <OpenSignInButton />
     </AuthDialogProvider>,
@@ -17,7 +18,7 @@ it("should open sign in dialog when `signIn` is called", async () => {
 
 it("signIn function should resolve when the dialog is closed", async () => {
   const onSignInFinished = jest.fn();
-  render(
+  renderWithProviders(
     <AuthDialogProvider>
       <OpenSignInButton onSignInFinished={onSignInFinished} />
     </AuthDialogProvider>,
@@ -34,7 +35,7 @@ it("signIn function should resolve when the dialog is closed", async () => {
 });
 
 it("should open sign up dialog when `signUp` is called", async () => {
-  render(
+  renderWithProviders(
     <AuthDialogProvider>
       <OpenSignUpButton />
     </AuthDialogProvider>,
@@ -47,7 +48,7 @@ it("should open sign up dialog when `signUp` is called", async () => {
 
 it("signUp function should resolve when the dialog is closed", async () => {
   const onSignUpFinished = jest.fn();
-  render(
+  renderWithProviders(
     <AuthDialogProvider>
       <OpenSignUpButton onSignUpFinished={onSignUpFinished} />
     </AuthDialogProvider>,
