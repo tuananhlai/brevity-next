@@ -13,6 +13,31 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:73
+msgid "Add"
+msgstr ""
+
+#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:45
+msgid "Add API Key"
+msgstr ""
+
+#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:56
+msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
+msgstr ""
+
+#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:54
+msgid "API Key"
+msgstr ""
+
+#: src/components/confirm-provider/ConfirmProvider.tsx:14
+#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:70
+msgid "Cancel"
+msgstr ""
+
+#: src/components/confirm-provider/ConfirmProvider.tsx:15
+msgid "Confirm"
+msgstr ""
+
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:37
 msgid "Email"
 msgstr "メールアドレス"

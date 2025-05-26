@@ -1,9 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { renderWithProviders } from "@/utils/testutils";
 import { ConfirmProvider, useConfirm } from "./ConfirmProvider";
 
 it("should open alert dialog when confirm() is called", async () => {
-  render(
+  renderWithProviders(
     <ConfirmProvider>
       <TestComponent />
     </ConfirmProvider>,
@@ -22,7 +23,7 @@ it("should open alert dialog when confirm() is called", async () => {
 
 it("should resolve promise with true and close dialog when primary action is clicked", async () => {
   const onConfirm = jest.fn();
-  render(
+  renderWithProviders(
     <ConfirmProvider>
       <TestComponent onConfirm={onConfirm} />
     </ConfirmProvider>,
@@ -53,7 +54,7 @@ it.each([
   async ({ close }) => {
     const onConfirm = jest.fn();
 
-    render(
+    renderWithProviders(
       <ConfirmProvider>
         <TestComponent onConfirm={onConfirm} />
       </ConfirmProvider>,

@@ -1,3 +1,5 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { createContext, useCallback, useContext, useState } from "react";
 import { AlertDialog, AlertDialogProps } from "@/components/ui/alert-dialog";
 
@@ -7,6 +9,11 @@ export interface ConfirmProviderProps {
 
 export const ConfirmProvider: React.FC<ConfirmProviderProps> = (props) => {
   const { children } = props;
+
+  const { _ } = useLingui();
+  const defaultCancelLabel = _(msg`Cancel`);
+  const defaultPrimaryActionLabel = _(msg`Confirm`);
+
   const [alertDialogProps, setAlertDialogProps] = useState<AlertDialogProps>(
     defaultAlertDialogProps,
   );
@@ -22,8 +29,9 @@ export const ConfirmProvider: React.FC<ConfirmProviderProps> = (props) => {
       isOpen: true,
       title: params.title,
       children: params.content,
-      primaryActionLabel: params.primaryActionLabel,
-      cancelLabel: params.cancelLabel,
+      primaryActionLabel:
+        params.primaryActionLabel ?? defaultPrimaryActionLabel,
+      cancelLabel: params.cancelLabel ?? defaultCancelLabel,
       onOpenChange: () => {
         setAlertDialogProps(defaultAlertDialogProps);
         resolveFn(false);
