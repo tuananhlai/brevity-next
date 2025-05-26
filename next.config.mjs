@@ -14,6 +14,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    swcPlugins: [["@lingui/swc-plugin", {}]],
+  },
   webpack: (config, { dev }) => {
     if (!dev) {
       // Pushing the application source map to Grafana Faro for debugging production issues.

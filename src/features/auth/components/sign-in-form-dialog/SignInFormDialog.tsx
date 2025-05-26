@@ -1,3 +1,4 @@
+import { Trans } from "@lingui/macro";
 import Link from "next/link";
 import { useId } from "react";
 import { Button } from "@/components/ui/button";
@@ -32,9 +33,14 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
     <Dialog size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
       {({ close }) => (
         <>
-          <DialogTitle>Sign in with your account</DialogTitle>
+          <DialogTitle>
+            <Trans>Sign in with your account</Trans>
+          </DialogTitle>
           <Text className={styles.description}>
-            Save your favorite articles, follow authors, and more by signing in.
+            <Trans>
+              Save your favorite articles, follow authors, and more by signing
+              in.
+            </Trans>
           </Text>
           <DialogBody className={styles.dialogBody}>
             <SignInForm
@@ -46,12 +52,12 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
             />
             <Text>
               <Link href="/forgot-password" className={styles.forgotPassword}>
-                Forgot your password?
+                <Trans>Forgot your password?</Trans>
               </Link>
             </Text>
             <Flex direction="column" gap="var(--bw-space-2)">
               <Button form={formId} type="submit">
-                Sign in
+                <Trans>Sign in</Trans>
               </Button>
               <Flex gap="var(--bw-space-2)">
                 <SignInWithGoogleButton

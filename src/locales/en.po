@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2025-05-26 19:35+0900\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+
+#: src/features/auth/components/sign-in-form/SignInForm.tsx:37
+msgid "Email"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:55
+msgid "Forgot your password?"
+msgstr ""
+
+#: src/app/pages/home/Home.tsx:17
+msgid "Newest Posts"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form/SignInForm.tsx:40
+msgid "Password"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:40
+msgid "Save your favorite articles, follow authors, and more by signing in."
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:60
+#: src/components/stacked-layout/StackedLayout.tsx:46
+#: src/components/stacked-layout/StackedLayout.tsx:51
+msgid "Sign in"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:37
+msgid "Sign in with your account"
+msgstr ""

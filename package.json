@@ -15,11 +15,16 @@
     "chromatic": "npx chromatic --exit-zero-on-changes --only-changed",
     "ci:generate-coverage-badges": "jest-coverage-badges output badges",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
-    "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'"
+    "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
+    "i18n:extract": "lingui extract",
+    "i18n:compile": "lingui compile",
+    "i18n:ec": "pnpm run i18n:extract && pnpm run i18n:compile"
   },
   "dependencies": {
     "@grafana/faro-web-sdk": "^1.14.1",
     "@grafana/faro-web-tracing": "^1.14.1",
+    "@lingui/core": "^4",
+    "@lingui/react": "^4",
     "@tanstack/react-query": "^5.73.3",
     "classnames": "^2.5.1",
     "next": "14.2.21",
@@ -33,6 +38,9 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",
     "@grafana/faro-webpack-plugin": "^0.1.2",
+    "@lingui/cli": "^5.3.1",
+    "@lingui/macro": "^4",
+    "@lingui/swc-plugin": "4.0.8",
     "@react-types/shared": "^3.28.0",
     "@storybook/addon-a11y": "^8.6.14",
     "@storybook/addon-essentials": "^8.6.14",

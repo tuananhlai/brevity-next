@@ -1,3 +1,5 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { Form } from "react-aria-components";
 import { TextField } from "@/components/ui/text-field";
 import { cn } from "@/styles/utils";
@@ -17,6 +19,8 @@ export interface SignInFormValues {
 export const SignInForm: React.FC<SignInFormProps> = (props) => {
   const { id, onSubmit, className } = props;
 
+  const { _ } = useLingui();
+
   return (
     <Form
       id={id}
@@ -30,8 +34,13 @@ export const SignInForm: React.FC<SignInFormProps> = (props) => {
         });
       }}
     >
-      <TextField name="email" label="Email" type="email" isRequired />
-      <TextField name="password" label="Password" type="password" isRequired />
+      <TextField name="email" label={_(msg`Email`)} type="email" isRequired />
+      <TextField
+        name="password"
+        label={_(msg`Password`)}
+        type="password"
+        isRequired
+      />
     </Form>
   );
 };

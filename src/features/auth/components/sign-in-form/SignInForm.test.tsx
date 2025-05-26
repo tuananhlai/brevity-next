@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { renderWithProviders } from "@/utils/testutils";
 import { SignInForm, SignInFormProps } from "./SignInForm";
 
 it("should submit", async () => {
@@ -50,7 +51,7 @@ it("password input should be invalid when the password is too short", async () =
 
 const renderSignInForm = (props?: SignInFormProps) => {
   const { id = "sign-in-form", ...rest } = props ?? {};
-  return render(
+  return renderWithProviders(
     <div>
       <SignInForm id={id} {...rest} />
       <button form={id} type="submit">
