@@ -60,6 +60,7 @@ export const AddApiKeyDialog: React.FC<AddApiKeyDialogProps> = (props) => {
                     <a
                       className={styles.link}
                       href="https://openrouter.ai/docs/api-reference/api-keys/create-api-key"
+                      target="_blank"
                     >
                       How do I get an Open Router API key?
                     </a>
