@@ -26,3 +26,14 @@ export const Default: Story = {
     );
   },
 };
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: () => {
+    return <AddApiKeyDialog isOpen />;
+  },
+};
