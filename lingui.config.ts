@@ -1,5 +1,5 @@
 // https://lingui.dev/ref/conf
-module.exports = {
+const config = {
   locales: ["en", "ja"],
   // The Japanese translation will be added in a later date.
   pseudoLocale: "ja",
@@ -11,3 +11,5 @@ module.exports = {
   ],
   format: "po",
 };
+
+export default config;

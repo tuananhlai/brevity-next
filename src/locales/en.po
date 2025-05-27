@@ -29,12 +29,12 @@ msgstr ""
 msgid "API Key"
 msgstr ""
 
-#: src/components/confirm-provider/ConfirmProvider.tsx:14
+#: src/components/confirm-provider/ConfirmProvider.tsx:21
 #: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:70
 msgid "Cancel"
 msgstr ""
 
-#: src/components/confirm-provider/ConfirmProvider.tsx:15
+#: src/components/confirm-provider/ConfirmProvider.tsx:22
 msgid "Confirm"
 msgstr ""
 
