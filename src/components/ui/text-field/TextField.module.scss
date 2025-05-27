@@ -74,6 +74,10 @@
 
     --outline: 2px solid var(--bw-color-outline-primary);
     --outline-offset: -2px;
+
+    &:where(:not(:first-child)) {
+      margin-top: var(--bw-space-2);
+    }
   }
 }
 

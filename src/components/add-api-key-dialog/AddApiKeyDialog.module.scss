@@ -1,1 +1,11 @@
 @use "src/styles/utils" as *;
+
+.link {
+  font-weight: var(--bw-weight-semibold);
+  text-decoration: none;
+  color: var(--bw-color-text-primary);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
