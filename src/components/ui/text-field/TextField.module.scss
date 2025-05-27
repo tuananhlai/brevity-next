@@ -81,6 +81,11 @@
   }
 }
 
+.textarea {
+  composes: input;
+  resize: vertical;
+}
+
 .errorMessage {
   margin-top: var(--bw-space-3);
 

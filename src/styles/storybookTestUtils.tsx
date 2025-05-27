@@ -1,10 +1,11 @@
 export type VisualTestGridProps = {
   children: React.ReactNode;
+  style?: React.CSSProperties;
   cellWidth?: string;
 };
 
 export const VisualTestGrid = (props: VisualTestGridProps) => {
-  const { children, cellWidth = "200px" } = props;
+  const { children, cellWidth = "200px", style } = props;
   return (
     <div
       style={{
@@ -13,6 +14,7 @@ export const VisualTestGrid = (props: VisualTestGridProps) => {
         gap: "24px",
         alignItems: "center",
         justifyItems: "center",
+        ...style,
       }}
     >
       {children}
