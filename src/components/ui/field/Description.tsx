@@ -11,9 +11,9 @@ export const Description: React.FC<DescriptionProps> = (props) => {
   const { isDisabled, className, ...rest } = props;
   return (
     <Text
-      data-disabled={isDisabled || undefined}
-      slot="description"
       className={cn(styles.root, className)}
+      slot="description"
+      data-disabled={isDisabled || undefined}
       {...rest}
     />
   );

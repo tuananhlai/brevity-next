@@ -10,7 +10,7 @@ import { Description, ErrorMessage, Label } from "../field";
 import styles from "./TextField.module.scss";
 
 export interface TextFieldProps
-  extends ReplaceAriaRenderProps<AriaTextFieldProps>,
+  extends Omit<ReplaceAriaRenderProps<AriaTextFieldProps>, "children">,
     FieldsetProps {
   placeholder?: string;
 }
@@ -45,7 +45,7 @@ const TextField: React.ForwardRefRenderFunction<
       {description != null && (
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
-      <Input placeholder={placeholder} className={styles.input} />
+      <Input className={styles.input} placeholder={placeholder} />
       <ErrorMessage className={styles.errorMessage} isDisabled={isDisabled}>
         {errorMessage}
       </ErrorMessage>
