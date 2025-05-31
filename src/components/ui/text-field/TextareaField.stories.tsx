@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-import { TextareaField, TextareaFieldProps } from "./Textarea";
+import { TextareaField, TextareaFieldProps } from "./TextareaField";
 
 const meta: Meta<typeof TextareaField> = {
   component: TextareaField,
-  title: "ui/Textarea",
+  title: "ui/TextareaField",
   argTypes: {},
 };
 export default meta;
@@ -17,8 +17,7 @@ export const Default: Story = {
     layout: "centered",
   },
   args: {
-    label: "Enter your social security number",
-    description: "Trust me, bro.",
+    label: "Tell me about yourself",
   },
 };
 
@@ -37,34 +36,35 @@ export const VisualTest: Story = {
 
     return (
       <VisualTestGrid>
-        <ExampleTextField />
-        <ExampleTextField placeholder={samplePlaceholder} />
-        <ExampleTextField defaultValue={sampleValue} />
-        <ExampleTextField label={sampleLabel} />
-        <ExampleTextField
+        <ExampleTextareaField />
+        <ExampleTextareaField placeholder={samplePlaceholder} />
+        <ExampleTextareaField defaultValue={sampleValue} />
+        <ExampleTextareaField label={sampleLabel} />
+        <ExampleTextareaField
           label={sampleLabel}
           description={sampleDescription}
           defaultValue={sampleValue}
         />
-        <ExampleTextField
+        <ExampleTextareaField
           label={sampleLabel}
           description={sampleDescription}
           defaultValue={sampleValue}
           isDisabled
         />
-        <ExampleTextField placeholder={samplePlaceholder} isDisabled />
-        <ExampleTextField
+        <ExampleTextareaField placeholder={samplePlaceholder} isDisabled />
+        <ExampleTextareaField
           label={sampleLabel}
           isInvalid
           defaultValue={sampleValue}
           errorMessage={sampleErrorMessage}
         />
-        <ExampleTextField label={sampleLabel} isRequired />
+        <ExampleTextareaField label={sampleLabel} isRequired />
+        <ExampleTextareaField resizable rows={5} />
       </VisualTestGrid>
     );
   },
 };
 
-const ExampleTextField = (props: Partial<TextareaFieldProps>) => {
+const ExampleTextareaField = (props: Partial<TextareaFieldProps>) => {
   return <TextareaField aria-label="Label" {...props} />;
 };

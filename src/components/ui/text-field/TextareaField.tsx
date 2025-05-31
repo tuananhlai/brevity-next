@@ -13,6 +13,10 @@ export interface TextareaFieldProps
   extends ReplaceAriaRenderProps<AriaTextFieldProps>,
     FieldsetProps {
   placeholder?: string;
+  /** Whether the textarea can be vertically resized by the user. */
+  resizable?: boolean;
+  /** The number of rows to display in the textarea. */
+  rows?: number;
 }
 
 const TextareaField: React.ForwardRefRenderFunction<
@@ -26,6 +30,8 @@ const TextareaField: React.ForwardRefRenderFunction<
     description,
     placeholder,
     errorMessage,
+    rows = 3,
+    resizable,
     ...rest
   } = props;
   const { isDisabled, isRequired } = rest;
@@ -45,7 +51,14 @@ const TextareaField: React.ForwardRefRenderFunction<
       {description != null && (
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
-      <AriaTextArea className={styles.textarea} placeholder={placeholder} />
+      <AriaTextArea
+        className={styles.input}
+        style={{
+          resize: resizable ? "vertical" : "none",
+        }}
+        placeholder={placeholder}
+        rows={rows}
+      />
       <ErrorMessage className={styles.errorMessage} isDisabled={isDisabled}>
         {errorMessage}
       </ErrorMessage>
