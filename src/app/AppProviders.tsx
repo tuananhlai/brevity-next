@@ -3,6 +3,7 @@ import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
+import { ConfirmProvider } from "@/components/confirm-provider";
 import { Provider } from "@/components/ui/provider";
 import { ToastQueue, ToastRegion } from "@/components/ui/toast";
 import { messages as en } from "@/locales/en";
@@ -49,7 +50,9 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
       `}</style>
       <QueryClientProvider client={queryClient}>
         <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
-          <I18nProvider i18n={i18n}>{children}</I18nProvider>
+          <I18nProvider i18n={i18n}>
+            <ConfirmProvider>{children}</ConfirmProvider>
+          </I18nProvider>
         </Provider>
       </QueryClientProvider>
       <ToastRegion queue={queue} />
