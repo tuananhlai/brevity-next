@@ -1,3 +1,5 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { createContext, useCallback, useContext, useState } from "react";
 import { AlertDialog, AlertDialogProps } from "@/components/ui/alert-dialog";
 
@@ -7,36 +9,46 @@ export interface ConfirmProviderProps {
 
 export const ConfirmProvider: React.FC<ConfirmProviderProps> = (props) => {
   const { children } = props;
+
+  const { _ } = useLingui();
+
   const [alertDialogProps, setAlertDialogProps] = useState<AlertDialogProps>(
     defaultAlertDialogProps,
   );
 
-  const confirm = useCallback<ConfirmFn>((params) => {
-    let resolveFn: (value: boolean) => void;
+  const confirm = useCallback<ConfirmFn>(
+    (params) => {
+      const defaultCancelLabel = _(msg`Cancel`);
+      const defaultPrimaryActionLabel = _(msg`Confirm`);
 
-    const promise = new Promise<boolean>((resolve) => {
-      resolveFn = resolve;
-    });
+      let resolveFn: (value: boolean) => void;
 
-    setAlertDialogProps({
-      isOpen: true,
-      title: params.title,
-      children: params.content,
-      primaryActionLabel: params.primaryActionLabel,
-      cancelLabel: params.cancelLabel,
-      onOpenChange: () => {
-        setAlertDialogProps(defaultAlertDialogProps);
-        resolveFn(false);
-      },
-      onPrimaryAction: () => {
-        setAlertDialogProps(defaultAlertDialogProps);
-        resolveFn(true);
-      },
-      onCancel: (close) => close(),
-    });
+      const promise = new Promise<boolean>((resolve) => {
+        resolveFn = resolve;
+      });
 
-    return promise;
-  }, []);
+      setAlertDialogProps({
+        isOpen: true,
+        title: params.title,
+        children: params.content,
+        primaryActionLabel:
+          params.primaryActionLabel ?? defaultPrimaryActionLabel,
+        cancelLabel: params.cancelLabel ?? defaultCancelLabel,
+        onOpenChange: () => {
+          setAlertDialogProps(defaultAlertDialogProps);
+          resolveFn(false);
+        },
+        onPrimaryAction: () => {
+          setAlertDialogProps(defaultAlertDialogProps);
+          resolveFn(true);
+        },
+        onCancel: (close) => close(),
+      });
+
+      return promise;
+    },
+    [_],
+  );
 
   return (
     <ConfirmContext.Provider value={confirm}>

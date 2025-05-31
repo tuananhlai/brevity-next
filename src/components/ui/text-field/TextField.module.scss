@@ -76,7 +76,7 @@
     --outline-offset: -2px;
 
     &:where(:not(:first-child)) {
-      margin-top: var(--bw-space-1-5);
+      margin-top: var(--bw-space-2);
     }
   }
 }
