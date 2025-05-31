@@ -9,7 +9,7 @@
   width: 100%;
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  color: var(--bw-color-zinc-950);
+  color: var(--bw-color-text-primary);
   appearance: none;
   border-radius: var(--bw-radius-lg);
   padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
@@ -22,7 +22,7 @@
   box-shadow: var(--bw-shadow-xs);
 
   &::placeholder {
-    color: var(--bw-color-zinc-500);
+    color: var(--bw-color-text-placeholder);
   }
 
   &:where([data-hovered]) {
@@ -34,8 +34,8 @@
   }
 
   &:where([data-invalid]) {
-    --border-color: var(--bw-color-red-500);
-    --border-hover-color: var(--bw-color-red-500);
+    --border-color: var(--bw-color-border-error);
+    --border-hover-color: var(--bw-color-border-error);
   }
 
   &:where([data-disabled]) {
@@ -50,16 +50,10 @@
   }
 
   @include dark-mode {
-    color: var(--bw-color-white);
     background-color: alpha(var(--bw-color-white), 5);
     --border-color: #{alpha(var(--bw-color-white), 10)};
     --border-hover-color: #{alpha(var(--bw-color-white), 20)};
     box-shadow: none;
-
-    &:where([data-invalid]) {
-      --border-color: var(--bw-color-red-500);
-      --border-hover-color: var(--bw-color-red-500);
-    }
 
     &:where([data-disabled]) {
       --border-color: #{alpha(var(--bw-color-white), 15)};

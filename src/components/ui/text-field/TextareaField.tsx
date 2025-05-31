@@ -1,0 +1,71 @@
+import { forwardRef } from "react";
+import {
+  TextArea as AriaTextArea,
+  TextField as AriaTextField,
+  TextFieldProps as AriaTextFieldProps,
+} from "react-aria-components";
+import { cn } from "@/styles/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
+import { Description, ErrorMessage, Label } from "../field";
+import styles from "./TextField.module.scss";
+
+export interface TextareaFieldProps
+  extends ReplaceAriaRenderProps<AriaTextFieldProps>,
+    FieldsetProps {
+  placeholder?: string;
+  /** Whether the textarea can be vertically resized by the user. */
+  resizable?: boolean;
+  /** The number of rows to display in the textarea. */
+  rows?: number;
+}
+
+const TextareaField: React.ForwardRefRenderFunction<
+  HTMLInputElement,
+  TextareaFieldProps
+> = (props, ref) => {
+  const {
+    style,
+    className,
+    label,
+    description,
+    placeholder,
+    errorMessage,
+    rows = 3,
+    resizable,
+    ...rest
+  } = props;
+  const { isDisabled, isRequired } = rest;
+
+  return (
+    <AriaTextField
+      ref={ref}
+      style={style}
+      className={cn(styles.root, className)}
+      {...rest}
+    >
+      {label != null && (
+        <Label isRequired={isRequired} isDisabled={isDisabled}>
+          {label}
+        </Label>
+      )}
+      {description != null && (
+        <Description isDisabled={isDisabled}>{description}</Description>
+      )}
+      <AriaTextArea
+        className={styles.input}
+        style={{
+          resize: resizable ? "vertical" : "none",
+        }}
+        placeholder={placeholder}
+        rows={rows}
+      />
+      <ErrorMessage className={styles.errorMessage} isDisabled={isDisabled}>
+        {errorMessage}
+      </ErrorMessage>
+    </AriaTextField>
+  );
+};
+
+const _TextareaField = /*#__PURE__*/ forwardRef(TextareaField);
+
+export { _TextareaField as TextareaField };
