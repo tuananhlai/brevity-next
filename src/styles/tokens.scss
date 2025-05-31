@@ -144,27 +144,17 @@
 // Deprecated
 :root {
   --bw-color-bg-brand-solid: var(--bw-color-zinc-900);
-  --bw-color-bg-error-solid: var(--bw-color-red-600);
   --bw-color-bg-primary: var(--bw-color-white);
 
-  --bw-color-text-on-brand: var(--bw-color-white);
   --bw-color-text-primary: var(--bw-color-zinc-900);
   --bw-color-text-tertiary: var(--bw-color-zinc-500);
-  --bw-color-text-error-primary: var(--bw-color-red-600);
-
-  --bw-color-outline-primary: var(--bw-color-blue-500);
 
   @include dark-mode {
     --bw-color-bg-brand-solid: var(--bw-color-zinc-600);
-    --bw-color-bg-error-solid: var(--bw-color-red-500);
     --bw-color-bg-primary: var(--bw-color-zinc-900);
 
-    --bw-color-text-on-brand: var(--bw-color-white);
     --bw-color-text-primary: var(--bw-color-white);
     --bw-color-text-tertiary: var(--bw-color-zinc-400);
-    --bw-color-text-error-primary: var(--bw-color-red-500);
-
-    --bw-color-outline-primary: var(--bw-color-blue-400);
   }
 }
 
@@ -183,6 +173,18 @@
   --bw-color-utility-gray-900: #1a1a1a;
   --bw-color-utility-gray-950: #0a0a0a; /* Near black */
 
+  --bw-color-utility-zinc-50: rgb(250 250 250);
+  --bw-color-utility-zinc-100: rgb(244 244 245);
+  --bw-color-utility-zinc-200: rgb(228 228 231);
+  --bw-color-utility-zinc-300: rgb(212 212 216);
+  --bw-color-utility-zinc-400: rgb(161 161 170);
+  --bw-color-utility-zinc-500: rgb(113 113 122);
+  --bw-color-utility-zinc-600: rgb(82 82 91);
+  --bw-color-utility-zinc-700: rgb(63 63 70);
+  --bw-color-utility-zinc-800: rgb(39 39 42);
+  --bw-color-utility-zinc-900: rgb(24 24 27);
+  --bw-color-utility-zinc-950: rgb(9 9 11);
+
   --bw-color-utility-brand-50: #fae8ff;
   --bw-color-utility-brand-100: #f5a6ff;
   --bw-color-utility-brand-200: #df83ff;
@@ -194,31 +196,56 @@
   --bw-color-utility-brand-800: #5e00a6;
   --bw-color-utility-brand-900: #4a0082;
 
-  --bw-color-utility-error-50: #fff0f0;
-  --bw-color-utility-error-100: #ffcccc;
-  --bw-color-utility-error-300: #ff9999;
-  --bw-color-utility-error-400: #ff6666;
-  --bw-color-utility-error-500: #ff3333;
-  --bw-color-utility-error-600: #e60000; /* Main error color */
-  --bw-color-utility-error-700: #c20000;
-  --bw-color-utility-error-950: #3d0000; /* Darker for background */
+  --bw-color-utility-error-50: rgb(254 242 242);
+  --bw-color-utility-error-100: rgb(254 226 226);
+  --bw-color-utility-error-200: rgb(254 202 202);
+  --bw-color-utility-error-300: rgb(252 165 165);
+  --bw-color-utility-error-400: rgb(248 113 113);
+  --bw-color-utility-error-500: rgb(239 68 68);
+  --bw-color-utility-error-600: rgb(220 38 38);
+  --bw-color-utility-error-700: rgb(185 28 28);
+  --bw-color-utility-error-800: rgb(153 27 27);
+  --bw-color-utility-error-900: rgb(127 29 29);
+  --bw-color-utility-error-950: rgb(69 10 10);
 
-  --bw-color-utility-warning-50: #fff5e0;
-  --bw-color-utility-warning-100: #ffe6b3;
-  --bw-color-utility-warning-400: #ffcc66;
-  --bw-color-utility-warning-500: #ffb333;
-  --bw-color-utility-warning-600: #ff9900; /* Main warning color */
-  --bw-color-utility-warning-700: #cc7a00;
-  --bw-color-utility-warning-950: #3d2600; /* Darker for background */
+  --bw-color-utility-warning-50: rgb(255 251 235);
+  --bw-color-utility-warning-100: rgb(254 243 199);
+  --bw-color-utility-warning-200: rgb(253 230 138);
+  --bw-color-utility-warning-300: rgb(252 211 77);
+  --bw-color-utility-warning-400: rgb(251 191 36);
+  --bw-color-utility-warning-500: rgb(245 158 11);
+  --bw-color-utility-warning-600: rgb(217 119 6); /* Main warning color */
+  --bw-color-utility-warning-700: rgb(180 83 9);
+  --bw-color-utility-warning-800: rgb(146 64 14);
+  --bw-color-utility-warning-900: rgb(120 53 15);
+  --bw-color-utility-warning-950: rgb(69 26 3); /* Darker for background */
 
-  --bw-color-utility-success-50: #e0ffe0;
-  --bw-color-utility-success-100: #b3ffb3;
-  --bw-color-utility-success-400: #66e666;
-  --bw-color-utility-success-500: #33cc33;
-  --bw-color-utility-success-600: #00a300; /* Main success color */
-  --bw-color-utility-success-700: #008000;
-  --bw-color-utility-success-950: #003d00; /* Darker for background */
+  --bw-color-utility-success-50: rgb(236 253 245);
+  --bw-color-utility-success-100: rgb(209 250 229);
+  --bw-color-utility-success-200: rgb(167 243 208);
+  --bw-color-utility-success-300: rgb(110 231 183);
+  --bw-color-utility-success-400: rgb(52 211 153);
+  --bw-color-utility-success-500: rgb(16 185 129);
+  --bw-color-utility-success-600: rgb(5 150 105); /* Main success color */
+  --bw-color-utility-success-700: rgb(4 120 87);
+  --bw-color-utility-success-800: rgb(6 95 70);
+  --bw-color-utility-success-900: rgb(6 78 59);
+  --bw-color-utility-success-950: rgb(2 44 34); /* Darker for background */
 
+  --bw-color-utility-blue-50: rgb(239 246 255);
+  --bw-color-utility-blue-100: rgb(219 234 254);
+  --bw-color-utility-blue-200: rgb(191 219 254);
+  --bw-color-utility-blue-300: rgb(147 197 253);
+  --bw-color-utility-blue-400: rgb(96 165 250);
+  --bw-color-utility-blue-500: rgb(59 130 246);
+  --bw-color-utility-blue-600: rgb(37 99 235);
+  --bw-color-utility-blue-700: rgb(29 78 216);
+  --bw-color-utility-blue-800: rgb(30 64 175);
+  --bw-color-utility-blue-900: rgb(30 58 138);
+  --bw-color-utility-blue-950: rgb(23 37 84);
+}
+
+:root {
   --bw-color-text-primary: var(--bw-color-utility-gray-900);
   --bw-color-text-primary_on-brand: var(--bw-color-utility-white);
   --bw-color-text-secondary: var(--bw-color-utility-gray-700);
@@ -306,6 +333,8 @@
   --bw-color-bg-success-primary: var(--bw-color-utility-success-50);
   --bw-color-bg-success-secondary: var(--bw-color-utility-success-100);
   --bw-color-bg-success-solid: var(--bw-color-utility-success-600);
+
+  --bw-color-outline-primary: var(--bw-color-utility-blue-500);
 
   @include dark-mode {
     --bw-color-text-primary: var(--bw-color-utility-gray-50);
@@ -395,5 +424,7 @@
     --bw-color-bg-success-primary: var(--bw-color-utility-success-950);
     --bw-color-bg-success-secondary: var(--bw-color-utility-success-600);
     --bw-color-bg-success-solid: var(--bw-color-utility-success-600);
+
+    --bw-color-outline-primary: var(--bw-color-utility-blue-400);
   }
 }
