@@ -53,16 +53,14 @@
       var(--bw-color-utility-brand-900),
       10
     )};
-  --bw-secondary-button-hovered-background-color: #{alpha(
-      var(--bw-color-utility-brand-900),
-      2.5
-    )};
+  --bw-secondary-button-hovered-background-color: var(
+    --bw-color-bg-primary_hover
+  );
 
   --bw-tertiary-button-color: var(--bw-color-text-brand-primary);
-  --bw-tertiary-button-hovered-background-color: #{alpha(
-      var(--bw-color-utility-brand-900),
-      2.5
-    )};
+  --bw-tertiary-button-hovered-background-color: var(
+    --bw-color-bg-primary_hover
+  );
 
   @include dark-mode {
     --bw-primary-button-background-color: var(--bw-color-utility-brand-900);
@@ -70,10 +68,7 @@
       --bw-color-utility-brand-600
     );
 
-    --bw-secondary-button-hovered-background-color: #{alpha(
-        var(--bw-color-bg-brand-primary),
-        5
-      )};
+    --bw-secondary-button-border-color: var(--bw-color-utility-brand-700);
   }
 }
 
@@ -92,16 +87,21 @@
       var(--bw-color-utility-error-600),
       20
     )};
-  --bw-secondary-button-hovered-background-color: #{alpha(
-      var(--bw-color-utility-error-50),
-      40
-    )};
+  --bw-secondary-button-hovered-background-color: var(
+    --bw-color-bg-error-primary
+  );
 
   --bw-tertiary-button-color: var(--bw-color-text-error-primary);
-  --bw-tertiary-button-hovered-background-color: #{alpha(
-      var(--bw-color-utility-error-50),
-      40
-    )};
+  --bw-tertiary-button-hovered-background-color: var(
+    --bw-color-bg-error-primary
+  );
+
+  @include dark-mode {
+    --bw-secondary-button-border-color: #{alpha(
+        var(--bw-color-utility-error-500),
+        50
+      )};
+  }
 }
 
 .primary {
@@ -122,7 +122,7 @@
     --btn-after-inset: -1px;
     --btn-after-border-radius: var(--bw-radius-lg);
     --btn-after-hover-background-color: #{alpha(var(--bw-color-white), 5)};
-    --btn-border-color: #{alpha(var(--bw-color-white), 5)};
+    --btn-border-color: #{alpha(var(--bw-color-utility-white), 5)};
   }
 
   &::before {
