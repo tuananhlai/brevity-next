@@ -14,6 +14,8 @@ export interface ButtonProps
   className?: string;
   /** @default 'primary' */
   variant?: ButtonVariant;
+  /** @default 'brand' */
+  color?: "brand" | "error";
 }
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary";
@@ -22,9 +24,15 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   props,
   ref,
 ) => {
-  const { variant = "primary", children, className, ...rest } = props;
+  const {
+    variant = "primary",
+    color = "brand",
+    children,
+    className,
+    ...rest
+  } = props;
 
-  const buttonClassNames = [styles.base];
+  const buttonClassNames = [styles.root];
   switch (variant) {
     case "primary":
       buttonClassNames.push(styles.primary);
@@ -38,7 +46,12 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
   }
 
   return (
-    <AriaButton ref={ref} className={cn(buttonClassNames, className)} {...rest}>
+    <AriaButton
+      ref={ref}
+      className={cn(buttonClassNames, className)}
+      data-color={color}
+      {...rest}
+    >
       <TouchTarget>{children}</TouchTarget>
     </AriaButton>
   );

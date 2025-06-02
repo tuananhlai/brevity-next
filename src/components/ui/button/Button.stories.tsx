@@ -36,18 +36,39 @@ export const VisualTest: Story = {
     const sampleChildren = "Button";
 
     return (
-      <VisualTestGrid cellWidth="100px">
-        <Button>{sampleChildren}</Button>
-        <Button variant="secondary">{sampleChildren}</Button>
-        <Button variant="tertiary">{sampleChildren}</Button>
-        <Button isDisabled>{sampleChildren}</Button>
-        <Button variant="secondary" isDisabled>
-          {sampleChildren}
-        </Button>
-        <Button variant="tertiary" isDisabled>
-          {sampleChildren}
-        </Button>
-      </VisualTestGrid>
+      <>
+        <VisualTestGrid cellWidth="100px">
+          <Button>{sampleChildren}</Button>
+          <Button variant="secondary">{sampleChildren}</Button>
+          <Button variant="tertiary">{sampleChildren}</Button>
+          <Button isDisabled>{sampleChildren}</Button>
+          <Button variant="secondary" isDisabled>
+            {sampleChildren}
+          </Button>
+          <Button variant="tertiary" isDisabled>
+            {sampleChildren}
+          </Button>
+        </VisualTestGrid>
+
+        <VisualTestGrid style={{ marginTop: "40px" }} cellWidth="100px">
+          <Button color="error">{sampleChildren}</Button>
+          <Button variant="secondary" color="error">
+            {sampleChildren}
+          </Button>
+          <Button variant="tertiary" color="error">
+            {sampleChildren}
+          </Button>
+          <Button color="error" isDisabled>
+            {sampleChildren}
+          </Button>
+          <Button variant="secondary" color="error" isDisabled>
+            {sampleChildren}
+          </Button>
+          <Button variant="tertiary" color="error" isDisabled>
+            {sampleChildren}
+          </Button>
+        </VisualTestGrid>
+      </>
     );
   },
 };
