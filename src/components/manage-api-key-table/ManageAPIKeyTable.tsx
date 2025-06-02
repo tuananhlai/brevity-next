@@ -26,8 +26,12 @@ export interface ManageAPIKeyTableProps {
 
 export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
   const { items } = props;
-  const { _ } = useLingui();
+  const { _, i18n } = useLingui();
   const confirm = useConfirm();
+
+  const dateFormatter = (date: Date) => {
+    return i18n.date(date, { dateStyle: "medium" });
+  };
 
   return (
     <Table>
@@ -53,8 +57,20 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
               {item.name}
             </TableCell>
             <TableCell>{item.apiKeyPrefix}</TableCell>
-            <TableCell>{item.createdAt.toString()}</TableCell>
-            <TableCell>{item.lastUsed?.toString() ?? "-"}</TableCell>
+            <TableCell>
+              <time dateTime={item.createdAt.toISOString()}>
+                {dateFormatter(item.createdAt)}
+              </time>
+            </TableCell>
+            <TableCell>
+              {item.lastUsed != null ? (
+                <time dateTime={item.lastUsed.toISOString()}>
+                  {dateFormatter(item.lastUsed)}
+                </time>
+              ) : (
+                "-"
+              )}
+            </TableCell>
             <TableCell>
               <DialogTrigger>
                 <Button

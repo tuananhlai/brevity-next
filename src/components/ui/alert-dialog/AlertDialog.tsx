@@ -50,7 +50,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
         <>
           <DialogTitle>{title}</DialogTitle>
           <DialogBody className={styles.dialogBody}>{children}</DialogBody>
-          <DialogActions>
+          <DialogActions className={styles.dialogActions}>
             {onCancel != null && (
               <Button variant="tertiary" onPress={() => onCancel(close)}>
                 {cancelLabel}

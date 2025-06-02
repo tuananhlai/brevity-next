@@ -8,9 +8,9 @@
 
 .dialogBody {
   color: var(--bw-color-text-tertiary);
-  margin-top: var(--bw-space-3);
+  margin-top: var(--bw-space-4);
+}
 
-  @include screen-sm {
-    margin-top: var(--bw-space-2);
-  }
+.dialogActions {
+  margin-top: var(--bw-space-6);
 }

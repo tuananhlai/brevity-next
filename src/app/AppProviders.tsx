@@ -1,13 +1,10 @@
-import { i18n } from "@lingui/core";
-import { I18nProvider } from "@lingui/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
+import { AppI18nProvider } from "@/components/app-i18n-provider";
 import { ConfirmProvider } from "@/components/confirm-provider";
 import { Provider } from "@/components/ui/provider";
 import { ToastQueue, ToastRegion } from "@/components/ui/toast";
-import { messages as en } from "@/locales/en";
-import { messages as ja } from "@/locales/ja";
 
 declare module "react-aria-components" {
   interface RouterConfig {
@@ -17,12 +14,6 @@ declare module "react-aria-components" {
 
 const queue = new ToastQueue();
 const queryClient = new QueryClient();
-
-i18n.load({
-  en: en,
-  ja: ja,
-});
-i18n.activate("en");
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
@@ -50,9 +41,9 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
       `}</style>
       <QueryClientProvider client={queryClient}>
         <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
-          <I18nProvider i18n={i18n}>
+          <AppI18nProvider>
             <ConfirmProvider>{children}</ConfirmProvider>
-          </I18nProvider>
+          </AppI18nProvider>
         </Provider>
       </QueryClientProvider>
       <ToastRegion queue={queue} />
