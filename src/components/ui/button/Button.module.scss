@@ -9,6 +9,7 @@
   column-gap: var(--bw-space-2);
   border-radius: var(--bw-radius-lg);
   border-width: 1px;
+  border-style: solid;
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
   font-weight: var(--bw-weight-semibold);
@@ -46,6 +47,12 @@
   --bw-primary-button-before-background-color: var(
     --bw-color-utility-brand-900
   );
+
+  --bw-secondary-button-color: var(--bw-color-text-brand-primary);
+  --bw-secondary-button-border-color: #{alpha(
+      var(--bw-color-utility-brand-900),
+      10
+    )};
   --bw-secondary-button-hovered-background-color: #{alpha(
       var(--bw-color-bg-brand-solid),
       2.5
@@ -74,9 +81,14 @@
     --bw-color-utility-error-600
   );
 
+  --bw-secondary-button-color: var(--bw-color-text-error-primary);
+  --bw-secondary-button-border-color: #{alpha(
+      var(--bw-color-utility-error-600),
+      20
+    )};
   --bw-secondary-button-hovered-background-color: #{alpha(
-      var(--bw-color-bg-error-primary),
-      80
+      var(--bw-color-utility-error-50),
+      40
     )};
 }
 
@@ -132,14 +144,9 @@
 }
 
 .secondary {
-  color: var(--bw-color-text-brand-primary);
-  border-color: alpha(var(--bw-color-border-brand), 10);
+  color: var(--bw-secondary-button-color);
+  border-color: var(--bw-secondary-button-border-color);
   background-color: transparent;
-
-  @include dark-mode {
-    border-color: alpha(var(--bw-color-white), 15);
-    color: var(--bw-color-white);
-  }
 
   &:where([data-hovered], [data-pressed]) {
     background-color: var(--bw-secondary-button-hovered-background-color);
