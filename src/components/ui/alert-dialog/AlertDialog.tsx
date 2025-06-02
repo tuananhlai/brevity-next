@@ -25,6 +25,8 @@ export interface AlertDialogProps
    * the secondary action button will not be shown.
    */
   onCancel?: (close: CloseFn) => void;
+  /** @default 'brand' */
+  variant?: "brand" | "error";
 }
 
 export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
@@ -37,6 +39,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
     onCancel,
     isOpen,
     onOpenChange,
+    variant = "brand",
   } = props;
 
   return (
@@ -56,7 +59,7 @@ export const AlertDialog: React.FC<AlertDialogProps> = (props) => {
                 {cancelLabel}
               </Button>
             )}
-            <Button onPress={() => onPrimaryAction(close)}>
+            <Button color={variant} onPress={() => onPrimaryAction(close)}>
               {primaryActionLabel}
             </Button>
           </DialogActions>

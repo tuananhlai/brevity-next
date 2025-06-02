@@ -81,9 +81,11 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
             <TableCell>
               <DialogTrigger>
                 <Button
+                  color="error"
                   variant="tertiary"
                   onPress={async () => {
                     const ok = await confirm({
+                      variant: "error",
                       title: (
                         <Trans>
                           Are you sure you want to deactivate this API key?
