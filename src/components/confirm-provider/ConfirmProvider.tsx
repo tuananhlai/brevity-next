@@ -35,11 +35,17 @@ export const ConfirmProvider: React.FC<ConfirmProviderProps> = (props) => {
           params.primaryActionLabel ?? defaultPrimaryActionLabel,
         cancelLabel: params.cancelLabel ?? defaultCancelLabel,
         onOpenChange: () => {
-          setAlertDialogProps(defaultAlertDialogProps);
+          setAlertDialogProps((prev) => ({
+            ...prev,
+            isOpen: false,
+          }));
           resolveFn(false);
         },
         onPrimaryAction: () => {
-          setAlertDialogProps(defaultAlertDialogProps);
+          setAlertDialogProps((prev) => ({
+            ...prev,
+            isOpen: false,
+          }));
           resolveFn(true);
         },
         onCancel: (close) => close(),

@@ -1,0 +1,6 @@
+@use "src/styles/utils" as *;
+
+.apiKey {
+  font-family: monospace;
+  color: var(--bw-color-text-tertiary);
+}

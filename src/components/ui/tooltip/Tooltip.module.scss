@@ -18,6 +18,7 @@
   box-shadow: var(--bw-shadow-sm);
   border: 1px solid var(--bw-tooltip-border-color);
   padding: var(--bw-space-1-5) var(--bw-space-2-5);
+  max-width: var(--bw-space-64);
 
   @include screen-sm {
     font-size: var(--bw-font-sm);
