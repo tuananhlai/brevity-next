@@ -1,6 +1,5 @@
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import { DialogTrigger } from "react-aria-components";
 import { useConfirm } from "@/components/confirm-provider";
 import { Button } from "@/components/ui/button";
 import {
