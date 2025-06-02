@@ -93,6 +93,7 @@ msgid "Sign in with your account"
 msgstr ""
 
 #: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:45
+msgctxt "table column containing API key string"
 msgid "Value"
 msgstr ""
 

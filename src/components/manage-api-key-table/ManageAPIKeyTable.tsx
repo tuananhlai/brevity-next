@@ -42,7 +42,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
           <Trans>Name</Trans>
         </TableColumn>
         <TableColumn>
-          <Trans>Value</Trans>
+          <Trans context="table column containing API key string">Value</Trans>
         </TableColumn>
         <TableColumn>
           <Trans>Created At</Trans>
