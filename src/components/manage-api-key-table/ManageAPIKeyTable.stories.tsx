@@ -20,13 +20,15 @@ export const Default: Story = {
       {
         id: "1",
         name: "API Key 1",
-        apiKeyPrefix: "1234567890",
+        apiKeyPrefix: "sk-or-v1-56715",
+        apiKeySuffix: "a88d",
         createdAt: new Date(),
       },
       {
         id: "2",
         name: "API Key 2",
-        apiKeyPrefix: "1234567890",
+        apiKeyPrefix: "sk-or-v1-56715",
+        apiKeySuffix: "a88d",
         createdAt: new Date(),
         lastUsed: new Date(),
       },

@@ -11,11 +11,13 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import styles from "./ManageAPIKeyTable.module.scss";
 
 export interface ManageAPIKeyTableRowData {
   id: string;
   name: string;
   apiKeyPrefix: string;
+  apiKeySuffix: string;
   createdAt: Date;
   lastUsed?: Date;
 }
@@ -56,7 +58,12 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
             <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
               {item.name}
             </TableCell>
-            <TableCell>{item.apiKeyPrefix}</TableCell>
+            <TableCell>
+              <APIKeyCell
+                apiKeyPrefix={item.apiKeyPrefix}
+                apiKeySuffix={item.apiKeySuffix}
+              />
+            </TableCell>
             <TableCell>
               <time dateTime={item.createdAt.toISOString()}>
                 {dateFormatter(item.createdAt)}
@@ -104,5 +111,20 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
         ))}
       </TableBody>
     </Table>
+  );
+};
+
+const APIKeyCell: React.FC<{
+  apiKeyPrefix: string;
+  apiKeySuffix: string;
+}> = (props) => {
+  const { apiKeyPrefix, apiKeySuffix } = props;
+
+  return (
+    <span className={styles.apiKey}>
+      {apiKeyPrefix}
+      ...
+      {apiKeySuffix}
+    </span>
   );
 };
