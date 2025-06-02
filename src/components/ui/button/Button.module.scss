@@ -54,7 +54,13 @@
       10
     )};
   --bw-secondary-button-hovered-background-color: #{alpha(
-      var(--bw-color-bg-brand-solid),
+      var(--bw-color-utility-brand-900),
+      2.5
+    )};
+
+  --bw-tertiary-button-color: var(--bw-color-text-brand-primary);
+  --bw-tertiary-button-hovered-background-color: #{alpha(
+      var(--bw-color-utility-brand-900),
       2.5
     )};
 
@@ -87,6 +93,12 @@
       20
     )};
   --bw-secondary-button-hovered-background-color: #{alpha(
+      var(--bw-color-utility-error-50),
+      40
+    )};
+
+  --bw-tertiary-button-color: var(--bw-color-text-error-primary);
+  --bw-tertiary-button-hovered-background-color: #{alpha(
       var(--bw-color-utility-error-50),
       40
     )};
@@ -155,16 +167,10 @@
 
 .tertiary {
   border-color: transparent;
-  color: var(--bw-color-zinc-950);
+  color: var(--bw-tertiary-button-color);
   background-color: transparent;
-  --btn-hovered-background-color: #{alpha(var(--bw-color-zinc-950), 5)};
-
-  @include dark-mode {
-    color: var(--bw-color-white);
-    --btn-hovered-background-color: #{alpha(var(--bw-color-white), 10)};
-  }
 
   &:where([data-hovered], [data-pressed]) {
-    background-color: var(--btn-hovered-background-color);
+    background-color: var(--bw-tertiary-button-hovered-background-color);
   }
 }
