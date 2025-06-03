@@ -34,6 +34,7 @@ export const ConfirmProvider: React.FC<ConfirmProviderProps> = (props) => {
         primaryActionLabel:
           params.primaryActionLabel ?? defaultPrimaryActionLabel,
         cancelLabel: params.cancelLabel ?? defaultCancelLabel,
+        variant: params.variant,
         onOpenChange: () => {
           setAlertDialogProps((prev) => ({
             ...prev,
@@ -78,6 +79,7 @@ interface ConfirmParams {
   primaryActionLabel?: string;
   /** @default 'Cancel' */
   cancelLabel?: string;
+  variant?: AlertDialogProps["variant"];
 }
 
 type ConfirmFn = (params: ConfirmParams) => Promise<boolean>;

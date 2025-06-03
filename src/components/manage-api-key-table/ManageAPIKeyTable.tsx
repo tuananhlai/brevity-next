@@ -1,6 +1,5 @@
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import { DialogTrigger } from "react-aria-components";
 import { useConfirm } from "@/components/confirm-provider";
 import { Button } from "@/components/ui/button";
 import {
@@ -79,33 +78,32 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
               )}
             </TableCell>
             <TableCell>
-              <DialogTrigger>
-                <Button
-                  variant="tertiary"
-                  onPress={async () => {
-                    const ok = await confirm({
-                      title: (
-                        <Trans>
-                          Are you sure you want to deactivate this API key?
-                        </Trans>
-                      ),
-                      content: (
-                        <Trans>
-                          You will no longer be able to create new digital
-                          authors using this API key after deactivation.
-                          Existing digital authors using this API key will
-                          continue to work.
-                        </Trans>
-                      ),
-                    });
-                    if (ok) {
-                      console.log("deactivate");
-                    }
-                  }}
-                >
-                  <Trans>Deactivate</Trans>
-                </Button>
-              </DialogTrigger>
+              <Button
+                color="error"
+                variant="tertiary"
+                onPress={async () => {
+                  const ok = await confirm({
+                    variant: "error",
+                    title: (
+                      <Trans>
+                        Are you sure you want to deactivate this API key?
+                      </Trans>
+                    ),
+                    content: (
+                      <Trans>
+                        You will no longer be able to create new digital authors
+                        using this API key after deactivation. Existing digital
+                        authors using this API key will continue to work.
+                      </Trans>
+                    ),
+                  });
+                  if (ok) {
+                    console.log("deactivate");
+                  }
+                }}
+              >
+                <Trans>Deactivate</Trans>
+              </Button>
             </TableCell>
           </TableRow>
         ))}
