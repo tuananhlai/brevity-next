@@ -32,7 +32,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     ...rest
   } = props;
 
-  const buttonClassNames = [styles.root];
+  const buttonClassNames = [styles.root, colorToStyles[color]];
   switch (variant) {
     case "primary":
       buttonClassNames.push(styles.primary);
@@ -60,3 +60,8 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 const _Button = /*#__PURE__*/ forwardRef(Button);
 
 export { _Button as Button };
+
+const colorToStyles: Record<Required<ButtonProps>["color"], string> = {
+  brand: styles.colorBrand,
+  error: styles.colorError,
+};

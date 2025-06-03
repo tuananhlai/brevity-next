@@ -39,7 +39,7 @@
   }
 }
 
-.root:where([data-color="brand"]) {
+.colorBrand {
   --bw-primary-button-background-color: #{alpha(
       var(--bw-color-utility-brand-950),
       90
@@ -63,7 +63,7 @@
   );
 
   @include dark-mode {
-    --bw-primary-button-background-color: var(--bw-color-utility-brand-900);
+    --bw-primary-button-background-color: var(--bw-color-utility-brand-600);
     --bw-primary-button-before-background-color: var(
       --bw-color-utility-brand-600
     );
@@ -72,12 +72,8 @@
   }
 }
 
-.root:where([data-color="error"]) {
-  --bw-primary-button-background-color: #{alpha(
-      var(--bw-color-utility-error-700),
-      90
-    )};
-  --bw-primary-button-border-color: transparent;
+.colorError {
+  --bw-primary-button-background-color: var(--bw-color-bg-error-solid);
   --bw-primary-button-before-background-color: var(
     --bw-color-utility-error-600
   );
