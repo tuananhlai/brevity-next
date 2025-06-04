@@ -11,7 +11,7 @@ import {
 import { Description, Label } from "@/components/ui/field";
 import { Flex } from "@/components/ui/layout";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils";
+import { ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Slider.module.scss";
 
 // Only allow horizontal orientation for now.

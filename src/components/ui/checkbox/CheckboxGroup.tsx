@@ -4,7 +4,7 @@ import {
   CheckboxGroupProps as AriaCheckboxGroupProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./CheckboxGroup.module.scss";
 

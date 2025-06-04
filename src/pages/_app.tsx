@@ -1,7 +1,7 @@
 import { getWebInstrumentations, initializeFaro } from "@grafana/faro-web-sdk";
 import { TracingInstrumentation } from "@grafana/faro-web-tracing";
 import type { AppProps } from "next/app";
-import { AppProviders } from "@/app/AppProviders";
+import { AppProviders } from "@/components/AppProviders";
 import "@/styles/globals.scss";
 import "@/styles/tokens.scss";
 

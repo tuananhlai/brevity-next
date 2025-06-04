@@ -6,7 +6,7 @@ import { FormSlider, FormTextArea, FormTextField } from "@/components/rhf";
 import { FormSelect, FormSelectProps } from "@/components/rhf/FormSelect";
 import { SelectItem } from "@/components/ui/select";
 import { TextLink } from "@/components/ui/text";
-import { TODO_HREF } from "@/utils";
+import { TODO_HREF } from "@/utils/misc";
 import { requiredFieldMessage } from "@/utils/validation";
 import styles from "./CreateDigitalAuthorForm.module.scss";
 

@@ -1,5 +1,5 @@
 import { Row, RowProps } from "react-aria-components";
-import { ReplaceAriaRenderProps } from "@/utils";
+import { ReplaceAriaRenderProps } from "@/utils/misc";
 
 export interface TableRowProps<T> extends ReplaceAriaRenderProps<RowProps<T>> {}
 

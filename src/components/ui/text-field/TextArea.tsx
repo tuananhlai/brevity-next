@@ -5,7 +5,7 @@ import {
   TextFieldProps as AriaTextFieldProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./TextField.module.scss";
 

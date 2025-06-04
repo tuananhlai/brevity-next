@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { FieldsetProps } from "@/utils";
+import { FieldsetProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import { Popover } from "../popover";
 import styles from "./Select.module.scss";

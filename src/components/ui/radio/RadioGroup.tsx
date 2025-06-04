@@ -3,7 +3,7 @@ import {
   RadioGroup as AriaRadioGroup,
   RadioGroupProps as AriaRadioGroupProps,
 } from "react-aria-components";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
+import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./RadioGroup.module.scss";
 
