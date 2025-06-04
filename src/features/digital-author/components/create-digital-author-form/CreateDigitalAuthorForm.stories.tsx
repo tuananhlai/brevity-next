@@ -36,3 +36,16 @@ export const Default: Story = {
     );
   },
 };
+
+export const VisualTest: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    return (
+      <div style={{ width: "400px" }}>
+        <CreateDigitalAuthorForm onSubmit={() => {}} />
+      </div>
+    );
+  },
+};

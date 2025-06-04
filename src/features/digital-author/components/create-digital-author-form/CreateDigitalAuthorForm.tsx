@@ -3,7 +3,7 @@ import { useLingui } from "@lingui/react";
 import { useQuery } from "@tanstack/react-query";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormSlider, FormTextArea, FormTextField } from "@/components/rhf";
-import { FormSelect } from "@/components/rhf/FormSelect";
+import { FormSelect, FormSelectProps } from "@/components/rhf/FormSelect";
 import { SelectItem } from "@/components/ui/select";
 import styles from "./CreateDigitalAuthorForm.module.scss";
 
@@ -21,6 +21,8 @@ export interface CreateDigitalAuthorFormProps {
   /** The unique identifier for the form element. */
   id?: string;
 }
+
+const requiredFieldMessage = msg`Please fill out this field.`;
 
 export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
   props,
@@ -40,12 +42,27 @@ export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
   return (
     <FormProvider {...methods}>
       <form id={id} className={styles.root} onSubmit={submit}>
-        <FormAPIKeySelect name="apiKeyID" isRequired />
+        <FormAPIKeySelect
+          name="apiKeyID"
+          isRequired
+          rules={{
+            required: {
+              value: true,
+              message: _(requiredFieldMessage),
+            },
+          }}
+        />
         <FormTextField
           name="displayName"
           isRequired
           label={_(msg`Display name`)}
           placeholder="John Doe"
+          rules={{
+            required: {
+              value: true,
+              message: _(requiredFieldMessage),
+            },
+          }}
         />
         <FormTextArea
           name="systemPrompt"
@@ -53,6 +70,12 @@ export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
           rows={4}
           placeholder="You are a senior software engineer."
           isRequired
+          rules={{
+            required: {
+              value: true,
+              message: _(requiredFieldMessage),
+            },
+          }}
         />
         <FormSlider
           name="temperature"
@@ -89,13 +112,15 @@ const defaultFormValues: CreateDigitalAuthorFormValues = {
   maxTokens: 4096,
 };
 
-const FormAPIKeySelect = ({
-  name,
-  isRequired,
-}: {
+interface FormAPIKeySelectProps {
   name: string;
+  rules?: FormSelectProps<{ id: string; name: string }>["rules"];
   isRequired?: boolean;
-}) => {
+}
+
+const FormAPIKeySelect: React.FC<FormAPIKeySelectProps> = (props) => {
+  const { name, rules, isRequired } = props;
+
   const { _ } = useLingui();
   const { data = [] } = useQuery({
     queryKey: ["apiKeys"],
@@ -125,6 +150,7 @@ const FormAPIKeySelect = ({
       items={data}
       isRequired={isRequired}
       label={_(msg`API key`)}
+      rules={rules}
       description={
         <Trans>
           An OpenRouter API key is required to create a new digital author.{" "}

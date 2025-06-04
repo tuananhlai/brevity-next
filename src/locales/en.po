@@ -13,32 +13,40 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:53
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:52
 msgid "Actions"
 msgstr ""
 
-#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:78
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:78
 msgid "Add"
 msgstr ""
 
-#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:46
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:46
 msgid "Add API Key"
 msgstr ""
 
-#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:57
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:57
 msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
 msgstr ""
 
-#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:55
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:155
+msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key.</0>"
+msgstr ""
+
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
+msgid "API key"
+msgstr ""
+
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:55
 msgid "API Key"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:88
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:88
 msgid "Are you sure you want to deactivate this API key?"
 msgstr ""
 
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:75
 #: src/components/confirm-provider/ConfirmProvider.tsx:21
-#: src/components/add-api-key-dialog/AddApiKeyDialog.tsx:75
 msgid "Cancel"
 msgstr ""
 
@@ -46,12 +54,16 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:48
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
 msgid "Created At"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:106
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:105
 msgid "Deactivate"
+msgstr ""
+
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:58
+msgid "Display name"
 msgstr ""
 
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:37
@@ -62,11 +74,15 @@ msgstr ""
 msgid "Forgot your password?"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:51
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:50
 msgid "Last Used"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:42
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:96
+msgid "Max tokens"
+msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:41
 msgid "Name"
 msgstr ""
 
@@ -76,6 +92,10 @@ msgstr ""
 
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:40
 msgid "Password"
+msgstr ""
+
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:25
+msgid "Please fill out this field."
 msgstr ""
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:40
@@ -92,11 +112,23 @@ msgstr ""
 msgid "Sign in with your account"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:45
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:69
+msgid "System prompt"
+msgstr ""
+
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:82
+msgid "Temperature"
+msgstr ""
+
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:89
+msgid "Top P"
+msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:44
 msgctxt "table column containing API key string"
 msgid "Value"
 msgstr ""
 
-#: src/components/manage-api-key-table/ManageAPIKeyTable.tsx:93
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:93
 msgid "You will no longer be able to create new digital authors using this API key after deactivation. Existing digital authors using this API key will continue to work."
 msgstr ""

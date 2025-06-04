@@ -20,7 +20,7 @@ export interface TextAreaProps
 }
 
 const TextArea: React.ForwardRefRenderFunction<
-  HTMLInputElement,
+  HTMLTextAreaElement,
   TextAreaProps
 > = (props, ref) => {
   const {
@@ -38,7 +38,6 @@ const TextArea: React.ForwardRefRenderFunction<
 
   return (
     <AriaTextField
-      ref={ref}
       style={style}
       className={cn(styles.root, className)}
       {...rest}
@@ -52,6 +51,7 @@ const TextArea: React.ForwardRefRenderFunction<
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
       <AriaTextArea
+        ref={ref}
         className={styles.input}
         style={{
           resize: resizable ? "vertical" : "none",
