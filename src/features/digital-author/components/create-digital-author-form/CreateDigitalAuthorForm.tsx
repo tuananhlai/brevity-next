@@ -110,7 +110,7 @@ const defaultFormValues: CreateDigitalAuthorFormValues = {
   systemPrompt: "",
   temperature: 0.5,
   topP: 1,
-  maxTokens: 4096,
+  maxTokens: 4000,
 };
 
 interface FormAPIKeySelectProps {
@@ -126,8 +126,7 @@ const FormAPIKeySelect: React.FC<FormAPIKeySelectProps> = (props) => {
   const { data = [] } = useQuery({
     queryKey: ["apiKeys"],
     queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
+      // TODO: Integrate API.
       return [
         {
           id: "1",
