@@ -1,3 +1,5 @@
+import { mergeRefs } from "@react-aria/utils";
+import { forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { Controller } from "react-hook-form";
 import { OmitAriaFormProps, RHFFieldProps } from "@/components/rhf/utils";
@@ -7,7 +9,10 @@ export interface FormSliderProps
   extends OmitAriaFormProps<SliderProps>,
     RHFFieldProps {}
 
-export const FormSlider: React.FC<FormSliderProps> = (props) => {
+const FormSlider: React.ForwardRefRenderFunction<
+  HTMLInputElement,
+  FormSliderProps
+> = (props, ref) => {
   const {
     name,
     isDisabled,
@@ -30,7 +35,7 @@ export const FormSlider: React.FC<FormSliderProps> = (props) => {
         <Slider
           name={field.name}
           value={field.value}
-          ref={field.ref}
+          ref={mergeRefs(field.ref, ref)}
           isDisabled={field.disabled}
           {...mergeProps(
             {
@@ -44,3 +49,7 @@ export const FormSlider: React.FC<FormSliderProps> = (props) => {
     />
   );
 };
+
+const _FormSlider = /*#__PURE__*/ forwardRef(FormSlider);
+
+export { _FormSlider as FormSlider };
