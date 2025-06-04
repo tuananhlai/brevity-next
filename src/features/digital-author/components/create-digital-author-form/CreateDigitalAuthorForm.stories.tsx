@@ -40,6 +40,9 @@ export const Default: Story = {
 export const VisualTest: Story = {
   parameters: {
     layout: "centered",
+    chromatic: {
+      disableSnapshot: false,
+    },
   },
   render: () => {
     return (
