@@ -53,7 +53,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
       </TableHeader>
       <TableBody items={items}>
         {(item) => (
-          <TableRow key={item.id}>
+          <TableRow>
             <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
               {item.name}
             </TableCell>
