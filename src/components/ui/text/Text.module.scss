@@ -1,6 +1,6 @@
 @use "src/styles/utils.scss" as *;
 
-.root {
+.text {
   color: var(--bw-color-zinc-500);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
@@ -12,5 +12,26 @@
   @include screen-sm {
     font-size: var(--bw-font-sm);
     line-height: var(--bw-line-5);
+  }
+}
+
+.heading {
+  color: var(--bw-color-text-primary);
+  font-size: var(--bw-font-2xl);
+  line-height: var(--bw-line-8);
+  font-weight: var(--bw-weight-semibold);
+
+  @include screen-sm {
+    font-size: var(--bw-font-xl);
+  }
+}
+
+.link {
+  color: var(--bw-color-text-primary);
+  text-decoration: underline;
+  text-decoration-color: alpha(var(--bw-color-text-primary), 50);
+
+  &:where(:hover) {
+    text-decoration-color: var(--bw-color-text-primary);
   }
 }

@@ -17,3 +17,6 @@ export type FieldsetProps = {
   description?: React.ReactNode;
   errorMessage?: FieldErrorProps["children"];
 };
+
+/** The placeholder href for links that are not yet implemented. */
+export const TODO_HREF = "#";

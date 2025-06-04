@@ -14,7 +14,7 @@ const Text: React.ForwardRefRenderFunction<HTMLElement, TextProps> = (
 ) => {
   const { className, ...rest } = props;
   return (
-    <AriaText className={cn(styles.root, className)} ref={ref} {...rest} />
+    <AriaText className={cn(styles.text, className)} ref={ref} {...rest} />
   );
 };
 

@@ -5,6 +5,9 @@ import { FormProvider, useForm } from "react-hook-form";
 import { FormSlider, FormTextArea, FormTextField } from "@/components/rhf";
 import { FormSelect, FormSelectProps } from "@/components/rhf/FormSelect";
 import { SelectItem } from "@/components/ui/select";
+import { TextLink } from "@/components/ui/text";
+import { TODO_HREF } from "@/utils";
+import { requiredFieldMessage } from "@/utils/validation";
 import styles from "./CreateDigitalAuthorForm.module.scss";
 
 export interface CreateDigitalAuthorFormValues {
@@ -21,8 +24,6 @@ export interface CreateDigitalAuthorFormProps {
   /** The unique identifier for the form element. */
   id?: string;
 }
-
-const requiredFieldMessage = msg`Please fill out this field.`;
 
 export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
   props,
@@ -154,9 +155,9 @@ const FormAPIKeySelect: React.FC<FormAPIKeySelectProps> = (props) => {
       description={
         <Trans>
           An OpenRouter API key is required to create a new digital author.{" "}
-          <a href="" target="_blank">
-            Create a new API key.
-          </a>
+          <TextLink href={TODO_HREF} target="_blank">
+            Create a new API key
+          </TextLink>
         </Trans>
       }
     >

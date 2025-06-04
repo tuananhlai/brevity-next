@@ -30,10 +30,14 @@ msgid "An Open Router API key is required to allow your digital authors to creat
 msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:155
-msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key.</0>"
+#~ msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key.</0>"
+#~ msgstr ""
+
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:156
+msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key</0>"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:153
 msgid "API key"
 msgstr ""
 
@@ -62,7 +66,7 @@ msgstr ""
 msgid "Deactivate"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:58
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:59
 msgid "Display name"
 msgstr ""
 
@@ -78,7 +82,7 @@ msgstr ""
 msgid "Last Used"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:96
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:97
 msgid "Max tokens"
 msgstr ""
 
@@ -94,7 +98,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:25
+#: src/utils/validation.ts:3
 msgid "Please fill out this field."
 msgstr ""
 
@@ -112,15 +116,15 @@ msgstr ""
 msgid "Sign in with your account"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:69
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:70
 msgid "System prompt"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:82
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:83
 msgid "Temperature"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:89
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:90
 msgid "Top P"
 msgstr ""
 
