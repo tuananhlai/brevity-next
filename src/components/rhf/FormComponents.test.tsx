@@ -1,9 +1,11 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { FormProvider, useForm } from "react-hook-form";
+import { FormSelect } from "@/components/rhf/FormSelect";
 import { FormSlider } from "@/components/rhf/FormSlider";
+import { FormTextArea } from "@/components/rhf/FormTextArea";
 import { FormTextField } from "@/components/rhf/FormTextField";
-import { FormTextArea } from "@/components/rhf/FormTextarea";
+import { SelectItem } from "@/components/ui/select";
 
 it("should accept default value", () => {
   render(
@@ -12,6 +14,7 @@ it("should accept default value", () => {
         testTextField: "test",
         testSlider: 10,
         testTextArea: "test text area",
+        testSelect: "1",
       }}
     />,
   );
@@ -26,6 +29,7 @@ it("should call onSubmit when form is submitted", async () => {
     testTextField: "test",
     testSlider: 10,
     testTextArea: "test text area",
+    testSelect: "1",
   };
   const onSubmit = jest.fn();
   render(<TestForm defaultValues={formValues} onSubmit={onSubmit} />);
@@ -43,6 +47,7 @@ it("should update field value", async () => {
         testTextField: "test",
         testSlider: 10,
         testTextArea: "test text area",
+        testSelect: "1",
       }}
       onSubmit={onSubmit}
     />,
@@ -58,6 +63,7 @@ it("should update field value", async () => {
     testTextField: "testtest2",
     testSlider: 20,
     testTextArea: "test text areatest2",
+    testSelect: "1",
   });
 });
 
@@ -65,6 +71,7 @@ interface TestFormValues {
   testTextField: string;
   testSlider: number;
   testTextArea: string;
+  testSelect: null | "1" | "2" | "3";
 }
 
 interface TestFormProps {
@@ -94,6 +101,11 @@ const TestForm: React.FC<TestFormProps> = (props) => {
         <FormTextField name="testTextField" label="Test Text Field" />
         <FormSlider name="testSlider" label="Test Slider" />
         <FormTextArea name="testTextArea" label="Test Text Area" />
+        <FormSelect name="testSelect" label="Test Select">
+          <SelectItem id="1">Option One</SelectItem>
+          <SelectItem id="2">Option Two</SelectItem>
+          <SelectItem id="3">Option Three</SelectItem>
+        </FormSelect>
 
         <button type="submit">Submit</button>
       </form>

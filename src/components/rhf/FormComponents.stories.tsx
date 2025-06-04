@@ -1,9 +1,11 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { FormProvider, useForm } from "react-hook-form";
+import { FormSelect } from "@/components/rhf/FormSelect";
 import { FormSlider } from "@/components/rhf/FormSlider";
 import { FormTextArea } from "@/components/rhf/FormTextArea";
 import { FormTextField } from "@/components/rhf/FormTextField";
 import { Button } from "@/components/ui/button";
+import { SelectItem } from "@/components/ui/select";
 
 const meta: Meta = {
   title: "RHF",
@@ -22,6 +24,7 @@ export const Default: StoryObj = {
         age: 20,
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        country: "US",
       },
     });
 
@@ -38,6 +41,11 @@ export const Default: StoryObj = {
           <FormTextField name="name" label="Name" />
           <FormSlider name="age" label="Age" />
           <FormTextArea name="description" label="Description" />
+          <FormSelect name="country" label="Country">
+            <SelectItem id="US">United States</SelectItem>
+            <SelectItem id="CA">Canada</SelectItem>
+            <SelectItem id="GB">United Kingdom</SelectItem>
+          </FormSelect>
 
           <Button type="submit">Submit</Button>
         </form>
@@ -50,4 +58,5 @@ interface ExampleFormValues {
   name: string;
   age: number;
   description: string;
+  country: "US" | "CA" | "GB" | null;
 }

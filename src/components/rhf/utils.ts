@@ -22,4 +22,6 @@ export type OmitAriaFormProps<T> = Omit<
   | "value"
   | "defaultValue"
   | "isDisabled"
+  | "selectedKey"
+  | "defaultSelectedKey"
 >;

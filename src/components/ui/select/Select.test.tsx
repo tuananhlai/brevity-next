@@ -42,6 +42,15 @@ it("should be associated with an error message when `isInvalid` is true", () => 
   );
 });
 
+it("should select an item when the user clicks on it", async () => {
+  render(<ExampleSelect />);
+
+  await userEvent.click(screen.getByRole("button"));
+  await userEvent.click(screen.getByRole("option", { name: "Option 1" }));
+
+  expect(screen.getByRole("button")).toHaveTextContent("Option 1");
+});
+
 const ExampleSelect = (props: Partial<SelectProps<object>>) => {
   return (
     <Select aria-label="example" {...props}>
