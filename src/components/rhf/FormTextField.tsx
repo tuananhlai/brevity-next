@@ -39,6 +39,7 @@ const FormTextField: React.ForwardRefRenderFunction<
           errorMessage={fieldState.error?.message}
           ref={mergeRefs(field.ref, ref)}
           isDisabled={field.disabled}
+          validationBehavior="aria"
           {...mergeProps(
             {
               onChange: field.onChange,

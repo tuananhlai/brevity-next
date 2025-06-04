@@ -39,6 +39,7 @@ const FormSelect = <T extends object>(
           errorMessage={fieldState.error?.message}
           ref={mergeRefs(field.ref, ref)}
           isDisabled={field.disabled}
+          validationBehavior="aria"
           {...mergeProps(
             {
               onSelectionChange: field.onChange,

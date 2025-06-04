@@ -34,6 +34,7 @@ export const FormTextArea: React.FC<FormTextAreaProps> = (props) => {
           errorMessage={fieldState.error?.message}
           ref={field.ref}
           isDisabled={field.disabled}
+          validationBehavior="aria"
           {...mergeProps(
             {
               onChange: field.onChange,

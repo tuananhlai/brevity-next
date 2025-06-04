@@ -27,12 +27,12 @@ export const Default: Story = {
     const formID = useId();
 
     return (
-      <>
+      <div style={{ width: "400px" }}>
         <CreateDigitalAuthorForm id={formID} onSubmit={onSubmit} />
-        <Button form={formID} type="submit">
+        <Button style={{ marginTop: "24px" }} form={formID} type="submit">
           Submit
         </Button>
-      </>
+      </div>
     );
   },
 };

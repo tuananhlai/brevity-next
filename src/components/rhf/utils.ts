@@ -24,4 +24,6 @@ export type OmitAriaFormProps<T> = Omit<
   | "isDisabled"
   | "selectedKey"
   | "defaultSelectedKey"
+  | "validationBehavior"
+  | "validate"
 >;
