@@ -1,3 +1,5 @@
+import { mergeRefs } from "@react-aria/utils";
+import { forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { Controller } from "react-hook-form";
 import { OmitAriaFormProps, RHFFieldProps } from "@/components/rhf/utils";
@@ -7,7 +9,10 @@ export interface FormTextFieldProps
   extends OmitAriaFormProps<TextFieldProps>,
     RHFFieldProps {}
 
-export const FormTextField: React.FC<FormTextFieldProps> = (props) => {
+const FormTextField: React.ForwardRefRenderFunction<
+  HTMLInputElement,
+  FormTextFieldProps
+> = (props, ref) => {
   const {
     name,
     isDisabled,
@@ -32,7 +37,7 @@ export const FormTextField: React.FC<FormTextFieldProps> = (props) => {
           value={field.value}
           isInvalid={fieldState.invalid}
           errorMessage={fieldState.error?.message}
-          ref={field.ref}
+          ref={mergeRefs(field.ref, ref)}
           isDisabled={field.disabled}
           {...mergeProps(
             {
@@ -46,3 +51,7 @@ export const FormTextField: React.FC<FormTextFieldProps> = (props) => {
     />
   );
 };
+
+const _FormTextField = /*#__PURE__*/ forwardRef(FormTextField);
+
+export { _FormTextField as FormTextField };
