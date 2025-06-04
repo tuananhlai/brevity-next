@@ -1,2 +1,5 @@
 export { CreateDigitalAuthorForm } from "./CreateDigitalAuthorForm";
-export type { CreateDigitalAuthorFormProps } from "./CreateDigitalAuthorForm";
+export type {
+  CreateDigitalAuthorFormProps,
+  CreateDigitalAuthorFormValues,
+} from "./CreateDigitalAuthorForm";
