@@ -24,7 +24,7 @@ export interface SelectProps<T extends object>
 
 const Select = <T extends object>(
   props: SelectProps<T>,
-  ref: React.ForwardedRef<HTMLDivElement>,
+  ref: React.ForwardedRef<HTMLButtonElement>,
 ) => {
   const {
     children,
@@ -38,7 +38,7 @@ const Select = <T extends object>(
   const { isRequired, isDisabled } = rest;
 
   return (
-    <AriaSelect ref={ref} className={cn(styles.root, className)} {...rest}>
+    <AriaSelect className={cn(styles.root, className)} {...rest}>
       {label != null && (
         <Label isRequired={isRequired} isDisabled={isDisabled}>
           {label}
@@ -47,7 +47,7 @@ const Select = <T extends object>(
       {description != null && (
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
-      <Button className={styles.selectBtn}>
+      <Button ref={ref} className={styles.selectBtn}>
         <SelectValue className={styles.selectedValue} />
         <span className={styles.arrowContainer}>
           <svg
@@ -83,8 +83,10 @@ const Select = <T extends object>(
   );
 };
 
+// Cast the return value of `forwardRef` to a generic type for better
+// auto-completion.
 const _Select = /*#__PURE__*/ forwardRef(Select) as <T extends object>(
-  props: SelectProps<T> & React.RefAttributes<HTMLDivElement>,
+  props: SelectProps<T> & React.RefAttributes<HTMLButtonElement>,
 ) => JSX.Element;
 
 export { _Select as Select };

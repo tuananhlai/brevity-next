@@ -5,7 +5,7 @@ import { AddApiKeyDialog } from "./AddApiKeyDialog";
 
 const meta: Meta<typeof AddApiKeyDialog> = {
   component: AddApiKeyDialog,
-  title: "AddApiKeyDialog",
+  title: "features/digital-author/AddApiKeyDialog",
   argTypes: {},
 };
 export default meta;

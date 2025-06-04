@@ -32,7 +32,6 @@ const TextField: React.ForwardRefRenderFunction<
 
   return (
     <AriaTextField
-      ref={ref}
       style={style}
       className={cn(styles.root, className)}
       {...rest}
@@ -45,7 +44,7 @@ const TextField: React.ForwardRefRenderFunction<
       {description != null && (
         <Description isDisabled={isDisabled}>{description}</Description>
       )}
-      <Input className={styles.input} placeholder={placeholder} />
+      <Input ref={ref} className={styles.input} placeholder={placeholder} />
       <ErrorMessage className={styles.errorMessage} isDisabled={isDisabled}>
         {errorMessage}
       </ErrorMessage>

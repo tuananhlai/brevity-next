@@ -4,7 +4,7 @@ import {
   HeadingProps as AriaHeadingProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import styles from "./Heading.module.scss";
+import styles from "./Text.module.scss";
 
 export type HeadingProps = AriaHeadingProps;
 
@@ -14,7 +14,11 @@ const Heading: React.ForwardRefRenderFunction<
 > = (props, ref) => {
   const { className, ...rest } = props;
   return (
-    <AriaHeading ref={ref} className={cn(styles.root, className)} {...rest} />
+    <AriaHeading
+      ref={ref}
+      className={cn(styles.heading, className)}
+      {...rest}
+    />
   );
 };
 
