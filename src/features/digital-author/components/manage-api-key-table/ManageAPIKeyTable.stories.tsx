@@ -3,7 +3,7 @@ import { ManageAPIKeyTable } from "./ManageAPIKeyTable";
 
 const meta: Meta<typeof ManageAPIKeyTable> = {
   component: ManageAPIKeyTable,
-  title: "ManageAPIKeyTable",
+  title: "features/digital-author/ManageAPIKeyTable",
   argTypes: {},
 };
 export default meta;

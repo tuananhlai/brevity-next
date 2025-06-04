@@ -1,9 +1,11 @@
-import { useId } from "react";
+import { forwardRef, useId } from "react";
+import { useObjectRef } from "react-aria";
 import {
   Slider as AriaSlider,
   SliderProps as AriaSliderProps,
   SliderOutput,
   SliderThumb,
+  SliderThumbProps,
   SliderTrack,
 } from "react-aria-components";
 import { Description, Label } from "@/components/ui/field";
@@ -14,20 +16,26 @@ import styles from "./Slider.module.scss";
 
 // Only allow horizontal orientation for now.
 export interface SliderProps
-  extends Omit<ReplaceAriaRenderProps<AriaSliderProps>, "orientation"> {
+  extends Omit<ReplaceAriaRenderProps<AriaSliderProps>, "orientation">,
+    Pick<SliderThumbProps, "name"> {
   label?: React.ReactNode;
   description?: React.ReactNode;
 }
 
-export const Slider: React.FC<SliderProps> = (props) => {
+const Slider: React.ForwardRefRenderFunction<HTMLInputElement, SliderProps> = (
+  props,
+  forwardedRef,
+) => {
   const {
     className,
     label,
     description,
+    name,
     "aria-describedby": ariaDescribedby,
     ...rest
   } = props;
 
+  const ref = useObjectRef(forwardedRef);
   const descriptionId = useId();
 
   return (
@@ -56,7 +64,11 @@ export const Slider: React.FC<SliderProps> = (props) => {
                 />
                 {/* TODO: make the thumb transition smoothly to the new value when
                 the user clicks on the track. */}
-                <SliderThumb className={styles.thumb} />
+                <SliderThumb
+                  name={name}
+                  inputRef={ref}
+                  className={styles.thumb}
+                />
               </>
             );
           }}
@@ -66,3 +78,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
     </AriaSlider>
   );
 };
+
+const _Slider = /*#__PURE__*/ forwardRef(Slider);
+
+export { _Slider as Slider };

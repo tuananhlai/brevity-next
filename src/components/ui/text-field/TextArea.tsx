@@ -9,7 +9,7 @@ import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./TextField.module.scss";
 
-export interface TextareaFieldProps
+export interface TextAreaProps
   extends ReplaceAriaRenderProps<AriaTextFieldProps>,
     FieldsetProps {
   placeholder?: string;
@@ -19,9 +19,9 @@ export interface TextareaFieldProps
   rows?: number;
 }
 
-const TextareaField: React.ForwardRefRenderFunction<
+const TextArea: React.ForwardRefRenderFunction<
   HTMLInputElement,
-  TextareaFieldProps
+  TextAreaProps
 > = (props, ref) => {
   const {
     style,
@@ -66,6 +66,6 @@ const TextareaField: React.ForwardRefRenderFunction<
   );
 };
 
-const _TextareaField = /*#__PURE__*/ forwardRef(TextareaField);
+const _TextArea = /*#__PURE__*/ forwardRef(TextArea);
 
-export { _TextareaField as TextareaField };
+export { _TextArea as TextArea };

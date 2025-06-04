@@ -1,15 +1,15 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-import { TextareaField, TextareaFieldProps } from "./TextareaField";
+import { TextArea, TextAreaProps } from "./TextArea";
 
-const meta: Meta<typeof TextareaField> = {
-  component: TextareaField,
-  title: "ui/TextareaField",
+const meta: Meta<typeof TextArea> = {
+  component: TextArea,
+  title: "ui/TextArea",
   argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof TextareaField>;
+type Story = StoryObj<typeof TextArea>;
 
 // Minimal code to render the component correctly.
 export const Default: Story = {
@@ -65,6 +65,6 @@ export const VisualTest: Story = {
   },
 };
 
-const ExampleTextareaField = (props: Partial<TextareaFieldProps>) => {
-  return <TextareaField aria-label="Label" {...props} />;
+const ExampleTextareaField = (props: Partial<TextAreaProps>) => {
+  return <TextArea aria-label="Label" {...props} />;
 };

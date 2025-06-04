@@ -29,6 +29,26 @@ export const Default: Story = {
   },
 };
 
+export const Decimal: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    return (
+      <div style={{ width: "300px" }}>
+        <Slider
+          defaultValue={0.5}
+          minValue={0.1}
+          maxValue={2.0}
+          step={0.1}
+          label="Slider"
+          description="This is a slider with decimal values"
+        />
+      </div>
+    );
+  },
+};
+
 export const VisualTest: Story = {
   parameters: {
     chromatic: {

@@ -10,6 +10,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "generate": "plop",
+    "g": "pnpm generate",
     "test": "jest --watch",
     "ci:test": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json",
     "chromatic": "npx chromatic --exit-zero-on-changes --only-changed",
