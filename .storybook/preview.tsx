@@ -3,7 +3,7 @@ import type { Preview } from "@storybook/react";
 import React from "react";
 import "@/styles/globals.scss";
 import "@/styles/tokens.scss";
-import { AppProviders } from "../src/app/AppProviders";
+import { AppProviders } from "../src/components/AppProviders";
 
 const preview: Preview = {
   parameters: {
