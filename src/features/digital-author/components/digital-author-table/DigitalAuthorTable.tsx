@@ -1,5 +1,5 @@
 import { Trans } from "@lingui/macro";
-import { RelativeTimeValue } from "@/components/time-value/TimeValue";
+import { RelativeTimeValue } from "@/components/time-value";
 import { Flex } from "@/components/ui/layout";
 import {
   Table,
