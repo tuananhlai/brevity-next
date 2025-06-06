@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { RelativeTimeValue, TimeValue } from "./TimeValue";
+import { RelativeTimeValue } from "./RelativeTimeValue";
+import { TimeValue } from "./TimeValue";
 
 const meta: Meta<typeof TimeValue> = {
   component: TimeValue,

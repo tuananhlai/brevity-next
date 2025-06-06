@@ -13,19 +13,18 @@
 }
 
 .lastArticleCell {
-  text-overflow: ellipsis;
   max-width: var(--bw-space-56);
+}
 
-  & :global(.link) {
-    font-weight: var(--bw-weight-medium);
-    color: var(--bw-color-text-secondary);
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
+.lastArticleCellTitle {
+  font-weight: var(--bw-weight-medium);
+  color: var(--bw-color-text-secondary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
-  & :global(.createdAt) {
-    font-size: var(--bw-font-sm);
-    color: var(--bw-color-text-tertiary);
-  }
+.lastArticleCellCreatedAt {
+  font-size: var(--bw-font-sm);
+  color: var(--bw-color-text-tertiary);
 }

@@ -65,11 +65,14 @@ export const DigitalAuthorTable: React.FC<DigitalAuthorTableProps> = (
             <TableCell>
               {item.lastArticle != null ? (
                 <Flex className={styles.lastArticleCell} direction="column">
-                  <TextLink className="link" href={TODO_HREF}>
+                  <TextLink
+                    className={styles.lastArticleCellTitle}
+                    href={TODO_HREF}
+                  >
                     {item.lastArticle.title}
                   </TextLink>
                   <RelativeTimeValue
-                    className="createdAt"
+                    className={styles.lastArticleCellCreatedAt}
                     dateTime={item.lastArticle.createdAt}
                   />
                 </Flex>

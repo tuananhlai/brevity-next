@@ -2,6 +2,11 @@
  * Convert a date to a relative time string, such as
  * "a minute ago", "in 2 hours", "yesterday", "3 months ago", etc.
  * using Intl.RelativeTimeFormat
+ *
+ * @example
+ * getRelativeTimeString(new Date(), "en") // "now"
+ * getRelativeTimeString(new Date(Date.now() - 1000 * 60 * 30), "en") // "30 minutes ago"
+ * getRelativeTimeString(new Date(Date.now() + 1000 * 60 * 30), "en") // "in 30 minutes"
  */
 export const getRelativeTimeString = (
   date: Date | number,
