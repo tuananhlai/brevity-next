@@ -1,1 +1,31 @@
 @use "src/styles/utils" as *;
+
+.displayName {
+  font-weight: var(--bw-weight-medium);
+  min-width: var(--bw-space-32);
+  width: max-content;
+  max-width: var(--bw-space-56);
+}
+
+.systemPrompt {
+  max-width: var(--bw-space-56);
+  @include line-clamp(3);
+}
+
+.lastArticleCell {
+  text-overflow: ellipsis;
+  max-width: var(--bw-space-56);
+
+  & :global(.link) {
+    font-weight: var(--bw-weight-medium);
+    color: var(--bw-color-text-secondary);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  & :global(.createdAt) {
+    font-size: var(--bw-font-sm);
+    color: var(--bw-color-text-tertiary);
+  }
+}

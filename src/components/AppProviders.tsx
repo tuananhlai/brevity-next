@@ -23,6 +23,7 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
       <style jsx global>{`
         :root {
           font-family:
+            "Suisse Intl",
             ${inter.style.fontFamily},
             -apple-system,
             BlinkMacSystemFont,

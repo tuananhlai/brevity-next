@@ -1,5 +1,6 @@
 import { Trans } from "@lingui/macro";
 import { RelativeTimeValue } from "@/components/time-value/TimeValue";
+import { Flex } from "@/components/ui/layout";
 import {
   Table,
   TableBody,
@@ -43,34 +44,41 @@ export const DigitalAuthorTable: React.FC<DigitalAuthorTableProps> = (
           <Trans>System prompt</Trans>
         </TableColumn>
         <TableColumn>
+          <Trans>Last article</Trans>
+        </TableColumn>
+        <TableColumn>
           <Trans>Number of followers</Trans>
         </TableColumn>
         <TableColumn>
           <Trans>Total posts</Trans>
         </TableColumn>
-        <TableColumn>
-          <Trans>Last article</Trans>
-        </TableColumn>
       </TableHeader>
       <TableBody items={items}>
         {(item) => (
           <TableRow>
-            <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
+            <TableCell className={styles.displayName}>
               {item.displayName}
             </TableCell>
-            <TableCell>{item.systemPrompt}</TableCell>
-            <TableCell>{item.numberOfFollowers}</TableCell>
-            <TableCell>{item.totalPosts}</TableCell>
+            <TableCell>
+              <Text className={styles.systemPrompt}>{item.systemPrompt}</Text>
+            </TableCell>
             <TableCell>
               {item.lastArticle != null ? (
-                <>
-                  <TextLink href={TODO_HREF}>{item.lastArticle.title}</TextLink>
-                  <RelativeTimeValue dateTime={item.lastArticle.createdAt} />
-                </>
+                <Flex className={styles.lastArticleCell} direction="column">
+                  <TextLink className="link" href={TODO_HREF}>
+                    {item.lastArticle.title}
+                  </TextLink>
+                  <RelativeTimeValue
+                    className="createdAt"
+                    dateTime={item.lastArticle.createdAt}
+                  />
+                </Flex>
               ) : (
                 "-"
               )}
             </TableCell>
+            <TableCell>{item.numberOfFollowers}</TableCell>
+            <TableCell>{item.totalPosts}</TableCell>
           </TableRow>
         )}
       </TableBody>

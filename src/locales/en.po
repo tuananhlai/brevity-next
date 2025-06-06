@@ -33,11 +33,11 @@ msgstr ""
 #~ msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key.</0>"
 #~ msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:156
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:155
 msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key</0>"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:153
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
 msgid "API key"
 msgstr ""
 
@@ -59,13 +59,18 @@ msgid "Confirm"
 msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
-msgid "Created At"
+msgid "Created at"
 msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
+#~ msgid "Created At"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:105
 msgid "Deactivate"
 msgstr ""
 
+#: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:41
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:59
 msgid "Display name"
 msgstr ""
@@ -78,9 +83,17 @@ msgstr ""
 msgid "Forgot your password?"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:50
-msgid "Last Used"
+#: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:47
+msgid "Last article"
 msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:50
+msgid "Last used"
+msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:50
+#~ msgid "Last Used"
+#~ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:97
 msgid "Max tokens"
@@ -92,6 +105,10 @@ msgstr ""
 
 #: src/app/pages/home/Home.tsx:17
 msgid "Newest Posts"
+msgstr ""
+
+#: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:50
+msgid "Number of followers"
 msgstr ""
 
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:40
@@ -116,6 +133,7 @@ msgstr ""
 msgid "Sign in with your account"
 msgstr ""
 
+#: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:44
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:70
 msgid "System prompt"
 msgstr ""
@@ -126,6 +144,10 @@ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:90
 msgid "Top P"
+msgstr ""
+
+#: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:53
+msgid "Total posts"
 msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:44
