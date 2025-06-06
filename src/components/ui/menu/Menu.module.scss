@@ -20,7 +20,7 @@
   display: block;
 
   &:where([data-focused]) {
-    background-color: var(--bw-color-blue-500);
+    background-color: var(--bw-color-utility-blue-500);
     color: var(--bw-color-white);
   }
 

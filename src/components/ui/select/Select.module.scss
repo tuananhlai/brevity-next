@@ -63,14 +63,14 @@
   --selected-value-background-color: transparent;
   --selected-value-border-color: #{alpha(var(--bw-color-zinc-950), 10)};
   --selected-value-hover-border-color: #{alpha(var(--bw-color-zinc-950), 20)};
-  --selected-value-invalid-border-color: var(--bw-color-red-500);
+  --selected-value-invalid-border-color: var(--bw-color-utility-error-500);
   --selected-value-disabled-border-color: #{alpha(var(--bw-color-zinc-950), 20)};
 
   @include dark-mode {
     --selected-value-color: var(--bw-color-white);
     --selected-value-border-color: #{alpha(var(--bw-color-white), 10)};
     --selected-value-hover-border-color: #{alpha(var(--bw-color-white), 10)};
-    --selected-value-invalid-border-color: var(--bw-color-red-600);
+    --selected-value-invalid-border-color: var(--bw-color-utility-error-600);
     --selected-value-disabled-border-color: #{alpha(var(--bw-color-white), 15)};
     --selected-value-background-color: #{alpha(var(--bw-color-zinc-950), 5)};
   }

@@ -46,12 +46,12 @@
   --bw-toast-icon-color: inherit;
 
   &:where(.toast[data-variant="danger"] *) {
-    --bw-toast-icon-color: var(--bw-color-red-700);
+    --bw-toast-icon-color: var(--bw-color-utility-error-700);
   }
 
   @include dark-mode {
     &:where(.toast[data-variant="danger"] *) {
-      --bw-toast-icon-color: var(--bw-color-red-400);
+      --bw-toast-icon-color: var(--bw-color-utility-error-400);
     }
   }
 }
