@@ -8,7 +8,7 @@
   display: grid;
   grid-template-rows: 1fr auto;
   overflow-y: auto;
-  background-color: alpha(var(--bw-color-zinc-950), 25);
+  background-color: alpha(var(--bw-color-utility-zinc-950), 25);
   padding-top: var(--bw-space-12);
 
   &:where([data-entering]) {
@@ -29,7 +29,7 @@
   }
 
   @include dark-mode {
-    background-color: alpha(var(--bw-color-zinc-950), 50);
+    background-color: alpha(var(--bw-color-utility-zinc-950), 50);
   }
 }
 
@@ -60,7 +60,7 @@
 
 .dialog {
   outline: none;
-  background-color: var(--bw-color-white);
+  background-color: var(--bw-color-utility-white);
   box-shadow: var(--bw-shadow-lg);
   border-top-left-radius: var(--bw-radius-3xl);
   border-top-right-radius: var(--bw-radius-3xl);
@@ -71,8 +71,8 @@
   }
 
   @include dark-mode {
-    background-color: var(--bw-color-zinc-900);
-    border: 1px solid alpha(var(--bw-color-white), 10);
+    background-color: var(--bw-color-utility-zinc-900);
+    border: 1px solid alpha(var(--bw-color-utility-white), 10);
   }
 }
 
@@ -81,14 +81,14 @@
   font-size: var(--bw-font-lg);
   line-height: var(--bw-line-6);
   font-weight: var(--bw-weight-semibold);
-  color: var(--bw-color-zinc-950);
+  color: var(--bw-color-utility-zinc-950);
 
   @include screen-sm {
     font-size: var(--bw-font-base);
   }
 
   @include dark-mode {
-    color: var(--bw-color-white);
+    color: var(--bw-color-utility-white);
   }
 }
 

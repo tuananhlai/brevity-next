@@ -44,16 +44,16 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
           <Trans context="table column containing API key string">Value</Trans>
         </TableColumn>
         <TableColumn>
-          <Trans>Created At</Trans>
+          <Trans>Created at</Trans>
         </TableColumn>
         <TableColumn>
-          <Trans>Last Used</Trans>
+          <Trans>Last used</Trans>
         </TableColumn>
         <TableColumn textValue={_(msg`Actions`)} />
       </TableHeader>
-      <TableBody>
-        {items.map((item) => (
-          <TableRow key={item.id}>
+      <TableBody items={items}>
+        {(item) => (
+          <TableRow>
             <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
               {item.name}
             </TableCell>
@@ -106,7 +106,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
               </Button>
             </TableCell>
           </TableRow>
-        ))}
+        )}
       </TableBody>
     </Table>
   );

@@ -1,7 +1,7 @@
 @use "src/styles/utils" as *;
 
 .root {
-  --header-border-bottom-color: var(--bw-color-zinc-100);
+  --header-border-bottom-color: var(--bw-color-utility-zinc-100);
 
   @include dark-mode {
     --header-border-bottom-color: transparent;
@@ -14,14 +14,14 @@
   position: sticky;
   top: 0;
   backdrop-filter: var(--bw-blur-xl);
-  background-color: alpha(var(--bw-color-white), 50);
+  background-color: alpha(var(--bw-color-utility-white), 50);
   z-index: 1;
   transition:
     background-color 0.1s ease,
     border 0.1s ease;
 
   @include dark-mode {
-    background-color: var(--bw-color-zinc-900);
+    background-color: var(--bw-color-utility-zinc-900);
     backdrop-filter: none;
   }
 }

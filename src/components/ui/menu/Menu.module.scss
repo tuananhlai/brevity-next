@@ -14,14 +14,14 @@
   text-align: left;
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  color: var(--bw-color-zinc-950);
+  color: var(--bw-color-utility-zinc-950);
   text-decoration: none;
   width: 100%;
   display: block;
 
   &:where([data-focused]) {
-    background-color: var(--bw-color-blue-500);
-    color: var(--bw-color-white);
+    background-color: var(--bw-color-utility-blue-500);
+    color: var(--bw-color-utility-white);
   }
 
   &:where([data-disabled]) {
@@ -38,6 +38,6 @@
   }
 
   @include dark-mode {
-    color: var(--bw-color-white);
+    color: var(--bw-color-utility-white);
   }
 }

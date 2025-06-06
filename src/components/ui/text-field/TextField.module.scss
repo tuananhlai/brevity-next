@@ -13,8 +13,8 @@
   appearance: none;
   border-radius: var(--bw-radius-lg);
   padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
-  --border-color: #{alpha(var(--bw-color-zinc-950), 10)};
-  --border-hover-color: #{alpha(var(--bw-color-zinc-950), 20)};
+  --border-color: #{alpha(var(--bw-color-utility-zinc-950), 10)};
+  --border-hover-color: #{alpha(var(--bw-color-utility-zinc-950), 20)};
   --outline: none;
   --outline-offset: 0;
   border: 1px solid var(--border-color);
@@ -40,7 +40,7 @@
 
   &:where([data-disabled]) {
     opacity: 50%;
-    --border-color: #{alpha(var(--bw-color-zinc-950), 20)};
+    --border-color: #{alpha(var(--bw-color-utility-zinc-950), 20)};
     box-shadow: none;
   }
 
@@ -50,15 +50,15 @@
   }
 
   @include dark-mode {
-    background-color: alpha(var(--bw-color-white), 5);
-    --border-color: #{alpha(var(--bw-color-white), 10)};
-    --border-hover-color: #{alpha(var(--bw-color-white), 20)};
+    background-color: alpha(var(--bw-color-utility-white), 5);
+    --border-color: #{alpha(var(--bw-color-utility-white), 10)};
+    --border-hover-color: #{alpha(var(--bw-color-utility-white), 20)};
     box-shadow: none;
 
     &:where([data-disabled]) {
-      --border-color: #{alpha(var(--bw-color-white), 15)};
-      --border-hover-color: #{alpha(var(--bw-color-white), 15)};
-      background-color: alpha(var(--bw-color-white), 2.5);
+      --border-color: #{alpha(var(--bw-color-utility-white), 15)};
+      --border-hover-color: #{alpha(var(--bw-color-utility-white), 15)};
+      background-color: alpha(var(--bw-color-utility-white), 2.5);
     }
   }
 

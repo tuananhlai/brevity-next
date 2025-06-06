@@ -19,11 +19,11 @@
   aspect-ratio: 1 / 1;
   width: 1.125rem;
   border-radius: 0.3125rem;
-  border: 1px solid alpha(var(--bw-color-zinc-950), 15);
-  color: var(--bw-color-white);
-  --checked-bg: var(--bw-color-zinc-900);
-  --checked-border: #{alpha(var(--bw-color-zinc-950), 90)};
-  --hover-border-color: #{alpha(var(--bw-color-zinc-950), 30)};
+  border: 1px solid alpha(var(--bw-color-utility-zinc-950), 15);
+  color: var(--bw-color-utility-white);
+  --checked-bg: var(--bw-color-utility-zinc-900);
+  --checked-border: #{alpha(var(--bw-color-utility-zinc-950), 90)};
+  --hover-border-color: #{alpha(var(--bw-color-utility-zinc-950), 30)};
 
   &::before {
     content: "";
@@ -31,7 +31,7 @@
     inset: 0;
     z-index: -10;
     border-radius: calc(0.3125rem - 1px);
-    background-color: var(--bw-color-white);
+    background-color: var(--bw-color-utility-white);
     box-shadow: var(--bw-shadow-sm);
   }
 
@@ -40,7 +40,7 @@
     position: absolute;
     inset: 0;
     border-radius: calc(0.3125rem - 1px);
-    box-shadow: inset 0 1px alpha(var(--bw-color-white), 15);
+    box-shadow: inset 0 1px alpha(var(--bw-color-utility-white), 15);
   }
 
   &:where(:not([data-state="unselected"])) {
@@ -68,9 +68,9 @@
 
   &:where([data-disabled]) {
     opacity: 50%;
-    border-color: alpha(var(--bw-color-zinc-950), 25);
-    background-color: alpha(var(--bw-color-zinc-950), 5);
-    color: alpha(var(--bw-color-zinc-950), 50);
+    border-color: alpha(var(--bw-color-utility-zinc-950), 25);
+    background-color: alpha(var(--bw-color-utility-zinc-950), 5);
+    color: alpha(var(--bw-color-utility-zinc-950), 50);
 
     &::before {
       background-color: transparent;
@@ -82,10 +82,10 @@
   }
 
   @include dark-mode {
-    background-color: alpha(var(--bw-color-white), 5);
-    border-color: alpha(var(--bw-color-white), 15);
-    --checked-bg: var(--bw-color-zinc-600);
-    --hover-border-color: #{alpha(var(--bw-color-white), 30)};
+    background-color: alpha(var(--bw-color-utility-white), 5);
+    border-color: alpha(var(--bw-color-utility-white), 15);
+    --checked-bg: var(--bw-color-utility-zinc-600);
+    --hover-border-color: #{alpha(var(--bw-color-utility-white), 30)};
 
     &::before {
       display: none;
@@ -99,8 +99,8 @@
 
     &:where(:not([data-state="unselected"])) {
       background-color: var(--checked-bg);
-      border-color: alpha(var(--bw-color-white), 5);
-      --hover-border-color: #{alpha(var(--bw-color-white), 5)};
+      border-color: alpha(var(--bw-color-utility-white), 5);
+      --hover-border-color: #{alpha(var(--bw-color-utility-white), 5)};
 
       &::after {
         display: block;
@@ -108,9 +108,9 @@
     }
 
     &:where([data-disabled]) {
-      border-color: alpha(var(--bw-color-white), 20);
-      background-color: alpha(var(--bw-color-white), 2.5);
-      color: alpha(var(--bw-color-white), 50);
+      border-color: alpha(var(--bw-color-utility-white), 20);
+      background-color: alpha(var(--bw-color-utility-white), 2.5);
+      color: alpha(var(--bw-color-utility-white), 50);
     }
 
     &:where([data-disabled]:not([data-state="unselected"])) {
@@ -136,10 +136,10 @@
   }
 
   &:where([data-invalid]) {
-    color: var(--bw-color-red-600);
+    color: var(--bw-color-utility-error-600);
 
     @include dark-mode {
-      color: var(--bw-color-red-500);
+      color: var(--bw-color-utility-error-500);
     }
   }
 }

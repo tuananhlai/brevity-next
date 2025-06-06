@@ -1,12 +1,12 @@
 @use "src/styles/utils" as *;
 
 .root {
-  --bw-tooltip-background-color: var(--bw-color-white);
-  --bw-tooltip-color: var(--bw-color-black);
-  --bw-tooltip-border-color: var(--bw-color-zinc-200);
+  --bw-tooltip-background-color: var(--bw-color-utility-white);
+  --bw-tooltip-color: var(--bw-color-utility-black);
+  --bw-tooltip-border-color: var(--bw-color-utility-zinc-200);
   @include dark-mode {
-    --bw-tooltip-background-color: var(--bw-color-zinc-600);
-    --bw-tooltip-color: var(--bw-color-white);
+    --bw-tooltip-background-color: var(--bw-color-utility-zinc-600);
+    --bw-tooltip-color: var(--bw-color-utility-white);
     --bw-tooltip-border-color: transparent;
   }
 }

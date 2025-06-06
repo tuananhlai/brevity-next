@@ -23,7 +23,7 @@ export const Default: Story = {
           display: "grid",
           placeItems: "center",
           height: "200px",
-          backgroundColor: "var(--bw-color-zinc-100)",
+          backgroundColor: "var(--bw-color-utility-zinc-100)",
         }}
       >
         Main Content

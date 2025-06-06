@@ -17,17 +17,17 @@
   border-radius: 50%;
 
   &:where([data-color="blue"]) {
-    background-color: var(--bw-color-blue-500);
-    color: var(--bw-color-white);
+    background-color: var(--bw-color-utility-blue-500);
+    color: var(--bw-color-utility-white);
   }
 
   &:where([data-color="black"]) {
-    background-color: var(--bw-color-zinc-900);
-    color: var(--bw-color-white);
+    background-color: var(--bw-color-utility-zinc-900);
+    color: var(--bw-color-utility-white);
 
     @include dark-mode {
-      background-color: var(--bw-color-white);
-      color: var(--bw-color-black);
+      background-color: var(--bw-color-utility-white);
+      color: var(--bw-color-utility-black);
     }
   }
 }
