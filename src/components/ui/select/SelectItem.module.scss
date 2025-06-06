@@ -10,7 +10,7 @@
 
   &:where([data-focused]) {
     background-color: var(--bw-color-utility-blue-500);
-    color: var(--bw-color-white);
+    color: var(--bw-color-utility-white);
   }
 
   &:where([data-disabled]) {

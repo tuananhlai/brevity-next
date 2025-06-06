@@ -14,7 +14,7 @@
   flex-grow: 1;
   position: relative;
   height: var(--bw-space-2);
-  background-color: var(--bw-color-zinc-200);
+  background-color: var(--bw-color-utility-zinc-200);
   border-radius: var(--bw-radius-full);
 
   &:where([data-hovered]) {
@@ -22,7 +22,7 @@
   }
 
   @include dark-mode {
-    background-color: var(--bw-color-zinc-800);
+    background-color: var(--bw-color-utility-zinc-800);
   }
 }
 
@@ -40,7 +40,7 @@
   width: var(--bw-space-6);
   border-radius: var(--bw-radius-xl);
   border: 2px solid var(--bw-color-bg-brand-solid);
-  background-color: var(--bw-color-white);
+  background-color: var(--bw-color-utility-white);
   box-shadow: var(--bw-shadow-sm);
 
   &:where([data-hovered]) {
@@ -53,7 +53,7 @@
   }
 
   @include dark-mode {
-    background-color: var(--bw-color-zinc-100);
+    background-color: var(--bw-color-utility-zinc-100);
   }
 }
 

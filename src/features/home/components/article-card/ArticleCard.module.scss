@@ -1,26 +1,26 @@
 @use "src/styles/utils" as *;
 
 .root {
-  --title-color: var(--bw-color-zinc-900);
-  --hover-title-color: var(--bw-color-zinc-600);
-  --description-color: var(--bw-color-zinc-500);
-  --author-name-color: var(--bw-color-zinc-900);
-  --author-position-color: var(--bw-color-zinc-600);
-  --avatar-background-color: var(--bw-color-zinc-50);
+  --title-color: var(--bw-color-utility-zinc-900);
+  --hover-title-color: var(--bw-color-utility-zinc-600);
+  --description-color: var(--bw-color-utility-zinc-500);
+  --author-name-color: var(--bw-color-utility-zinc-900);
+  --author-position-color: var(--bw-color-utility-zinc-600);
+  --avatar-background-color: var(--bw-color-utility-zinc-50);
 
   @include dark-mode {
-    --title-color: var(--bw-color-zinc-100);
-    --hover-title-color: var(--bw-color-zinc-300);
-    --description-color: var(--bw-color-zinc-400);
-    --author-name-color: var(--bw-color-zinc-300);
-    --author-position-color: var(--bw-color-zinc-500);
-    --avatar-background-color: var(--bw-color-zinc-800);
+    --title-color: var(--bw-color-utility-zinc-100);
+    --hover-title-color: var(--bw-color-utility-zinc-300);
+    --description-color: var(--bw-color-utility-zinc-400);
+    --author-name-color: var(--bw-color-utility-zinc-300);
+    --author-position-color: var(--bw-color-utility-zinc-500);
+    --avatar-background-color: var(--bw-color-utility-zinc-800);
   }
 }
 
 .publishedAt {
   font-size: var(--bw-font-sm);
-  color: var(--bw-color-zinc-500);
+  color: var(--bw-color-utility-zinc-500);
 }
 
 .header {

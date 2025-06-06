@@ -25,11 +25,11 @@
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
   font-weight: var(--bw-weight-medium);
-  color: var(--bw-color-zinc-950);
+  color: var(--bw-color-utility-zinc-950);
   text-decoration: none;
   background-color: transparent;
   border: none;
-  --navbar-item-hover-bg-color: #{alpha(var(--bw-color-zinc-950), 5)};
+  --navbar-item-hover-bg-color: #{alpha(var(--bw-color-utility-zinc-950), 5)};
 
   @include screen-sm {
     font-size: var(--bw-font-sm);
@@ -53,7 +53,7 @@
   }
 
   @include dark-mode {
-    --navbar-item-hover-bg-color: #{alpha(var(--bw-color-white), 5)};
-    color: var(--bw-color-white);
+    --navbar-item-hover-bg-color: #{alpha(var(--bw-color-utility-white), 5)};
+    color: var(--bw-color-utility-white);
   }
 }

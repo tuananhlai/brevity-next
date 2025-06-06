@@ -20,7 +20,7 @@
     position: absolute;
     inset: 1px;
     border-radius: calc(var(--bw-radius-lg) - 1px);
-    background-color: var(--bw-color-white);
+    background-color: var(--bw-color-utility-white);
     box-shadow: var(--bw-shadow-sm);
   }
 
@@ -59,20 +59,35 @@
 }
 
 .selectedValue {
-  --selected-value-color: var(--bw-color-zinc-950);
+  --selected-value-color: var(--bw-color-utility-zinc-950);
   --selected-value-background-color: transparent;
-  --selected-value-border-color: #{alpha(var(--bw-color-zinc-950), 10)};
-  --selected-value-hover-border-color: #{alpha(var(--bw-color-zinc-950), 20)};
+  --selected-value-border-color: #{alpha(var(--bw-color-utility-zinc-950), 10)};
+  --selected-value-hover-border-color: #{alpha(
+      var(--bw-color-utility-zinc-950),
+      20
+    )};
   --selected-value-invalid-border-color: var(--bw-color-utility-error-500);
-  --selected-value-disabled-border-color: #{alpha(var(--bw-color-zinc-950), 20)};
+  --selected-value-disabled-border-color: #{alpha(
+      var(--bw-color-utility-zinc-950),
+      20
+    )};
 
   @include dark-mode {
-    --selected-value-color: var(--bw-color-white);
-    --selected-value-border-color: #{alpha(var(--bw-color-white), 10)};
-    --selected-value-hover-border-color: #{alpha(var(--bw-color-white), 10)};
+    --selected-value-color: var(--bw-color-utility-white);
+    --selected-value-border-color: #{alpha(var(--bw-color-utility-white), 10)};
+    --selected-value-hover-border-color: #{alpha(
+        var(--bw-color-utility-white),
+        10
+      )};
     --selected-value-invalid-border-color: var(--bw-color-utility-error-600);
-    --selected-value-disabled-border-color: #{alpha(var(--bw-color-white), 15)};
-    --selected-value-background-color: #{alpha(var(--bw-color-zinc-950), 5)};
+    --selected-value-disabled-border-color: #{alpha(
+        var(--bw-color-utility-white),
+        15
+      )};
+    --selected-value-background-color: #{alpha(
+        var(--bw-color-utility-zinc-950),
+        5
+      )};
   }
 }
 
@@ -109,7 +124,7 @@
   }
 
   &[data-placeholder] {
-    color: var(--bw-color-zinc-500);
+    color: var(--bw-color-utility-zinc-500);
   }
 
   @include screen-sm {
@@ -138,10 +153,10 @@
 .arrow {
   width: var(--bw-space-5);
   aspect-ratio: 1 / 1;
-  stroke: var(--bw-color-zinc-500);
+  stroke: var(--bw-color-utility-zinc-500);
 
   &:where(.root[data-disabled] *) {
-    stroke: var(--bw-color-zinc-600);
+    stroke: var(--bw-color-utility-zinc-600);
   }
 
   @include screen-sm {

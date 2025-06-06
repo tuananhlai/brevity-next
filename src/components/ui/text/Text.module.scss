@@ -1,12 +1,12 @@
 @use "src/styles/utils.scss" as *;
 
 .text {
-  color: var(--bw-color-zinc-500);
+  color: var(--bw-color-utility-zinc-500);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
 
   @include dark-mode {
-    color: var(--bw-color-zinc-400);
+    color: var(--bw-color-utility-zinc-400);
   }
 
   @include screen-sm {
