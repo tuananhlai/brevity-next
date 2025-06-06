@@ -38,6 +38,7 @@ export function Menu<T extends object>(props: MenuProps<T>) {
   } = props;
   return (
     <Popover
+      className={styles.popover}
       placement={placement}
       offset={offset}
       crossOffset={crossOffset}

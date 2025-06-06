@@ -1,4 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { Flex } from "@/components/ui/layout";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "../button";
 import { Menu, MenuItem, MenuTrigger } from "./Menu";
 
@@ -16,7 +18,6 @@ export default meta;
 
 type Story = StoryObj<typeof Menu>;
 
-// Minimal code to render the component correctly.
 export const Default: Story = {
   parameters: {
     layout: "centered",
@@ -30,5 +31,71 @@ export const Default: Story = {
         <MenuItem>Item 3</MenuItem>
       </Menu>
     </MenuTrigger>
+  ),
+};
+
+export const DisabledMenuItem: Story = {
+  render: () => (
+    <MenuTrigger defaultOpen>
+      <Button>Open Menu</Button>
+      <Menu>
+        <MenuItem>Item 1</MenuItem>
+        <MenuItem isDisabled>Item 2</MenuItem>
+        <MenuItem>Item 3</MenuItem>
+      </Menu>
+    </MenuTrigger>
+  ),
+};
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: () => (
+    <VisualTestGrid gap="48px">
+      <MenuTrigger isOpen>
+        <Button>Open Menu</Button>
+        <Menu>
+          <MenuItem>Item 1</MenuItem>
+          <MenuItem>Item 2</MenuItem>
+          <MenuItem>Item 3</MenuItem>
+        </Menu>
+      </MenuTrigger>
+
+      <MenuTrigger isOpen>
+        <Button variant="secondary">Open Menu</Button>
+        <Menu>
+          <MenuItem>
+            <Flex justify="space-between">
+              <span style={{ fontWeight: "var(--bw-weight-medium)" }}>
+                Custom item
+              </span>
+              <span>❤️</span>
+            </Flex>
+          </MenuItem>
+          <MenuItem isDisabled>Disabled item</MenuItem>
+          <MenuItem>
+            Item with very very very very long text. Lorem ipsum dolor sit, amet
+            consectetur adipisicing elit. Eligendi, fugiat ullam iusto
+            repellendus ad sed ex perferendis quia quas, vero necessitatibus.
+            Provident hic non vitae, alias commodi exercitationem id architecto.
+          </MenuItem>
+        </Menu>
+      </MenuTrigger>
+
+      <MenuTrigger isOpen>
+        <Button variant="tertiary">Open Menu</Button>
+        <Menu
+          items={Array.from({ length: 100 }, (_, i) => ({
+            key: `item-${i}`,
+            label: `Item ${i}`,
+          }))}
+        >
+          {(item) => <MenuItem>{item.label}</MenuItem>}
+        </Menu>
+      </MenuTrigger>
+    </VisualTestGrid>
   ),
 };
