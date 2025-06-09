@@ -1,5 +1,4 @@
 import { Trans } from "@lingui/macro";
-import Link from "next/link";
 import { useId } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -53,9 +52,10 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
               }}
             />
             <Flex justify="space-between">
-              <Link href="/forgot-password" className={styles.forgotPassword}>
+              {/* TODO: update styles */}
+              <Button variant="tertiary">
                 <Trans>Forgot your password?</Trans>
-              </Link>
+              </Button>
               <Button
                 variant="tertiary"
                 onClick={() => {

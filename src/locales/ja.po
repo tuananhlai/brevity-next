@@ -58,6 +58,10 @@ msgstr "キャンセル"
 msgid "Confirm"
 msgstr "確認"
 
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:65
+msgid "Create a new account"
+msgstr ""
+
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
 msgid "Created at"
 msgstr ""
@@ -79,7 +83,7 @@ msgstr ""
 msgid "Email"
 msgstr "メールアドレス"
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:55
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:56
 msgid "Forgot your password?"
 msgstr "パスワードをお忘れですか？"
 
@@ -119,17 +123,17 @@ msgstr "パスワード"
 msgid "Please fill out this field."
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:40
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:41
 msgid "Save your favorite articles, follow authors, and more by signing in."
 msgstr "ログインすると、お気に入りの記事の保存や著者のフォローなどができます。"
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:60
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:70
 #: src/components/stacked-layout/StackedLayout.tsx:46
 #: src/components/stacked-layout/StackedLayout.tsx:51
 msgid "Sign in"
 msgstr "ログイン"
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:37
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:38
 msgid "Sign in with your account"
 msgstr "アカウントでログイン"
 
