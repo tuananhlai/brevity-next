@@ -9,10 +9,7 @@ import {
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import { useSignUp } from "@/features/auth/api/signUp";
-import {
-  SignUpForm,
-  SignUpFormValues,
-} from "@/features/auth/components/sign-up-form";
+import { SignUpForm } from "@/features/auth/components/sign-up-form";
 import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
@@ -22,7 +19,7 @@ import styles from "./SignUpFormDialog.module.scss";
 export interface SignUpFormDialogProps
   extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
   /** Invoked after a new account has been created successfully. */
-  onSubmitted?: (values: SignUpFormValues) => void;
+  onSubmitted?: () => void;
 }
 
 export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
@@ -46,7 +43,7 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
                 signUp(v, {
                   onSuccess: () => {
                     close();
-                    onSubmitted?.(v);
+                    onSubmitted?.();
                   },
                 });
               }}

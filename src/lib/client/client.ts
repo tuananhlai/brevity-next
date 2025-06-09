@@ -82,6 +82,13 @@ export class APIClient {
       throw new ClientError(res.statusText);
     }
 
+    const contentLength = res.headers.get("content-length");
+    const hasBody = contentLength !== "0" && contentLength !== null;
+
+    if (!hasBody) {
+      return undefined as Response;
+    }
+
     return res.json();
   }
 

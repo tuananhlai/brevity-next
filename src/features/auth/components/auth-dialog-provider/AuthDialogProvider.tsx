@@ -18,9 +18,34 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
 ) => {
   const { children } = props;
   const [signInDialogProps, setSignInDialogProps] =
-    useState<SignInFormDialogProps>({ isOpen: false });
+    useState<SignInFormDialogProps>({
+      isOpen: false,
+      onCreateNewAccount: () => {},
+    });
   const [signUpDialogProps, setSignUpDialogProps] =
-    useState<SignUpFormDialogProps>({ isOpen: false });
+    useState<SignUpFormDialogProps>({
+      isOpen: false,
+    });
+
+  const signUp = useCallback(async () => {
+    let resolveFn: () => void;
+    const promise = new Promise<void>((resolve) => {
+      resolveFn = resolve;
+    });
+
+    setSignUpDialogProps({
+      isOpen: true,
+      onOpenChange: () => {
+        resolveFn();
+        setSignUpDialogProps((prev) => ({ ...prev, isOpen: false }));
+      },
+      onSubmitted: () => {
+        resolveFn();
+      },
+    });
+
+    return promise;
+  }, []);
 
   const signIn = useCallback(async () => {
     let resolveFn: () => void;
@@ -35,7 +60,7 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
         setSignInDialogProps((prev) => ({ ...prev, isOpen: false }));
       },
       onCreateNewAccount: () => {
-        setSignUpDialogProps({ isOpen: true });
+        signUp();
       },
       onSubmit: () => {
         resolveFn();
@@ -43,29 +68,7 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
     });
 
     return promise;
-  }, []);
-
-  const signUp = useCallback(async () => {
-    let resolveFn: () => void;
-    const promise = new Promise<void>((resolve) => {
-      resolveFn = resolve;
-    });
-
-    setSignUpDialogProps({
-      isOpen: true,
-      onOpenChange: () => {
-        resolveFn();
-        setSignUpDialogProps({ isOpen: false });
-      },
-      onSubmitted: (values) => {
-        console.log(values);
-        resolveFn();
-        setSignUpDialogProps({ isOpen: false });
-      },
-    });
-
-    return promise;
-  }, []);
+  }, [signUp]);
 
   const contextValue = useMemo(
     () => ({
