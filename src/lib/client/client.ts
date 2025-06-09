@@ -59,10 +59,7 @@ export class APIClient {
     });
   }
 
-  private async doFetchJSON<Response>(
-    url: string,
-    opts: FetchOptions,
-  ): Promise<Response> {
+  private async doFetchJSON<T>(url: string, opts: FetchOptions): Promise<T> {
     const { headers, ...rest } = opts;
 
     let fetchHeaders: HeadersInit = {};
@@ -82,13 +79,7 @@ export class APIClient {
       throw new ClientError(res.statusText);
     }
 
-    const contentLength = res.headers.get("content-length");
-    const hasBody = contentLength !== "0" && contentLength !== null;
-
-    if (!hasBody) {
-      return undefined as Response;
-    }
-
+    // TODO: handle empty response
     return res.json();
   }
 
