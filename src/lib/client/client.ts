@@ -2,6 +2,9 @@ import {
   GetArticleDetailsRequest,
   GetArticleDetailsResponse,
   GetArticlePreviewsResponse,
+  SignInRequest,
+  SignInResponse,
+  SignUpRequest,
 } from "@/lib/client/types";
 
 export class APIClient {
@@ -24,6 +27,14 @@ export class APIClient {
 
   async getArticlePreviews(): Promise<GetArticlePreviewsResponse> {
     return this.getJSON<GetArticlePreviewsResponse>(`/v1/article-previews`);
+  }
+
+  async signIn(req: SignInRequest): Promise<SignInResponse> {
+    return this.postJSON<SignInResponse>(`/v1/auth/sign-in`, req);
+  }
+
+  async signUp(req: SignUpRequest): Promise<void> {
+    return this.postJSON<void>(`/v1/auth/sign-up`, req);
   }
 
   private async getJSON<Response>(
@@ -67,6 +78,10 @@ export class APIClient {
       headers: fetchHeaders,
     });
 
+    if (!res.ok) {
+      throw new ClientError(res.statusText);
+    }
+
     return res.json();
   }
 
@@ -80,3 +95,5 @@ interface FetchOptions {
   body?: BodyInit;
   headers?: Record<string, string>;
 }
+
+class ClientError extends Error {}

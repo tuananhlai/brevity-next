@@ -1,0 +1,54 @@
+@mixin text-xs {
+  font-size: var(--bw-font-xs);
+  line-height: 1.125rem; /* 18px */
+}
+
+@mixin text-sm {
+  font-size: var(--bw-font-sm);
+  line-height: 1.25rem; /* 20px */
+}
+
+@mixin text-md {
+  font-size: var(--bw-font-base);
+  line-height: 1.5rem; /* 24px */
+}
+
+@mixin text-lg {
+  font-size: var(--bw-font-lg);
+  line-height: 1.75rem; /* 28px */
+}
+
+@mixin text-xl {
+  font-size: var(--bw-font-xl);
+  line-height: 1.875rem; /* 30px */
+}
+
+@mixin display-xs {
+  font-size: var(--bw-font-2xl);
+  line-height: 2rem; /* 32px */
+}
+
+@mixin display-sm {
+  font-size: var(--bw-font-3xl);
+  line-height: 2.375rem; /* 38px */
+}
+
+@mixin display-md {
+  font-size: var(--bw-font-4xl);
+  line-height: 2.75rem; /* 44px */
+}
+
+@mixin display-lg {
+  font-size: var(--bw-font-5xl);
+  line-height: 3.75rem; /* 60px */
+}
+
+@mixin display-xl {
+  font-size: var(--bw-font-6xl);
+  line-height: 4.5rem; /* 72px */
+}
+
+@mixin display-2xl {
+  font-size: var(--bw-font-7xl);
+  line-height: 5.625rem; /* 90px */
+}
