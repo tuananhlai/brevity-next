@@ -32,12 +32,13 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
       isOpen: true,
       onOpenChange: () => {
         resolveFn();
-        setSignInDialogProps({ isOpen: false });
+        setSignInDialogProps((prev) => ({ ...prev, isOpen: false }));
       },
-      onSubmit: (values) => {
-        console.log(values);
+      onCreateNewAccount: () => {
+        setSignUpDialogProps({ isOpen: true });
+      },
+      onSubmit: () => {
         resolveFn();
-        setSignUpDialogProps({ isOpen: false });
       },
     });
 
@@ -56,7 +57,7 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
         resolveFn();
         setSignUpDialogProps({ isOpen: false });
       },
-      onSubmit: (values) => {
+      onSubmitted: (values) => {
         console.log(values);
         resolveFn();
         setSignUpDialogProps({ isOpen: false });

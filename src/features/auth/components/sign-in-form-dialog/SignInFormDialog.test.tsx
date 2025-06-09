@@ -9,7 +9,7 @@ it("should open the dialog when the trigger button is clicked", async () => {
   renderWithProviders(
     <DialogTrigger>
       <Button>Open</Button>
-      <SignInFormDialog />
+      <SignInFormDialog onCreateNewAccount={() => {}} />
     </DialogTrigger>,
   );
 
@@ -23,7 +23,7 @@ it("should submit the form and close the dialog when the submit button is clicke
   renderWithProviders(
     <DialogTrigger>
       <Button>Open</Button>
-      <SignInFormDialog onSubmit={onSubmit} />
+      <SignInFormDialog onSubmit={onSubmit} onCreateNewAccount={() => {}} />
     </DialogTrigger>,
   );
 

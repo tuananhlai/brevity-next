@@ -5,6 +5,7 @@ import { AppI18nProvider } from "@/components/app-i18n-provider";
 import { ConfirmProvider } from "@/components/confirm-provider";
 import { Provider } from "@/components/ui/provider";
 import { ToastQueue, ToastRegion } from "@/components/ui/toast";
+import { AuthDialogProvider } from "@/features/auth/components/auth-dialog-provider";
 
 declare module "react-aria-components" {
   interface RouterConfig {
@@ -43,7 +44,9 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
       <QueryClientProvider client={queryClient}>
         <Provider navigate={(href, opts) => router.push(href, undefined, opts)}>
           <AppI18nProvider>
-            <ConfirmProvider>{children}</ConfirmProvider>
+            <AuthDialogProvider>
+              <ConfirmProvider>{children}</ConfirmProvider>
+            </AuthDialogProvider>
           </AppI18nProvider>
         </Provider>
       </QueryClientProvider>

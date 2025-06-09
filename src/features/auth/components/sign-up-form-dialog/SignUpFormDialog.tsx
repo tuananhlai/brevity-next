@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
+import { useSignUp } from "@/features/auth/api/signUp";
 import {
   SignUpForm,
   SignUpFormValues,
@@ -20,12 +21,14 @@ import styles from "./SignUpFormDialog.module.scss";
 
 export interface SignUpFormDialogProps
   extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
-  onSubmit?: (values: SignUpFormValues) => void;
+  /** Invoked after a new account has been created successfully. */
+  onSubmitted?: (values: SignUpFormValues) => void;
 }
 
 export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
-  const { onSubmit, isOpen, onOpenChange } = props;
+  const { onSubmitted, isOpen, onOpenChange } = props;
   const formId = useId();
+  const { mutate: signUp, isPending } = useSignUp();
 
   return (
     <Dialog size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -40,11 +43,20 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
             <SignUpForm
               id={formId}
               onSubmit={(v) => {
-                onSubmit?.(v);
-                close();
+                signUp(v, {
+                  onSuccess: () => {
+                    close();
+                    onSubmitted?.(v);
+                  },
+                });
               }}
             />
-            <Button form={formId} className={styles.submitBtn} type="submit">
+            <Button
+              form={formId}
+              className={styles.submitBtn}
+              type="submit"
+              isPending={isPending}
+            >
               Sign up
             </Button>
             <Flex gap="var(--bw-space-2)" className={styles.flex1}>

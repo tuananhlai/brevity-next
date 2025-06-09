@@ -22,11 +22,13 @@ import styles from "./SignInFormDialog.module.scss";
 
 export interface SignInFormDialogProps
   extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
+  /** Invoked when the user chooses to open the sign up dialog. */
+  onCreateNewAccount: () => void;
   onSubmit?: (values: SignInFormValues) => void;
 }
 
 export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
-  const { onSubmit, isOpen, onOpenChange } = props;
+  const { onSubmit, isOpen, onOpenChange, onCreateNewAccount } = props;
   const formId = useId();
 
   return (
@@ -50,11 +52,20 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                 close();
               }}
             />
-            <Text>
+            <Flex justify="space-between">
               <Link href="/forgot-password" className={styles.forgotPassword}>
                 <Trans>Forgot your password?</Trans>
               </Link>
-            </Text>
+              <Button
+                variant="tertiary"
+                onClick={() => {
+                  close();
+                  onCreateNewAccount();
+                }}
+              >
+                <Trans>Create a new account</Trans>
+              </Button>
+            </Flex>
             <Flex direction="column" gap="var(--bw-space-2)">
               <Button form={formId} type="submit">
                 <Trans>Sign in</Trans>
