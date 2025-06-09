@@ -81,7 +81,7 @@ export const DefaultToastLayout: React.FC<DefaultToastLayoutProps> = (
       <div className={styles.toastIcon}>{icon}</div>
       <ToastContent>
         <ToastTitle>{title}</ToastTitle>
-        <ToastDescription>{description}</ToastDescription>
+        {description && <ToastDescription>{description}</ToastDescription>}
       </ToastContent>
       <ToastCloseButton />
     </div>
@@ -90,7 +90,7 @@ export const DefaultToastLayout: React.FC<DefaultToastLayoutProps> = (
 
 export interface ToastParams {
   title: string;
-  description: string;
+  description?: string;
 }
 
 export class ToastQueue {

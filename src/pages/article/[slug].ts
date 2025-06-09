@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { ViewArticleProps } from "@/app/pages/view-article/ViewArticle";
-import { apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/apiClient";
 
 export { ViewArticle as default } from "@/app/pages/view-article";
 

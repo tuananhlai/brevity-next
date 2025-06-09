@@ -3,8 +3,9 @@ import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
 import { AppI18nProvider } from "@/components/app-i18n-provider";
 import { ConfirmProvider } from "@/components/confirm-provider";
+import { toastQueue } from "@/components/toastQueue";
 import { Provider } from "@/components/ui/provider";
-import { ToastQueue, ToastRegion } from "@/components/ui/toast";
+import { ToastRegion } from "@/components/ui/toast";
 import { AuthDialogProvider } from "@/features/auth/components/auth-dialog-provider";
 
 declare module "react-aria-components" {
@@ -13,7 +14,6 @@ declare module "react-aria-components" {
   }
 }
 
-const queue = new ToastQueue();
 const queryClient = new QueryClient();
 
 export const AppProviders = ({ children }: { children: React.ReactNode }) => {
@@ -50,7 +50,7 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
           </AppI18nProvider>
         </Provider>
       </QueryClientProvider>
-      <ToastRegion queue={queue} />
+      <ToastRegion queue={toastQueue} />
     </>
   );
 };

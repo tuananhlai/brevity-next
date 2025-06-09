@@ -1,4 +1,7 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useId } from "react";
+import { toastQueue } from "@/components/toastQueue";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -26,6 +29,7 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
   const { onSubmitted, isOpen, onOpenChange } = props;
   const formId = useId();
   const { mutate: signUp, isPending } = useSignUp();
+  const { _ } = useLingui();
 
   return (
     <Dialog size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -40,10 +44,21 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
             <SignUpForm
               id={formId}
               onSubmit={(v) => {
+                // TODO: fix issue where the API request throws error due to
+                // the response body being empty.
                 signUp(v, {
                   onSuccess: () => {
                     close();
                     onSubmitted?.();
+                    // TODO: update the toast styles.
+                    toastQueue.success({
+                      title: _(msg`Account created successfully`),
+                    });
+                  },
+                  onError: () => {
+                    toastQueue.danger({
+                      title: _(msg`Something went wrong`),
+                    });
                   },
                 });
               }}

@@ -1,5 +1,5 @@
 import { UseMutationResult, useMutation } from "@tanstack/react-query";
-import { apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/apiClient";
 import { SignUpRequest } from "@/lib/client";
 
 export const useSignUp = (): UseMutationResult<void, Error, SignUpRequest> => {
