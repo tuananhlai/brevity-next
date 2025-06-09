@@ -23,7 +23,7 @@ it("should submit the form and close the dialog when the submit button is clicke
   renderWithProviders(
     <DialogTrigger>
       <Button>Open</Button>
-      <SignInFormDialog onSubmit={onSubmit} onCreateNewAccount={() => {}} />
+      <SignInFormDialog onSubmitted={onSubmit} onCreateNewAccount={() => {}} />
     </DialogTrigger>,
   );
 

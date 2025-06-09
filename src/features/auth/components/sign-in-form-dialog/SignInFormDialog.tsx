@@ -1,5 +1,7 @@
-import { Trans } from "@lingui/macro";
+import { Trans, msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { useId } from "react";
+import { toastQueue } from "@/components/toastQueue";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -9,10 +11,8 @@ import {
 } from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
-import {
-  SignInForm,
-  SignInFormValues,
-} from "@/features/auth/components/sign-in-form/SignInForm";
+import { useSignIn } from "@/features/auth/api/signIn";
+import { SignInForm } from "@/features/auth/components/sign-in-form/SignInForm";
 import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
@@ -23,12 +23,15 @@ export interface SignInFormDialogProps
   extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
   /** Invoked when the user chooses to open the sign up dialog. */
   onCreateNewAccount: () => void;
-  onSubmit?: (values: SignInFormValues) => void;
+  /** Invoked when the user has signed in successfully. */
+  onSubmitted?: () => void;
 }
 
 export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
-  const { onSubmit, isOpen, onOpenChange, onCreateNewAccount } = props;
+  const { onSubmitted, isOpen, onOpenChange, onCreateNewAccount } = props;
   const formId = useId();
+  const { mutate: signIn } = useSignIn();
+  const { _ } = useLingui();
 
   return (
     <Dialog size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -47,8 +50,27 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
             <SignInForm
               id={formId}
               onSubmit={(v) => {
-                onSubmit?.(v);
-                close();
+                signIn(
+                  {
+                    emailOrUsername: v.email,
+                    password: v.password,
+                  },
+                  {
+                    onSuccess: () => {
+                      close();
+                      onSubmitted?.();
+                      toastQueue.success({
+                        title: _(msg`Signed in successfully`),
+                      });
+                    },
+                    onError: () => {
+                      // TODO: provide more detailed error message.
+                      toastQueue.danger({
+                        title: _(msg`Something went wrong`),
+                      });
+                    },
+                  },
+                );
               }}
             />
             <Flex justify="space-between">

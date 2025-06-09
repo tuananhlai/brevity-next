@@ -62,7 +62,7 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
       onCreateNewAccount: () => {
         signUp();
       },
-      onSubmit: () => {
+      onSubmitted: () => {
         resolveFn();
       },
     });
