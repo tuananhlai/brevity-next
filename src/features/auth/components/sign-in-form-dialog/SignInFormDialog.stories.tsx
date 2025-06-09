@@ -23,7 +23,7 @@ export const Default: Story = {
     return (
       <DialogTrigger defaultOpen>
         <Button>Open Dialog</Button>
-        <SignInFormDialog />
+        <SignInFormDialog onCreateNewAccount={() => {}} />
       </DialogTrigger>
     );
   },
@@ -39,7 +39,7 @@ export const VisualTest: Story = {
     return (
       <DialogTrigger defaultOpen>
         <Button>Open Dialog</Button>
-        <SignInFormDialog />
+        <SignInFormDialog onCreateNewAccount={() => {}} />
       </DialogTrigger>
     );
   },

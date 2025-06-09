@@ -3,8 +3,7 @@ import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
-import { DialogTrigger } from "@/components/ui/dialog";
-import { SignInFormDialog } from "@/features/auth/components/sign-in-form-dialog";
+import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
 import { cn } from "@/styles/utils";
 import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
 import styles from "./StackedLayout.module.scss";
@@ -25,10 +24,7 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
             Brevity
           </Link>
           <NavbarSpacer />
-          <DialogTrigger>
-            <LoginButton />
-            <SignInFormDialog />
-          </DialogTrigger>
+          <LoginButton />
           <ToggleColorSchemeButton />
         </Navbar>
       </header>
@@ -39,16 +35,21 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
 
 const LoginButton = () => {
   const { _ } = useLingui();
+  const { signIn } = useAuthDialog();
+  const onPress = () => {
+    signIn();
+  };
 
   return (
     <>
-      <NavbarButton className={styles.loginLink}>
+      <NavbarButton className={styles.loginLink} onPress={onPress}>
         <Trans>Sign in</Trans>
         <LuLogIn />
       </NavbarButton>
       <NavbarButton
         className={styles.mobileLoginLink}
         aria-label={_(msg`Sign in`)}
+        onPress={onPress}
       >
         <LuLogIn />
       </NavbarButton>

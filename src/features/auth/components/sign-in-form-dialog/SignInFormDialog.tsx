@@ -1,5 +1,4 @@
 import { Trans } from "@lingui/macro";
-import Link from "next/link";
 import { useId } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -22,11 +21,13 @@ import styles from "./SignInFormDialog.module.scss";
 
 export interface SignInFormDialogProps
   extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
+  /** Invoked when the user chooses to open the sign up dialog. */
+  onCreateNewAccount: () => void;
   onSubmit?: (values: SignInFormValues) => void;
 }
 
 export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
-  const { onSubmit, isOpen, onOpenChange } = props;
+  const { onSubmit, isOpen, onOpenChange, onCreateNewAccount } = props;
   const formId = useId();
 
   return (
@@ -50,11 +51,21 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                 close();
               }}
             />
-            <Text>
-              <Link href="/forgot-password" className={styles.forgotPassword}>
+            <Flex justify="space-between">
+              {/* TODO: update styles */}
+              <Button variant="tertiary">
                 <Trans>Forgot your password?</Trans>
-              </Link>
-            </Text>
+              </Button>
+              <Button
+                variant="tertiary"
+                onClick={() => {
+                  close();
+                  onCreateNewAccount();
+                }}
+              >
+                <Trans>Create a new account</Trans>
+              </Button>
+            </Flex>
             <Flex direction="column" gap="var(--bw-space-2)">
               <Button form={formId} type="submit">
                 <Trans>Sign in</Trans>

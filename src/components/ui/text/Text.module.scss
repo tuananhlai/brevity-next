@@ -1,28 +1,26 @@
 @use "src/styles/utils.scss" as *;
+@use "textutils.scss";
 
 .text {
   color: var(--bw-color-utility-zinc-500);
-  font-size: var(--bw-font-base);
-  line-height: var(--bw-line-6);
+  @include textutils.text-md;
 
   @include dark-mode {
     color: var(--bw-color-utility-zinc-400);
   }
 
   @include screen-sm {
-    font-size: var(--bw-font-sm);
-    line-height: var(--bw-line-5);
+    @include textutils.text-sm;
   }
 }
 
 .heading {
   color: var(--bw-color-text-primary);
-  font-size: var(--bw-font-2xl);
-  line-height: var(--bw-line-8);
+  @include textutils.display-md;
   font-weight: var(--bw-weight-semibold);
 
   @include screen-sm {
-    font-size: var(--bw-font-xl);
+    @include textutils.display-sm;
   }
 }
 

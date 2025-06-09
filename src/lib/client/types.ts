@@ -38,3 +38,21 @@ export interface ArticlePreview {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface SignInRequest {
+  emailOrUsername: string;
+  password: string;
+}
+
+export interface SignInResponse {
+  id: string;
+  username: string;
+  email: string;
+  accessToken: string;
+}
+
+export interface SignUpRequest {
+  username: string;
+  email: string;
+  password: string;
+}

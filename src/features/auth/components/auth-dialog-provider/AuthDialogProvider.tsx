@@ -18,31 +18,14 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
 ) => {
   const { children } = props;
   const [signInDialogProps, setSignInDialogProps] =
-    useState<SignInFormDialogProps>({ isOpen: false });
+    useState<SignInFormDialogProps>({
+      isOpen: false,
+      onCreateNewAccount: () => {},
+    });
   const [signUpDialogProps, setSignUpDialogProps] =
-    useState<SignUpFormDialogProps>({ isOpen: false });
-
-  const signIn = useCallback(async () => {
-    let resolveFn: () => void;
-    const promise = new Promise<void>((resolve) => {
-      resolveFn = resolve;
+    useState<SignUpFormDialogProps>({
+      isOpen: false,
     });
-
-    setSignInDialogProps({
-      isOpen: true,
-      onOpenChange: () => {
-        resolveFn();
-        setSignInDialogProps({ isOpen: false });
-      },
-      onSubmit: (values) => {
-        console.log(values);
-        resolveFn();
-        setSignUpDialogProps({ isOpen: false });
-      },
-    });
-
-    return promise;
-  }, []);
 
   const signUp = useCallback(async () => {
     let resolveFn: () => void;
@@ -54,17 +37,38 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
       isOpen: true,
       onOpenChange: () => {
         resolveFn();
-        setSignUpDialogProps({ isOpen: false });
+        setSignUpDialogProps((prev) => ({ ...prev, isOpen: false }));
       },
-      onSubmit: (values) => {
-        console.log(values);
+      onSubmitted: () => {
         resolveFn();
-        setSignUpDialogProps({ isOpen: false });
       },
     });
 
     return promise;
   }, []);
+
+  const signIn = useCallback(async () => {
+    let resolveFn: () => void;
+    const promise = new Promise<void>((resolve) => {
+      resolveFn = resolve;
+    });
+
+    setSignInDialogProps({
+      isOpen: true,
+      onOpenChange: () => {
+        resolveFn();
+        setSignInDialogProps((prev) => ({ ...prev, isOpen: false }));
+      },
+      onCreateNewAccount: () => {
+        signUp();
+      },
+      onSubmit: () => {
+        resolveFn();
+      },
+    });
+
+    return promise;
+  }, [signUp]);
 
   const contextValue = useMemo(
     () => ({

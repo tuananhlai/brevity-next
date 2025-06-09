@@ -93,7 +93,7 @@ describe("WAI-ARIA compliance", () => {
     const itemOne = screen.getByRole("menuitem", { name: "Item 1" });
     const itemTwo = screen.getByRole("menuitem", { name: "Item 2" });
 
-    itemOne.focus();
+    act(() => itemOne.focus());
 
     await userEvent.keyboard("{ArrowDown}");
     expect(itemTwo).toHaveFocus();
@@ -106,14 +106,14 @@ describe("WAI-ARIA compliance", () => {
     {
       name: "user presses Space",
       select: (item: HTMLElement) => {
-        item.focus();
+        act(() => item.focus());
         return userEvent.keyboard(" ");
       },
     },
     {
       name: "user presses Enter",
       select: (item: HTMLElement) => {
-        item.focus();
+        act(() => item.focus());
         return userEvent.keyboard("{Enter}");
       },
     },
@@ -136,7 +136,7 @@ describe("WAI-ARIA compliance", () => {
     const itemOne = screen.getByRole("menuitem", { name: "Item 1" });
     const itemThree = screen.getByRole("menuitem", { name: "Item 3" });
 
-    itemOne.focus();
+    act(() => itemOne.focus());
 
     await userEvent.keyboard("{End}");
     expect(itemThree).toHaveFocus();

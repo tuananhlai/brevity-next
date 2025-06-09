@@ -1,5 +1,5 @@
 import { UseQueryResult, useQuery } from "@tanstack/react-query";
-import { apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/apiClient";
 import { GetArticlePreviewsResponse } from "@/lib/client";
 
 export const useGetArticlePreviews =
