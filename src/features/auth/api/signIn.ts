@@ -1,13 +1,8 @@
 import { UseMutationResult, useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/features/auth/components/auth-provider";
-import { apiClient } from "@/lib/apiClient";
-import { SignInRequest, SignInResponse } from "@/lib/client";
+import { SignInRequest } from "@/lib/client";
 
-export const useSignIn = (): UseMutationResult<
-  SignInResponse,
-  Error,
-  SignInRequest
-> => {
+export const useSignIn = (): UseMutationResult<void, Error, SignInRequest> => {
   const { signIn } = useAuth();
 
   return useMutation({

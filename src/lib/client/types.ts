@@ -48,7 +48,6 @@ export interface SignInResponse {
   id: string;
   username: string;
   email: string;
-  accessToken: string;
 }
 
 export interface SignUpRequest {
