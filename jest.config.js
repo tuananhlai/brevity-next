@@ -19,4 +19,9 @@ const config = {
   coverageReporters: ["json-summary"],
 };
 
-module.exports = createJestConfig(config);
+// Fix issue with using ES6-only libraries with Jest and Next.js
+// https://github.com/vercel/next.js/issues/40183
+module.exports = async () => ({
+  ...(await createJestConfig(config)()),
+  transformIgnorePatterns: ["node_modules/(?!ky)/"],
+});

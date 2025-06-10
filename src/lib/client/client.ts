@@ -1,3 +1,4 @@
+import ky, { KyInstance } from "ky";
 import {
   GetArticleDetailsRequest,
   GetArticleDetailsResponse,
@@ -8,103 +9,47 @@ import {
 } from "@/lib/client/types";
 
 export class APIClient {
-  private baseURL: string;
-  private authToken: string | null = null;
+  private kyInstance: KyInstance;
 
   constructor(baseURL: string) {
-    this.baseURL = baseURL;
-  }
-
-  setAuthToken(token: string) {
-    this.authToken = token;
+    this.kyInstance = ky.create({
+      prefixUrl: baseURL,
+    });
   }
 
   async getArticleDetails(
     req: GetArticleDetailsRequest,
-    options?: Options,
+    opts?: Options,
   ): Promise<GetArticleDetailsResponse> {
-    return this.getJSON<GetArticleDetailsResponse>(
-      `/v1/articles/${req.slug}`,
-      options,
-    );
+    return this.kyInstance
+      .get<GetArticleDetailsResponse>(`v1/articles/${req.slug}`, opts)
+      .then((v) => v.json());
   }
 
   async getArticlePreviews(
-    options?: Options,
+    opts?: Options,
   ): Promise<GetArticlePreviewsResponse> {
-    return this.getJSON<GetArticlePreviewsResponse>(
-      `/v1/article-previews`,
-      options,
-    );
+    return this.kyInstance
+      .get<GetArticlePreviewsResponse>(`v1/article-previews`, opts)
+      .then((v) => v.json());
   }
 
-  async signIn(req: SignInRequest): Promise<SignInResponse> {
-    return this.postJSON<SignInResponse>(`/v1/auth/sign-in`, req);
+  async signIn(req: SignInRequest, opts?: Options): Promise<SignInResponse> {
+    return this.kyInstance
+      .post<SignInResponse>(`v1/auth/sign-in`, {
+        json: req,
+        ...opts,
+      })
+      .then((v) => v.json());
   }
 
-  async signUp(req: SignUpRequest): Promise<void> {
-    return this.postJSON<void>(`/v1/auth/sign-up`, req);
-  }
-
-  private async getJSON<Response>(
-    url: string,
-    options?: Omit<FetchOptions, "method">,
-  ): Promise<Response> {
-    return this.doFetchJSON<Response>(url, { method: "GET", ...options });
-  }
-
-  /**
-   * @param data - The data to send in the request body. It must be JSON serializable.
-   */
-  private async postJSON<Response>(
-    url: string,
-    data: unknown,
-    options?: Omit<FetchOptions, "method" | "body">,
-  ): Promise<Response> {
-    return this.doFetchJSON<Response>(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      ...options,
+  async signUp(req: SignUpRequest, opts?: Options): Promise<void> {
+    await this.kyInstance.post<void>(`v1/auth/sign-up`, {
+      json: req,
+      ...opts,
     });
   }
-
-  private async doFetchJSON<T>(url: string, opts: FetchOptions): Promise<T> {
-    const { headers, ...rest } = opts;
-
-    let fetchHeaders: HeadersInit = {};
-    if (this.authToken) {
-      fetchHeaders = {
-        Authorization: `Bearer ${this.authToken}`,
-        ...headers,
-      };
-    }
-
-    const res = await fetch(this.getURL(url), {
-      ...rest,
-      headers: fetchHeaders,
-    });
-
-    if (!res.ok) {
-      throw new ClientError(res.statusText);
-    }
-
-    // TODO: handle empty response
-    return res.json();
-  }
-
-  private getURL(path: string): URL {
-    return new URL(path, this.baseURL);
-  }
 }
-
-interface FetchOptions {
-  method: "GET" | "POST" | "PUT" | "DELETE";
-  body?: BodyInit;
-  headers?: Record<string, string>;
-  signal?: AbortSignal;
-}
-
-class ClientError extends Error {}
 
 export interface Options {
   signal?: AbortSignal;
