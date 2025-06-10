@@ -6,6 +6,6 @@ export const useGetArticlePreviews =
   (): UseQueryResult<GetArticlePreviewsResponse> => {
     return useQuery({
       queryKey: ["article-previews"],
-      queryFn: () => apiClient.getArticlePreviews(),
+      queryFn: ({ signal }) => apiClient.getArticlePreviews({ signal }),
     });
   };

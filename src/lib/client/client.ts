@@ -21,12 +21,21 @@ export class APIClient {
 
   async getArticleDetails(
     req: GetArticleDetailsRequest,
+    options?: Options,
   ): Promise<GetArticleDetailsResponse> {
-    return this.getJSON<GetArticleDetailsResponse>(`/v1/articles/${req.slug}`);
+    return this.getJSON<GetArticleDetailsResponse>(
+      `/v1/articles/${req.slug}`,
+      options,
+    );
   }
 
-  async getArticlePreviews(): Promise<GetArticlePreviewsResponse> {
-    return this.getJSON<GetArticlePreviewsResponse>(`/v1/article-previews`);
+  async getArticlePreviews(
+    options?: Options,
+  ): Promise<GetArticlePreviewsResponse> {
+    return this.getJSON<GetArticlePreviewsResponse>(
+      `/v1/article-previews`,
+      options,
+    );
   }
 
   async signIn(req: SignInRequest): Promise<SignInResponse> {
@@ -92,6 +101,11 @@ interface FetchOptions {
   method: "GET" | "POST" | "PUT" | "DELETE";
   body?: BodyInit;
   headers?: Record<string, string>;
+  signal?: AbortSignal;
 }
 
 class ClientError extends Error {}
+
+export interface Options {
+  signal?: AbortSignal;
+}
