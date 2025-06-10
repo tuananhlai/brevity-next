@@ -4,7 +4,9 @@ import { Theme, ThemeProvider } from "./ThemeProvider";
 
 export interface ProviderProps {
   /**
-   * The function to be used for client-side navigation.
+   * The method to navigate client-size, provided by your routing
+   * solution. It will be passed to the design system components so
+   * that links will navigate correctly.
    *
    * @example
    * const navigate = useNavigate();

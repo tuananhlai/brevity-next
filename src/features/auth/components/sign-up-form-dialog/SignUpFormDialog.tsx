@@ -21,7 +21,10 @@ import styles from "./SignUpFormDialog.module.scss";
 
 export interface SignUpFormDialogProps
   extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
-  /** Invoked after a new account has been created successfully. */
+  /**
+   * Invoked after a new account has been created successfully and this dialog
+   * has been closed.
+   */
   onSubmitted?: () => void;
 }
 

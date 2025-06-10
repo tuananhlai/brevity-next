@@ -1,14 +1,15 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { AuthDialogProvider } from "@/features/auth/components/auth-dialog-provider";
+import { AuthProvider } from "@/features/auth/components/auth-provider";
 import { renderWithProviders } from "@/utils/testutils";
 import { useAuthDialog } from "./AuthDialogContext";
 
 it("should open sign in dialog when `signIn` is called", async () => {
   renderWithProviders(
-    <AuthDialogProvider>
+    <Providers>
       <OpenSignInButton />
-    </AuthDialogProvider>,
+    </Providers>,
   );
 
   await userEvent.click(screen.getByRole("button"));
@@ -19,9 +20,9 @@ it("should open sign in dialog when `signIn` is called", async () => {
 it("signIn function should resolve when the dialog is closed", async () => {
   const onSignInFinished = jest.fn();
   renderWithProviders(
-    <AuthDialogProvider>
+    <Providers>
       <OpenSignInButton onSignInFinished={onSignInFinished} />
-    </AuthDialogProvider>,
+    </Providers>,
   );
 
   await userEvent.click(screen.getByRole("button"));
@@ -36,9 +37,9 @@ it("signIn function should resolve when the dialog is closed", async () => {
 
 it("should open sign up dialog when `signUp` is called", async () => {
   renderWithProviders(
-    <AuthDialogProvider>
+    <Providers>
       <OpenSignUpButton />
-    </AuthDialogProvider>,
+    </Providers>,
   );
 
   await userEvent.click(screen.getByRole("button"));
@@ -49,9 +50,9 @@ it("should open sign up dialog when `signUp` is called", async () => {
 it("signUp function should resolve when the dialog is closed", async () => {
   const onSignUpFinished = jest.fn();
   renderWithProviders(
-    <AuthDialogProvider>
+    <Providers>
       <OpenSignUpButton onSignUpFinished={onSignUpFinished} />
-    </AuthDialogProvider>,
+    </Providers>,
   );
 
   await userEvent.click(screen.getByRole("button"));
@@ -85,5 +86,13 @@ const OpenSignUpButton: React.FC<{ onSignUpFinished?: () => void }> = ({
     <button onClick={() => signUp().then(onSignUpFinished)}>
       Open sign up
     </button>
+  );
+};
+
+const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <AuthProvider>
+      <AuthDialogProvider>{children}</AuthDialogProvider>
+    </AuthProvider>
   );
 };

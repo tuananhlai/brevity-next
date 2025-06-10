@@ -19,3 +19,5 @@ This project aims to be a production-ready template for my future attempts at bu
 - [ ] Extendable and easy to understand error handling mechanism. (ErrorBoundary, API error, ...)
 - [ ] Optimized invocation of remote API (utilize React-Query or something).
 - [ ] Integrate with OpenTelemetry / a monitoring solution.
+
+<https://dev.to/mbarzeev/jest-mocking-cheatsheet-fca>
