@@ -4,6 +4,7 @@ import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
 import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
 import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
+import { useAuth } from "@/features/auth/components/auth-provider";
 import { cn } from "@/styles/utils";
 import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
 import styles from "./StackedLayout.module.scss";
@@ -15,6 +16,7 @@ export interface StackedLayoutProps {
 
 export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
   const { children, className } = props;
+  const { user } = useAuth();
 
   return (
     <div className={cn(styles.root, className)}>
@@ -24,6 +26,7 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
             Brevity
           </Link>
           <NavbarSpacer />
+          <p>{user?.username ?? "Not logged in"}</p>
           <LoginButton />
           <ToggleColorSchemeButton />
         </Navbar>

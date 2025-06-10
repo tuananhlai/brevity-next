@@ -39,9 +39,6 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
         resolveFn();
         setSignUpDialogProps((prev) => ({ ...prev, isOpen: false }));
       },
-      onSubmitted: () => {
-        resolveFn();
-      },
     });
 
     return promise;
@@ -61,9 +58,6 @@ export const AuthDialogProvider: React.FC<AuthDialogProviderProps> = (
       },
       onCreateNewAccount: () => {
         signUp();
-      },
-      onSubmitted: () => {
-        resolveFn();
       },
     });
 

@@ -1,7 +1,15 @@
 import { createContext, useContext } from "react";
 
 export interface AuthDialogContextValue {
+  /**
+   * Open the sign in dialog and return a promise. The promise will
+   * resolve when that dialog is closed.
+   */
   signIn: () => Promise<void>;
+  /**
+   * Open the sign up dialog and return a promise. The promise will
+   * resolve when that dialog is closed.
+   */
   signUp: () => Promise<void>;
 }
 

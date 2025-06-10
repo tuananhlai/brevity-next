@@ -30,8 +30,8 @@ export interface SignInFormDialogProps
 export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
   const { onSubmitted, isOpen, onOpenChange, onCreateNewAccount } = props;
   const formId = useId();
-  const { mutate: signIn } = useSignIn();
   const { _ } = useLingui();
+  const { mutate, isPending } = useSignIn();
 
   return (
     <Dialog size="md" isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -50,7 +50,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
             <SignInForm
               id={formId}
               onSubmit={(v) => {
-                signIn(
+                mutate(
                   {
                     emailOrUsername: v.email,
                     password: v.password,
@@ -89,7 +89,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
               </Button>
             </Flex>
             <Flex direction="column" gap="var(--bw-space-2)">
-              <Button form={formId} type="submit">
+              <Button form={formId} type="submit" isPending={isPending}>
                 <Trans>Sign in</Trans>
               </Button>
               <Flex gap="var(--bw-space-2)">
