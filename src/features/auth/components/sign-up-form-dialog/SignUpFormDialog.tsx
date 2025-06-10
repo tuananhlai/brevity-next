@@ -58,7 +58,8 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
                       title: _(msg`Account created successfully`),
                     });
                   },
-                  onError: () => {
+                  onError: (err) => {
+                    console.error(err);
                     toastQueue.danger({
                       title: _(msg`Something went wrong`),
                     });
