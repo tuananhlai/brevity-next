@@ -1,6 +1,10 @@
 import { Meta, StoryObj } from "@storybook/react";
+import { LuCircleCheckBig, LuTriangleAlert } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
-import { ToastQueue, ToastRegion } from "@/components/ui/toast/Toast";
+import { Flex } from "@/components/ui/layout";
+import { DefaultToastLayout, Toast } from "./Toast";
+import { ToastQueue } from "./ToastQueue";
+import { ToastRegion } from "./ToastRegion";
 
 const toast = new ToastQueue();
 
@@ -48,6 +52,42 @@ export const Default: Story = {
           Show error toast
         </Button>
       </div>
+    );
+  },
+};
+
+export const VisualTest: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" gap="var(--bw-space-2)">
+        <Toast
+          toast={{
+            key: "test",
+            content: <div>Test</div>,
+          }}
+        >
+          <DefaultToastLayout
+            variant="success"
+            title="Success"
+            description="This is a success toast"
+            icon={<LuCircleCheckBig />}
+          />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test2",
+            content: <div>Test</div>,
+          }}
+        >
+          <DefaultToastLayout
+            variant="danger"
+            title="Error"
+            description="This is an error toast"
+            icon={<LuTriangleAlert />}
+          />
+        </Toast>
+      </Flex>
     );
   },
 };

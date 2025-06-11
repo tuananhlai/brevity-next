@@ -1,31 +1,22 @@
 import {
-  UNSTABLE_ToastQueue as AriaToastQueue,
-  UNSTABLE_ToastRegion as AriaToastRegion,
+  UNSTABLE_Toast as AriaToast,
+  ToastProps as AriaToastProps,
   Button,
-  UNSTABLE_Toast as Toast,
   UNSTABLE_ToastContent as ToastContent,
-  ToastOptions,
 } from "react-aria-components";
-import { LuCircleCheckBig, LuTriangleAlert, LuX } from "react-icons/lu";
+import { LuX } from "react-icons/lu";
 import { Text } from "@/components/ui/text";
 import { TouchTarget } from "@/components/ui/touch-target";
 import styles from "./Toast.module.scss";
 
-export interface ToastRegionProps {
-  queue: ToastQueue;
-}
+export interface ToastProps<T> extends AriaToastProps<T> {}
 
-export const ToastRegion: React.FC<ToastRegionProps> = (props) => {
-  const { queue } = props;
-
+export const Toast: React.FC<ToastProps<React.ReactNode>> = (props) => {
+  const { children, ...rest } = props;
   return (
-    <AriaToastRegion className={styles.toastRegion} queue={queue.ariaQueue}>
-      {({ toast }) => (
-        <Toast className={styles.toastRoot} toast={toast}>
-          {toast.content}
-        </Toast>
-      )}
-    </AriaToastRegion>
+    <AriaToast className={styles.toastRoot} {...rest}>
+      {children}
+    </AriaToast>
   );
 };
 
@@ -87,44 +78,3 @@ export const DefaultToastLayout: React.FC<DefaultToastLayoutProps> = (
     </div>
   );
 };
-
-export interface ToastParams {
-  title: string;
-  description?: string;
-}
-
-export class ToastQueue {
-  ariaQueue: AriaToastQueue<React.ReactNode>;
-
-  constructor(opts?: { maxVisibleToasts?: number }) {
-    this.ariaQueue = new AriaToastQueue<React.ReactNode>(opts);
-  }
-
-  success(params: ToastParams, options?: ToastOptions) {
-    const { title, description } = params;
-
-    this.ariaQueue.add(
-      <DefaultToastLayout
-        variant="success"
-        title={title}
-        description={description}
-        icon={<LuCircleCheckBig />}
-      />,
-      options,
-    );
-  }
-
-  danger(params: ToastParams, options?: ToastOptions) {
-    const { title, description } = params;
-
-    this.ariaQueue.add(
-      <DefaultToastLayout
-        variant="danger"
-        title={title}
-        description={description}
-        icon={<LuTriangleAlert />}
-      />,
-      options,
-    );
-  }
-}
