@@ -16,23 +16,39 @@ export class ToastQueue {
     this.ariaQueue = new AriaToastQueue<React.ReactNode>(opts);
   }
 
-  /** Display a toast to notify the user that an action has been completed successfully. */
-  success(params: ToastParams, options?: ToastOptions) {
+  /**
+   * Display a toast to notify the user that an action has been completed
+   * successfully.
+   *
+   * @returns The key of the newly created toast. Can be closed programmatically
+   * by calling `close(key)`.
+   */
+  success(params: ToastParams, options?: ToastOptions): string {
     const { title, description } = params;
 
-    this.ariaQueue.add(
+    return this.ariaQueue.add(
       <SuccessToastLayout title={title} description={description} />,
       options,
     );
   }
 
-  /** Display a toast to let the user know that an error has occurred. */
-  error(params: ToastParams, options?: ToastOptions) {
+  /**
+   * Display a toast to let the user know that an error has occurred.
+   *
+   * @returns The key of the newly created toast. Can be closed programmatically
+   * by calling `close(key)`.
+   */
+  error(params: ToastParams, options?: ToastOptions): string {
     const { title, description } = params;
 
-    this.ariaQueue.add(
+    return this.ariaQueue.add(
       <ErrorToastLayout title={title} description={description} />,
       options,
     );
+  }
+
+  /** Close the toast with the given key. */
+  close(key: string): void {
+    this.ariaQueue.close(key);
   }
 }
