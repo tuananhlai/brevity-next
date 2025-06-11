@@ -34,19 +34,17 @@
   position: relative;
   display: flex;
   gap: var(--bw-space-4);
-  align-items: flex-start;
+  align-items: center;
   padding: var(--bw-space-4);
   padding-right: var(--bw-space-7);
 }
 
 .toastIcon {
-  padding-top: var(--bw-space-1);
   font-size: var(--bw-font-2xl);
-  color: var(--bw-toast-icon-color);
-  --bw-toast-icon-color: inherit;
+  flex-shrink: 0;
 
-  &:where(.toast[data-variant="danger"] *) {
-    --bw-toast-icon-color: var(--bw-color-fg-error-primary);
+  @include screen-sm {
+    font-size: var(--bw-font-xl);
   }
 }
 
@@ -74,4 +72,8 @@
   @include dark-mode {
     color: var(--bw-color-utility-zinc-50);
   }
+}
+
+.fontWeightRegular {
+  font-weight: var(--bw-weight-regular);
 }

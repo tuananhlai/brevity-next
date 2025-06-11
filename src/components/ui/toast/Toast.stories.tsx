@@ -1,8 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { LuCircleCheckBig, LuTriangleAlert } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
-import { DefaultToastLayout, Toast } from "./Toast";
+import { DangerToastLayout, SuccessToastLayout, Toast } from "./Toast";
 import { ToastQueue } from "./ToastQueue";
 import { ToastRegion } from "./ToastRegion";
 
@@ -57,35 +56,72 @@ export const Default: Story = {
 };
 
 export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
   render: () => {
     return (
       <Flex direction="column" gap="var(--bw-space-2)">
         <Toast
           toast={{
             key: "test",
-            content: <div>Test</div>,
+            content: null,
           }}
         >
-          <DefaultToastLayout
-            variant="success"
+          <SuccessToastLayout
             title="Success"
             description="This is a success toast"
-            icon={<LuCircleCheckBig />}
           />
         </Toast>
 
         <Toast
           toast={{
-            key: "test2",
-            content: <div>Test</div>,
+            key: "test1",
+            content: null,
           }}
         >
-          <DefaultToastLayout
-            variant="danger"
+          <SuccessToastLayout title="Created new account successfully" />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test1",
+            content: null,
+          }}
+        >
+          <SuccessToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test2",
+            content: null,
+          }}
+        >
+          <DangerToastLayout
             title="Error"
             description="This is an error toast"
-            icon={<LuTriangleAlert />}
           />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test3",
+            content: null,
+          }}
+        >
+          <DangerToastLayout title="Something went wrong" />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test1",
+            content: null,
+          }}
+        >
+          <DangerToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
         </Toast>
       </Flex>
     );

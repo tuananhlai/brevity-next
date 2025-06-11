@@ -4,9 +4,10 @@ import {
   Button,
   UNSTABLE_ToastContent as ToastContent,
 } from "react-aria-components";
-import { LuX } from "react-icons/lu";
+import { LuCircleCheckBig, LuTriangleAlert, LuX } from "react-icons/lu";
 import { Text } from "@/components/ui/text";
 import { TouchTarget } from "@/components/ui/touch-target";
+import { cn } from "@/styles/utils";
 import styles from "./Toast.module.scss";
 
 export interface ToastProps<T> extends AriaToastProps<T> {}
@@ -22,11 +23,19 @@ export const Toast: React.FC<ToastProps<React.ReactNode>> = (props) => {
 
 export interface ToastTitleProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export const ToastTitle: React.FC<ToastTitleProps> = ({ children }) => {
+export const ToastTitle: React.FC<ToastTitleProps> = ({
+  children,
+  className,
+}) => {
   return (
-    <Text elementType="p" className={styles.toastTitle} slot="title">
+    <Text
+      elementType="p"
+      className={cn(styles.toastTitle, className)}
+      slot="title"
+    >
       {children}
     </Text>
   );
@@ -57,24 +66,71 @@ export const ToastCloseButton: React.FC = () => {
 };
 
 export interface DefaultToastLayoutProps {
-  variant: "success" | "danger";
   title: React.ReactNode;
-  description: React.ReactNode;
+  description?: React.ReactNode;
+  /**
+   * An icon to display at the start of the toast. Tested with
+   * icon components from React Icons.
+   *
+   * @example
+   * <LuCircleCheckBig />
+   */
   icon: React.ReactNode;
+  className?: string;
 }
 
 export const DefaultToastLayout: React.FC<DefaultToastLayoutProps> = (
   props,
 ) => {
-  const { title, description, icon, variant } = props;
+  const { title, description, icon, className } = props;
+  const hasDescription = description != null;
+
   return (
-    <div className={styles.toast} data-variant={variant}>
+    <div className={cn(styles.toast, className)}>
       <div className={styles.toastIcon}>{icon}</div>
       <ToastContent>
-        <ToastTitle>{title}</ToastTitle>
-        {description && <ToastDescription>{description}</ToastDescription>}
+        <ToastTitle
+          className={hasDescription ? undefined : styles.fontWeightRegular}
+        >
+          {title}
+        </ToastTitle>
+        {hasDescription && <ToastDescription>{description}</ToastDescription>}
       </ToastContent>
       <ToastCloseButton />
     </div>
+  );
+};
+
+export interface SuccessToastLayoutProps {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+}
+
+export const SuccessToastLayout: React.FC<SuccessToastLayoutProps> = (
+  props,
+) => {
+  const { title, description } = props;
+  return (
+    <DefaultToastLayout
+      title={title}
+      description={description}
+      icon={<LuCircleCheckBig color="var(--bw-color-fg-success-primary)" />}
+    />
+  );
+};
+
+export interface DangerToastLayoutProps {
+  title: React.ReactNode;
+  description?: React.ReactNode;
+}
+
+export const DangerToastLayout: React.FC<DangerToastLayoutProps> = (props) => {
+  const { title, description } = props;
+  return (
+    <DefaultToastLayout
+      title={title}
+      description={description}
+      icon={<LuTriangleAlert color="var(--bw-color-fg-error-primary)" />}
+    />
   );
 };
