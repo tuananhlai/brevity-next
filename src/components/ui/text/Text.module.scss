@@ -1,26 +1,25 @@
 @use "src/styles/utils.scss" as *;
-@use "textutils.scss";
 
 .text {
   color: var(--bw-color-utility-zinc-500);
-  @include textutils.text-md;
+  @include text-md;
 
   @include dark-mode {
     color: var(--bw-color-utility-zinc-400);
   }
 
   @include screen-sm {
-    @include textutils.text-sm;
+    @include text-sm;
   }
 }
 
 .heading {
   color: var(--bw-color-text-primary);
-  @include textutils.display-md;
+  @include display-md;
   font-weight: var(--bw-weight-semibold);
 
   @include screen-sm {
-    @include textutils.display-sm;
+    @include display-sm;
   }
 }
 

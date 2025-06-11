@@ -4,6 +4,7 @@
     "orta.vscode-jest",
     "esbenp.prettier-vscode",
     "vunguyentuan.vscode-css-variables",
-    "viijay-kr.react-ts-css"
+    "viijay-kr.react-ts-css",
+    "mrmlnc.vscode-scss"
   ]
 }
