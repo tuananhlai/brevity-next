@@ -17,6 +17,7 @@ import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
 } from "@/features/auth/components/third-party-auth-button";
+import { somethingWentWrong } from "@/utils/message";
 import styles from "./SignUpFormDialog.module.scss";
 
 export interface SignUpFormDialogProps
@@ -53,15 +54,13 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
                   onSuccess: () => {
                     close();
                     onSubmitted?.();
-                    // TODO: update the toast styles.
                     toastQueue.success({
                       title: _(msg`Account created successfully`),
                     });
                   },
-                  onError: (err) => {
-                    console.error(err);
-                    toastQueue.danger({
-                      title: _(msg`Something went wrong`),
+                  onError: () => {
+                    toastQueue.error({
+                      title: _(somethingWentWrong),
                     });
                   },
                 });

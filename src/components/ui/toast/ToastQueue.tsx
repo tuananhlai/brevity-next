@@ -2,7 +2,7 @@ import {
   UNSTABLE_ToastQueue as AriaToastQueue,
   ToastOptions,
 } from "react-aria-components";
-import { DangerToastLayout, SuccessToastLayout } from "./Toast";
+import { ErrorToastLayout, SuccessToastLayout } from "./Toast";
 
 export interface ToastParams {
   title: string;
@@ -16,6 +16,7 @@ export class ToastQueue {
     this.ariaQueue = new AriaToastQueue<React.ReactNode>(opts);
   }
 
+  /** Display a toast to notify the user that an action has been completed successfully. */
   success(params: ToastParams, options?: ToastOptions) {
     const { title, description } = params;
 
@@ -25,11 +26,12 @@ export class ToastQueue {
     );
   }
 
-  danger(params: ToastParams, options?: ToastOptions) {
+  /** Display a toast to let the user know that an error has occurred. */
+  error(params: ToastParams, options?: ToastOptions) {
     const { title, description } = params;
 
     this.ariaQueue.add(
-      <DangerToastLayout title={title} description={description} />,
+      <ErrorToastLayout title={title} description={description} />,
       options,
     );
   }

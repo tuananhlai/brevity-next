@@ -119,12 +119,12 @@ export const SuccessToastLayout: React.FC<SuccessToastLayoutProps> = (
   );
 };
 
-export interface DangerToastLayoutProps {
+export interface ErrorToastLayoutProps {
   title: React.ReactNode;
   description?: React.ReactNode;
 }
 
-export const DangerToastLayout: React.FC<DangerToastLayoutProps> = (props) => {
+export const ErrorToastLayout: React.FC<ErrorToastLayoutProps> = (props) => {
   const { title, description } = props;
   return (
     <DefaultToastLayout

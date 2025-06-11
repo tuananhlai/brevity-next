@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
-import { DangerToastLayout, SuccessToastLayout, Toast } from "./Toast";
+import { ErrorToastLayout, SuccessToastLayout, Toast } from "./Toast";
 import { ToastQueue } from "./ToastQueue";
 import { ToastRegion } from "./ToastRegion";
 
@@ -42,13 +42,24 @@ export const Default: Story = {
         <Button
           variant="secondary"
           onPress={() =>
-            toast.danger({
+            toast.error({
               title: "Error",
               description: "This is an error toast",
             })
           }
         >
           Show error toast
+        </Button>
+        <Button
+          variant="secondary"
+          onPress={() =>
+            toast.success({
+              title:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+            })
+          }
+        >
+          Show incredibly long success toast
         </Button>
       </div>
     );
@@ -72,7 +83,7 @@ export const VisualTest: Story = {
         >
           <SuccessToastLayout
             title="Success"
-            description="This is a success toast"
+            description="This is a success toast."
           />
         </Toast>
 
@@ -82,7 +93,7 @@ export const VisualTest: Story = {
             content: null,
           }}
         >
-          <SuccessToastLayout title="Created new account successfully" />
+          <SuccessToastLayout title="New account created" />
         </Toast>
 
         <Toast
@@ -100,9 +111,9 @@ export const VisualTest: Story = {
             content: null,
           }}
         >
-          <DangerToastLayout
+          <ErrorToastLayout
             title="Error"
-            description="This is an error toast"
+            description="This is an error toast."
           />
         </Toast>
 
@@ -112,7 +123,7 @@ export const VisualTest: Story = {
             content: null,
           }}
         >
-          <DangerToastLayout title="Something went wrong" />
+          <ErrorToastLayout title="Something went wrong" />
         </Toast>
 
         <Toast
@@ -121,7 +132,7 @@ export const VisualTest: Story = {
             content: null,
           }}
         >
-          <DangerToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
+          <ErrorToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
         </Toast>
       </Flex>
     );

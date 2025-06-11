@@ -18,7 +18,7 @@ it("should submit the form successfully when the form is valid", async () => {
   await userEvent.type(displayNameField, expectedDisplayName);
   await userEvent.type(systemPromptField, expectedSystemPrompt);
 
-  // TODO: abstract this operation into a testutils function.
+  // TODO: abstract interaction with RAC select into a reusable function.
   await userEvent.click(apiKeyField);
   await userEvent.click(screen.getByRole("option", { name: "API Key 1" }));
 
