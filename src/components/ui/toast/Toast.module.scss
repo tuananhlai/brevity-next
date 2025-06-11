@@ -65,6 +65,11 @@
   border: none;
   color: var(--bw-color-text-tertiary);
   font-size: var(--bw-font-lg);
+  padding: 0;
+  margin: 0;
+
+  // TODO: add `before` pseudo-element to the close button to make it
+  // easier to press.
 
   &:where([data-hovered]) {
     cursor: pointer;

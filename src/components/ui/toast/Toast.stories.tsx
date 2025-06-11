@@ -74,7 +74,7 @@ export const VisualTest: Story = {
   },
   render: () => {
     return (
-      <Flex direction="column" gap="var(--bw-space-2)">
+      <Flex align="start" direction="column" gap="var(--bw-space-2)">
         <Toast
           toast={{
             key: "test",
