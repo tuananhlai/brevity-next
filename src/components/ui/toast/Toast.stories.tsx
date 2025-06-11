@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "@/components/ui/button";
-import { ToastQueue, ToastRegion } from "@/components/ui/toast/Toast";
+import { Flex } from "@/components/ui/layout";
+import { ErrorToastLayout, SuccessToastLayout, Toast } from "./Toast";
+import { ToastQueue } from "./ToastQueue";
+import { ToastRegion } from "./ToastRegion";
 
 const toast = new ToastQueue();
 
@@ -39,7 +42,7 @@ export const Default: Story = {
         <Button
           variant="secondary"
           onPress={() =>
-            toast.danger({
+            toast.error({
               title: "Error",
               description: "This is an error toast",
             })
@@ -47,7 +50,96 @@ export const Default: Story = {
         >
           Show error toast
         </Button>
+        <Button
+          variant="secondary"
+          onPress={() =>
+            toast.success({
+              title:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+            })
+          }
+        >
+          Show incredibly long success toast
+        </Button>
       </div>
+    );
+  },
+};
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: () => {
+    return (
+      <Flex
+        align="start"
+        direction="column"
+        gap="var(--bw-space-2)"
+        style={{ maxWidth: "var(--bw-space-80)" }}
+      >
+        <Toast
+          toast={{
+            key: "test",
+            content: null,
+          }}
+        >
+          <SuccessToastLayout
+            title="Success"
+            description="This is a success toast."
+          />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test1",
+            content: null,
+          }}
+        >
+          <SuccessToastLayout title="New account created" />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test1",
+            content: null,
+          }}
+        >
+          <SuccessToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test2",
+            content: null,
+          }}
+        >
+          <ErrorToastLayout
+            title="Error"
+            description="This is an error toast."
+          />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test3",
+            content: null,
+          }}
+        >
+          <ErrorToastLayout title="Something went wrong" />
+        </Toast>
+
+        <Toast
+          toast={{
+            key: "test1",
+            content: null,
+          }}
+        >
+          <ErrorToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
+        </Toast>
+      </Flex>
     );
   },
 };

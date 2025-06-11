@@ -17,6 +17,7 @@ import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
 } from "@/features/auth/components/third-party-auth-button";
+import { somethingWentWrong } from "@/utils/message";
 import styles from "./SignInFormDialog.module.scss";
 
 export interface SignInFormDialogProps
@@ -65,8 +66,8 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                     },
                     onError: () => {
                       // TODO: provide more detailed error message.
-                      toastQueue.danger({
-                        title: _(msg`Something went wrong`),
+                      toastQueue.error({
+                        title: _(somethingWentWrong),
                       });
                     },
                   },
@@ -74,7 +75,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
               }}
             />
             <Flex justify="space-between">
-              {/* TODO: update styles */}
+              {/* TODO: update forgot password button styles */}
               <Button variant="tertiary">
                 <Trans>Forgot your password?</Trans>
               </Button>

@@ -7,6 +7,7 @@ export interface FlexProps {
   align?: React.CSSProperties["alignItems"];
   gap?: React.CSSProperties["gap"];
   wrap?: React.CSSProperties["flexWrap"];
+  style?: React.CSSProperties;
 }
 
 export const Flex = ({
@@ -18,6 +19,7 @@ export const Flex = ({
   gap,
   wrap,
   inline,
+  style,
 }: FlexProps) => {
   return (
     <div
@@ -28,6 +30,7 @@ export const Flex = ({
         alignItems: align,
         gap: gap,
         flexWrap: wrap,
+        ...style,
       }}
       className={className}
     >

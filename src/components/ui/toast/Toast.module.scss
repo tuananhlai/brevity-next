@@ -34,25 +34,17 @@
   position: relative;
   display: flex;
   gap: var(--bw-space-4);
-  align-items: flex-start;
-  padding: var(--bw-space-3);
-  padding-right: var(--bw-space-7);
+  align-items: center;
+  padding: var(--bw-space-4);
+  padding-right: var(--bw-space-10);
 }
 
 .toastIcon {
-  padding-top: var(--bw-space-1);
   font-size: var(--bw-font-2xl);
-  color: var(--bw-toast-icon-color);
-  --bw-toast-icon-color: inherit;
+  flex-shrink: 0;
 
-  &:where(.toast[data-variant="danger"] *) {
-    --bw-toast-icon-color: var(--bw-color-utility-error-700);
-  }
-
-  @include dark-mode {
-    &:where(.toast[data-variant="danger"] *) {
-      --bw-toast-icon-color: var(--bw-color-utility-error-400);
-    }
+  @include screen-sm {
+    font-size: var(--bw-font-xl);
   }
 }
 
@@ -67,17 +59,23 @@
 
 .closeBtn {
   position: absolute;
-  top: var(--bw-space-2);
-  right: var(--bw-space-2);
+  top: var(--bw-space-4);
+  right: var(--bw-space-4);
   background-color: transparent;
   border: none;
-  color: var(--bw-color-utility-zinc-950);
+  color: var(--bw-color-text-tertiary);
+  font-size: var(--bw-font-lg);
+  padding: 0;
+  margin: 0;
+
+  // TODO: add `before` pseudo-element to the close button to make it
+  // easier to press.
 
   &:where([data-hovered]) {
     cursor: pointer;
   }
+}
 
-  @include dark-mode {
-    color: var(--bw-color-utility-zinc-50);
-  }
+.fontWeightRegular {
+  font-weight: var(--bw-weight-regular);
 }

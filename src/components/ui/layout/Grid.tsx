@@ -12,6 +12,7 @@ export interface GridProps {
   alignItems?: React.CSSProperties["alignItems"];
   justifyContent?: React.CSSProperties["justifyContent"];
   alignContent?: React.CSSProperties["alignContent"];
+  style?: React.CSSProperties;
 }
 
 export const Grid = ({
@@ -26,6 +27,7 @@ export const Grid = ({
   justifyContent,
   alignContent,
   inline,
+  style,
 }: GridProps) => {
   return (
     <div
@@ -39,6 +41,7 @@ export const Grid = ({
         alignItems: alignItems,
         justifyContent: justifyContent,
         alignContent: alignContent,
+        ...style,
       }}
       className={className}
     >

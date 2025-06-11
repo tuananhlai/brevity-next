@@ -1,41 +1,41 @@
 import {
-  UNSTABLE_ToastQueue as AriaToastQueue,
-  UNSTABLE_ToastRegion as AriaToastRegion,
+  UNSTABLE_Toast as AriaToast,
+  ToastProps as AriaToastProps,
   Button,
-  UNSTABLE_Toast as Toast,
   UNSTABLE_ToastContent as ToastContent,
-  ToastOptions,
 } from "react-aria-components";
 import { LuCircleCheckBig, LuTriangleAlert, LuX } from "react-icons/lu";
 import { Text } from "@/components/ui/text";
 import { TouchTarget } from "@/components/ui/touch-target";
+import { cn } from "@/styles/utils";
 import styles from "./Toast.module.scss";
 
-export interface ToastRegionProps {
-  queue: ToastQueue;
-}
+export interface ToastProps<T> extends AriaToastProps<T> {}
 
-export const ToastRegion: React.FC<ToastRegionProps> = (props) => {
-  const { queue } = props;
-
+export const Toast: React.FC<ToastProps<React.ReactNode>> = (props) => {
+  const { children, ...rest } = props;
   return (
-    <AriaToastRegion className={styles.toastRegion} queue={queue.ariaQueue}>
-      {({ toast }) => (
-        <Toast className={styles.toastRoot} toast={toast}>
-          {toast.content}
-        </Toast>
-      )}
-    </AriaToastRegion>
+    <AriaToast className={styles.toastRoot} {...rest}>
+      {children}
+    </AriaToast>
   );
 };
 
 export interface ToastTitleProps {
   children: React.ReactNode;
+  className?: string;
 }
 
-export const ToastTitle: React.FC<ToastTitleProps> = ({ children }) => {
+export const ToastTitle: React.FC<ToastTitleProps> = ({
+  children,
+  className,
+}) => {
   return (
-    <Text elementType="p" className={styles.toastTitle} slot="title">
+    <Text
+      elementType="p"
+      className={cn(styles.toastTitle, className)}
+      slot="title"
+    >
       {children}
     </Text>
   );
@@ -66,65 +66,71 @@ export const ToastCloseButton: React.FC = () => {
 };
 
 export interface DefaultToastLayoutProps {
-  variant: "success" | "danger";
   title: React.ReactNode;
-  description: React.ReactNode;
+  description?: React.ReactNode;
+  /**
+   * An icon to display at the start of the toast. Tested with
+   * icon components from React Icons.
+   *
+   * @example
+   * <LuCircleCheckBig />
+   */
   icon: React.ReactNode;
+  className?: string;
 }
 
 export const DefaultToastLayout: React.FC<DefaultToastLayoutProps> = (
   props,
 ) => {
-  const { title, description, icon, variant } = props;
+  const { title, description, icon, className } = props;
+  const hasDescription = description != null;
+
   return (
-    <div className={styles.toast} data-variant={variant}>
+    <div className={cn(styles.toast, className)}>
       <div className={styles.toastIcon}>{icon}</div>
       <ToastContent>
-        <ToastTitle>{title}</ToastTitle>
-        {description && <ToastDescription>{description}</ToastDescription>}
+        <ToastTitle
+          className={hasDescription ? undefined : styles.fontWeightRegular}
+        >
+          {title}
+        </ToastTitle>
+        {hasDescription && <ToastDescription>{description}</ToastDescription>}
       </ToastContent>
       <ToastCloseButton />
     </div>
   );
 };
 
-export interface ToastParams {
-  title: string;
-  description?: string;
+export interface SuccessToastLayoutProps {
+  title: React.ReactNode;
+  description?: React.ReactNode;
 }
 
-export class ToastQueue {
-  ariaQueue: AriaToastQueue<React.ReactNode>;
+export const SuccessToastLayout: React.FC<SuccessToastLayoutProps> = (
+  props,
+) => {
+  const { title, description } = props;
+  return (
+    <DefaultToastLayout
+      title={title}
+      description={description}
+      icon={<LuCircleCheckBig color="var(--bw-color-fg-success-primary)" />}
+    />
+  );
+};
 
-  constructor(opts?: { maxVisibleToasts?: number }) {
-    this.ariaQueue = new AriaToastQueue<React.ReactNode>(opts);
-  }
-
-  success(params: ToastParams, options?: ToastOptions) {
-    const { title, description } = params;
-
-    this.ariaQueue.add(
-      <DefaultToastLayout
-        variant="success"
-        title={title}
-        description={description}
-        icon={<LuCircleCheckBig />}
-      />,
-      options,
-    );
-  }
-
-  danger(params: ToastParams, options?: ToastOptions) {
-    const { title, description } = params;
-
-    this.ariaQueue.add(
-      <DefaultToastLayout
-        variant="danger"
-        title={title}
-        description={description}
-        icon={<LuTriangleAlert />}
-      />,
-      options,
-    );
-  }
+export interface ErrorToastLayoutProps {
+  title: React.ReactNode;
+  description?: React.ReactNode;
 }
+
+export const ErrorToastLayout: React.FC<ErrorToastLayoutProps> = (props) => {
+  const { title, description } = props;
+  return (
+    <DefaultToastLayout
+      title={title}
+      description={description}
+      icon={<LuTriangleAlert color="var(--bw-color-fg-error-primary)" />}
+    />
+  );
+};

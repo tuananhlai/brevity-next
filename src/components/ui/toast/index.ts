@@ -1,1 +1,2 @@
-export { ToastRegion, ToastQueue } from "./Toast";
+export { ToastRegion, type ToastRegionProps } from "./ToastRegion";
+export { ToastQueue, type ToastParams } from "./ToastQueue";
