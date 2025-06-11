@@ -74,7 +74,12 @@ export const VisualTest: Story = {
   },
   render: () => {
     return (
-      <Flex align="start" direction="column" gap="var(--bw-space-2)">
+      <Flex
+        align="start"
+        direction="column"
+        gap="var(--bw-space-2)"
+        style={{ maxWidth: "var(--bw-space-80)" }}
+      >
         <Toast
           toast={{
             key: "test",
