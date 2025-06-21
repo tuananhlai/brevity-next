@@ -1,16 +1,30 @@
 @use "src/styles/utils" as *;
 
+.tabs {
+  display: flex;
+
+  &:where([data-orientation="horizontal"]) {
+    flex-direction: column;
+    gap: var(--bw-space-2);
+  }
+}
+
 .tabList {
   display: flex;
-  gap: var(--bw-space-1);
+  flex-direction: column;
+
+  &:where([data-orientation="horizontal"]) {
+    flex-direction: row;
+    gap: var(--bw-space-1);
+  }
 }
 
 .tab {
-  @include text-sm;
+  @include text-md;
   font-weight: var(--bw-weight-semibold);
-  padding: var(--bw-space-2) var(--bw-space-3);
   color: var(--bw-color-text-quaternary);
   border-radius: var(--bw-radius-md);
+  padding: var(--bw-space-2-5) var(--bw-space-4);
 
   &:where([data-hovered]) {
     cursor: pointer;
@@ -20,4 +34,12 @@
     background-color: var(--bw-color-bg-active);
     color: var(--bw-color-text-primary);
   }
+
+  @include screen-sm {
+    @include text-sm;
+    padding: var(--bw-space-2) var(--bw-space-3);
+  }
+}
+
+.tabPanel {
 }

@@ -15,7 +15,8 @@ import styles from "./Tabs.module.scss";
 export interface TabsProps extends ReplaceAriaRenderProps<AriaTabsProps> {}
 
 export const Tabs: React.FC<TabsProps> = (props) => {
-  return <AriaTabs {...props} />;
+  const { className, ...rest } = props;
+  return <AriaTabs className={cn(styles.tabs, className)} {...rest} />;
 };
 
 export interface TabListProps<T>

@@ -31,3 +31,24 @@ export const Default: Story = {
     );
   },
 };
+
+export const Vertial: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    return (
+      <Tabs orientation="vertical">
+        <TabList>
+          <Tab id="tab-1">Tab 1</Tab>
+          <Tab id="tab-2">Tab 2</Tab>
+          <Tab id="tab-3">Tab 3</Tab>
+        </TabList>
+
+        <TabPanel id="tab-1">Tab 1 Content</TabPanel>
+        <TabPanel id="tab-2">Tab 2 Content</TabPanel>
+        <TabPanel id="tab-3">Tab 3 Content</TabPanel>
+      </Tabs>
+    );
+  },
+};
