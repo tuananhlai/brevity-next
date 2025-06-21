@@ -8,4 +8,16 @@
 .tab {
   @include text-sm;
   font-weight: var(--bw-weight-semibold);
+  padding: var(--bw-space-2) var(--bw-space-3);
+  color: var(--bw-color-text-quaternary);
+  border-radius: var(--bw-radius-md);
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  &:where([data-hovered], [data-selected]) {
+    background-color: var(--bw-color-bg-active);
+    color: var(--bw-color-text-primary);
+  }
 }

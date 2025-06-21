@@ -2,6 +2,8 @@ import {
   Tab as AriaTab,
   TabList as AriaTabList,
   TabListProps as AriaTabListProps,
+  TabPanel as AriaTabPanel,
+  TabPanelProps as AriaTabPanelProps,
   TabProps as AriaTabProps,
   Tabs as AriaTabs,
   TabsProps as AriaTabsProps,
@@ -31,4 +33,11 @@ export const Tab: React.FC<TabProps> = (props) => {
   const { className, ...rest } = props;
 
   return <AriaTab className={cn(styles.tab, className)} {...rest} />;
+};
+
+export interface TabPanelProps
+  extends ReplaceAriaRenderProps<AriaTabPanelProps> {}
+
+export const TabPanel: React.FC<TabPanelProps> = (props) => {
+  return <AriaTabPanel {...props} />;
 };
