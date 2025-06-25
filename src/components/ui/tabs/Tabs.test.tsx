@@ -99,6 +99,57 @@ describe("WAI-ARIA Compliance", () => {
       expect(screen.getByText("Tab 2 Content")).toBeInTheDocument();
     },
   );
+
+  it("tab has the property aria-controls referring to its associated tabpanel", () => {
+    render(<TestTabs />);
+
+    const firstTab = screen.getByRole("tab", { name: "Tab 1" });
+    const firstTabPanel = screen.getByRole("tabpanel", { name: "Tab 1" });
+
+    expect(firstTab).toHaveAttribute("aria-controls", firstTabPanel.id);
+  });
+
+  it("tabpanel has the property aria-labelledby referring to its associated tab", () => {
+    render(
+      <Tabs>
+        <TabList>
+          <Tab id="one">Tab 1</Tab>
+        </TabList>
+        <TabPanel id="one">Tab 1 Content</TabPanel>
+      </Tabs>,
+    );
+
+    const firstTab = screen.getByRole("tab");
+    const firstTabPanel = screen.getByRole("tabpanel");
+
+    expect(firstTabPanel).toHaveAttribute("aria-labelledby", firstTab.id);
+  });
+
+  it("active tab has the property aria-selected set to true, and all other tabs have it set to false", () => {
+    render(<TestTabs defaultSelectedKey="two" />);
+
+    const firstTab = screen.getByRole("tab", { name: "Tab 1" });
+    const secondTab = screen.getByRole("tab", { name: "Tab 2" });
+    const thirdTab = screen.getByRole("tab", { name: "Tab 3" });
+
+    expect(firstTab).toHaveAttribute("aria-selected", "false");
+    expect(secondTab).toHaveAttribute("aria-selected", "true");
+    expect(thirdTab).toHaveAttribute("aria-selected", "false");
+  });
+
+  it("tablist should have the property aria-orientation set correctly", () => {
+    const { rerender } = render(<TestTabs orientation="horizontal" />);
+    expect(screen.getByRole("tablist")).toHaveAttribute(
+      "aria-orientation",
+      "horizontal",
+    );
+
+    rerender(<TestTabs orientation="vertical" />);
+    expect(screen.getByRole("tablist")).toHaveAttribute(
+      "aria-orientation",
+      "vertical",
+    );
+  });
 });
 
 const TestTabs = (props?: TabsProps) => {
