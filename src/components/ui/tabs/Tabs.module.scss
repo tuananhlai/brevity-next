@@ -12,10 +12,10 @@
 .tabList {
   display: flex;
   flex-direction: column;
+  gap: var(--bw-space-1);
 
   &:where([data-orientation="horizontal"]) {
     flex-direction: row;
-    gap: var(--bw-space-1);
   }
 }
 
@@ -35,11 +35,13 @@
     color: var(--bw-color-text-primary);
   }
 
+  &:where([data-disabled]) {
+    opacity: 0.5;
+    background-color: transparent;
+  }
+
   @include screen-sm {
     @include text-sm;
     padding: var(--bw-space-2) var(--bw-space-3);
   }
-}
-
-.tabPanel {
 }

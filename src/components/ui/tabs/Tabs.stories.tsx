@@ -1,5 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Tab, TabList, TabPanel, Tabs } from "./Tabs";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
+import { Tab } from "./Tab";
+import { TabList } from "./TabList";
+import { TabPanel } from "./TabPanel";
+import { Tabs, TabsProps } from "./Tabs";
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
@@ -16,19 +20,7 @@ export const Default: Story = {
     layout: "centered",
   },
   render: () => {
-    return (
-      <Tabs>
-        <TabList>
-          <Tab id="tab-1">Tab 1</Tab>
-          <Tab id="tab-2">Tab 2</Tab>
-          <Tab id="tab-3">Tab 3</Tab>
-        </TabList>
-
-        <TabPanel id="tab-1">Tab 1 Content</TabPanel>
-        <TabPanel id="tab-2">Tab 2 Content</TabPanel>
-        <TabPanel id="tab-3">Tab 3 Content</TabPanel>
-      </Tabs>
-    );
+    return <ExampleTabs />;
   },
 };
 
@@ -37,18 +29,48 @@ export const Vertial: Story = {
     layout: "centered",
   },
   render: () => {
-    return (
-      <Tabs orientation="vertical">
-        <TabList>
-          <Tab id="tab-1">Tab 1</Tab>
-          <Tab id="tab-2">Tab 2</Tab>
-          <Tab id="tab-3">Tab 3</Tab>
-        </TabList>
+    return <ExampleTabs orientation="vertical" />;
+  },
+};
 
-        <TabPanel id="tab-1">Tab 1 Content</TabPanel>
-        <TabPanel id="tab-2">Tab 2 Content</TabPanel>
-        <TabPanel id="tab-3">Tab 3 Content</TabPanel>
-      </Tabs>
+export const ManualKeyboardActivation: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    return <ExampleTabs keyboardActivation="manual" />;
+  },
+};
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: () => {
+    return (
+      <VisualTestGrid cellWidth="300px">
+        <ExampleTabs />
+        <ExampleTabs orientation="vertical" />
+        <ExampleTabs disabledKeys={["tab-2"]} />
+      </VisualTestGrid>
     );
   },
+};
+
+const ExampleTabs = (props?: TabsProps) => {
+  return (
+    <Tabs {...props}>
+      <TabList>
+        <Tab id="tab-1">Tab 1</Tab>
+        <Tab id="tab-2">Tab 2</Tab>
+        <Tab id="tab-3">Tab 3</Tab>
+      </TabList>
+
+      <TabPanel id="tab-1">Tab 1 Content</TabPanel>
+      <TabPanel id="tab-2">Tab 2 Content</TabPanel>
+      <TabPanel id="tab-3">Tab 3 Content</TabPanel>
+    </Tabs>
+  );
 };
