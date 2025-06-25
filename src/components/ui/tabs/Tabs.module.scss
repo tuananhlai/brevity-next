@@ -1,0 +1,55 @@
+@use "src/styles/utils" as *;
+
+.tabs {
+  display: flex;
+
+  &:where([data-orientation="horizontal"]) {
+    flex-direction: column;
+    gap: var(--bw-space-2);
+  }
+}
+
+.tabList {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--bw-space-1);
+  // TODO: provide better overflow handling mechanism.
+  overflow-x: auto;
+
+  &:where([data-orientation="horizontal"]) {
+    flex-direction: row;
+  }
+}
+
+.tab {
+  @include text-md;
+  font-weight: var(--bw-weight-semibold);
+  color: var(--bw-color-text-quaternary);
+  border-radius: var(--bw-radius-md);
+  padding: var(--bw-space-2-5) var(--bw-space-4);
+  white-space: nowrap;
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
+
+  &:where([data-hovered], [data-selected]) {
+    background-color: var(--bw-color-bg-active);
+    color: var(--bw-color-text-primary);
+  }
+
+  &:where([data-disabled]) {
+    opacity: 0.5;
+    background-color: transparent;
+  }
+
+  @include screen-sm {
+    @include text-sm;
+    padding: var(--bw-space-2) var(--bw-space-3);
+  }
+}
+
+.tabPanel {
+  overflow: auto;
+}
