@@ -94,6 +94,26 @@ export const VisualTest: Story = {
         <ExampleTabs />
         <ExampleTabs orientation="vertical" />
         <ExampleTabs disabledKeys={["tab-2"]} />
+        <div style={{ width: "100px" }}>
+          <ExampleTabs />
+        </div>
+        <div style={{ display: "flex", height: "200px", width: "200px" }}>
+          <Tabs>
+            <TabList>
+              <Tab id="one">Tab 1</Tab>
+            </TabList>
+
+            <TabPanel id="one">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
+              cumque, dolores voluptates quas laborum illum minus rerum
+              repellendus, asperiores obcaecati repudiandae qui at. Cum expedita
+              tempora inventore soluta totam hic! Lorem ipsum, dolor sit amet
+              consectetur adipisicing elit. Ea, dicta incidunt quis ad, numquam
+              repudiandae nihil deserunt laboriosam at tempora error eligendi
+              sint nobis doloribus repellendus veniam illo distinctio iure.
+            </TabPanel>
+          </Tabs>
+        </div>
       </VisualTestGrid>
     );
   },
