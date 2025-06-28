@@ -1,23 +1,25 @@
 @use "src/styles/utils" as *;
 
 .root {
-  @include screen-sm {
-    max-width: $breakpoint-sm;
-  }
+  margin: auto;
+}
 
-  @include screen-md {
-    max-width: $breakpoint-md;
-  }
+.maxWidthSm {
+  max-width: $breakpoint-sm;
+}
 
-  @include screen-lg {
-    max-width: $breakpoint-lg;
-  }
+.maxWidthMd {
+  max-width: $breakpoint-md;
+}
 
-  @include screen-xl {
-    max-width: $breakpoint-xl;
-  }
+.maxWidthLg {
+  max-width: $breakpoint-lg;
+}
 
-  @include screen-2xl {
-    max-width: $breakpoint-2xl;
-  }
+.maxWidthXl {
+  max-width: $breakpoint-xl;
+}
+
+.maxWidth2xl {
+  max-width: $breakpoint-2xl;
 }

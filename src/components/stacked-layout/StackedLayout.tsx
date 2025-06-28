@@ -2,7 +2,9 @@ import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
+import { AppLogo } from "@/components/app-logo";
 import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
+import { Container } from "@/components/ui/layout";
 import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
 import { cn } from "@/styles/utils";
 import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
@@ -19,16 +21,20 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
   return (
     <div className={cn(styles.root, className)}>
       <header className={styles.header}>
-        <Navbar>
-          <Link className={styles.logo} href="/">
-            Brevity
-          </Link>
-          <NavbarSpacer />
-          <LoginButton />
-          <ToggleColorSchemeButton />
-        </Navbar>
+        <Container>
+          <Navbar>
+            <Link className={styles.logo} href="/">
+              <AppLogo />
+            </Link>
+            <NavbarSpacer />
+            <LoginButton />
+            <ToggleColorSchemeButton />
+          </Navbar>
+        </Container>
       </header>
-      <main>{children}</main>
+      <main>
+        <Container>{children}</Container>
+      </main>
     </div>
   );
 };
