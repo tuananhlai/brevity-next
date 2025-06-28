@@ -1,0 +1,23 @@
+@use "src/styles/utils" as *;
+
+.logo {
+  text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+.loginLink {
+  display: none;
+
+  @include screen-sm {
+    display: flex;
+  }
+}
+
+.mobileLoginLink {
+  @include screen-sm {
+    display: none;
+  }
+}

@@ -1,13 +1,6 @@
-import { Trans, msg } from "@lingui/macro";
-import { useLingui } from "@lingui/react";
-import Link from "next/link";
-import { LuLogIn } from "react-icons/lu";
-import { AppLogo } from "@/components/app-logo";
-import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
+import { AppNavbar } from "@/components/app-navbar";
 import { Container } from "@/components/ui/layout";
-import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
 import { cn } from "@/styles/utils";
-import { ToggleColorSchemeButton } from "./ToggleColorSchemeButton";
 import styles from "./StackedLayout.module.scss";
 
 export interface StackedLayoutProps {
@@ -22,43 +15,12 @@ export const StackedLayout: React.FC<StackedLayoutProps> = (props) => {
     <div className={cn(styles.root, className)}>
       <header className={styles.header}>
         <Container>
-          <Navbar>
-            <Link className={styles.logo} href="/">
-              <AppLogo />
-            </Link>
-            <NavbarSpacer />
-            <LoginButton />
-            <ToggleColorSchemeButton />
-          </Navbar>
+          <AppNavbar />
         </Container>
       </header>
       <main>
         <Container>{children}</Container>
       </main>
     </div>
-  );
-};
-
-const LoginButton = () => {
-  const { _ } = useLingui();
-  const { signIn } = useAuthDialog();
-  const onPress = () => {
-    signIn();
-  };
-
-  return (
-    <>
-      <NavbarButton className={styles.loginLink} onPress={onPress}>
-        <Trans>Sign in</Trans>
-        <LuLogIn />
-      </NavbarButton>
-      <NavbarButton
-        className={styles.mobileLoginLink}
-        aria-label={_(msg`Sign in`)}
-        onPress={onPress}
-      >
-        <LuLogIn />
-      </NavbarButton>
-    </>
   );
 };
