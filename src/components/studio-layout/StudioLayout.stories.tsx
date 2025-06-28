@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { StudioLayout } from "./StudioLayout";
 
 const meta: Meta<typeof StudioLayout> = {
@@ -13,9 +13,9 @@ type Story = StoryObj<typeof StudioLayout>;
 // Minimal code to render the component correctly.
 export const Default: Story = {
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   args: {
-    // Add arguments.
+    children: <div style={{ backgroundColor: "aliceblue" }}>Main</div>,
   },
 };

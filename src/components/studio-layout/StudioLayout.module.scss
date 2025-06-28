@@ -1,1 +1,24 @@
 @use "src/styles/utils" as *;
+
+.header {
+  padding: var(--bw-space-2) 0;
+  border-bottom: 1px solid var(--bw-color-utility-zinc-100);
+  position: sticky;
+  top: 0;
+  backdrop-filter: var(--bw-blur-xl);
+  background-color: alpha(var(--bw-color-utility-white), 50);
+  z-index: 1;
+  transition:
+    background-color 0.1s ease,
+    border 0.1s ease;
+
+  @include dark-mode {
+    background-color: var(--bw-color-utility-zinc-900);
+    backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
