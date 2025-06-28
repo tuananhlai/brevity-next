@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { Flex } from "@/components/ui/layout";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "../button";

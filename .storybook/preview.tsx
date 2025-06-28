@@ -1,5 +1,5 @@
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/nextjs";
 import React from "react";
 import "@/styles/globals.scss";
 import "@/styles/tokens.scss";

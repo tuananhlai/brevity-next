@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { Form } from "react-aria-components";
 import { Button } from "../button";
 import { Text } from "../text";

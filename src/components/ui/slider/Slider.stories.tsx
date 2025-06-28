@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Slider } from "./Slider";
 

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { Button, TooltipTrigger } from "react-aria-components";
 import { LuPencil } from "react-icons/lu";
 import { Tooltip } from "./Tooltip";

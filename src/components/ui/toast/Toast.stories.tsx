@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
 import { ErrorToastLayout, SuccessToastLayout, Toast } from "./Toast";

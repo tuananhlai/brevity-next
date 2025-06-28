@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { LuLogIn } from "react-icons/lu";
 import { AvatarButton } from "@/components/ui/avatar";
 import { Menu, MenuItem, MenuTrigger } from "@/components/ui/menu";

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { Fragment } from "react";
 import { RelativeTimeValue } from "./RelativeTimeValue";
 import { TimeValue } from "./TimeValue";
