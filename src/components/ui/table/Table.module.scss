@@ -2,6 +2,7 @@
 
 .table {
   min-width: 100%;
+  table-layout: auto;
   text-align: left;
   font-size: var(--bw-font-sm);
   line-height: var(--bw-line-6);

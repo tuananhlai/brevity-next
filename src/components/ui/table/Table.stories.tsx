@@ -22,9 +22,6 @@ type Story = StoryObj<typeof Table>;
 
 // Minimal code to render the component correctly.
 export const Default: Story = {
-  parameters: {
-    layout: "centered",
-  },
   render: () => {
     return (
       <Table>
@@ -50,9 +47,6 @@ export const Default: Story = {
 };
 
 export const Selection: Story = {
-  parameters: {
-    layout: "centered",
-  },
   render: () => {
     return (
       <Table selectionMode="multiple" defaultSelectedKeys={[1]}>
@@ -80,9 +74,6 @@ export const Selection: Story = {
 };
 
 export const Overflow: Story = {
-  parameters: {
-    layout: "centered",
-  },
   render: () => {
     const [isContrained, setIsContrained] = useState(true);
 
