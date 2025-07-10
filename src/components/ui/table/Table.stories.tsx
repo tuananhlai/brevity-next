@@ -4,8 +4,6 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableCheckboxCell,
-  TableCheckboxColumn,
   TableColumn,
   TableHeader,
   TableRow,
@@ -33,9 +31,7 @@ export const Default: Story = {
         <TableBody items={sampleRows}>
           {(item) => (
             <TableRow key={item.id}>
-              <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
-                {item.name}
-              </TableCell>
+              <TableCell>{item.name}</TableCell>
               <TableCell>{item.email}</TableCell>
               <TableCell>{item.phone}</TableCell>
             </TableRow>
@@ -51,7 +47,6 @@ export const Selection: Story = {
     return (
       <Table selectionMode="multiple" defaultSelectedKeys={[1]}>
         <TableHeader>
-          <TableCheckboxColumn />
           <TableColumn isRowHeader>Name</TableColumn>
           <TableColumn>Email</TableColumn>
           <TableColumn>Phone</TableColumn>
@@ -59,10 +54,7 @@ export const Selection: Story = {
         <TableBody items={sampleRows}>
           {(item) => (
             <TableRow key={item.id}>
-              <TableCheckboxCell />
-              <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>
-                {item.name}
-              </TableCell>
+              <TableCell>{item.name}</TableCell>
               <TableCell>{item.email}</TableCell>
               <TableCell>{item.phone}</TableCell>
             </TableRow>
@@ -91,8 +83,8 @@ export const Overflow: Story = {
         >
           <Table>
             <TableHeader>
-              <TableColumn>Name</TableColumn>
-              <TableColumn>Email</TableColumn>
+              <TableColumn isRowHeader>Name</TableColumn>
+              <TableColumn isRowHeader>Email</TableColumn>
               <TableColumn>Phone</TableColumn>
               <TableColumn>Address</TableColumn>
               <TableColumn>City</TableColumn>

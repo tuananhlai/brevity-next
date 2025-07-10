@@ -54,6 +54,10 @@
     padding-right: var(--bw-space-1);
   }
 
+  &:where([role="rowheader"]) {
+    font-weight: var(--bw-weight-medium);
+  }
+
   @include screen-sm {
     &:where(:first-child) {
       padding-left: var(--bw-space-2);
@@ -67,4 +71,8 @@
 
 .tableContainer {
   overflow: auto;
+}
+
+.rowHeader {
+  font-weight: var(--bw-weight-medium);
 }

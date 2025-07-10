@@ -15,9 +15,3 @@ export type { TableRowProps } from "./TableRow";
 
 export { TableBody } from "./TableBody";
 export type { TableBodyProps } from "./TableBody";
-
-export { TableCheckboxColumn } from "./TableCheckboxColumn";
-export type { TableCheckboxColumnProps } from "./TableCheckboxColumn";
-
-export { TableCheckboxCell } from "./TableCheckboxCell";
-export type { TableCheckboxCellProps } from "./TableCheckboxCell";
