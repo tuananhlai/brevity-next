@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AppNavbar } from "@/components/app-navbar";
 import { Container, Flex } from "@/components/ui/layout";
+import { Sidebar } from "./Sidebar";
 import styles from "./StudioLayout.module.scss";
 
 export interface StudioLayoutProps {
@@ -19,18 +20,9 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
         </Container>
       </header>
       <Container>
-        <Flex>
+        <Flex gap="var(--bw-space-8)">
           <aside>
-            <nav>
-              <ul>
-                <li>
-                  <Link href="/studio">Home</Link>
-                </li>
-                <li>
-                  <Link href="/studio/settings">Settings</Link>
-                </li>
-              </ul>
-            </nav>
+            <Sidebar />
           </aside>
           <main className={styles.main}>{children}</main>
         </Flex>
