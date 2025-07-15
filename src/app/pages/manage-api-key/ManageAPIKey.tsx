@@ -2,7 +2,6 @@ import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { NextPage } from "next";
 import { StudioLayout } from "@/components/studio-layout";
-import { Table } from "@/components/ui/table";
 import { Heading, Text } from "@/components/ui/text";
 import { ManageAPIKeyTable } from "@/features/digital-author/components/manage-api-key-table";
 import styles from "./ManageAPIKey.module.scss";
