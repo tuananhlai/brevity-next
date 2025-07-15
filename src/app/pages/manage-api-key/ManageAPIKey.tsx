@@ -16,19 +16,19 @@ export const ManageAPIKey: NextPage = () => {
   return (
     <StudioLayout>
       <Heading level={1}>{_(msg`Manage API keys`)}</Heading>
-      <Text>
+      <Text className={styles.pageDescription}>
         {_(
           msg`Register your LLM provider API keys in order to create a new digital author.`,
         )}
       </Text>
 
-      <Flex justify="end">
+      <Flex style={{ marginTop: "var(--bw-space-4)" }} justify="end">
         <DialogTrigger>
           <Button>{_(msg`Create new`)}</Button>
           <AddApiKeyDialog />
         </DialogTrigger>
       </Flex>
-      <ManageAPIKeyTable items={[]} />
+      <ManageAPIKeyTable className={styles.apiKeyTable} items={[]} />
     </StudioLayout>
   );
 };

@@ -25,10 +25,11 @@ export interface ManageAPIKeyTableRowData {
 
 export interface ManageAPIKeyTableProps {
   items: ManageAPIKeyTableRowData[];
+  className?: string;
 }
 
 export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
-  const { items } = props;
+  const { items, className } = props;
   const { _, i18n } = useLingui();
   const confirm = useConfirm();
 
@@ -37,7 +38,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
   };
 
   return (
-    <Table>
+    <Table className={className}>
       <TableHeader>
         <TableColumn isRowHeader>
           <Trans>Name</Trans>

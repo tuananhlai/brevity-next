@@ -7,6 +7,9 @@
   border-radius: var(--bw-radius-lg);
   padding: var(--bw-space-2-5) var(--bw-space-3-5) var(--bw-space-2-5)
     var(--bw-space-2);
+  display: block;
+  text-decoration: none;
+  color: inherit;
 
   &:where([data-focused]) {
     background-color: var(--bw-color-utility-blue-500);
