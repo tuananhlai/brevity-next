@@ -16,6 +16,8 @@ export const Default: Story = {
     layout: "fullscreen",
   },
   args: {
-    children: <div style={{ backgroundColor: "aliceblue" }}>Main</div>,
+    children: (
+      <div style={{ backgroundColor: "aliceblue", height: "100%" }}>Main</div>
+    ),
   },
 };
