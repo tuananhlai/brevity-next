@@ -55,3 +55,23 @@ export interface SignUpRequest {
   email: string;
   password: string;
 }
+
+interface LLMAPIKey {
+  id: string;
+  name: string;
+  valueFirstTen: string;
+  valueLastSix: string;
+  /** @example "2025-01-01T00:00:00Z" */
+  createdAt: string;
+}
+
+export interface CreateAPIKeyRequest {
+  name: string;
+  value: string;
+}
+
+export type CreateAPIKeyResponse = LLMAPIKey;
+
+export interface GetAPIKeysResponse {
+  items: LLMAPIKey[];
+}

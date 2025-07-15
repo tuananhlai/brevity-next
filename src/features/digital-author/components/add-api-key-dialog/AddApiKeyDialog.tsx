@@ -43,7 +43,7 @@ export const AddApiKeyDialog: React.FC<AddApiKeyDialogProps> = (props) => {
       {({ close }) => (
         <>
           <DialogTitle>
-            <Trans>Add API Key</Trans>
+            <Trans>Add API key</Trans>
           </DialogTitle>
 
           <DialogBody>
@@ -52,7 +52,7 @@ export const AddApiKeyDialog: React.FC<AddApiKeyDialogProps> = (props) => {
                 name="apiKey"
                 isRequired
                 placeholder="sk-or-v1-..."
-                label={<Trans>API Key</Trans>}
+                label={<Trans>API key</Trans>}
                 description={
                   <Trans>
                     An Open Router API key is required to allow your digital

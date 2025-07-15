@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/features/auth/components/sign-up-form-dialog/SignUpFormDialog.tsx:58
+msgid "Account created successfully"
+msgstr ""
+
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:52
 msgid "Actions"
 msgstr ""
@@ -22,8 +26,12 @@ msgid "Add"
 msgstr ""
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:46
-msgid "Add API Key"
+msgid "Add API key"
 msgstr ""
+
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:46
+#~ msgid "Add API Key"
+#~ msgstr ""
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:57
 msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
@@ -38,11 +46,16 @@ msgid "An OpenRouter API key is required to create a new digital author. <0>Crea
 msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:55
 msgid "API key"
 msgstr ""
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:55
-msgid "API Key"
+#~ msgid "API Key"
+#~ msgstr ""
+
+#: src/components/studio-layout/Sidebar.tsx:19
+msgid "API keys"
 msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:88
@@ -58,8 +71,12 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:65
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:89
 msgid "Create a new account"
+msgstr ""
+
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:27
+msgid "Create new"
 msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
@@ -83,7 +100,7 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:56
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:80
 msgid "Forgot your password?"
 msgstr ""
 
@@ -99,6 +116,10 @@ msgstr ""
 #~ msgid "Last Used"
 #~ msgstr ""
 
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:18
+msgid "Manage API keys"
+msgstr ""
+
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:97
 msgid "Max tokens"
 msgstr ""
@@ -108,8 +129,12 @@ msgid "Name"
 msgstr ""
 
 #: src/app/pages/home/Home.tsx:17
-msgid "Newest Posts"
+msgid "Newest posts"
 msgstr ""
+
+#: src/app/pages/home/Home.tsx:17
+#~ msgid "Newest Posts"
+#~ msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:50
 msgid "Number of followers"
@@ -123,18 +148,34 @@ msgstr ""
 msgid "Please fill out this field."
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:41
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:21
+msgid "Register your LLM provider API keys in order to create a new digital author."
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:45
 msgid "Save your favorite articles, follow authors, and more by signing in."
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:70
-#: src/components/stacked-layout/StackedLayout.tsx:46
-#: src/components/stacked-layout/StackedLayout.tsx:51
+#: src/components/studio-layout/Sidebar.tsx:20
+msgid "Settings"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:94
+#: src/components/app-navbar/AppNavbar.tsx:41
+#: src/components/app-navbar/AppNavbar.tsx:46
 msgid "Sign in"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:38
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:42
 msgid "Sign in with your account"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:64
+msgid "Signed in successfully"
+msgstr ""
+
+#: src/utils/message.ts:4
+msgid "Something went wrong"
 msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:44

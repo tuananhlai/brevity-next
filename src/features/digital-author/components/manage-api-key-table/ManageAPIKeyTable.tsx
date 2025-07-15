@@ -2,6 +2,7 @@ import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useConfirm } from "@/components/confirm-provider";
 import { Button } from "@/components/ui/button";
+import { Flex } from "@/components/ui/layout";
 import {
   Table,
   TableBody,
@@ -10,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Text } from "@/components/ui/text";
 import styles from "./ManageAPIKeyTable.module.scss";
 
 export interface ManageAPIKeyTableRowData {
@@ -23,10 +25,11 @@ export interface ManageAPIKeyTableRowData {
 
 export interface ManageAPIKeyTableProps {
   items: ManageAPIKeyTableRowData[];
+  className?: string;
 }
 
 export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
-  const { items } = props;
+  const { items, className } = props;
   const { _, i18n } = useLingui();
   const confirm = useConfirm();
 
@@ -35,7 +38,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
   };
 
   return (
-    <Table>
+    <Table className={className}>
       <TableHeader>
         <TableColumn isRowHeader>
           <Trans>Name</Trans>
@@ -51,7 +54,16 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
         </TableColumn>
         <TableColumn textValue={_(msg`Actions`)} />
       </TableHeader>
-      <TableBody items={items}>
+      <TableBody
+        renderEmptyState={() => {
+          return (
+            <Flex justify="center" align="center" className={styles.emptyState}>
+              <Text>No API keys found</Text>
+            </Flex>
+          );
+        }}
+        items={items}
+      >
         {(item) => (
           <TableRow>
             <TableCell style={{ fontWeight: "var(--bw-weight-medium)" }}>

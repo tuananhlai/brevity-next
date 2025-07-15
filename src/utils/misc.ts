@@ -20,3 +20,17 @@ export type FieldsetProps = {
 
 /** The placeholder href for links that are not yet implemented. */
 export const TODO_HREF = "#";
+
+const APP_NAME = "Brevity";
+
+/**
+ * Return the page title (the text to be displayed in the browser tab) given the heading of a page.
+ *
+ * @example
+ * ```ts
+ * getPageTitle("Home"); // "Home | Brevity"
+ * ```
+ */
+export const getPageTitle = (pageHeading: string) => {
+  return `${pageHeading} | ${APP_NAME}`;
+};

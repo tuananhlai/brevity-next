@@ -1,6 +1,8 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { AppNavbar } from "@/components/app-navbar";
-import { Container, Flex } from "@/components/ui/layout";
-import { Sidebar } from "./Sidebar";
+import { Container } from "@/components/ui/layout";
+import { DesktopSidebar, MobileSidebar, SidebarItem } from "./Sidebar";
 import styles from "./StudioLayout.module.scss";
 
 export interface StudioLayoutProps {
@@ -10,6 +12,18 @@ export interface StudioLayoutProps {
 
 export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
   const { children, className } = props;
+  const { _ } = useLingui();
+
+  const items: SidebarItem[] = [
+    {
+      label: _(msg`API keys`),
+      href: "/me/api-key",
+    },
+    {
+      label: _(msg`Settings`),
+      href: "/me/settings",
+    },
+  ];
 
   return (
     <div className={className}>
@@ -18,13 +32,14 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
           <AppNavbar />
         </Container>
       </header>
-      <Container className={styles.mainContainer}>
-        <Flex gap="var(--bw-space-4)">
-          <aside style={{ flex: "0 0 var(--bw-space-32)" }}>
-            <Sidebar />
+      <Container>
+        <div className={styles.mainContainer}>
+          <aside className={styles.aside}>
+            <DesktopSidebar className={styles.desktopSidebar} items={items} />
+            <MobileSidebar className={styles.mobileSidebar} items={items} />
           </aside>
           <main className={styles.main}>{children}</main>
-        </Flex>
+        </div>
       </Container>
     </div>
   );

@@ -7,7 +7,7 @@ export interface ContainerProps {
   className?: string;
   /**
    * The max-width of the container.
-   * @default 'lg'
+   * @default 'xl'
    */
   maxWidth?: MaxWidth;
 }
@@ -15,7 +15,7 @@ export interface ContainerProps {
 type MaxWidth = "sm" | "md" | "lg" | "xl" | "2xl";
 
 export const Container: React.FC<ContainerProps> = (props) => {
-  const { maxWidth = "lg", className, ...rest } = props;
+  const { maxWidth = "xl", className, ...rest } = props;
   return (
     <div
       className={cn(styles.root, maxWidthToStyles[maxWidth], className)}
