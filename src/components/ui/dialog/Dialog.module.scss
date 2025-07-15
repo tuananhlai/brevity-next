@@ -82,6 +82,7 @@
   line-height: var(--bw-line-6);
   font-weight: var(--bw-weight-semibold);
   color: var(--bw-color-utility-zinc-950);
+  text-transform: capitalize;
 
   @include screen-sm {
     font-size: var(--bw-font-base);
