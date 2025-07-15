@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { DigitalAuthorTable } from "./DigitalAuthorTable";
 
 const meta: Meta<typeof DigitalAuthorTable> = {

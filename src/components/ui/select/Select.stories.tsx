@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/nextjs";
 import { Avatar } from "../avatar";
 import { Select, SelectProps } from "./Select";
 import { SelectItem } from "./SelectItem";

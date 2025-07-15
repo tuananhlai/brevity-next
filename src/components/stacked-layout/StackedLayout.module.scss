@@ -25,34 +25,3 @@
     backdrop-filter: none;
   }
 }
-
-.logo {
-  font-size: var(--bw-font-xl);
-  font-weight: var(--bw-weight-semibold);
-  letter-spacing: -0.025em;
-  text-decoration: none;
-  text-underline-offset: 0.125rem;
-  padding-left: var(--bw-space-2);
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:visited {
-    color: inherit;
-  }
-}
-
-.loginLink {
-  display: none;
-
-  @include screen-sm {
-    display: flex;
-  }
-}
-
-.mobileLoginLink {
-  @include screen-sm {
-    display: none;
-  }
-}

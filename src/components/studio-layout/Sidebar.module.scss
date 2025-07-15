@@ -1,0 +1,33 @@
+@use "src/styles/utils" as *;
+
+.itemList {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  @include text-sm;
+  padding: var(--bw-space-2) var(--bw-space-3);
+  font-weight: var(--bw-weight-semibold);
+  color: var(--bw-color-text-quaternary);
+  border-radius: var(--bw-radius-md);
+  white-space: nowrap;
+  list-style-type: none;
+
+  &:where(:hover) {
+    cursor: pointer;
+    background-color: var(--bw-color-bg-active);
+    color: var(--bw-color-text-primary);
+  }
+}
+
+.activeItem {
+  background-color: var(--bw-color-bg-active);
+  color: var(--bw-color-text-primary);
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}

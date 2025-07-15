@@ -1,9 +1,10 @@
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/nextjs";
 import React from "react";
 import "@/styles/globals.scss";
 import "@/styles/tokens.scss";
 import { AppProviders } from "../src/components/AppProviders";
+import "./storybook.css";
 
 const preview: Preview = {
   parameters: {

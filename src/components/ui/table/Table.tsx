@@ -14,8 +14,10 @@ export const Table: React.FC<TableProps> = (props) => {
   const { children, className, ...rest } = props;
 
   return (
-    <AriaTable {...rest} className={cn(styles.table, className)}>
-      {children}
-    </AriaTable>
+    <div className={cn(styles.tableContainer, className)}>
+      <AriaTable {...rest} className={styles.table}>
+        {children}
+      </AriaTable>
+    </div>
   );
 };

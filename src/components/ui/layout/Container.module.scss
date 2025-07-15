@@ -1,0 +1,26 @@
+@use "src/styles/utils" as *;
+
+.root {
+  margin: auto;
+  padding: 0 var(--bw-space-6);
+}
+
+.maxWidthSm {
+  max-width: $breakpoint-sm;
+}
+
+.maxWidthMd {
+  max-width: $breakpoint-md;
+}
+
+.maxWidthLg {
+  max-width: $breakpoint-lg;
+}
+
+.maxWidthXl {
+  max-width: $breakpoint-xl;
+}
+
+.maxWidth2xl {
+  max-width: $breakpoint-2xl;
+}
