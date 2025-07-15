@@ -19,6 +19,10 @@
   }
 }
 
+.mainContainer {
+  padding-top: var(--bw-space-6);
+}
+
 .main {
   flex-grow: 1;
 }

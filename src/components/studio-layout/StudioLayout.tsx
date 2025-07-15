@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { AppNavbar } from "@/components/app-navbar";
 import { Container, Flex } from "@/components/ui/layout";
 import { Sidebar } from "./Sidebar";
@@ -19,9 +18,9 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
           <AppNavbar />
         </Container>
       </header>
-      <Container>
-        <Flex gap="var(--bw-space-8)">
-          <aside>
+      <Container className={styles.mainContainer}>
+        <Flex gap="var(--bw-space-4)">
+          <aside style={{ flex: "0 0 var(--bw-space-32)" }}>
             <Sidebar />
           </aside>
           <main className={styles.main}>{children}</main>
