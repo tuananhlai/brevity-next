@@ -14,7 +14,7 @@ export const Home: NextPage = () => {
       <div className={styles.main}>
         <section className={styles.section}>
           <Heading level={2}>
-            <Trans>Newest Posts</Trans>
+            <Trans>Newest posts</Trans>
           </Heading>
           <div className={styles.blogs}>
             {data.items.map((v) => (

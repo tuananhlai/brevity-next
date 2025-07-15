@@ -1,3 +1,5 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { cn } from "@/styles/utils";
@@ -9,12 +11,13 @@ export interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = (props) => {
   const { className } = props;
+  const { _ } = useLingui();
 
   return (
     <nav className={className}>
       <ul className={styles.itemList} role="list">
-        <Item href="/studio">Home</Item>
-        <Item href="/studio/settings">Settings</Item>
+        <Item href="/me/api-key">{_(msg`API keys`)}</Item>
+        <Item href="/me/settings">{_(msg`Settings`)}</Item>
       </ul>
     </nav>
   );
@@ -29,8 +32,11 @@ const Item: React.FC<{
   const isActive = router.pathname.includes(href);
 
   return (
-    <li className={cn(styles.item, isActive && styles.activeItem)}>
-      <Link className={styles.link} href={href}>
+    <li className={styles.item}>
+      <Link
+        className={cn(styles.link, isActive && styles.activeLink)}
+        href={href}
+      >
         {children}
       </Link>
     </li>

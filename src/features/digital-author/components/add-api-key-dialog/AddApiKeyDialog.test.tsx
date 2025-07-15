@@ -16,7 +16,7 @@ it("should submit and close the dialog", async () => {
   );
 
   await userEvent.type(
-    screen.getByRole("textbox", { name: "API Key" }),
+    screen.getByRole("textbox", { name: "API key" }),
     "test",
   );
   await userEvent.click(screen.getByRole("button", { name: "Add" }));

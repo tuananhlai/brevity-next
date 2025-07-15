@@ -17,6 +17,7 @@
   color: var(--bw-color-text-primary);
   @include display-md;
   font-weight: var(--bw-weight-semibold);
+  text-transform: capitalize;
 
   @include screen-sm {
     @include display-sm;

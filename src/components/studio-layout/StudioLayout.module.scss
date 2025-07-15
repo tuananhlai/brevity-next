@@ -23,6 +23,11 @@
   padding-top: var(--bw-space-6);
 }
 
-.main {
+.aside {
   flex-grow: 1;
+  min-width: var(--bw-space-36);
+}
+
+.main {
+  flex-grow: 4;
 }

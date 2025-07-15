@@ -1,5 +1,8 @@
 import ky, { KyInstance } from "ky";
 import {
+  CreateAPIKeyRequest,
+  CreateAPIKeyResponse,
+  GetAPIKeysResponse,
   GetArticleDetailsRequest,
   GetArticleDetailsResponse,
   GetArticlePreviewsResponse,
@@ -48,6 +51,24 @@ export class APIClient {
       json: req,
       ...opts,
     });
+  }
+
+  async createAPIKey(
+    req: CreateAPIKeyRequest,
+    opts?: Options,
+  ): Promise<CreateAPIKeyResponse> {
+    return this.kyInstance
+      .post<CreateAPIKeyResponse>(`v1/llm-api-keys`, {
+        json: req,
+        ...opts,
+      })
+      .then((v) => v.json());
+  }
+
+  async getAPIKeys(opts?: Options): Promise<GetAPIKeysResponse> {
+    return this.kyInstance
+      .get<GetAPIKeysResponse>(`v1/llm-api-keys`, opts)
+      .then((v) => v.json());
   }
 }
 

@@ -20,7 +20,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
       </header>
       <Container>
         <Flex className={styles.mainContainer} gap="var(--bw-space-4)">
-          <aside style={{ flex: "0 0 var(--bw-space-32)" }}>
+          <aside className={styles.aside}>
             <Sidebar />
           </aside>
           <main className={styles.main}>{children}</main>
