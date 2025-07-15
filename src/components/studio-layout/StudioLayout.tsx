@@ -18,8 +18,8 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
           <AppNavbar />
         </Container>
       </header>
-      <Container className={styles.mainContainer}>
-        <Flex gap="var(--bw-space-4)">
+      <Container>
+        <Flex className={styles.mainContainer} gap="var(--bw-space-4)">
           <aside style={{ flex: "0 0 var(--bw-space-32)" }}>
             <Sidebar />
           </aside>
