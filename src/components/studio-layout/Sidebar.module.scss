@@ -7,11 +7,11 @@
 }
 
 .item {
-  @include text-md;
+  @include text-sm;
+  padding: var(--bw-space-2) var(--bw-space-3);
   font-weight: var(--bw-weight-semibold);
   color: var(--bw-color-text-quaternary);
   border-radius: var(--bw-radius-md);
-  padding: var(--bw-space-2-5) var(--bw-space-4);
   white-space: nowrap;
   list-style-type: none;
 
@@ -19,11 +19,6 @@
     cursor: pointer;
     background-color: var(--bw-color-bg-active);
     color: var(--bw-color-text-primary);
-  }
-
-  @include screen-sm {
-    @include text-sm;
-    padding: var(--bw-space-2) var(--bw-space-3);
   }
 }
 

@@ -1,0 +1,5 @@
+/* Add a stacking context to the storybook root element so that modals are
+rendered correctly. */
+#storybook-root {
+  isolation: isolate;
+}
