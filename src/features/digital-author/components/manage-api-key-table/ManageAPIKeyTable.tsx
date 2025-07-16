@@ -38,7 +38,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
   };
 
   return (
-    <Table className={className}>
+    <Table aria-label={_(msg`API keys`)} className={className}>
       <TableHeader>
         <TableColumn isRowHeader>
           <Trans>Name</Trans>
@@ -58,7 +58,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
         renderEmptyState={() => {
           return (
             <Flex justify="center" align="center" className={styles.emptyState}>
-              <Text>No API keys found</Text>
+              <Text>{_(msg`No API keys found`)}</Text>
             </Flex>
           );
         }}

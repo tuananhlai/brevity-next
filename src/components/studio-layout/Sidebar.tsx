@@ -1,3 +1,5 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Select, SelectItem } from "@/components/ui/select";
@@ -56,10 +58,15 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = (props) => {
   const { items, className } = props;
   const checkActive = useCheckItemState();
   const activeItem = items.find(checkActive);
+  const { _ } = useLingui();
 
   return (
     <nav className={className}>
-      <Select items={items} selectedKey={activeItem?.href ?? null}>
+      <Select
+        aria-label={_(msg`Navigation`)}
+        items={items}
+        selectedKey={activeItem?.href ?? null}
+      >
         {(item) => {
           return (
             <SelectItem id={item.href} key={item.href} href={item.href}>

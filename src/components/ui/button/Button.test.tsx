@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { act } from "react";
+import { renderWithProviders } from "@/utils/testutils";
 import { Button, ButtonProps } from "./Button";
 
 it("is disabled once `isDisabled` is true", () => {
@@ -63,6 +64,15 @@ describe("WAI-ARIA Compliance", () => {
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });
+});
+
+it("should have aria-disabled set to true when `isPending` is true", () => {
+  // We used `renderWithProviders` instead of `render` here because the loading indicator component
+  // contains i18n content, so the test component needs to be wrapped in
+  // an I18nProvider.
+  renderWithProviders(<ExampleButton isPending />);
+
+  expect(screen.getByRole("button")).toHaveAttribute("aria-disabled", "true");
 });
 
 const ExampleButton = (props: Partial<ButtonProps>) => {

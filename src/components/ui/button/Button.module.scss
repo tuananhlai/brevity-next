@@ -25,7 +25,8 @@
     outline: none;
   }
 
-  &:where([data-disabled]) {
+  &:where([data-disabled], [data-spinner-visible]) {
+    // TODO: find a way to not apply opacity to the button's outline.
     opacity: 0.5;
   }
 
@@ -152,7 +153,7 @@
     background-color: var(--btn-after-hover-background-color);
   }
 
-  &:where([data-disabled]) {
+  &:where([data-disabled], [data-spinner-visible]) {
     --btn-before-box-shadow: none;
     --btn-after-box-shadow: none;
   }
@@ -175,5 +176,39 @@
 
   &:where([data-hovered], [data-pressed]) {
     background-color: var(--bw-tertiary-button-hovered-background-color);
+  }
+}
+
+.spinnerVisible {
+  // Hide all children except for the loading indicator. Use `opacity: 0`
+  // instead of `visibility: hidden` so that the screen reader can still
+  // announce the button's content.
+  & > :not([role="progressbar"]) {
+    opacity: 0;
+  }
+}
+
+.buttonIcon {
+  flex-shrink: 0;
+}
+
+.progressBar {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

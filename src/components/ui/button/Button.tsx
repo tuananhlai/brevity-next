@@ -1,8 +1,13 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
   ButtonProps as AriaButtonProps,
+  ProgressBar,
 } from "react-aria-components";
+import { LuLoaderCircle } from "react-icons/lu";
+import { useSpinDelay } from "@/hooks/useSpinDelay";
 import { cn } from "@/styles/utils";
 import { TouchTarget } from "../touch-target";
 import styles from "./Button.module.scss";
@@ -16,6 +21,16 @@ export interface ButtonProps
   variant?: ButtonVariant;
   /** @default 'brand' */
   color?: "brand" | "error";
+  /**
+   * The icon to display before the button's content.
+   * @example <LuPlus />
+   */
+  prefixIcon?: React.ReactNode;
+  /**
+   * The icon to display after the button's content.
+   * @example <LuCheck />
+   */
+  suffixIcon?: React.ReactNode;
 }
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary";
@@ -29,6 +44,9 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     color = "brand",
     children,
     className,
+    prefixIcon,
+    suffixIcon,
+    isPending = false,
     ...rest
   } = props;
 
@@ -45,14 +63,26 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       break;
   }
 
+  const isSpinnerVisible = useSpinDelay(isPending);
+
   return (
     <AriaButton
       ref={ref}
-      className={cn(buttonClassNames, className)}
-      data-color={color}
+      className={cn(
+        buttonClassNames,
+        isSpinnerVisible && styles.spinnerVisible,
+        className,
+      )}
+      isPending={isPending}
+      data-spinner-visible={isSpinnerVisible || undefined}
       {...rest}
     >
-      <TouchTarget>{children}</TouchTarget>
+      <TouchTarget>
+        {prefixIcon != null && <ButtonIcon>{prefixIcon}</ButtonIcon>}
+        <span>{children}</span>
+        {suffixIcon != null && <ButtonIcon>{suffixIcon}</ButtonIcon>}
+        {isSpinnerVisible && <ButtonSpinner />}
+      </TouchTarget>
     </AriaButton>
   );
 };
@@ -60,6 +90,32 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 const _Button = /*#__PURE__*/ forwardRef(Button);
 
 export { _Button as Button };
+
+const ButtonIcon: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  return (
+    <span aria-hidden className={styles.buttonIcon}>
+      {children}
+    </span>
+  );
+};
+
+const ButtonSpinner: React.FC = () => {
+  const { _ } = useLingui();
+
+  return (
+    // TODO: see if there is any simpler way to add
+    // translated aria-label to the progress bar.
+    <ProgressBar
+      aria-label={_(msg`Pending`)}
+      className={styles.progressBar}
+      isIndeterminate
+    >
+      <LuLoaderCircle className={styles.spinner} />
+    </ProgressBar>
+  );
+};
 
 const colorToStyles: Record<Required<ButtonProps>["color"], string> = {
   brand: styles.colorBrand,
