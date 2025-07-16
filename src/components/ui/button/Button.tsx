@@ -60,7 +60,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       ref={ref}
       className={cn(
         buttonClassNames,
-        isSpinnerVisible && styles.pending,
+        isSpinnerVisible && styles.spinnerVisible,
         className,
       )}
       isPending={isPending}

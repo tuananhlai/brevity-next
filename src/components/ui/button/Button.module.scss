@@ -179,7 +179,10 @@
   }
 }
 
-.pending {
+.spinnerVisible {
+  // Hide all children except for the loading indicator. Use `opacity: 0`
+  // instead of `visibility: hidden` so that the screen reader can still
+  // announce the button's content.
   & > :not([role="progressbar"]) {
     opacity: 0;
   }
