@@ -38,7 +38,7 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
   };
 
   return (
-    <Table className={className}>
+    <Table aria-label={_(msg`API keys`)} className={className}>
       <TableHeader>
         <TableColumn isRowHeader>
           <Trans>Name</Trans>
