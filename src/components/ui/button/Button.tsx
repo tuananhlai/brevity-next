@@ -2,7 +2,10 @@ import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
   ButtonProps as AriaButtonProps,
+  ProgressBar,
 } from "react-aria-components";
+import { LuLoaderCircle } from "react-icons/lu";
+import { useSpinDelay } from "@/hooks/useSpinDelay";
 import { cn } from "@/styles/utils";
 import { TouchTarget } from "../touch-target";
 import styles from "./Button.module.scss";
@@ -33,6 +36,7 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     className,
     prefixIcon,
     suffixIcon,
+    isPending = false,
     ...rest
   } = props;
 
@@ -49,17 +53,25 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       break;
   }
 
+  const isSpinnerVisible = useSpinDelay(isPending);
+
   return (
     <AriaButton
       ref={ref}
-      className={cn(buttonClassNames, className)}
-      data-color={color}
+      className={cn(
+        buttonClassNames,
+        isSpinnerVisible && styles.pending,
+        className,
+      )}
+      isPending={isPending}
+      data-spinner-visible={isSpinnerVisible || undefined}
       {...rest}
     >
       <TouchTarget>
         <ButtonIcon>{prefixIcon}</ButtonIcon>
-        {children}
+        {typeof children === "string" ? <span>{children}</span> : children}
         <ButtonIcon>{suffixIcon}</ButtonIcon>
+        {isSpinnerVisible && <ButtonSpinner />}
       </TouchTarget>
     </AriaButton>
   );
@@ -76,6 +88,15 @@ const ButtonIcon: React.FC<{
     <span aria-hidden className={styles.buttonIcon}>
       {children}
     </span>
+  );
+};
+
+const ButtonSpinner: React.FC = () => {
+  return (
+    // TODO: add an appropriate aria-label to the progress bar.
+    <ProgressBar className={styles.progressBar} isIndeterminate>
+      <LuLoaderCircle className={styles.spinner} />
+    </ProgressBar>
   );
 };
 

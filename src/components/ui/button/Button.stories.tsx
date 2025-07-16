@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/nextjs";
+import { useState } from "react";
 import { LuLogIn, LuPlus } from "react-icons/lu";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "./Button";
@@ -27,6 +28,28 @@ export const Default: Story = {
   },
 };
 
+export const Pending: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    const [isPending, setIsPending] = useState(false);
+
+    const onPress = () => {
+      setIsPending(true);
+      setTimeout(() => {
+        setIsPending(false);
+      }, 1000);
+    };
+
+    return (
+      <Button isPending={isPending} onPress={onPress}>
+        Button
+      </Button>
+    );
+  },
+};
+
 export const VisualTest: Story = {
   parameters: {
     chromatic: {
@@ -47,6 +70,13 @@ export const VisualTest: Story = {
             {sampleChildren}
           </Button>
           <Button variant="tertiary" isDisabled>
+            {sampleChildren}
+          </Button>
+          <Button isPending>{sampleChildren}</Button>
+          <Button variant="secondary" isPending>
+            {sampleChildren}
+          </Button>
+          <Button variant="tertiary" isPending>
             {sampleChildren}
           </Button>
           <Button prefixIcon={<LuPlus />} suffixIcon={<LuLogIn />}>
@@ -102,6 +132,15 @@ export const VisualTest: Story = {
             {sampleChildren}
           </Button>
           <Button variant="tertiary" color="error" isDisabled>
+            {sampleChildren}
+          </Button>
+          <Button color="error" isPending>
+            {sampleChildren}
+          </Button>
+          <Button variant="secondary" color="error" isPending>
+            {sampleChildren}
+          </Button>
+          <Button variant="tertiary" color="error" isPending>
             {sampleChildren}
           </Button>
           <Button
