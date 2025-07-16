@@ -14,9 +14,9 @@ const SignInWithGoogleButton: React.ForwardRefRenderFunction<
       ref={ref}
       variant="secondary"
       aria-label="Sign in with Google"
+      prefixIcon={<FaGoogle />}
       {...props}
     >
-      <FaGoogle />
       Google
     </Button>
   );

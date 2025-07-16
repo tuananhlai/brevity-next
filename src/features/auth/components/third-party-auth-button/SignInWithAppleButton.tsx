@@ -14,9 +14,9 @@ const SignInWithAppleButton: React.ForwardRefRenderFunction<
       ref={ref}
       variant="secondary"
       aria-label="Sign in with Apple"
+      prefixIcon={<FaApple />}
       {...props}
     >
-      <FaApple />
       Apple
     </Button>
   );
