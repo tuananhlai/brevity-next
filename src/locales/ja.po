@@ -21,11 +21,11 @@ msgstr ""
 msgid "Actions"
 msgstr "アクション"
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:105
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:111
 msgid "Add"
 msgstr "追加"
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:59
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:65
 msgid "Add API key"
 msgstr "APIキーを追加"
 
@@ -33,7 +33,7 @@ msgstr "APIキーを追加"
 #~ msgid "Add API Key"
 #~ msgstr "APIキーを追加"
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:79
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:85
 msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
 msgstr "デジタル著者がコンテンツを作成するには、Open Router APIキーが必要です。<0>Open Router APIキーの取得方法</0>"
 
@@ -46,7 +46,7 @@ msgid "An OpenRouter API key is required to create a new digital author. <0>Crea
 msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:77
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:83
 msgid "API key"
 msgstr "APIキー"
 
@@ -63,7 +63,7 @@ msgstr ""
 msgid "Are you sure you want to deactivate this API key?"
 msgstr "このAPIキーを無効にしてもよろしいですか？"
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:97
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:103
 #: src/components/confirm-provider/ConfirmProvider.tsx:21
 msgid "Cancel"
 msgstr "キャンセル"
@@ -76,7 +76,7 @@ msgstr "確認"
 msgid "Create a new account"
 msgstr ""
 
-#: src/app/pages/manage-api-key/ManageAPIKey.tsx:35
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:40
 msgid "Create new"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 #~ msgid "Last Used"
 #~ msgstr "最終使用日時"
 
-#: src/app/pages/manage-api-key/ManageAPIKey.tsx:18
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:19
 msgid "Manage API keys"
 msgstr ""
 
@@ -130,7 +130,7 @@ msgid "Max tokens"
 msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:44
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:70
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:76
 msgid "Name"
 msgstr "名前"
 
@@ -166,7 +166,7 @@ msgstr ""
 msgid "Please fill out this field."
 msgstr ""
 
-#: src/app/pages/manage-api-key/ManageAPIKey.tsx:29
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:34
 msgid "Register your LLM provider API keys in order to create a new digital author."
 msgstr ""
 
@@ -193,7 +193,7 @@ msgid "Signed in successfully"
 msgstr ""
 
 #: src/utils/message.ts:4
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:49
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:51
 msgid "Something went wrong"
 msgstr ""
 
