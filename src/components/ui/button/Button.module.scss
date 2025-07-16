@@ -177,3 +177,7 @@
     background-color: var(--bw-tertiary-button-hovered-background-color);
   }
 }
+
+.buttonIcon {
+  flex-shrink: 0;
+}

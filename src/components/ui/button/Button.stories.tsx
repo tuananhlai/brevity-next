@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from "@storybook/nextjs";
+import { LuLogIn, LuPlus } from "react-icons/lu";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "./Button";
 
@@ -37,7 +38,7 @@ export const VisualTest: Story = {
 
     return (
       <>
-        <VisualTestGrid cellWidth="100px">
+        <VisualTestGrid cellWidth="120px">
           <Button>{sampleChildren}</Button>
           <Button variant="secondary">{sampleChildren}</Button>
           <Button variant="tertiary">{sampleChildren}</Button>
@@ -48,9 +49,45 @@ export const VisualTest: Story = {
           <Button variant="tertiary" isDisabled>
             {sampleChildren}
           </Button>
+          <Button prefixIcon={<LuPlus />} suffixIcon={<LuLogIn />}>
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="secondary"
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="tertiary"
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button isDisabled prefixIcon={<LuPlus />} suffixIcon={<LuLogIn />}>
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="secondary"
+            isDisabled
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="tertiary"
+            isDisabled
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
         </VisualTestGrid>
 
-        <VisualTestGrid style={{ marginTop: "40px" }} cellWidth="100px">
+        <VisualTestGrid style={{ marginTop: "40px" }} cellWidth="120px">
           <Button color="error">{sampleChildren}</Button>
           <Button variant="secondary" color="error">
             {sampleChildren}
@@ -65,6 +102,55 @@ export const VisualTest: Story = {
             {sampleChildren}
           </Button>
           <Button variant="tertiary" color="error" isDisabled>
+            {sampleChildren}
+          </Button>
+          <Button
+            color="error"
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="secondary"
+            color="error"
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="tertiary"
+            color="error"
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            color="error"
+            isDisabled
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="secondary"
+            color="error"
+            isDisabled
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
+            {sampleChildren}
+          </Button>
+          <Button
+            variant="tertiary"
+            color="error"
+            isDisabled
+            prefixIcon={<LuPlus />}
+            suffixIcon={<LuLogIn />}
+          >
             {sampleChildren}
           </Button>
         </VisualTestGrid>

@@ -16,6 +16,8 @@ export interface ButtonProps
   variant?: ButtonVariant;
   /** @default 'brand' */
   color?: "brand" | "error";
+  prefixIcon?: React.ReactNode;
+  suffixIcon?: React.ReactNode;
 }
 
 export type ButtonVariant = "primary" | "secondary" | "tertiary";
@@ -29,6 +31,8 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
     color = "brand",
     children,
     className,
+    prefixIcon,
+    suffixIcon,
     ...rest
   } = props;
 
@@ -52,7 +56,11 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       data-color={color}
       {...rest}
     >
-      <TouchTarget>{children}</TouchTarget>
+      <TouchTarget>
+        <ButtonIcon>{prefixIcon}</ButtonIcon>
+        {children}
+        <ButtonIcon>{suffixIcon}</ButtonIcon>
+      </TouchTarget>
     </AriaButton>
   );
 };
@@ -60,6 +68,16 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
 const _Button = /*#__PURE__*/ forwardRef(Button);
 
 export { _Button as Button };
+
+const ButtonIcon: React.FC<{
+  children: React.ReactNode;
+}> = ({ children }) => {
+  return (
+    <span aria-hidden className={styles.buttonIcon}>
+      {children}
+    </span>
+  );
+};
 
 const colorToStyles: Record<Required<ButtonProps>["color"], string> = {
   brand: styles.colorBrand,
