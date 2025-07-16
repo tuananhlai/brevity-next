@@ -3,6 +3,7 @@ import { useLingui } from "@lingui/react";
 import { NextPage } from "next";
 import Head from "next/head";
 import { DialogTrigger } from "react-aria-components";
+import { LuPlus } from "react-icons/lu";
 import { StudioLayout } from "@/components/studio-layout";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
@@ -31,7 +32,7 @@ export const ManageAPIKey: NextPage = () => {
 
         <Flex style={{ marginTop: "var(--bw-space-4)" }} justify="end">
           <DialogTrigger>
-            <Button>{_(msg`Create new`)}</Button>
+            <Button prefixIcon={<LuPlus />}>{_(msg`Create new`)}</Button>
             <AddApiKeyDialog />
           </DialogTrigger>
         </Flex>

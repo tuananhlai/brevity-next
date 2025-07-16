@@ -1,3 +1,5 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
@@ -76,9 +78,9 @@ const Button: React.ForwardRefRenderFunction<HTMLButtonElement, ButtonProps> = (
       {...rest}
     >
       <TouchTarget>
-        <ButtonIcon>{prefixIcon}</ButtonIcon>
-        {typeof children === "string" ? <span>{children}</span> : children}
-        <ButtonIcon>{suffixIcon}</ButtonIcon>
+        {prefixIcon != null && <ButtonIcon>{prefixIcon}</ButtonIcon>}
+        <span>{children}</span>
+        {suffixIcon != null && <ButtonIcon>{suffixIcon}</ButtonIcon>}
         {isSpinnerVisible && <ButtonSpinner />}
       </TouchTarget>
     </AriaButton>
@@ -100,9 +102,16 @@ const ButtonIcon: React.FC<{
 };
 
 const ButtonSpinner: React.FC = () => {
+  const { _ } = useLingui();
+
   return (
-    // TODO: add an appropriate aria-label to the progress bar.
-    <ProgressBar className={styles.progressBar} isIndeterminate>
+    // TODO: see if there is any simpler way to add
+    // translated aria-label to the progress bar.
+    <ProgressBar
+      aria-label={_(msg`Pending`)}
+      className={styles.progressBar}
+      isIndeterminate
+    >
       <LuLoaderCircle className={styles.spinner} />
     </ProgressBar>
   );

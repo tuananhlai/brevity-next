@@ -11,7 +11,7 @@ it("should submit and close the dialog", async () => {
   renderWithProviders(
     <DialogTrigger defaultOpen>
       <Button>Open</Button>
-      <AddApiKeyDialog onSubmit={onSubmit} />
+      <AddApiKeyDialog onSubmitted={onSubmit} />
     </DialogTrigger>,
   );
 
