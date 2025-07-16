@@ -19,7 +19,15 @@ export interface ButtonProps
   variant?: ButtonVariant;
   /** @default 'brand' */
   color?: "brand" | "error";
+  /**
+   * The icon to display before the button's content.
+   * @example <LuPlus />
+   */
   prefixIcon?: React.ReactNode;
+  /**
+   * The icon to display after the button's content.
+   * @example <LuCheck />
+   */
   suffixIcon?: React.ReactNode;
 }
 

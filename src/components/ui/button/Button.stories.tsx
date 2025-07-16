@@ -39,6 +39,7 @@ export const Pending: Story = {
       setIsPending(true);
       setTimeout(() => {
         setIsPending(false);
+        alert("Loading finished.");
       }, 1000);
     };
 
