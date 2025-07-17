@@ -1,5 +1,9 @@
 @use "src/styles/utils" as *;
 
 .main {
-  padding: var(--bw-space-6);
+  padding: var(--bw-space-12) 0;
+}
+
+.articleRenderer {
+  margin-top: var(--bw-space-8);
 }

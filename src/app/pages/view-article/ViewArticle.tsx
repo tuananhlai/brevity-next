@@ -1,6 +1,8 @@
 import { NextPage } from "next";
 import Head from "next/head";
 import { StackedLayout } from "@/components/stacked-layout";
+import { Container } from "@/components/ui/layout";
+import { Heading } from "@/components/ui/text";
 import { ArticleRenderer } from "@/features/view-article/components/article-renderer";
 import { GetArticleDetailsResponse } from "@/lib/client";
 import { getPageTitle } from "@/utils/misc";
@@ -21,10 +23,13 @@ export const ViewArticle: NextPage<ViewArticleProps> = ({ articleDetails }) => {
       </Head>
       <StackedLayout>
         <div className={styles.main}>
-          <h1>{pageHeading}</h1>
-          <ArticleRenderer
-            dangerouslySetInnerHTML={{ __html: articleDetails.content }}
-          />
+          <Container maxWidth="sm">
+            <Heading level={1}>{pageHeading}</Heading>
+            <ArticleRenderer
+              dangerouslySetInnerHTML={{ __html: articleDetails.content }}
+              className={styles.articleRenderer}
+            />
+          </Container>
         </div>
       </StackedLayout>
     </>
