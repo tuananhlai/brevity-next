@@ -1,8 +1,10 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDateFormatter } from "react-aria";
 import { LuBookmark } from "react-icons/lu";
-import { Button } from "@/components/ui/button";
+import { IconButton } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
 import { Heading, Text } from "@/components/ui/text";
 import { cn } from "@/styles/utils";
@@ -38,6 +40,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   const dateFormatter = useDateFormatter({
     dateStyle: "medium",
   });
+
+  const { _ } = useLingui();
 
   return (
     <article className={cn(styles.root, className)} style={style}>
@@ -80,13 +84,13 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
             </Link>
           </Text>
         </Flex>
-        <Button
-          className={styles.bookMarkButton}
+        <IconButton
+          className={styles.bookmarkButton}
           variant="tertiary"
-          aria-label="Bookmark"
+          aria-label={_(msg`Bookmark`)}
         >
           <LuBookmark />
-        </Button>
+        </IconButton>
       </Flex>
     </article>
   );
