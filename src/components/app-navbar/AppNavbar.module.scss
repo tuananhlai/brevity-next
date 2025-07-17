@@ -12,7 +12,8 @@
   display: none;
 
   @include screen-sm {
-    display: flex;
+    // TODO: see if there is a good way to revert the display: none above.
+    display: inline-flex;
   }
 }
 

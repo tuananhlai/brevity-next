@@ -3,8 +3,8 @@ import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
 import { AppLogo } from "@/components/app-logo";
-import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
-import { ToggleColorSchemeButton } from "@/components/stacked-layout/ToggleColorSchemeButton";
+import { Navbar, NavbarSpacer } from "@/components/navbar";
+import { Button, IconButton } from "@/components/ui/button";
 import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
 import styles from "./AppNavbar.module.scss";
 
@@ -23,7 +23,6 @@ export const AppNavbar: React.FC<AppNavbarProps> = (props) => {
       </Link>
       <NavbarSpacer />
       <LoginButton />
-      <ToggleColorSchemeButton />
     </Navbar>
   );
 };
@@ -37,17 +36,22 @@ const LoginButton = () => {
 
   return (
     <>
-      <NavbarButton className={styles.loginLink} onPress={onPress}>
+      <Button
+        variant="tertiary"
+        className={styles.loginLink}
+        onPress={onPress}
+        prefixIcon={<LuLogIn />}
+      >
         <Trans>Sign in</Trans>
-        <LuLogIn />
-      </NavbarButton>
-      <NavbarButton
+      </Button>
+      <IconButton
+        variant="tertiary"
         className={styles.mobileLoginLink}
         aria-label={_(msg`Sign in`)}
         onPress={onPress}
       >
         <LuLogIn />
-      </NavbarButton>
+      </IconButton>
     </>
   );
 };

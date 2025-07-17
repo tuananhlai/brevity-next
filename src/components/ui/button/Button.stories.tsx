@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/nextjs";
 import { useState } from "react";
 import { LuLogIn, LuPlus } from "react-icons/lu";
+import { IconButton } from "@/components/ui/button/IconButton";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "./Button";
 
@@ -25,6 +26,19 @@ export const Default: Story = {
     onPress: () => {
       console.log("Button pressed");
     },
+  },
+};
+
+export const IconOnly: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    return (
+      <IconButton aria-label="Add">
+        <LuPlus />
+      </IconButton>
+    );
   },
 };
 
@@ -193,6 +207,86 @@ export const VisualTest: Story = {
           >
             {sampleChildren}
           </Button>
+        </VisualTestGrid>
+
+        <VisualTestGrid style={{ marginTop: "40px" }} cellWidth="120px">
+          <IconButton aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="secondary" aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="tertiary" aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton isDisabled aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="secondary" isDisabled aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="tertiary" isDisabled aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton isPending aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="secondary" isPending aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="tertiary" isPending aria-label="Add">
+            <LuPlus />
+          </IconButton>
+        </VisualTestGrid>
+
+        <VisualTestGrid style={{ marginTop: "40px" }} cellWidth="120px">
+          <IconButton color="error" aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="secondary" color="error" aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton variant="tertiary" color="error" aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton color="error" isDisabled aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton
+            variant="secondary"
+            color="error"
+            isDisabled
+            aria-label="Add"
+          >
+            <LuPlus />
+          </IconButton>
+          <IconButton
+            variant="tertiary"
+            color="error"
+            isDisabled
+            aria-label="Add"
+          >
+            <LuPlus />
+          </IconButton>
+          <IconButton color="error" isPending aria-label="Add">
+            <LuPlus />
+          </IconButton>
+          <IconButton
+            variant="secondary"
+            color="error"
+            isPending
+            aria-label="Add"
+          >
+            <LuPlus />
+          </IconButton>
+          <IconButton
+            variant="tertiary"
+            color="error"
+            isPending
+            aria-label="Add"
+          >
+            <LuPlus />
+          </IconButton>
         </VisualTestGrid>
       </>
     );
