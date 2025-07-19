@@ -18,9 +18,7 @@ export const ManageAPIKey: NextPage = () => {
   const { _ } = useLingui();
   const pageHeading = _(msg`Manage API keys`);
 
-  const { data: res = { items: [] } } = useGetAPIKeys();
-
-  // TODO: display an error message if the API keys cannot be fetched.
+  const { data: res = { items: [] }, error, refetch } = useGetAPIKeys();
 
   return (
     <>
@@ -50,6 +48,10 @@ export const ManageAPIKey: NextPage = () => {
             apiKeySuffix: item.valueLastSix,
             createdAt: new Date(item.createdAt),
           }))}
+          errorState={error != null ? "unknown" : undefined}
+          onRetry={() => {
+            refetch();
+          }}
         />
       </StudioLayout>
     </>

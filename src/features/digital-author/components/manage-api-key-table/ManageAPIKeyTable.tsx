@@ -1,5 +1,6 @@
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
+import { LuRefreshCcw } from "react-icons/lu";
 import { useConfirm } from "@/components/confirm-provider";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
@@ -23,13 +24,18 @@ export interface ManageAPIKeyTableRowData {
   lastUsed?: Date;
 }
 
+// TODO: add a loading state.
 export interface ManageAPIKeyTableProps {
   items: ManageAPIKeyTableRowData[];
   className?: string;
+  // TODO: reconsider the field name.
+  errorState?: "unknown";
+  /** Invoked when the user presses the retry request button. */
+  onRetry?: () => void;
 }
 
 export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
-  const { items, className } = props;
+  const { items, className, errorState, onRetry } = props;
   const { _, i18n } = useLingui();
   const confirm = useConfirm();
 
@@ -56,6 +62,29 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
       </TableHeader>
       <TableBody
         renderEmptyState={() => {
+          if (errorState === "unknown") {
+            return (
+              <Flex
+                className={styles.emptyState}
+                justify="center"
+                align="center"
+                gap="var(--bw-space-3)"
+                direction="column"
+              >
+                <Text>{_(msg`Failed to fetch API keys`)}</Text>
+                <Button
+                  onPress={() => {
+                    onRetry?.();
+                  }}
+                  prefixIcon={<LuRefreshCcw />}
+                  variant="secondary"
+                >
+                  {_(msg`Retry`)}
+                </Button>
+              </Flex>
+            );
+          }
+
           return (
             <Flex justify="center" align="center" className={styles.emptyState}>
               <Text>{_(msg`No API keys found`)}</Text>

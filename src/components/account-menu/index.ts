@@ -1,2 +1,2 @@
-export { AccountMenu } from "./AccountMenu";
-export type { AccountMenuProps } from "./AccountMenu";
+export { AccountMenuTrigger } from "./AccountMenu";
+export type { AccountMenuTriggerProps } from "./AccountMenu";

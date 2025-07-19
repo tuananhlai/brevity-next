@@ -1,1 +1,9 @@
 @use "src/styles/utils" as *;
+
+.accountButtonDisplayName {
+  color: var(--bw-color-text-primary);
+}
+
+.accountButton {
+  font-weight: var(--bw-weight-normal);
+}

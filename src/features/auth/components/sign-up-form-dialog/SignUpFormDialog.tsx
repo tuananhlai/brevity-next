@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
+import { DEFAULT_TOAST_TIMEOUT_MS } from "@/components/ui/toast";
 import { useSignUp } from "@/features/auth/api/signUp";
 import { SignUpForm } from "@/features/auth/components/sign-up-form";
 import {
@@ -59,9 +60,14 @@ export const SignUpFormDialog: React.FC<SignUpFormDialogProps> = (props) => {
                     });
                   },
                   onError: () => {
-                    toastQueue.error({
-                      title: _(somethingWentWrong),
-                    });
+                    toastQueue.error(
+                      {
+                        title: _(somethingWentWrong),
+                      },
+                      {
+                        timeout: DEFAULT_TOAST_TIMEOUT_MS,
+                      },
+                    );
                   },
                 });
               }}
