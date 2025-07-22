@@ -69,13 +69,8 @@ jobs:
         with:
           message: |
             # Lighthouse Report
+            ```
+            ${{ steps.lighthouse-ci-action.outputs.links }}
 
-            ## Lighthouse Scores
-            | URL | Performance | Accessibility | Best Practices | SEO |
-            | --- | ----------- | ------------- | -------------- | --- |
-            ${{ join(reduce(fromJSON(steps.lighthouse-ci-action.outputs.manifest), [], (acc, item) => concat(acc, format('| {0} | {1} | {2} | {3} | {4} |', item.url, item.summary.performance, item.summary.accessibility, item.summary['best-practices'], item.summary.seo))), '\n') }}
-
-            ## Tested URLs and Reports
-            | URL | Report |
-            | --- | ------ |
-            ${{ join(reduce(fromJSON(steps.lighthouse-ci-action.outputs.links), [], (acc, url, report) => concat(acc, format('| {0} | {1} |', url, report))), '\n') }}
+            ${{ steps.lighthouse-ci-action.outputs.manifest }}
+            ```
