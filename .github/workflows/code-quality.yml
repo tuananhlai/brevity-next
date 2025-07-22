@@ -40,9 +40,10 @@ jobs:
   lighthouse:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
+    # https://github.com/patrickedqvist/wait-for-vercel-preview/issues/66
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
       deployments: read
     steps:
       # The checkout step is required so that Github Action
@@ -55,11 +56,21 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 180
-          check_interval: 6
+          check_interval: 10
       - name: Run Lighthouse on urls and validate with lighthouserc
         uses: treosh/lighthouse-ci-action@v12
+        id: lighthouse-ci-action
         with:
           urls: ${{ steps.waitFor200.outputs.url }}
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            # Lighthouse Report
+            ```
+            ${{ steps.lighthouse-ci-action.outputs.links }}
+
+            ${{ steps.lighthouse-ci-action.outputs.manifest }}
+            ```
