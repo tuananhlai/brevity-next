@@ -36,7 +36,11 @@ export const ManageAPIKey: NextPage = () => {
         <Flex style={{ marginTop: "var(--bw-space-4)" }} justify="end">
           <DialogTrigger>
             <Button prefixIcon={<LuPlus />}>{_(msg`Create new`)}</Button>
-            <AddApiKeyDialog />
+            <AddApiKeyDialog
+              onSubmitted={() => {
+                refetch();
+              }}
+            />
           </DialogTrigger>
         </Flex>
         <ManageAPIKeyTable
