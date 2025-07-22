@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import { NextRouter, useRouter } from "next/router";
 import { AppI18nProvider } from "@/components/app-i18n-provider";
 import { ConfirmProvider } from "@/components/confirm-provider";
-import { RootLoader } from "@/components/root-loader";
 import { toastQueue } from "@/components/toastQueue";
 import { Provider } from "@/components/ui/provider";
 import { ToastRegion } from "@/components/ui/toast";
@@ -48,9 +47,7 @@ export const AppProviders = ({ children }: { children: React.ReactNode }) => {
           <AppI18nProvider>
             <ConfirmProvider>
               <AuthProvider>
-                <AuthDialogProvider>
-                  <RootLoader>{children}</RootLoader>
-                </AuthDialogProvider>
+                <AuthDialogProvider>{children}</AuthDialogProvider>
               </AuthProvider>
             </ConfirmProvider>
           </AppI18nProvider>
