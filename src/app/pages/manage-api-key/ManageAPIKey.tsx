@@ -5,6 +5,7 @@ import Head from "next/head";
 import { DialogTrigger } from "react-aria-components";
 import { LuPlus } from "react-icons/lu";
 import { StudioLayout } from "@/components/studio-layout";
+import { toastQueue } from "@/components/toastQueue";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
 import { Heading, Text } from "@/components/ui/text";
@@ -38,6 +39,9 @@ export const ManageAPIKey: NextPage = () => {
             <Button prefixIcon={<LuPlus />}>{_(msg`Create new`)}</Button>
             <AddApiKeyDialog
               onSubmitted={() => {
+                toastQueue.success({
+                  title: _(msg`API key created successfully`),
+                });
                 refetch();
               }}
             />

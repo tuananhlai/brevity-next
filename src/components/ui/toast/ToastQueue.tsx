@@ -9,6 +9,8 @@ export interface ToastParams {
   description?: string;
 }
 
+export const DEFAULT_TOAST_TIMEOUT_MS = 5000;
+
 export class ToastQueue {
   ariaQueue: AriaToastQueue<React.ReactNode>;
 
@@ -28,7 +30,7 @@ export class ToastQueue {
 
     return this.ariaQueue.add(
       <SuccessToastLayout title={title} description={description} />,
-      options,
+      this.getOptions(options),
     );
   }
 
@@ -43,12 +45,19 @@ export class ToastQueue {
 
     return this.ariaQueue.add(
       <ErrorToastLayout title={title} description={description} />,
-      options,
+      this.getOptions(options),
     );
   }
 
   /** Close the toast with the given key. */
   close(key: string): void {
     this.ariaQueue.close(key);
+  }
+
+  private getOptions(options?: ToastOptions): ToastOptions {
+    return {
+      timeout: DEFAULT_TOAST_TIMEOUT_MS,
+      ...options,
+    };
   }
 }

@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
-import { DEFAULT_TOAST_TIMEOUT_MS } from "@/components/ui/toast";
 import { TouchTarget } from "@/components/ui/touch-target";
 import { useSignIn } from "@/features/auth/api/signIn";
 import { SignInForm } from "@/features/auth/components/sign-in-form/SignInForm";
@@ -69,14 +68,9 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
                     },
                     onError: () => {
                       // TODO: provide more detailed error message.
-                      toastQueue.error(
-                        {
-                          title: _(somethingWentWrong),
-                        },
-                        {
-                          timeout: DEFAULT_TOAST_TIMEOUT_MS,
-                        },
-                      );
+                      toastQueue.error({
+                        title: _(somethingWentWrong),
+                      });
                     },
                   },
                 );
