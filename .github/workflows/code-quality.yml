@@ -62,3 +62,4 @@ jobs:
           urls: ${{ steps.waitFor200.outputs.url }}
           uploadArtifacts: true
           temporaryPublicStorage: true
+          runs: 3
