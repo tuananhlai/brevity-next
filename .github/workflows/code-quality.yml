@@ -35,3 +35,64 @@ jobs:
         run: pnpm run format:check
       - name: Check for dependency duplication
         run: pnpm dedupe --check
+  # Vercel Authentication must be disabled for the job below. Otherwise,
+  # requests sent to the Vercel Preview URL will failed with status code 401.
+  lighthouse:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    # https://github.com/patrickedqvist/wait-for-vercel-preview/issues/66
+    permissions:
+      contents: read
+      pull-requests: write
+      deployments: read
+    steps:
+      # The checkout step is required so that Github Action
+      # can extract the current commit hash.
+      # https://github.com/treosh/lighthouse-ci-action/issues/21
+      - uses: actions/checkout@v4
+      - name: Waiting for 200 from the Vercel Preview
+        uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
+        id: waitFor200
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 180
+          check_interval: 10
+      - name: Run Lighthouse on urls and validate with lighthouserc
+        uses: treosh/lighthouse-ci-action@v12
+        id: lighthouse-ci-action
+        with:
+          urls: ${{ steps.waitFor200.outputs.url }}
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          runs: 3
+      - name: Generate report table
+        uses: actions/github-script@v7
+        id: generate-report-table
+        env:
+          LINKS: ${{ steps.lighthouse-ci-action.outputs.links }}
+          MANIFEST: ${{ steps.lighthouse-ci-action.outputs.manifest }}
+        with:
+          result-encoding: string
+          script: |
+            const links = JSON.parse(process.env.LINKS);
+            const manifest = JSON.parse(process.env.MANIFEST);
+            const header = [
+              '| URL | Performance | Accessibility | Best Practices | SEO | Is Representative Run | Report |',
+              '| --- | ----------- | ------------- | -------------- | --- | --------------------- | ------ |'
+            ];
+            const rows = manifest.map(entry => {
+              const url = entry.url;
+              const summary = entry.summary || {};
+              const isRepresentativeRun = entry.isRepresentativeRun ? '✅' : '';
+              const reportLink = links[url] ? `[View](${links[url]})` : '';
+              return `| ${url} | ${summary.performance ?? ''} | ${summary.accessibility ?? ''} | ${summary['best-practices'] ?? ''} | ${summary.seo ?? ''} | ${isRepresentativeRun} | ${reportLink} |`;
+            });
+            const table = [...header, ...rows].join('\n');
+
+            return table;
+      - uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            # Lighthouse Report
+
+            ${{ steps.generate-report-table.outputs.result }}
