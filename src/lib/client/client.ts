@@ -6,6 +6,7 @@ import {
   GetArticleDetailsRequest,
   GetArticleDetailsResponse,
   GetArticlePreviewsResponse,
+  GetCurrentUserResponse,
   SignInRequest,
   SignInResponse,
   SignUpRequest,
@@ -69,6 +70,12 @@ export class APIClient {
   async getAPIKeys(opts?: Options): Promise<GetAPIKeysResponse> {
     return this.kyInstance
       .get<GetAPIKeysResponse>(`v1/llm-api-keys`, opts)
+      .then((v) => v.json());
+  }
+
+  async getCurrentUser(opts?: Options): Promise<GetCurrentUserResponse> {
+    return this.kyInstance
+      .get<GetCurrentUserResponse>(`v1/auth/me`, opts)
       .then((v) => v.json());
   }
 }

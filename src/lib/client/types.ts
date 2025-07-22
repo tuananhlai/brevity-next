@@ -75,3 +75,9 @@ export type CreateAPIKeyResponse = LLMAPIKey;
 export interface GetAPIKeysResponse {
   items: LLMAPIKey[];
 }
+
+export interface GetCurrentUserResponse {
+  id: string;
+  username: string;
+  email: string;
+}

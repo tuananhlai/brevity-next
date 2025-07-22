@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   AuthContext,
   User,
@@ -41,8 +41,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = (props) => {
     [user, signIn, signOut],
   );
 
-  // TODO: Send a HTTP request to an endpoint to check if the current user
-  // is authenticated or not, before displaying the application.
+  const [isLoadingUserInfo, setIsLoadingUserInfo] = useState(true);
+
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      setIsLoadingUserInfo(true);
+      // if the request below returns an error, we will just assume the user is not authenticated.
+      const res = await apiClient.getCurrentUser().catch(() => null);
+      setUser(res);
+      setIsLoadingUserInfo(false);
+    };
+
+    fetchCurrentUser();
+  }, []);
+
+  if (isLoadingUserInfo) {
+    // TODO: Add a proper loading screen.
+    return <div>Loading...</div>;
+  }
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
