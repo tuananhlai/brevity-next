@@ -76,14 +76,15 @@ jobs:
             const links = JSON.parse(process.env.LINKS);
             const manifest = JSON.parse(process.env.MANIFEST);
             const header = [
-              '| URL | Performance | Accessibility | Best Practices | SEO | Report |',
-              '| --- | ----------- | ------------- | -------------- | --- | ------ |'
+              '| URL | Performance | Accessibility | Best Practices | SEO | Is Representative Run | Report |',
+              '| --- | ----------- | ------------- | -------------- | --- | --------------------- | ------ |'
             ];
             const rows = manifest.map(entry => {
               const url = entry.url;
               const summary = entry.summary || {};
+              const isRepresentativeRun = entry.isRepresentativeRun ? 'Yes' : 'No';
               const reportLink = links[url] ? `[Report](${links[url]})` : '';
-              return `| ${url} | ${summary.performance ?? ''} | ${summary.accessibility ?? ''} | ${summary['best-practices'] ?? ''} | ${summary.seo ?? ''} | ${reportLink} |`;
+              return `| ${url} | ${summary.performance ?? ''} | ${summary.accessibility ?? ''} | ${summary['best-practices'] ?? ''} | ${summary.seo ?? ''} | ${isRepresentativeRun} | ${reportLink} |`;
             });
             const table = [...header, ...rows].join('\n');
 
