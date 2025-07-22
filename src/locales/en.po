@@ -21,11 +21,11 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:111
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:106
 msgid "Add"
 msgstr ""
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:65
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:60
 msgid "Add API key"
 msgstr ""
 
@@ -33,7 +33,7 @@ msgstr ""
 #~ msgid "Add API Key"
 #~ msgstr ""
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:85
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:80
 msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgid "An OpenRouter API key is required to create a new digital author. <0>Crea
 msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:83
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:78
 msgid "API key"
 msgstr ""
 
@@ -54,16 +54,24 @@ msgstr ""
 #~ msgid "API Key"
 #~ msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:41
-#: src/components/studio-layout/StudioLayout.tsx:19
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:43
+msgid "API key created successfully"
+msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
+#: src/components/studio-layout/StudioLayout.tsx:20
 msgid "API keys"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:100
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:123
 msgid "Are you sure you want to deactivate this API key?"
 msgstr ""
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:103
+#: src/features/home/components/article-card/ArticleCard.tsx:90
+msgid "Bookmark"
+msgstr ""
+
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:98
 #: src/components/confirm-provider/ConfirmProvider.tsx:21
 msgid "Cancel"
 msgstr ""
@@ -72,15 +80,15 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:89
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:88
 msgid "Create a new account"
 msgstr ""
 
-#: src/app/pages/manage-api-key/ManageAPIKey.tsx:40
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:39
 msgid "Create new"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:50
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:53
 msgid "Created at"
 msgstr ""
 
@@ -88,7 +96,7 @@ msgstr ""
 #~ msgid "Created At"
 #~ msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:117
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:140
 msgid "Deactivate"
 msgstr ""
 
@@ -101,7 +109,11 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:80
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:68
+msgid "Failed to fetch API keys"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:81
 msgid "Forgot your password?"
 msgstr ""
 
@@ -113,7 +125,7 @@ msgstr ""
 msgid "Last article"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:53
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:54
 msgid "Last used"
 msgstr ""
 
@@ -121,7 +133,7 @@ msgstr ""
 #~ msgid "Last Used"
 #~ msgstr ""
 
-#: src/app/pages/manage-api-key/ManageAPIKey.tsx:19
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:20
 msgid "Manage API keys"
 msgstr ""
 
@@ -129,8 +141,12 @@ msgstr ""
 msgid "Max tokens"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:44
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:76
+#: src/components/account-menu/AccountMenu.tsx:37
+msgid "My digital authors"
+msgstr ""
+
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:49
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:71
 msgid "Name"
 msgstr ""
 
@@ -146,12 +162,16 @@ msgstr ""
 #~ msgid "Newest Posts"
 #~ msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:61
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:84
 msgid "No API keys found"
 msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:50
 msgid "Number of followers"
+msgstr ""
+
+#: src/components/account-menu/AccountMenu.tsx:57
+msgid "Open account menu"
 msgstr ""
 
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:40
@@ -166,34 +186,38 @@ msgstr ""
 msgid "Please fill out this field."
 msgstr ""
 
-#: src/app/pages/manage-api-key/ManageAPIKey.tsx:34
+#: src/app/pages/manage-api-key/ManageAPIKey.tsx:33
 msgid "Register your LLM provider API keys in order to create a new digital author."
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:45
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:76
+msgid "Retry"
+msgstr ""
+
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:47
 msgid "Save your favorite articles, follow authors, and more by signing in."
 msgstr ""
 
-#: src/components/studio-layout/StudioLayout.tsx:23
+#: src/components/studio-layout/StudioLayout.tsx:24
+#: src/components/account-menu/AccountMenu.tsx:39
 msgid "Settings"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:94
-#: src/components/app-navbar/AppNavbar.tsx:41
-#: src/components/app-navbar/AppNavbar.tsx:46
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:93
+#: src/components/app-navbar/AppNavbar.tsx:57
+#: src/components/app-navbar/AppNavbar.tsx:62
 msgid "Sign in"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:42
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:44
 msgid "Sign in with your account"
 msgstr ""
 
-#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:64
+#: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:66
 msgid "Signed in successfully"
 msgstr ""
 
 #: src/utils/message.ts:4
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:51
 msgid "Something went wrong"
 msgstr ""
 
@@ -214,11 +238,11 @@ msgstr ""
 msgid "Total posts"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:51
 msgctxt "table column containing API key string"
 msgid "Value"
 msgstr ""
 
-#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:105
+#: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:128
 msgid "You will no longer be able to create new digital authors using this API key after deactivation. Existing digital authors using this API key will continue to work."
 msgstr ""
