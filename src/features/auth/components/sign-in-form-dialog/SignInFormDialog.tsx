@@ -13,6 +13,7 @@ import {
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import { DEFAULT_TOAST_TIMEOUT_MS } from "@/components/ui/toast";
+import { TouchTarget } from "@/components/ui/touch-target";
 import { useSignIn } from "@/features/auth/api/signIn";
 import { SignInForm } from "@/features/auth/components/sign-in-form/SignInForm";
 import {
@@ -117,5 +118,10 @@ const TextButton: React.FC<{
   onPress?: ButtonProps["onPress"];
   children?: React.ReactNode;
 }> = (props) => {
-  return <AriaButton className={styles.textButton} {...props} />;
+  const { onPress, children } = props;
+  return (
+    <AriaButton className={styles.textButton} onPress={onPress}>
+      <TouchTarget>{children}</TouchTarget>
+    </AriaButton>
+  );
 };

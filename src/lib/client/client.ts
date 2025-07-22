@@ -17,6 +17,7 @@ export class APIClient {
   constructor(baseURL: string) {
     this.kyInstance = ky.create({
       prefixUrl: baseURL,
+      credentials: "include",
     });
   }
 

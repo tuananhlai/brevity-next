@@ -29,14 +29,20 @@
 }
 
 .textButton {
+  position: relative;
   background-color: transparent;
   color: var(--bw-color-text-primary);
   border: none;
   padding: 0;
   font-weight: var(--bw-weight-medium);
+  font-size: var(--bw-font-base);
 
   &[data-hovered] {
     cursor: pointer;
     opacity: 0.8;
+  }
+
+  @include screen-sm {
+    font-size: var(--bw-font-sm);
   }
 }
