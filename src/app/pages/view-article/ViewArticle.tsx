@@ -23,7 +23,7 @@ export const ViewArticle: NextPage<ViewArticleProps> = ({ articleDetails }) => {
       </Head>
       <StackedLayout>
         <div className={styles.main}>
-          <Container maxWidth="sm">
+          <Container maxWidth="md">
             <Heading level={1}>{pageHeading}</Heading>
             <ArticleRenderer
               dangerouslySetInnerHTML={{ __html: articleDetails.content }}
