@@ -35,6 +35,8 @@ jobs:
         run: pnpm run format:check
       - name: Check for dependency duplication
         run: pnpm dedupe --check
+  # Vercel Authentication must be disabled for the job below. Otherwise,
+  # requests sent to the Vercel Preview URL will failed with status code 401.
   lighthouse:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
@@ -43,6 +45,10 @@ jobs:
       pull-requests: read
       deployments: read
     steps:
+      # The checkout step is required so that Github Action
+      # can extract the current commit hash.
+      # https://github.com/treosh/lighthouse-ci-action/issues/21
+      - uses: actions/checkout@v4
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@v1.3.2
         id: waitFor200
