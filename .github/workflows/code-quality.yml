@@ -65,12 +65,32 @@ jobs:
           uploadArtifacts: true
           temporaryPublicStorage: true
           runs: 3
+      - name: Generate report table
+        uses: actions/github-script@v7
+        id: generate-report-table
+        env:
+          LINKS: ${{ steps.lighthouse-ci-action.outputs.links }}
+          MANIFEST: ${{ steps.lighthouse-ci-action.outputs.manifest }}
+        with:
+          script: |
+            const links = JSON.parse(process.env.LINKS);
+            const manifest = JSON.parse(process.env.MANIFEST);
+            const header = [
+              '| URL | Performance | Accessibility | Best Practices | SEO | Report |',
+              '| --- | ----------- | ------------- | -------------- | --- | ------ |'
+            ];
+            const rows = manifest.map(entry => {
+              const url = entry.url;
+              const summary = entry.summary || {};
+              const reportLink = links[url] ? `[Report](${links[url]})` : '';
+              return `| ${url} | ${summary.performance ?? ''} | ${summary.accessibility ?? ''} | ${summary['best-practices'] ?? ''} | ${summary.seo ?? ''} | ${reportLink} |`;
+            });
+            const table = [...header, ...rows].join('\n');
+
+            return table;
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: |
             # Lighthouse Report
-            ```
-            ${{ steps.lighthouse-ci-action.outputs.links }}
 
-            ${{ steps.lighthouse-ci-action.outputs.manifest }}
-            ```
+            ${{ steps.generate-report-table.outputs.result }}
