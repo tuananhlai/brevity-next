@@ -46,18 +46,12 @@ export const ManageAPIKeyTable: React.FC<ManageAPIKeyTableProps> = (props) => {
   return (
     <Table aria-label={_(msg`API keys`)} className={className}>
       <TableHeader>
-        <TableColumn isRowHeader>
-          <Trans>Name</Trans>
-        </TableColumn>
+        <TableColumn isRowHeader>{_(msg`Name`)}</TableColumn>
         <TableColumn>
           <Trans context="table column containing API key string">Value</Trans>
         </TableColumn>
-        <TableColumn>
-          <Trans>Created at</Trans>
-        </TableColumn>
-        <TableColumn>
-          <Trans>Last used</Trans>
-        </TableColumn>
+        <TableColumn>{_(msg`Created at`)}</TableColumn>
+        <TableColumn>{_(msg`Last used`)}</TableColumn>
         <TableColumn textValue={_(msg`Actions`)} />
       </TableHeader>
       <TableBody
