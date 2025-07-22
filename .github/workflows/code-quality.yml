@@ -72,6 +72,7 @@ jobs:
           LINKS: ${{ steps.lighthouse-ci-action.outputs.links }}
           MANIFEST: ${{ steps.lighthouse-ci-action.outputs.manifest }}
         with:
+          result-encoding: string
           script: |
             const links = JSON.parse(process.env.LINKS);
             const manifest = JSON.parse(process.env.MANIFEST);
