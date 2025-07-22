@@ -127,6 +127,7 @@
   color: var(--fgColor-default);
   background-color: transparent;
   word-wrap: break-word;
+  font-size: var(--bw-font-xl);
 }
 
 .markdown-body .octicon {

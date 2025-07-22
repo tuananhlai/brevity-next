@@ -2,6 +2,7 @@ import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { AppNavbar } from "@/components/app-navbar";
 import { Container } from "@/components/ui/layout";
+import { cn } from "@/styles/utils";
 import { DesktopSidebar, MobileSidebar, SidebarItem } from "./Sidebar";
 import styles from "./StudioLayout.module.scss";
 
@@ -26,7 +27,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
   ];
 
   return (
-    <div className={className}>
+    <div className={cn(styles.root, className)}>
       <header className={styles.header}>
         <Container>
           <AppNavbar />

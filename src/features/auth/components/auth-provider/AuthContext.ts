@@ -13,6 +13,8 @@ export interface AuthContextValue {
   signIn: (req: { emailOrUsername: string; password: string }) => Promise<void>;
   /** Send a sign out API request. If successful, the application's authenticated user will be removed. */
   signOut: () => Promise<void>;
+  /** Manually set the currently authenticated user. */
+  setUser: (user: User | null) => void;
 }
 
 export const AuthContext = createContext<AuthContextValue | null>(null);

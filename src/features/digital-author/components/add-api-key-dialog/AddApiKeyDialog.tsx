@@ -12,9 +12,9 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { TextField } from "@/components/ui/text-field";
-import { DEFAULT_TOAST_TIMEOUT_MS } from "@/components/ui/toast";
 import { useCreateAPIKey } from "@/features/digital-author/api/createAPIKey";
 import { CreateAPIKeyRequest } from "@/lib/client";
+import { somethingWentWrong } from "@/utils/message";
 import styles from "./AddApiKeyDialog.module.scss";
 
 export interface AddApiKeyDialogProps
@@ -46,14 +46,9 @@ export const AddApiKeyDialog: React.FC<AddApiKeyDialogProps> = (props) => {
         close();
       },
       onError: () => {
-        toastQueue.error(
-          {
-            title: _(msg`Something went wrong`),
-          },
-          {
-            timeout: DEFAULT_TOAST_TIMEOUT_MS,
-          },
-        );
+        toastQueue.error({
+          title: _(somethingWentWrong),
+        });
       },
     });
   };

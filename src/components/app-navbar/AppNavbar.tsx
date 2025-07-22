@@ -2,10 +2,13 @@ import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import Link from "next/link";
 import { LuLogIn } from "react-icons/lu";
+import { AccountMenuTrigger } from "@/components/account-menu";
 import { AppLogo } from "@/components/app-logo";
-import { Navbar, NavbarButton, NavbarSpacer } from "@/components/navbar";
-import { ToggleColorSchemeButton } from "@/components/stacked-layout/ToggleColorSchemeButton";
+import { Navbar, NavbarSpacer } from "@/components/navbar";
+import { Button, IconButton } from "@/components/ui/button";
 import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
+import { useAuth } from "@/features/auth/components/auth-provider";
+import { generateAvatarURL } from "@/utils/misc";
 import styles from "./AppNavbar.module.scss";
 
 export interface AppNavbarProps {
@@ -15,6 +18,7 @@ export interface AppNavbarProps {
 /** The shared navbar for all pages within the application. */
 export const AppNavbar: React.FC<AppNavbarProps> = (props) => {
   const { className } = props;
+  const { user } = useAuth();
 
   return (
     <Navbar className={className}>
@@ -22,8 +26,15 @@ export const AppNavbar: React.FC<AppNavbarProps> = (props) => {
         <AppLogo />
       </Link>
       <NavbarSpacer />
-      <LoginButton />
-      <ToggleColorSchemeButton />
+      {user != null ? (
+        <AccountMenuTrigger
+          displayName={user.username}
+          // TODO: Replace with actual avatar URL.
+          avatarURL={generateAvatarURL(user.id)}
+        />
+      ) : (
+        <LoginButton />
+      )}
     </Navbar>
   );
 };
@@ -37,17 +48,22 @@ const LoginButton = () => {
 
   return (
     <>
-      <NavbarButton className={styles.loginLink} onPress={onPress}>
+      <Button
+        variant="tertiary"
+        className={styles.loginLink}
+        onPress={onPress}
+        prefixIcon={<LuLogIn />}
+      >
         <Trans>Sign in</Trans>
-        <LuLogIn />
-      </NavbarButton>
-      <NavbarButton
+      </Button>
+      <IconButton
+        variant="tertiary"
         className={styles.mobileLoginLink}
         aria-label={_(msg`Sign in`)}
         onPress={onPress}
       >
         <LuLogIn />
-      </NavbarButton>
+      </IconButton>
     </>
   );
 };

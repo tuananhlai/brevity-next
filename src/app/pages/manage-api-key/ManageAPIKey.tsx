@@ -5,6 +5,7 @@ import Head from "next/head";
 import { DialogTrigger } from "react-aria-components";
 import { LuPlus } from "react-icons/lu";
 import { StudioLayout } from "@/components/studio-layout";
+import { toastQueue } from "@/components/toastQueue";
 import { Button } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
 import { Heading, Text } from "@/components/ui/text";
@@ -18,9 +19,7 @@ export const ManageAPIKey: NextPage = () => {
   const { _ } = useLingui();
   const pageHeading = _(msg`Manage API keys`);
 
-  const { data: res = { items: [] } } = useGetAPIKeys();
-
-  // TODO: display an error message if the API keys cannot be fetched.
+  const { data: res = { items: [] }, error, refetch } = useGetAPIKeys();
 
   return (
     <>
@@ -38,7 +37,14 @@ export const ManageAPIKey: NextPage = () => {
         <Flex style={{ marginTop: "var(--bw-space-4)" }} justify="end">
           <DialogTrigger>
             <Button prefixIcon={<LuPlus />}>{_(msg`Create new`)}</Button>
-            <AddApiKeyDialog />
+            <AddApiKeyDialog
+              onSubmitted={() => {
+                toastQueue.success({
+                  title: _(msg`API key created successfully`),
+                });
+                refetch();
+              }}
+            />
           </DialogTrigger>
         </Flex>
         <ManageAPIKeyTable
@@ -50,6 +56,10 @@ export const ManageAPIKey: NextPage = () => {
             apiKeySuffix: item.valueLastSix,
             createdAt: new Date(item.createdAt),
           }))}
+          errorState={error != null ? "unknown" : undefined}
+          onRetry={() => {
+            refetch();
+          }}
         />
       </StudioLayout>
     </>

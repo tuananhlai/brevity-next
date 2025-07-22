@@ -1,6 +1,7 @@
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { useId } from "react";
+import { Button as AriaButton, ButtonProps } from "react-aria-components";
 import { toastQueue } from "@/components/toastQueue";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
+import { TouchTarget } from "@/components/ui/touch-target";
 import { useSignIn } from "@/features/auth/api/signIn";
 import { SignInForm } from "@/features/auth/components/sign-in-form/SignInForm";
 import {
@@ -76,22 +78,19 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
             />
             <Flex justify="space-between">
               {/* TODO: update forgot password button styles */}
-              <Button variant="tertiary">
-                <Trans>Forgot your password?</Trans>
-              </Button>
-              <Button
-                variant="tertiary"
-                onClick={() => {
+              <TextButton>{_(msg`Forgot your password?`)}</TextButton>
+              <TextButton
+                onPress={() => {
                   close();
                   onCreateNewAccount();
                 }}
               >
-                <Trans>Create a new account</Trans>
-              </Button>
+                {_(msg`Create a new account`)}
+              </TextButton>
             </Flex>
             <Flex direction="column" gap="var(--bw-space-2)">
               <Button form={formId} type="submit" isPending={isPending}>
-                <Trans>Sign in</Trans>
+                {_(msg`Sign in`)}
               </Button>
               <Flex gap="var(--bw-space-2)">
                 <SignInWithGoogleButton
@@ -106,5 +105,17 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
         </>
       )}
     </Dialog>
+  );
+};
+
+const TextButton: React.FC<{
+  onPress?: ButtonProps["onPress"];
+  children?: React.ReactNode;
+}> = (props) => {
+  const { onPress, children } = props;
+  return (
+    <AriaButton className={styles.textButton} onPress={onPress}>
+      <TouchTarget>{children}</TouchTarget>
+    </AriaButton>
   );
 };

@@ -37,12 +37,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = (props) => {
       user,
       signIn,
       signOut,
+      setUser,
     }),
     [user, signIn, signOut],
   );
-
-  // TODO: Send a HTTP request to an endpoint to check if the current user
-  // is authenticated or not, before displaying the application.
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

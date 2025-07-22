@@ -34,3 +34,11 @@ const APP_NAME = "Brevity";
 export const getPageTitle = (pageHeading: string) => {
   return `${pageHeading} | ${APP_NAME}`;
 };
+
+/**
+ * Return a random avatar URL based on the given seed.
+ * Same seed will always generate the same avatar.
+ */
+export const generateAvatarURL = (seed: string): string => {
+  return `https://api.dicebear.com/9.x/glass/jpg?seed=${seed}`;
+};

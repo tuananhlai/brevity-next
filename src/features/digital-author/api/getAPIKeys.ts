@@ -6,5 +6,6 @@ export const useGetAPIKeys = (): UseQueryResult<GetAPIKeysResponse> => {
   return useQuery({
     queryKey: ["api-keys"],
     queryFn: () => apiClient.getAPIKeys(),
+    retry: false,
   });
 };
