@@ -83,8 +83,8 @@ jobs:
             const rows = manifest.map(entry => {
               const url = entry.url;
               const summary = entry.summary || {};
-              const isRepresentativeRun = entry.isRepresentativeRun ? 'Yes' : 'No';
-              const reportLink = links[url] ? `[Report](${links[url]})` : '';
+              const isRepresentativeRun = entry.isRepresentativeRun ? '✅' : '';
+              const reportLink = links[url] ? `[View](${links[url]})` : '';
               return `| ${url} | ${summary.performance ?? ''} | ${summary.accessibility ?? ''} | ${summary['best-practices'] ?? ''} | ${summary.seo ?? ''} | ${isRepresentativeRun} | ${reportLink} |`;
             });
             const table = [...header, ...rows].join('\n');
