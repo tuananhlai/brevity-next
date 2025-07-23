@@ -96,6 +96,7 @@ jobs:
           echo EOF >> $GITHUB_OUTPUT
 
       - uses: marocchino/sticky-pull-request-comment@v2
+        if: success() && github.event.number
         with:
           header: nextjs-bundle-analysis/analyze
           message: ${{ steps.get-comment-body.outputs.body }}
