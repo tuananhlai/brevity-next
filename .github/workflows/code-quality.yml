@@ -23,6 +23,7 @@ jobs:
           package-manager: pnpm
           test-script: pnpm run ci:test
           skip-step: install
+
   verify-quality:
     runs-on: ubuntu-latest
     steps:
@@ -35,6 +36,7 @@ jobs:
         run: pnpm run format:check
       - name: Check for dependency duplication
         run: pnpm dedupe --check
+
   # Vercel Authentication must be disabled for the job below. Otherwise,
   # requests sent to the Vercel Preview URL will failed with status code 401.
   lighthouse:
@@ -74,7 +76,6 @@ jobs:
           echo "body<<EOF" >> $GITHUB_OUTPUT
           node internals/scripts/generate-lighthouse-comment-body.js >> $GITHUB_OUTPUT
           echo EOF >> $GITHUB_OUTPUT
-
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
           message: ${{ steps.generate-lighthouse-comment-body.outputs.body }}
