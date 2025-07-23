@@ -97,4 +97,4 @@ jobs:
 
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
-          body: ${{ steps.get-comment-body.outputs.body }}
+          message: ${{ steps.get-comment-body.outputs.body }}

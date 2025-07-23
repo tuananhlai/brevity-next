@@ -12,8 +12,8 @@ const main = () => {
   const reportTable = [...reportHeader, ...reportRows].join("\n");
 
   const testRunHeader = [
-    "| URL | Performance | Accessibility | Best Practices | SEO | Is Representative Run ",
-    "| --- | ----------- | ------------- | -------------- | --- | --------------------- | ------ |",
+    "| URL | Performance | Accessibility | Best Practices | SEO | Is Representative Run |",
+    "| --- | ----------- | ------------- | -------------- | --- | --------------------- |",
   ];
   const testRunRows = manifest.map((entry) => {
     const url = entry.url;
@@ -23,15 +23,13 @@ const main = () => {
   });
   const testRunTable = [...testRunHeader, ...testRunRows].join("\n");
 
-  const report = `
-# Lighthouse CI
+  const report = `## Lighthouse CI
 
-## Report
+### Report
 ${reportTable}
 
-## Test Runs
-${testRunTable}
-            `;
+### Test Runs
+${testRunTable}`;
 
   console.log(report);
 };
