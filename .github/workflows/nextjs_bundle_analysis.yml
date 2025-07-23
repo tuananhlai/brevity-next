@@ -97,4 +97,5 @@ jobs:
 
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
+          header: nextjs-bundle-analysis/analyze
           message: ${{ steps.get-comment-body.outputs.body }}

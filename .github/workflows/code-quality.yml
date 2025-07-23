@@ -78,4 +78,5 @@ jobs:
           echo EOF >> $GITHUB_OUTPUT
       - uses: marocchino/sticky-pull-request-comment@v2
         with:
+          header: code-quality/lighthouse
           message: ${{ steps.generate-lighthouse-comment-body.outputs.body }}
