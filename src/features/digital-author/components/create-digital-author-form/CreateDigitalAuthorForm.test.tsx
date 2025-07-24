@@ -1,8 +1,28 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useId } from "react";
+import { apiClient } from "@/lib/apiClient";
 import { renderWithProviders } from "@/utils/testutils";
 import { CreateDigitalAuthorForm } from "./CreateDigitalAuthorForm";
+
+jest.spyOn(apiClient, "getAPIKeys").mockResolvedValue({
+  items: [
+    {
+      id: "1",
+      name: "API Key 1",
+      valueFirstTen: "1234567890",
+      valueLastSix: "123456",
+      createdAt: "2021-01-01T00:00:00.000Z",
+    },
+    {
+      id: "2",
+      name: "API Key 2",
+      valueFirstTen: "1234567890",
+      valueLastSix: "123456",
+      createdAt: "2021-01-01T00:00:00.000Z",
+    },
+  ],
+});
 
 it("should submit the form successfully when the form is valid", async () => {
   const onSubmit = jest.fn();

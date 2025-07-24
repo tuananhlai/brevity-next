@@ -1,7 +1,11 @@
+import { msg } from "@lingui/macro";
+import { useLingui } from "@lingui/react";
 import { NextPage } from "next";
 import { useId } from "react";
-import { StackedLayout } from "@/components/stacked-layout";
+import { LuPlus } from "react-icons/lu";
+import { StudioLayout } from "@/components/studio-layout";
 import { Button } from "@/components/ui/button";
+import { Heading } from "@/components/ui/text";
 import {
   CreateDigitalAuthorForm,
   CreateDigitalAuthorFormValues,
@@ -9,18 +13,26 @@ import {
 import styles from "./CreateDigitalAuthor.module.scss";
 
 export const CreateDigitalAuthor: NextPage = () => {
-  const onSubmit = (values: CreateDigitalAuthorFormValues) => {
+  const { _ } = useLingui();
+  const formID = useId();
+
+  const submit = (values: CreateDigitalAuthorFormValues) => {
     alert(JSON.stringify(values, null, 2));
   };
 
-  const formID = useId();
-
   return (
-    <StackedLayout className={styles.root}>
-      <CreateDigitalAuthorForm id={formID} onSubmit={onSubmit} />
-      <Button type="submit" form={formID}>
-        Create
-      </Button>
-    </StackedLayout>
+    <StudioLayout>
+      <Heading level={1}>{_(msg`New digital author`)}</Heading>
+      <CreateDigitalAuthorForm
+        className={styles.form}
+        id={formID}
+        onSubmit={submit}
+      />
+      <div className={styles.submitButtonContainer}>
+        <Button className={styles.submitButton} type="submit" form={formID}>
+          {_(msg`Submit`)}
+        </Button>
+      </div>
+    </StudioLayout>
   );
 };

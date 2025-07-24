@@ -25,7 +25,7 @@ msgstr "アクション"
 msgid "Add"
 msgstr "追加"
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:60
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:61
 msgid "Add API key"
 msgstr "APIキーを追加"
 
@@ -33,7 +33,7 @@ msgstr "APIキーを追加"
 #~ msgid "Add API Key"
 #~ msgstr "APIキーを追加"
 
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:80
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:81
 msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
 msgstr "デジタル著者がコンテンツを作成するには、Open Router APIキーが必要です。<0>Open Router APIキーの取得方法</0>"
 
@@ -41,12 +41,12 @@ msgstr "デジタル著者がコンテンツを作成するには、Open Router 
 #~ msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key.</0>"
 #~ msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:155
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:147
 msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key</0>"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:152
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:78
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:143
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:79
 msgid "API key"
 msgstr "APIキー"
 
@@ -100,8 +100,12 @@ msgstr ""
 msgid "Deactivate"
 msgstr "無効化"
 
+#: src/components/studio-layout/StudioLayout.tsx:24
+msgid "Digital authors"
+msgstr ""
+
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:41
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:59
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:61
 msgid "Display name"
 msgstr ""
 
@@ -137,7 +141,7 @@ msgstr ""
 msgid "Manage API keys"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:97
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:102
 msgid "Max tokens"
 msgstr ""
 
@@ -146,12 +150,16 @@ msgid "My digital authors"
 msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:49
-#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:71
+#: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:72
 msgid "Name"
 msgstr "名前"
 
 #: src/components/studio-layout/Sidebar.tsx:66
 msgid "Navigation"
+msgstr ""
+
+#: src/app/pages/create-digital-author/CreateDigitalAuthor.tsx:25
+msgid "New digital author"
 msgstr ""
 
 #: src/app/pages/home/Home.tsx:25
@@ -198,7 +206,11 @@ msgstr ""
 msgid "Save your favorite articles, follow authors, and more by signing in."
 msgstr "ログインすると、お気に入りの記事の保存や著者のフォローなどができます。"
 
-#: src/components/studio-layout/StudioLayout.tsx:24
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:145
+msgid "Select API key"
+msgstr ""
+
+#: src/components/studio-layout/StudioLayout.tsx:28
 #: src/components/account-menu/AccountMenu.tsx:39
 msgid "Settings"
 msgstr ""
@@ -221,16 +233,20 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
+#: src/app/pages/create-digital-author/CreateDigitalAuthor.tsx:33
+msgid "Submit"
+msgstr ""
+
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:44
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:70
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:72
 msgid "System prompt"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:83
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:86
 msgid "Temperature"
 msgstr ""
 
-#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:90
+#: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:94
 msgid "Top P"
 msgstr ""
 
