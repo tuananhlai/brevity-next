@@ -11,6 +11,7 @@ import {
   DialogProps,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { TextLink } from "@/components/ui/text";
 import { TextField } from "@/components/ui/text-field";
 import { useCreateAPIKey } from "@/features/digital-author/api/createAPIKey";
 import { CreateAPIKeyRequest } from "@/lib/client";
@@ -80,13 +81,12 @@ export const AddApiKeyDialog: React.FC<AddApiKeyDialogProps> = (props) => {
                   <Trans>
                     An Open Router API key is required to allow your digital
                     authors to create content.{" "}
-                    <a
-                      className={styles.link}
+                    <TextLink
                       href="https://openrouter.ai/docs/api-reference/api-keys/create-api-key"
                       target="_blank"
                     >
                       How do I get an Open Router API key?
-                    </a>
+                    </TextLink>
                   </Trans>
                 }
               />

@@ -1,4 +1,22 @@
 @use "src/styles/utils" as *;
 
-.root {
+.submitButtonContainer {
+  margin-top: var(--bw-space-8);
+  display: flex;
+
+  @include screen-sm {
+    justify-content: flex-end;
+  }
+}
+
+.submitButton {
+  flex-grow: 1;
+
+  @include screen-sm {
+    flex-grow: 0;
+  }
+}
+
+.form {
+  margin-top: var(--bw-space-6);
 }

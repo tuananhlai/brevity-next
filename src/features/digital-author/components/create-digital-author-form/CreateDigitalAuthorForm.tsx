@@ -1,12 +1,13 @@
 import { Trans, msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
-import { useQuery } from "@tanstack/react-query";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormSlider, FormTextArea, FormTextField } from "@/components/rhf";
 import { FormSelect, FormSelectProps } from "@/components/rhf/FormSelect";
 import { SelectItem } from "@/components/ui/select";
 import { TextLink } from "@/components/ui/text";
-import { TODO_HREF } from "@/utils/misc";
+import { useGetAPIKeys } from "@/features/digital-author/api/getAPIKeys";
+import { cn } from "@/styles/utils";
+import { routes } from "@/utils/routes";
 import { requiredFieldMessage } from "@/utils/validation";
 import styles from "./CreateDigitalAuthorForm.module.scss";
 
@@ -23,12 +24,13 @@ export interface CreateDigitalAuthorFormProps {
   onSubmit: (values: CreateDigitalAuthorFormValues) => void;
   /** The unique identifier for the form element. */
   id?: string;
+  className?: string;
 }
 
 export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
   props,
 ) => {
-  const { onSubmit, id } = props;
+  const { onSubmit, id, className } = props;
   const { _ } = useLingui();
 
   const methods = useForm<CreateDigitalAuthorFormValues>({
@@ -42,7 +44,7 @@ export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
 
   return (
     <FormProvider {...methods}>
-      <form id={id} className={styles.root} onSubmit={submit}>
+      <form id={id} className={cn(styles.root, className)} onSubmit={submit}>
         <FormAPIKeySelect
           name="apiKeyID"
           isRequired
@@ -79,6 +81,7 @@ export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
           }}
         />
         <FormSlider
+          className={styles.slider}
           name="temperature"
           label={_(msg`Temperature`)}
           minValue={0}
@@ -86,6 +89,7 @@ export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
           step={0.1}
         />
         <FormSlider
+          className={styles.slider}
           name="topP"
           label={_(msg`Top P`)}
           minValue={0}
@@ -93,6 +97,7 @@ export const CreateDigitalAuthorForm: React.FC<CreateDigitalAuthorFormProps> = (
           step={0.1}
         />
         <FormSlider
+          className={styles.slider}
           name="maxTokens"
           label={_(msg`Max tokens`)}
           minValue={100}
@@ -123,38 +128,25 @@ const FormAPIKeySelect: React.FC<FormAPIKeySelectProps> = (props) => {
   const { name, rules, isRequired } = props;
 
   const { _ } = useLingui();
-  const { data = [] } = useQuery({
-    queryKey: ["apiKeys"],
-    queryFn: async () => {
-      // TODO: Integrate API.
-      return [
-        {
-          id: "1",
-          name: "API Key 1",
-        },
-        {
-          id: "2",
-          name: "API Key 2",
-        },
-        {
-          id: "3",
-          name: "API Key 3",
-        },
-      ];
-    },
-  });
+  const { data } = useGetAPIKeys();
+  const options =
+    data?.items.map((item) => ({
+      id: item.id,
+      name: item.name,
+    })) ?? [];
 
   return (
     <FormSelect
       name={name}
-      items={data}
+      items={options}
       isRequired={isRequired}
       label={_(msg`API key`)}
       rules={rules}
+      placeholder={_(msg`Select API key`)}
       description={
         <Trans>
           An OpenRouter API key is required to create a new digital author.{" "}
-          <TextLink href={TODO_HREF} target="_blank">
+          <TextLink href={routes.ManageAPIKey} target="_blank">
             Create a new API key
           </TextLink>
         </Trans>

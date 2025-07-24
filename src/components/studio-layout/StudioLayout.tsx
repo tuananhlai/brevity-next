@@ -18,7 +18,11 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
   const items: SidebarItem[] = [
     {
       label: _(msg`API keys`),
-      href: "/me/api-key",
+      href: "/me/api-keys",
+    },
+    {
+      label: _(msg`Digital authors`),
+      href: "/me/digital-authors",
     },
     {
       label: _(msg`Settings`),
