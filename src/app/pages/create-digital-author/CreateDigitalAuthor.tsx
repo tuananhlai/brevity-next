@@ -2,7 +2,6 @@ import { msg } from "@lingui/macro";
 import { useLingui } from "@lingui/react";
 import { NextPage } from "next";
 import { useId } from "react";
-import { LuPlus } from "react-icons/lu";
 import { StudioLayout } from "@/components/studio-layout";
 import { Button } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
