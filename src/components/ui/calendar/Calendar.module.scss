@@ -1,0 +1,17 @@
+@use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--bw-space-2);
+}
+
+.currentMonthHeading {
+  font-size: var(--bw-font-xl);
+}
