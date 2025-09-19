@@ -1,8 +1,13 @@
 import {
   Calendar as AriaCalendar,
+  CalendarCell as AriaCalendarCell,
+  CalendarCellProps as AriaCalendarCellProps,
+  CalendarHeaderCell as AriaCalendarHeaderCell,
+  CalendarHeaderCellProps as AriaCalendarHeaderCellProps,
   CalendarProps as AriaCalendarProps,
-  CalendarCell,
   CalendarGrid,
+  CalendarGridBody,
+  CalendarGridHeader,
   DateValue,
 } from "react-aria-components";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
@@ -28,7 +33,35 @@ export const Calendar = <T extends DateValue>(props: CalendarProps<T>) => {
           <LuChevronRight />
         </IconButton>
       </header>
-      <CalendarGrid>{(date) => <CalendarCell date={date} />}</CalendarGrid>
+      <CalendarGrid>
+        <CalendarGridHeader>
+          {(day) => <CalendarHeaderCell>{day}</CalendarHeaderCell>}
+        </CalendarGridHeader>
+        <CalendarGridBody>
+          {(date) => <CalendarCell date={date} />}
+        </CalendarGridBody>
+      </CalendarGrid>
     </AriaCalendar>
   );
+};
+
+interface CalendarHeaderCellProps
+  extends ReplaceAriaRenderProps<AriaCalendarHeaderCellProps> {}
+
+const CalendarHeaderCell: React.FC<CalendarHeaderCellProps> = (props) => {
+  const { className, ...rest } = props;
+  return (
+    <AriaCalendarHeaderCell
+      className={cn(styles.headerCell, className)}
+      {...rest}
+    />
+  );
+};
+
+interface CalendarCellProps
+  extends ReplaceAriaRenderProps<AriaCalendarCellProps> {}
+
+const CalendarCell: React.FC<CalendarCellProps> = (props) => {
+  const { className, ...rest } = props;
+  return <AriaCalendarCell className={cn(styles.cell, className)} {...rest} />;
 };
