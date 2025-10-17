@@ -7,6 +7,9 @@ import { apiClient } from "@/lib/apiClient";
 import { renderWithProviders } from "@/utils/testutils";
 import { SignInFormDialog, SignInFormDialogProps } from "./SignInFormDialog";
 
+jest
+  .spyOn(apiClient, "getCurrentUser")
+  .mockRejectedValue(new Error("unauthorized"));
 jest.spyOn(apiClient, "signIn").mockResolvedValue({
   id: "test-id",
   username: "test-user",

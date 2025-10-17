@@ -9,6 +9,9 @@ const password = "test";
 const username = "test-user";
 
 it("should set the authenticated user after the user has signed in successfully", async () => {
+  jest
+    .spyOn(apiClient, "getCurrentUser")
+    .mockRejectedValue(new Error("unauthorized"));
   jest.spyOn(apiClient, "signIn").mockResolvedValue({
     id: "test-id",
     username,

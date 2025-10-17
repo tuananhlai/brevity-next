@@ -14,7 +14,10 @@ import { Flex } from "@/components/ui/layout";
 import { Text } from "@/components/ui/text";
 import { TouchTarget } from "@/components/ui/touch-target";
 import { useSignIn } from "@/features/auth/api/signIn";
-import { SignInForm } from "@/features/auth/components/sign-in-form/SignInForm";
+import {
+  SignInForm,
+  SignInFormValues,
+} from "@/features/auth/components/sign-in-form/SignInForm";
 import {
   SignInWithAppleButton,
   SignInWithGoogleButton,
@@ -52,7 +55,7 @@ export const SignInFormDialog: React.FC<SignInFormDialogProps> = (props) => {
           <DialogBody className={styles.dialogBody}>
             <SignInForm
               id={formId}
-              onSubmit={(v) => {
+              onSubmit={(v: SignInFormValues) => {
                 mutate(
                   {
                     emailOrUsername: v.email,

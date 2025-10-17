@@ -9,6 +9,8 @@ export interface User {
 export interface AuthContextValue {
   /** The currently authenticated user. */
   user: User | null;
+  /** Whether the user info is currently being loaded. */
+  isLoading: boolean;
   /** Send a sign in API request. If successful, the application's authenticated user will be registered. */
   signIn: (req: { emailOrUsername: string; password: string }) => Promise<void>;
   /** Send a sign out API request. If successful, the application's authenticated user will be removed. */

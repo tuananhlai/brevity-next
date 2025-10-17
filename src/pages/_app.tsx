@@ -2,7 +2,6 @@ import { getWebInstrumentations, initializeFaro } from "@grafana/faro-web-sdk";
 import { TracingInstrumentation } from "@grafana/faro-web-tracing";
 import type { AppProps } from "next/app";
 import { AppProviders } from "@/components/AppProviders";
-import { RootLoader } from "@/components/root-loader";
 import "@/styles/globals.scss";
 import "@/styles/tokens.scss";
 
@@ -28,9 +27,7 @@ if (typeof window !== "undefined" && process.env.NODE_ENV === "production") {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AppProviders>
-      <RootLoader>
-        <Component {...pageProps} />
-      </RootLoader>
+      <Component {...pageProps} />
     </AppProviders>
   );
 }
