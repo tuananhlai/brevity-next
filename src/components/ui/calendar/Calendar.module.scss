@@ -1,0 +1,54 @@
+@use "src/styles/utils" as *;
+
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--bw-space-2);
+}
+
+.currentMonthHeading {
+  font-size: var(--bw-font-xl);
+}
+
+.cell {
+  --hover-bg-color: var(--bw-color-bg-primary_hover);
+
+  width: var(--bw-space-10);
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  border-radius: var(--bw-radius-full);
+  position: relative;
+  background-color: transparent;
+  color: var(--bw-color-text-primary);
+  font-size: var(--bw-font-sm);
+
+  &:where([data-selected]) {
+    --hover-bg-color: var(--bw-color-bg-brand-solid_hover);
+
+    background-color: var(--bw-color-bg-brand-solid);
+    font-weight: var(--bw-weight-medium);
+    color: var(--bw-color-text-primary_on-brand);
+  }
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+    background-color: var(--hover-bg-color);
+    font-weight: var(--bw-weight-medium);
+  }
+}
+
+.headerCell {
+  width: var(--bw-space-10);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--bw-radius-full);
+  color: var(--bw-color-text-secondary);
+  font-weight: var(--bw-weight-medium);
+  font-size: var(--bw-font-sm);
+}

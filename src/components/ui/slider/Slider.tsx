@@ -1,4 +1,4 @@
-import { forwardRef, useId } from "react";
+import { forwardRef } from "react";
 import { useObjectRef } from "react-aria";
 import {
   Slider as AriaSlider,
@@ -8,7 +8,7 @@ import {
   SliderThumbProps,
   SliderTrack,
 } from "react-aria-components";
-import { Description, Label } from "@/components/ui/field";
+import { Label } from "@/components/ui/field";
 import { Flex } from "@/components/ui/layout";
 import { cn } from "@/styles/utils";
 import { ReplaceAriaRenderProps } from "@/utils/misc";
@@ -18,40 +18,30 @@ import styles from "./Slider.module.scss";
 export interface SliderProps
   extends Omit<ReplaceAriaRenderProps<AriaSliderProps>, "orientation">,
     Pick<SliderThumbProps, "name"> {
-  label?: React.ReactNode;
-  description?: React.ReactNode;
+  label: React.ReactNode;
 }
 
+// TODO: add disabled style.
 const Slider: React.ForwardRefRenderFunction<HTMLInputElement, SliderProps> = (
   props,
   forwardedRef,
 ) => {
-  const {
-    className,
-    label,
-    description,
-    name,
-    "aria-describedby": ariaDescribedby,
-    ...rest
-  } = props;
+  const { className, label, name, ...rest } = props;
 
   const ref = useObjectRef(forwardedRef);
-  const descriptionId = useId();
 
   return (
-    <AriaSlider
-      className={cn(styles.root, className)}
-      aria-describedby={cn(
-        ariaDescribedby,
-        description != null && descriptionId,
-      )}
-      {...rest}
-    >
-      {label != null && <Label>{label}</Label>}
-      {description != null && (
-        <Description id={descriptionId}>{description}</Description>
-      )}
-      <Flex className={styles.container} gap="var(--bw-space-5)" align="center">
+    <AriaSlider className={cn(styles.root, className)} {...rest}>
+      <Flex
+        className={styles.labelContainer}
+        justify="space-between"
+        align="baseline"
+        gap="var(--bw-space-2)"
+      >
+        <Label>{label}</Label>
+        <SliderOutput className={styles.output} />
+      </Flex>
+      <Flex gap="var(--bw-space-5)" align="center">
         <SliderTrack className={styles.track}>
           {({ state }) => {
             return (
@@ -73,7 +63,6 @@ const Slider: React.ForwardRefRenderFunction<HTMLInputElement, SliderProps> = (
             );
           }}
         </SliderTrack>
-        <SliderOutput className={styles.output} />
       </Flex>
     </AriaSlider>
   );

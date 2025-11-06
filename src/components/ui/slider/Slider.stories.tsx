@@ -19,11 +19,7 @@ export const Default: Story = {
   render: () => {
     return (
       <div style={{ width: "300px" }}>
-        <Slider
-          defaultValue={50}
-          label="Slider"
-          description="This is a slider"
-        />
+        <Slider defaultValue={50} label="Slider" />
       </div>
     );
   },
@@ -42,7 +38,6 @@ export const Decimal: Story = {
           maxValue={2.0}
           step={0.1}
           label="Slider"
-          description="This is a slider with decimal values"
         />
       </div>
     );
@@ -58,16 +53,13 @@ export const VisualTest: Story = {
   render: () => {
     return (
       <VisualTestGrid cellWidth="200px">
-        <Slider aria-label="Label" minValue={0} maxValue={100} value={0} />
-        <Slider aria-label="Label" minValue={0} maxValue={100} value={50} />
-        <Slider aria-label="Label" minValue={0} maxValue={100} value={100} />
         <Slider label="Label" minValue={0} maxValue={100} value={50} />
         <Slider
           label="Label"
-          description="This is a slider"
+          formatOptions={{ style: "percent" }}
           minValue={0}
-          maxValue={100}
-          value={50}
+          maxValue={1}
+          step={0.05}
         />
       </VisualTestGrid>
     );
