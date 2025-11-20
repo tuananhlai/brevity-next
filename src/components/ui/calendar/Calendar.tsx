@@ -25,11 +25,19 @@ export const Calendar = <T extends DateValue>(props: CalendarProps<T>) => {
   return (
     <AriaCalendar className={cn(styles.root, className)} {...rest}>
       <header className={styles.header}>
-        <IconButton variant="tertiary" slot="previous">
+        <IconButton
+          className={styles.headerButton}
+          variant="tertiary"
+          slot="previous"
+        >
           <LuChevronLeft />
         </IconButton>
         <Heading level={2} className={styles.currentMonthHeading} />
-        <IconButton variant="tertiary" slot="next">
+        <IconButton
+          className={styles.headerButton}
+          variant="tertiary"
+          slot="next"
+        >
           <LuChevronRight />
         </IconButton>
       </header>

@@ -3,6 +3,7 @@
 .root {
   display: flex;
   flex-direction: column;
+  gap: var(--bw-space-3);
 }
 
 .header {
@@ -10,15 +11,20 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--bw-space-2);
+  font-weight: var(--bw-weight-semibold);
 }
 
 .currentMonthHeading {
-  font-size: var(--bw-font-xl);
+  font-size: var(--bw-font-sm);
 }
 
 .cell {
   --hover-bg-color: var(--bw-color-bg-primary_hover);
+  --indicator-default-bg-color: var(--bw-color-utility-brand-900);
+  --indicator-selected-bg-color: var(--bw-color-utility-white);
+  --indicator-bg-color: var(--indicator-default-bg-color);
 
+  position: relative;
   width: var(--bw-space-10);
   aspect-ratio: 1 / 1;
   display: grid;
@@ -28,9 +34,30 @@
   background-color: transparent;
   color: var(--bw-color-text-primary);
   font-size: var(--bw-font-sm);
+  transition:
+    background-color 0.1s ease-in-out,
+    color 0.1s ease-in-out;
+  user-select: none;
+
+  &:where([data-today])::before {
+    content: "";
+    position: absolute;
+    bottom: var(--bw-space-1);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: var(--bw-radius-full);
+    background-color: var(--indicator-bg-color);
+  }
+
+  &:where([data-disabled]) {
+    color: var(--bw-color-text-disabled);
+  }
 
   &:where([data-selected]) {
     --hover-bg-color: var(--bw-color-bg-brand-solid_hover);
+    --indicator-bg-color: var(--indicator-selected-bg-color);
 
     background-color: var(--bw-color-bg-brand-solid);
     font-weight: var(--bw-weight-medium);
@@ -42,6 +69,11 @@
     background-color: var(--hover-bg-color);
     font-weight: var(--bw-weight-medium);
   }
+
+  @include dark-mode {
+    --indicator-default-bg-color: var(--bw-color-utility-brand-300);
+    --indicator-selected-bg-color: var(--bw-color-utility-brand-400);
+  }
 }
 
 .headerCell {
@@ -51,4 +83,9 @@
   color: var(--bw-color-text-secondary);
   font-weight: var(--bw-weight-medium);
   font-size: var(--bw-font-sm);
+}
+
+.headerButton {
+  color: var(--bw-color-fg-quaternary);
+  font-size: var(--bw-font-xl);
 }
