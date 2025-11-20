@@ -30,7 +30,7 @@ const DatePicker: React.ForwardRefRenderFunction<
           <LuCalendar />
         </Button>
       </Group>
-      <Popover>
+      <Popover className={styles.popover}>
         <Dialog>
           <Calendar />
         </Dialog>
