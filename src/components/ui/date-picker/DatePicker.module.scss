@@ -2,8 +2,112 @@
 
 .group {
   display: flex;
+  gap: var(--bw-space-1);
+  justify-content: space-between;
+
+  width: 100%;
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
+  color: var(--bw-color-text-primary);
+  appearance: none;
+  border-radius: var(--bw-radius-lg);
+  padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
+  --border-color: #{alpha(var(--bw-color-utility-zinc-950), 10)};
+  --border-hover-color: #{alpha(var(--bw-color-utility-zinc-950), 20)};
+  --outline: none;
+  --outline-offset: 0;
+  border: 1px solid var(--border-color);
+  background-color: transparent;
+  box-shadow: var(--bw-shadow-xs);
+
+  &:where([data-hovered]) {
+    border-color: var(--border-hover-color);
+  }
+
+  &:where(:not(:first-child)) {
+    margin-top: var(--bw-space-3);
+  }
+
+  &:where([data-invalid]) {
+    --border-color: var(--bw-color-border-error);
+    --border-hover-color: var(--bw-color-border-error);
+  }
+
+  &:where([data-disabled]) {
+    opacity: 50%;
+    --border-color: #{alpha(var(--bw-color-utility-zinc-950), 20)};
+    box-shadow: none;
+  }
+
+  &:where([data-focus-within]) {
+    outline: var(--outline);
+    outline-offset: var(--outline-offset);
+  }
+
+  @include dark-mode {
+    background-color: alpha(var(--bw-color-utility-white), 5);
+    --border-color: #{alpha(var(--bw-color-utility-white), 10)};
+    --border-hover-color: #{alpha(var(--bw-color-utility-white), 20)};
+    box-shadow: none;
+
+    &:where([data-disabled]) {
+      --border-color: #{alpha(var(--bw-color-utility-white), 15)};
+      --border-hover-color: #{alpha(var(--bw-color-utility-white), 15)};
+      background-color: alpha(var(--bw-color-utility-white), 2.5);
+    }
+  }
+
+  @include screen-sm {
+    padding: calc(var(--bw-space-1-5) - 1px) calc(var(--bw-space-3) - 1px);
+    font-size: var(--bw-font-sm);
+
+    --outline: 2px solid var(--bw-color-outline-primary);
+    --outline-offset: -2px;
+
+    &:where(:not(:first-child)) {
+      margin-top: var(--bw-space-2);
+    }
+  }
+}
+
+.dateInput {
+  display: flex;
+  gap: var(--bw-space-0-5);
+  align-items: center;
+}
+
+.segment {
+  --focused-bg-color: var(--bw-color-utility-blue-200);
+  outline: none;
+
+  // See https://react-spectrum.adobe.com/react-aria/DateField.html#datesegment-1 for
+  // possible data attributes.
+  &:where([data-placeholder], [data-type="literal"]) {
+    color: var(--bw-color-text-placeholder);
+  }
+
+  &:where([data-focused]) {
+    background-color: var(--focused-bg-color);
+  }
+
+  @include dark-mode {
+    --focused-bg-color: var(--bw-color-utility-blue-400);
+  }
 }
 
 .popover {
   overflow-y: auto;
+  padding: var(--bw-space-5) var(--bw-space-6);
+}
+
+.errorMessage {
+  margin-top: var(--bw-space-3);
+
+  @include screen-sm {
+    margin-top: var(--bw-space-1-5);
+  }
+}
+
+.calendarButton {
+  font-size: var(--bw-font-base);
 }

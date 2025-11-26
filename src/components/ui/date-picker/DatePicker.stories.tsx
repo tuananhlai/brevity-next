@@ -1,4 +1,6 @@
+import { DateValue } from "@internationalized/date";
 import { Meta, StoryObj } from "@storybook/nextjs";
+import { useState } from "react";
 import { DatePicker } from "./DatePicker";
 
 const meta: Meta<typeof DatePicker> = {
@@ -16,6 +18,22 @@ export const Default: Story = {
     layout: "centered",
   },
   args: {
-    // Add arguments.
+    label: "Date of birth",
+  },
+};
+
+export const Controlled: Story = {
+  parameters: {
+    layout: "centered",
+  },
+  render: () => {
+    const [date, setDate] = useState<DateValue | null>(null);
+
+    return (
+      <div style={{ width: "200px" }}>
+        <DatePicker value={date} onChange={setDate} />
+        <p>Selected date: {date?.toString()}</p>
+      </div>
+    );
   },
 };

@@ -14,7 +14,21 @@
   font-weight: var(--bw-weight-semibold);
 }
 
+.headerButton {
+  color: var(--bw-color-fg-quaternary);
+  font-size: var(--bw-font-xl);
+}
+
 .currentMonthHeading {
+  font-size: var(--bw-font-sm);
+}
+
+.headerCell {
+  width: var(--bw-space-10);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--bw-radius-full);
+  color: var(--bw-color-text-secondary);
+  font-weight: var(--bw-weight-medium);
   font-size: var(--bw-font-sm);
 }
 
@@ -39,6 +53,7 @@
     color 0.1s ease-in-out;
   user-select: none;
 
+  // Add a dot to today's calendar cell.
   &:where([data-today])::before {
     content: "";
     position: absolute;
@@ -51,7 +66,7 @@
     background-color: var(--indicator-bg-color);
   }
 
-  &:where([data-disabled]) {
+  &:where([data-disabled], [data-unavailable]) {
     color: var(--bw-color-text-disabled);
   }
 
@@ -64,7 +79,14 @@
     color: var(--bw-color-text-primary_on-brand);
   }
 
-  &:where([data-hovered]) {
+  &:where([data-invalid]) {
+    --hover-bg-color: var(--bw-color-bg-error-solid_hover);
+    --indicator-bg-color: var(--indicator-selected-bg-color);
+    background-color: var(--bw-color-bg-error-solid);
+  }
+
+  // Unavailable dates should not have hover effects.
+  &:where([data-hovered]:not([data-unavailable])) {
     cursor: pointer;
     background-color: var(--hover-bg-color);
     font-weight: var(--bw-weight-medium);
@@ -74,18 +96,4 @@
     --indicator-default-bg-color: var(--bw-color-utility-brand-300);
     --indicator-selected-bg-color: var(--bw-color-utility-brand-400);
   }
-}
-
-.headerCell {
-  width: var(--bw-space-10);
-  aspect-ratio: 1 / 1;
-  border-radius: var(--bw-radius-full);
-  color: var(--bw-color-text-secondary);
-  font-weight: var(--bw-weight-medium);
-  font-size: var(--bw-font-sm);
-}
-
-.headerButton {
-  color: var(--bw-color-fg-quaternary);
-  font-size: var(--bw-font-xl);
 }
