@@ -14,6 +14,9 @@ importers:
       '@grafana/faro-web-tracing':
         specifier: ^1.14.1
         version: 1.18.2
+      '@internationalized/date':
+        specifier: ^3.10.0
+        version: 3.10.0
       '@lingui/core':
         specifier: ^4
         version: 4.14.1
@@ -138,6 +141,9 @@ importers:
       jest-environment-jsdom:
         specifier: ^29.7.0
         version: 29.7.0
+      mockdate:
+        specifier: ^3.0.5
+        version: 3.0.5
       plop:
         specifier: ^4.0.1
         version: 4.0.1
@@ -4768,6 +4774,9 @@ packages:
     resolution: {integrity: sha512-+NsyUUAZDmo6YVHzL/stxSu3t9YS1iljliy3BSDrXJ/dkn1KYdmtZODGGjLcc9XLgVVpH4KshHB8XmZgMhaBXg==}
     engines: {node: '>=10'}
     hasBin: true
+
+  mockdate@3.0.5:
+    resolution: {integrity: sha512-iniQP4rj1FhBdBYS/+eQv7j1tadJ9lJtdzgOpvsOHng/GbcDh2Fhdeq+ZRldrPYdXvCyfFUmFeEwEGXZB5I/AQ==}
 
   module-details-from-path@1.0.4:
     resolution: {integrity: sha512-EGWKgxALGMgzvxYF1UyGTy0HXX/2vHLkw6+NvDKW2jypWbHpjQuj4UMcqQWXHERJhVGKikolT06G3bcKe4fi7w==}
@@ -12279,6 +12288,8 @@ snapshots:
       minimist: 0.0.8
 
   mkdirp@3.0.1: {}
+
+  mockdate@3.0.5: {}
 
   module-details-from-path@1.0.4: {}
 
