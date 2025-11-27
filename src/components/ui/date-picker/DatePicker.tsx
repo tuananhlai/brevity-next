@@ -31,8 +31,8 @@ export interface DatePickerProps<T extends DateValue>
 // TODO: Rethink the behavior for previous and next month calendar cells. Should they
 // be selectable?
 export function DatePicker<T extends DateValue>(props: DatePickerProps<T>) {
-  const { label, description, errorMessage, isRequired, isDisabled, ...rest } =
-    props;
+  const { label, description, errorMessage, ...rest } = props;
+  const { isRequired, isDisabled } = rest;
 
   return (
     <AriaDatePicker {...rest}>

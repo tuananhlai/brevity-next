@@ -1,7 +1,8 @@
-import { DateValue } from "@internationalized/date";
+import { CalendarDate, DateValue } from "@internationalized/date";
 import { Meta, StoryObj } from "@storybook/nextjs";
 import { useState } from "react";
-import { DatePicker } from "./DatePicker";
+import { VisualTestGrid } from "@/styles/storybookTestUtils";
+import { DatePicker, DatePickerProps } from "./DatePicker";
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
@@ -36,4 +37,45 @@ export const Controlled: Story = {
       </div>
     );
   },
+};
+
+export const VisualTest: Story = {
+  parameters: {
+    chromatic: {
+      disableSnapshot: false,
+    },
+  },
+  render: () => {
+    const sampleLabel = "Label";
+    const sampleDescription = "Description";
+    const sampleErrorMessage = "Error message";
+
+    return (
+      <VisualTestGrid cellWidth="200px">
+        <ExampleDatePicker />
+        <ExampleDatePicker defaultValue={new CalendarDate(2025, 10, 1)} />
+        <ExampleDatePicker label={sampleLabel} />
+        <ExampleDatePicker
+          label={sampleLabel}
+          description={sampleDescription}
+        />
+        <ExampleDatePicker
+          label={sampleLabel}
+          description={sampleDescription}
+          isDisabled
+        />
+        <ExampleDatePicker
+          label={sampleLabel}
+          description={sampleDescription}
+          errorMessage={sampleErrorMessage}
+          isInvalid
+        />
+        <ExampleDatePicker label={sampleLabel} isRequired />
+      </VisualTestGrid>
+    );
+  },
+};
+
+const ExampleDatePicker = (props: Partial<DatePickerProps<DateValue>>) => {
+  return <DatePicker aria-label="Label" {...props} />;
 };

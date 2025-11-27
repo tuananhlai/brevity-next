@@ -79,6 +79,7 @@
 .segment {
   --focused-bg-color: var(--bw-color-utility-blue-200);
   outline: none;
+  user-select: none;
 
   // See https://react-spectrum.adobe.com/react-aria/DateField.html#datesegment-1 for
   // possible data attributes.
