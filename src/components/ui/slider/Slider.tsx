@@ -57,13 +57,6 @@ const Slider: React.ForwardRefRenderFunction<HTMLInputElement, SliderProps> = (
                 <SliderThumb
                   name={name}
                   inputRef={ref}
-                  style={{
-                    // Override slider thumb default style to make it contained within the track.
-                    // However, if the user clicks on the track, the thumb will not move exactly to
-                    // to the clicked position. That's a trade-off I'm willing to take.
-                    left: `${state.getThumbPercent(0) * 100}%`,
-                    transform: `translateX(-${state.getThumbPercent(0) * 100}%) translateY(-50%)`,
-                  }}
                   className={styles.thumb}
                 />
               </>
