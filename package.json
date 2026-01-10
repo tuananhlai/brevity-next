@@ -15,7 +15,7 @@
     "ci:test": "jest --ci --json --coverage --testLocationInResults --outputFile=report.json",
     "chromatic": "npx chromatic --exit-zero-on-changes --only-changed",
     "ci:generate-coverage-badges": "jest-coverage-badges output badges",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,scss}'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx}'",
     "i18n:extract": "lingui extract",
     "i18n:compile": "lingui compile",
@@ -71,6 +71,7 @@
     "mockdate": "^3.0.5",
     "plop": "^4.0.1",
     "prettier": "^3.5.3",
+    "prettier-plugin-css-order": "^2.2.0",
     "sass": "^1.85.1",
     "storybook": "^10.1.0",
     "typescript": "^5.8.2"

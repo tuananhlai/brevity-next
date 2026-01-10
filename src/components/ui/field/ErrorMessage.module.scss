@@ -2,9 +2,9 @@
 
 .root {
   display: block;
+  color: var(--bw-color-text-error-primary);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  color: var(--bw-color-text-error-primary);
 
   &:where([data-disabled]) {
     opacity: 50%;

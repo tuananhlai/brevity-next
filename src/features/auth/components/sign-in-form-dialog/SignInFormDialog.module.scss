@@ -7,11 +7,11 @@
 }
 
 .dialogBody {
-  margin-top: var(--bw-space-4);
-  padding-bottom: var(--bw-space-2);
   display: flex;
   flex-direction: column;
   gap: var(--bw-space-5);
+  margin-top: var(--bw-space-4);
+  padding-bottom: var(--bw-space-2);
 }
 
 .thirdPartyAuthButton {
@@ -19,9 +19,9 @@
 }
 
 .forgotPassword {
+  color: inherit;
   font-weight: var(--bw-weight-medium);
   text-decoration: none;
-  color: inherit;
 
   &:hover {
     text-decoration: underline;
@@ -30,16 +30,16 @@
 
 .textButton {
   position: relative;
-  background-color: transparent;
-  color: var(--bw-color-text-primary);
   border: none;
+  background-color: transparent;
   padding: 0;
+  color: var(--bw-color-text-primary);
   font-weight: var(--bw-weight-medium);
   font-size: var(--bw-font-base);
 
   &[data-hovered] {
-    cursor: pointer;
     opacity: 0.8;
+    cursor: pointer;
   }
 
   @include screen-sm {

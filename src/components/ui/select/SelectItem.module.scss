@@ -1,15 +1,15 @@
 @use "src/styles/utils" as *;
 
 .root {
-  font-size: var(--bw-font-base);
-  line-height: var(--bw-line-6);
+  display: block;
   outline: none;
   border-radius: var(--bw-radius-lg);
   padding: var(--bw-space-2-5) var(--bw-space-3-5) var(--bw-space-2-5)
     var(--bw-space-2);
-  display: block;
-  text-decoration: none;
   color: inherit;
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
+  text-decoration: none;
 
   &:where([data-focused]) {
     background-color: var(--bw-color-utility-blue-500);
@@ -25,8 +25,8 @@
   }
 
   @include screen-sm {
-    font-size: var(--bw-font-sm);
     padding: var(--bw-space-1-5) var(--bw-space-3) var(--bw-space-1-5)
       var(--bw-space-1-5);
+    font-size: var(--bw-font-sm);
   }
 }

@@ -9,11 +9,11 @@
 }
 
 .track {
-  flex-grow: 1;
   position: relative;
-  height: var(--bw-space-2);
-  background-color: var(--bw-color-utility-zinc-200);
+  flex-grow: 1;
   border-radius: var(--bw-radius-full);
+  background-color: var(--bw-color-utility-zinc-200);
+  height: var(--bw-space-2);
 
   &:where([data-hovered]) {
     cursor: pointer;
@@ -26,20 +26,20 @@
 
 .trackFilled {
   position: absolute;
-  height: 100%;
   top: 0;
-  background-color: var(--bw-color-bg-brand-solid);
   border-radius: var(--bw-radius-full);
+  background-color: var(--bw-color-bg-brand-solid);
+  height: 100%;
 }
 
 .thumb {
   top: 50%;
+  box-shadow: var(--bw-shadow-sm);
+  border: 2px solid var(--bw-color-bg-brand-solid);
+  border-radius: var(--bw-radius-xl);
+  background-color: var(--bw-color-utility-white);
   aspect-ratio: 1 / 1;
   width: var(--bw-space-6);
-  border-radius: var(--bw-radius-xl);
-  border: 2px solid var(--bw-color-bg-brand-solid);
-  background-color: var(--bw-color-utility-white);
-  box-shadow: var(--bw-shadow-sm);
 
   &:where([data-hovered]) {
     cursor: pointer;

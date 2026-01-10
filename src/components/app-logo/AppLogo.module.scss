@@ -1,10 +1,10 @@
 @use "src/styles/utils" as *;
 
 .root {
-  font-size: var(--bw-font-xl);
+  padding-left: var(--bw-space-2);
   font-weight: var(--bw-weight-semibold);
+  font-size: var(--bw-font-xl);
   letter-spacing: -0.025em;
   text-decoration: none;
   text-underline-offset: 0.125rem;
-  padding-left: var(--bw-space-2);
 }

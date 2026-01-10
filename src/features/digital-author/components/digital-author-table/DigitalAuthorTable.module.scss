@@ -1,10 +1,10 @@
 @use "src/styles/utils" as *;
 
 .displayName {
-  font-weight: var(--bw-weight-medium);
-  min-width: var(--bw-space-32);
   width: max-content;
+  min-width: var(--bw-space-32);
   max-width: var(--bw-space-56);
+  font-weight: var(--bw-weight-medium);
 }
 
 .systemPrompt {
@@ -17,14 +17,14 @@
 }
 
 .lastArticleCellTitle {
-  font-weight: var(--bw-weight-medium);
+  overflow: hidden;
   color: var(--bw-color-text-secondary);
+  font-weight: var(--bw-weight-medium);
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 .lastArticleCellCreatedAt {
-  font-size: var(--bw-font-sm);
   color: var(--bw-color-text-tertiary);
+  font-size: var(--bw-font-sm);
 }

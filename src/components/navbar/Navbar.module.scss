@@ -2,10 +2,10 @@
 
 .root {
   --navbar-gap: var(--bw-space-4);
-  width: 100%;
   display: flex;
   align-items: center;
   gap: var(--navbar-gap);
+  width: 100%;
 }
 
 .spacer {
@@ -15,19 +15,19 @@
 .item {
   display: flex;
   position: relative;
-  min-width: 0;
   align-items: center;
   gap: var(--bw-space-2);
+  border: none;
   border-radius: var(--bw-radius-lg);
+  background-color: transparent;
   padding: var(--bw-space-2);
-  text-align: left;
+  min-width: 0;
+  color: var(--bw-color-utility-zinc-950);
+  font-weight: var(--bw-weight-medium);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  font-weight: var(--bw-weight-medium);
-  color: var(--bw-color-utility-zinc-950);
+  text-align: left;
   text-decoration: none;
-  background-color: transparent;
-  border: none;
   --navbar-item-hover-bg-color: #{alpha(var(--bw-color-utility-zinc-950), 5)};
 
   @include screen-sm {

@@ -7,14 +7,14 @@
 }
 
 .initialsIcon {
-  width: var(--avatar-width);
-  aspect-ratio: 1 / 1;
   fill: currentColor;
-  padding: 5%;
-  font-size: 48px;
-  font-weight: var(--bw-weight-medium);
-  text-transform: uppercase;
   border-radius: 50%;
+  padding: 5%;
+  aspect-ratio: 1 / 1;
+  width: var(--avatar-width);
+  font-weight: var(--bw-weight-medium);
+  font-size: 48px;
+  text-transform: uppercase;
 
   &:where([data-color="blue"]) {
     background-color: var(--bw-color-utility-blue-500);
@@ -33,19 +33,19 @@
 }
 
 .img {
-  width: var(--avatar-width);
-  aspect-ratio: 1 / 1;
   border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: var(--avatar-width);
 }
 
 .avatarBtn {
   display: grid;
   place-items: center;
-  background-color: transparent;
+  outline-offset: 2px;
   border: none;
   border-radius: 50%;
+  background-color: transparent;
   padding: 0;
-  outline-offset: 2px;
   @include outline-primary;
 
   &:where([data-hovered]) {

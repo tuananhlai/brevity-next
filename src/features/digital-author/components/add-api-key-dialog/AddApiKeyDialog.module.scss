@@ -1,9 +1,9 @@
 @use "src/styles/utils" as *;
 
 .link {
+  color: var(--bw-color-text-primary);
   font-weight: var(--bw-weight-semibold);
   text-decoration: none;
-  color: var(--bw-color-text-primary);
 
   &:hover {
     text-decoration: underline;

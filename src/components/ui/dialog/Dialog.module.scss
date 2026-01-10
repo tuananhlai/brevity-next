@@ -1,15 +1,15 @@
 @use "src/styles/utils" as *;
 
 .root {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: var(--visual-viewport-height);
   display: grid;
+  position: fixed;
   grid-template-rows: 1fr auto;
-  overflow-y: auto;
+  inset: 0;
   background-color: alpha(var(--bw-color-utility-zinc-950), 25);
   padding-top: var(--bw-space-12);
+  width: 100vw;
+  height: var(--visual-viewport-height);
+  overflow-y: auto;
 
   &:where([data-entering]) {
     animation: fade 0.1s var(--bw-timing-easeout);
@@ -20,8 +20,8 @@
   }
 
   @include screen-sm {
-    padding: var(--bw-space-8) var(--bw-space-6);
     grid-template-rows: 1fr auto 3fr;
+    padding: var(--bw-space-8) var(--bw-space-6);
   }
 
   @include screen-lg {
@@ -53,17 +53,17 @@
   @include screen-sm {
     --enter-animation: zoom 0.1s var(--bw-timing-easeout);
     --exit-animation: none;
-    max-width: var(--modal-sm-max-width);
     margin-bottom: auto;
+    max-width: var(--modal-sm-max-width);
   }
 }
 
 .dialog {
   outline: none;
-  background-color: var(--bw-color-utility-white);
   box-shadow: var(--bw-shadow-lg);
-  border-top-left-radius: var(--bw-radius-3xl);
   border-top-right-radius: var(--bw-radius-3xl);
+  border-top-left-radius: var(--bw-radius-3xl);
+  background-color: var(--bw-color-utility-white);
   padding: var(--bw-space-8);
 
   @include screen-sm {
@@ -71,17 +71,17 @@
   }
 
   @include dark-mode {
-    background-color: var(--bw-color-utility-zinc-900);
     border: 1px solid alpha(var(--bw-color-utility-white), 10);
+    background-color: var(--bw-color-utility-zinc-900);
   }
 }
 
 .dialogTitle {
-  text-wrap: balance;
+  color: var(--bw-color-utility-zinc-950);
+  font-weight: var(--bw-weight-semibold);
   font-size: var(--bw-font-lg);
   line-height: var(--bw-line-6);
-  font-weight: var(--bw-weight-semibold);
-  color: var(--bw-color-utility-zinc-950);
+  text-wrap: balance;
 
   @include screen-sm {
     font-size: var(--bw-font-base);
@@ -97,11 +97,11 @@
 }
 
 .dialogActions {
-  margin-top: var(--bw-space-8);
   display: flex;
   flex-direction: column-reverse;
-  gap: var(--bw-space-3);
   align-items: center;
+  gap: var(--bw-space-3);
+  margin-top: var(--bw-space-8);
   --children-width: 100%;
 
   & > * {

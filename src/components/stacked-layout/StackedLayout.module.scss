@@ -9,19 +9,19 @@
 }
 
 .header {
-  padding: var(--bw-space-2) 0;
-  border-bottom: 1px solid var(--header-border-bottom-color);
   position: sticky;
   top: 0;
-  backdrop-filter: var(--bw-blur-xl);
-  background-color: alpha(var(--bw-color-utility-white), 50);
   z-index: 1;
+  backdrop-filter: var(--bw-blur-xl);
   transition:
     background-color 0.1s ease,
     border 0.1s ease;
+  border-bottom: 1px solid var(--header-border-bottom-color);
+  background-color: alpha(var(--bw-color-utility-white), 50);
+  padding: var(--bw-space-2) 0;
 
   @include dark-mode {
-    background-color: var(--bw-color-utility-zinc-900);
     backdrop-filter: none;
+    background-color: var(--bw-color-utility-zinc-900);
   }
 }

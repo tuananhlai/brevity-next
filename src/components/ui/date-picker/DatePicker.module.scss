@@ -2,23 +2,23 @@
 
 .group {
   display: flex;
-  gap: var(--bw-space-1);
   justify-content: space-between;
-
-  width: 100%;
-  font-size: var(--bw-font-base);
-  line-height: var(--bw-line-6);
-  color: var(--bw-color-text-primary);
+  gap: var(--bw-space-1);
   appearance: none;
   border-radius: var(--bw-radius-lg);
   padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
+
+  width: 100%;
+  color: var(--bw-color-text-primary);
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
   --border-color: #{alpha(var(--bw-color-utility-zinc-950), 10)};
   --border-hover-color: #{alpha(var(--bw-color-utility-zinc-950), 20)};
   --outline: none;
   --outline-offset: 0;
+  box-shadow: var(--bw-shadow-xs);
   border: 1px solid var(--border-color);
   background-color: transparent;
-  box-shadow: var(--bw-shadow-xs);
 
   &:where([data-hovered]) {
     border-color: var(--border-hover-color);
@@ -72,8 +72,8 @@
 
 .dateInput {
   display: flex;
-  gap: var(--bw-space-0-5);
   align-items: center;
+  gap: var(--bw-space-0-5);
 }
 
 .segment {
@@ -97,8 +97,8 @@
 }
 
 .popover {
-  overflow-y: auto;
   padding: var(--bw-space-5) var(--bw-space-6);
+  overflow-y: auto;
 }
 
 .errorMessage {

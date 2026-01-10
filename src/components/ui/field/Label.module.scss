@@ -2,11 +2,11 @@
 
 .root {
   display: block;
-  user-select: none;
-  font-size: var(--bw-font-base);
-  line-height: var(--bw-line-6);
   color: var(--bw-color-text-primary);
   font-weight: var(--bw-weight-medium);
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
+  user-select: none;
 
   &:where([data-disabled]) {
     opacity: 50%;

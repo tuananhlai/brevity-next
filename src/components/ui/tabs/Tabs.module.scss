@@ -10,8 +10,8 @@
 }
 
 .tabList {
-  flex-shrink: 0;
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
   gap: var(--bw-space-1);
   // TODO: provide better overflow handling mechanism.
@@ -24,10 +24,10 @@
 
 .tab {
   @include text-md;
-  font-weight: var(--bw-weight-semibold);
-  color: var(--bw-color-text-quaternary);
   border-radius: var(--bw-radius-md);
   padding: var(--bw-space-2-5) var(--bw-space-4);
+  color: var(--bw-color-text-quaternary);
+  font-weight: var(--bw-weight-semibold);
   white-space: nowrap;
 
   &:where([data-hovered]) {

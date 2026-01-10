@@ -6,20 +6,20 @@
 }
 
 .input {
-  width: 100%;
-  font-size: var(--bw-font-base);
-  line-height: var(--bw-line-6);
-  color: var(--bw-color-text-primary);
   appearance: none;
   border-radius: var(--bw-radius-lg);
   padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
+  width: 100%;
+  color: var(--bw-color-text-primary);
+  font-size: var(--bw-font-base);
+  line-height: var(--bw-line-6);
   --border-color: #{alpha(var(--bw-color-utility-zinc-950), 10)};
   --border-hover-color: #{alpha(var(--bw-color-utility-zinc-950), 20)};
   --outline: none;
   --outline-offset: 0;
+  box-shadow: var(--bw-shadow-xs);
   border: 1px solid var(--border-color);
   background-color: transparent;
-  box-shadow: var(--bw-shadow-xs);
 
   &::placeholder {
     color: var(--bw-color-text-placeholder);

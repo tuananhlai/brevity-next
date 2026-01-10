@@ -2,24 +2,24 @@
 
 @keyframes open {
   from {
-    opacity: 0;
-    scale: 0.95;
     translate: var(--anim-from-translate);
+    scale: 0.95;
+    opacity: 0;
   }
   to {
-    opacity: 1;
-    scale: 1;
     translate: 0;
+    scale: 1;
+    opacity: 1;
   }
 }
 
 .root {
-  border-radius: var(--bw-radius-xl);
   backdrop-filter: var(--bw-blur-xl);
-  background-color: alpha(var(--bw-color-utility-white), 75);
   box-shadow:
     0 0 0 1px alpha(var(--bw-color-utility-zinc-950), 10),
     var(--bw-shadow-lg);
+  border-radius: var(--bw-radius-xl);
+  background-color: alpha(var(--bw-color-utility-white), 75);
 
   &[data-placement="bottom"] {
     --anim-from-translate: 0 -0.5rem;
@@ -46,9 +46,9 @@
   }
 
   @include dark-mode {
-    background-color: alpha(var(--bw-color-utility-zinc-800), 75);
     box-shadow:
       inset 0 0 0 1px alpha(var(--bw-color-utility-white), 10),
       var(--bw-shadow-lg);
+    background-color: alpha(var(--bw-color-utility-zinc-800), 75);
   }
 }

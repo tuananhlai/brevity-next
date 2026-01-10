@@ -5,23 +5,23 @@
 }
 
 .menu {
-  padding: var(--bw-space-1);
   outline: none;
+  padding: var(--bw-space-1);
   min-width: var(--bw-space-32);
   max-width: var(--bw-space-56);
 }
 
 .menuItem {
+  display: block;
+  outline: none;
   border-radius: var(--bw-radius-lg);
   padding: var(--bw-space-2-5) var(--bw-space-3-5);
-  outline: none;
-  text-align: left;
+  width: 100%;
+  color: var(--bw-color-utility-zinc-950);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  color: var(--bw-color-utility-zinc-950);
+  text-align: left;
   text-decoration: none;
-  width: 100%;
-  display: block;
 
   &:where([data-focused]) {
     background-color: var(--bw-color-utility-blue-500);

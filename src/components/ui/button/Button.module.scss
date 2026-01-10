@@ -1,19 +1,19 @@
 @use "src/styles/utils.scss" as *;
 
 .root {
-  position: relative;
-  isolation: isolate;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
   column-gap: var(--bw-space-2);
-  border-radius: var(--bw-radius-lg);
+  justify-content: center;
+  align-items: center;
   border-width: 1px;
   border-style: solid;
+  border-radius: var(--bw-radius-lg);
+  isolation: isolate;
+  padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
+  font-weight: var(--bw-weight-semibold);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
-  font-weight: var(--bw-weight-semibold);
-  padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
   text-decoration: none;
 
   &:where([data-focused]) {
@@ -130,23 +130,23 @@
   }
 
   &::before {
-    background-color: var(--bw-primary-button-before-background-color);
-    content: "";
     display: var(--btn-before-display);
     position: absolute;
-    inset: 0;
     z-index: -10;
-    border-radius: calc(var(--bw-radius-lg) - 1px);
+    inset: 0;
     box-shadow: var(--btn-before-box-shadow);
+    border-radius: calc(var(--bw-radius-lg) - 1px);
+    background-color: var(--bw-primary-button-before-background-color);
+    content: "";
   }
 
   &::after {
-    content: "";
     position: absolute;
-    inset: var(--btn-after-inset);
     z-index: -10;
-    border-radius: var(--btn-after-border-radius);
+    inset: var(--btn-after-inset);
     box-shadow: var(--btn-after-box-shadow);
+    border-radius: var(--btn-after-border-radius);
+    content: "";
   }
 
   &:where([data-hovered], [data-pressed])::after {
@@ -160,9 +160,9 @@
 }
 
 .secondary {
-  color: var(--bw-secondary-button-color);
   border-color: var(--bw-secondary-button-border-color);
   background-color: transparent;
+  color: var(--bw-secondary-button-color);
 
   &:where([data-hovered], [data-pressed]) {
     background-color: var(--bw-secondary-button-hovered-background-color);
@@ -171,8 +171,8 @@
 
 .tertiary {
   border-color: transparent;
-  color: var(--bw-tertiary-button-color);
   background-color: transparent;
+  color: var(--bw-tertiary-button-color);
 
   &:where([data-hovered], [data-pressed]) {
     background-color: var(--bw-tertiary-button-hovered-background-color);
@@ -193,11 +193,11 @@
 }
 
 .progressBar {
-  position: absolute;
-  inset: 0;
   display: flex;
-  align-items: center;
+  position: absolute;
   justify-content: center;
+  align-items: center;
+  inset: 0;
   font-size: var(--bw-font-xl);
 }
 
@@ -215,8 +215,8 @@
 }
 
 .iconButton {
-  aspect-ratio: 1 / 1;
   padding: calc(var(--bw-space-2-5) - 1px);
+  aspect-ratio: 1 / 1;
   font-size: var(--bw-font-2xl);
 
   @include screen-sm {

@@ -1,8 +1,8 @@
 @use "src/styles/utils" as *;
 
 .submitButtonContainer {
-  margin-top: var(--bw-space-8);
   display: flex;
+  margin-top: var(--bw-space-8);
 
   @include screen-sm {
     justify-content: flex-end;

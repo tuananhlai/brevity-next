@@ -24,9 +24,9 @@
 }
 
 .headerCell {
-  width: var(--bw-space-10);
-  aspect-ratio: 1 / 1;
   border-radius: var(--bw-radius-full);
+  aspect-ratio: 1 / 1;
+  width: var(--bw-space-10);
   color: var(--bw-color-text-secondary);
   font-weight: var(--bw-weight-medium);
   font-size: var(--bw-font-sm);
@@ -37,33 +37,33 @@
   --indicator-default-bg-color: var(--bw-color-utility-brand-900);
   --indicator-selected-bg-color: var(--bw-color-utility-white);
   --indicator-bg-color: var(--indicator-default-bg-color);
+  display: grid;
 
   position: relative;
-  width: var(--bw-space-10);
-  aspect-ratio: 1 / 1;
-  display: grid;
-  place-items: center;
-  border-radius: var(--bw-radius-full);
   position: relative;
-  background-color: transparent;
-  color: var(--bw-color-text-primary);
-  font-size: var(--bw-font-sm);
+  place-items: center;
   transition:
     background-color 0.1s ease-in-out,
     color 0.1s ease-in-out;
+  border-radius: var(--bw-radius-full);
+  background-color: transparent;
+  aspect-ratio: 1 / 1;
+  width: var(--bw-space-10);
+  color: var(--bw-color-text-primary);
+  font-size: var(--bw-font-sm);
   user-select: none;
 
   // Add a dot to today's calendar cell.
   &:where([data-today])::before {
-    content: "";
     position: absolute;
     bottom: var(--bw-space-1);
     left: 50%;
     transform: translateX(-50%);
-    width: 5px;
-    height: 5px;
     border-radius: var(--bw-radius-full);
     background-color: var(--indicator-bg-color);
+    width: 5px;
+    height: 5px;
+    content: "";
   }
 
   &:where([data-disabled], [data-unavailable]) {
@@ -75,8 +75,8 @@
     --indicator-bg-color: var(--indicator-selected-bg-color);
 
     background-color: var(--bw-color-bg-brand-solid);
-    font-weight: var(--bw-weight-medium);
     color: var(--bw-color-text-primary_on-brand);
+    font-weight: var(--bw-weight-medium);
   }
 
   &:where([data-invalid]) {

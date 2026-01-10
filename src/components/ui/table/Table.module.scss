@@ -3,10 +3,10 @@
 .table {
   min-width: 100%;
   table-layout: auto;
-  text-align: left;
+  color: var(--bw-color-utility-zinc-950);
   font-size: var(--bw-font-sm);
   line-height: var(--bw-line-6);
-  color: var(--bw-color-utility-zinc-950);
+  text-align: left;
 
   @include dark-mode {
     color: var(--bw-color-utility-white);
@@ -14,10 +14,10 @@
 }
 
 .column {
-  color: var(--bw-color-utility-zinc-500);
-  font-weight: var(--bw-weight-medium);
   border-bottom: 1px solid alpha(var(--bw-color-utility-zinc-950), 10);
   padding: var(--bw-space-2) var(--bw-space-4);
+  color: var(--bw-color-utility-zinc-500);
+  font-weight: var(--bw-weight-medium);
 
   &:where(:first-child) {
     padding-left: var(--bw-space-1);
@@ -38,8 +38,8 @@
   }
 
   @include dark-mode {
-    color: var(--bw-color-utility-zinc-400);
     border-bottom: 1px solid alpha(var(--bw-color-utility-white), 10);
+    color: var(--bw-color-utility-zinc-400);
   }
 }
 
