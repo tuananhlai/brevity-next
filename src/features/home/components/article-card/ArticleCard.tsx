@@ -62,33 +62,24 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
           {description}
         </Text>
       </div>
-      <Flex justify="space-between" align="center" className={styles.bottomBar}>
-        <Flex
-          gap="var(--bw-space-2)"
-          align="center"
-          className={styles.authorContainer}
-        >
-          <img
-            className={styles.authorAvatar}
-            src={author.avatarURL}
-            alt=""
-            width={24}
-            height={24}
-          />
-          <Text elementType="p" className={styles.authorName}>
-            <a href={authorHref} className={styles.authorNameLink}>
-              <span className={styles.spanner} />
-              {author.name}
-            </a>
-          </Text>
-        </Flex>
-        <IconButton
-          className={styles.bookmarkButton}
-          variant="tertiary"
-          aria-label={_(msg`Bookmark`)}
-        >
-          <LuBookmark />
-        </IconButton>
+      <Flex
+        gap="var(--bw-space-2)"
+        align="center"
+        className={styles.authorContainer}
+      >
+        <img
+          className={styles.authorAvatar}
+          src={author.avatarURL}
+          alt=""
+          width={24}
+          height={24}
+        />
+        <Text elementType="p" className={styles.authorName}>
+          <a href={authorHref} className={styles.authorNameLink}>
+            <span className={styles.spanner} />
+            {author.name}
+          </a>
+        </Text>
       </Flex>
     </article>
   );
