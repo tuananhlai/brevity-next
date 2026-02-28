@@ -1,10 +1,7 @@
-import { withThemeByDataAttribute } from "@storybook/addon-themes";
-import type { Preview } from "@storybook/nextjs";
-import React from "react";
-import "@/styles/globals.scss";
-import "@/styles/tokens.scss";
+import type { Preview } from "@storybook/react-vite";
 import { AppProviders } from "../src/components/AppProviders";
-import "./storybook.css";
+import "../src/styles/globals.scss";
+import "../src/styles/tokens.scss";
 
 const preview: Preview = {
   parameters: {
@@ -14,23 +11,13 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    // Disable Chromatic snapshotting behavior by default
-    // to save on Chromatic credits. It should be enabled
-    // manually for stories that need it.
-    chromatic: {
-      disableSnapshot: true,
-    },
   },
   decorators: [
-    withThemeByDataAttribute({
-      themes: {
-        light: "light",
-        dark: "dark",
-      },
-      defaultTheme: "light",
-      attributeName: "data-mode",
-    }),
-    (storyFn) => <AppProviders>{storyFn()}</AppProviders>,
+    (Story) => (
+      <AppProviders>
+        <Story />
+      </AppProviders>
+    ),
   ],
 };
 

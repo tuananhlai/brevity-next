@@ -1,6 +1,6 @@
-import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Button } from "react-aria-components";
+import { expect, it, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 import { DialogTrigger } from "@/components/ui/dialog";
 import { apiClient } from "@/lib/apiClient";
 import { renderWithProviders } from "@/utils/testutils";
@@ -10,7 +10,7 @@ it("should submit and close the dialog", async () => {
   const name = "api-name";
   const value = "1234567890abcdef";
 
-  const createAPIKey = jest.spyOn(apiClient, "createAPIKey").mockResolvedValue({
+  const createAPIKey = vi.spyOn(apiClient, "createAPIKey").mockResolvedValue({
     id: "test-id",
     name,
     valueFirstTen: value.slice(0, 10),
@@ -18,9 +18,9 @@ it("should submit and close the dialog", async () => {
     createdAt: new Date().toISOString(),
   });
 
-  const onSubmitted = jest.fn();
+  const onSubmitted = vi.fn();
 
-  renderWithProviders(
+  const screen = await renderWithProviders(
     <DialogTrigger defaultOpen>
       <Button>Open</Button>
       <AddApiKeyDialog onSubmitted={onSubmitted} />

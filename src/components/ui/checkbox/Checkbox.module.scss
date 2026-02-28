@@ -1,7 +1,8 @@
-@use "src/styles/utils" as *;
+@use "@/styles/utils.scss" as *;
 
 .root {
   display: flex;
+  position: relative;
   align-items: center;
   gap: var(--bw-space-4);
 

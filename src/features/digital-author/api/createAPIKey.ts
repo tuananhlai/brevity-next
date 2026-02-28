@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { apiClient } from "@/lib/apiClient";
-import { CreateAPIKeyRequest } from "@/lib/client";
+import { type CreateAPIKeyRequest } from "@/lib/client";
 
 export const useCreateAPIKey = () => {
   return useMutation({

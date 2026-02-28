@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormSelect } from "@/components/rhf/FormSelect";
 import { FormSlider } from "@/components/rhf/FormSlider";

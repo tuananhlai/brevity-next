@@ -1,5 +1,5 @@
-import { HTMLAttributes } from "react";
-import { Link, LinkProps } from "react-aria-components";
+import { type HTMLAttributes } from "react";
+import { Link, type LinkProps } from "react-aria-components";
 import { TouchTarget } from "@/components/ui/touch-target";
 import { cn } from "@/styles/utils";
 import styles from "./Navbar.module.scss";

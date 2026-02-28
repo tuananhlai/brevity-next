@@ -1,20 +1,21 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import {
   Select as AriaSelect,
-  SelectProps as AriaSelectProps,
+  type SelectProps as AriaSelectProps,
   Button,
   ListBox,
-  ListBoxProps,
+  type ListBoxProps,
   SelectValue,
 } from "react-aria-components";
+import { Description, ErrorMessage, Label } from "@/components/ui/field";
+import { Popover } from "@/components/ui/popover";
 import { cn } from "@/styles/utils";
-import { FieldsetProps } from "@/utils/misc";
-import { Description, ErrorMessage, Label } from "../field";
-import { Popover } from "../popover";
+import type { FieldsetProps } from "@/utils/misc";
 import styles from "./Select.module.scss";
 
 export interface SelectProps<T extends object>
-  extends Omit<AriaSelectProps<T>, "children" | "className" | "style">,
+  extends
+    Omit<AriaSelectProps<T>, "children" | "className" | "style">,
     FieldsetProps {
   className?: string;
   style?: React.CSSProperties;
@@ -87,6 +88,6 @@ const Select = <T extends object>(
 // auto-completion.
 const _Select = /*#__PURE__*/ forwardRef(Select) as <T extends object>(
   props: SelectProps<T> & React.RefAttributes<HTMLButtonElement>,
-) => JSX.Element;
+) => React.JSX.Element;
 
 export { _Select as Select };

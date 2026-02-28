@@ -1,15 +1,15 @@
-import ky, { KyInstance } from "ky";
+import ky, { type KyInstance } from "ky";
 import {
-  CreateAPIKeyRequest,
-  CreateAPIKeyResponse,
-  GetAPIKeysResponse,
-  GetArticleDetailsRequest,
-  GetArticleDetailsResponse,
-  GetArticlePreviewsResponse,
-  GetCurrentUserResponse,
-  SignInRequest,
-  SignInResponse,
-  SignUpRequest,
+  type CreateAPIKeyRequest,
+  type CreateAPIKeyResponse,
+  type GetAPIKeysResponse,
+  type GetArticleDetailsRequest,
+  type GetArticleDetailsResponse,
+  type GetArticlePreviewsResponse,
+  type GetCurrentUserResponse,
+  type SignInRequest,
+  type SignInResponse,
+  type SignUpRequest,
 } from "@/lib/client/types";
 
 export class APIClient {

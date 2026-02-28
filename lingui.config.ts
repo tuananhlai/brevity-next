@@ -10,6 +10,9 @@ const config = {
     },
   ],
   format: "po",
+  // Compile .po files to .ts files so that it integrates a bit better
+  // with the rest of the application.
+  compileNamespace: "ts",
 };
 
 export default config;

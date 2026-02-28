@@ -1,5 +1,7 @@
-export { Drawer, DrawerTitle } from "./Drawer";
-export type { DrawerPosition, DrawerProps, DrawerSize } from "./Drawer";
+import type { ComponentProps } from "react";
+import { DialogTrigger } from "react-aria-components";
+import { Drawer, DrawerTitle } from "./Drawer";
 
-export { DialogTrigger as DrawerTrigger } from "react-aria-components";
-export type { DialogTriggerProps as DrawerTriggerProps } from "react-aria-components";
+export { Drawer, DrawerTitle, DialogTrigger as DrawerTrigger };
+export type { DrawerPosition, DrawerProps, DrawerSize } from "./Drawer";
+export type DrawerTriggerProps = ComponentProps<typeof DialogTrigger>;

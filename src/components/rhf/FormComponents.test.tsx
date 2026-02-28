@@ -1,14 +1,15 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { FormProvider, useForm } from "react-hook-form";
+import { expect, it, vi } from "vitest";
+import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
 import { FormSelect } from "@/components/rhf/FormSelect";
 import { FormSlider } from "@/components/rhf/FormSlider";
 import { FormTextArea } from "@/components/rhf/FormTextArea";
 import { FormTextField } from "@/components/rhf/FormTextField";
 import { SelectItem } from "@/components/ui/select";
 
-it("should accept default value", () => {
-  render(
+it("should accept default value", async () => {
+  const screen = await render(
     <TestForm
       defaultValues={{
         testTextField: "test",
@@ -19,9 +20,9 @@ it("should accept default value", () => {
     />,
   );
 
-  expect(getTextField()).toHaveValue("test");
-  expect(getSlider()).toHaveValue("10");
-  expect(getTextArea()).toHaveValue("test text area");
+  expect(getTextField(screen)).toHaveValue("test");
+  expect(getSlider(screen)).toHaveValue("10");
+  expect(getTextArea(screen)).toHaveValue("test text area");
 });
 
 it("should call onSubmit when form is submitted", async () => {
@@ -31,17 +32,19 @@ it("should call onSubmit when form is submitted", async () => {
     testTextArea: "test text area",
     testSelect: "1",
   };
-  const onSubmit = jest.fn();
-  render(<TestForm defaultValues={formValues} onSubmit={onSubmit} />);
+  const onSubmit = vi.fn();
+  const screen = await render(
+    <TestForm defaultValues={formValues} onSubmit={onSubmit} />,
+  );
 
-  await submitForm();
+  await submitForm(screen);
 
   expect(onSubmit.mock.calls[0][0]).toEqual(formValues);
 });
 
 it("should update field value", async () => {
-  const onSubmit = jest.fn();
-  render(
+  const onSubmit = vi.fn();
+  const screen = await render(
     <TestForm
       defaultValues={{
         testTextField: "test",
@@ -53,11 +56,15 @@ it("should update field value", async () => {
     />,
   );
 
-  await userEvent.type(getTextField(), "test2");
-  fireEvent.change(getSlider(), { target: { value: 20 } });
-  await userEvent.type(getTextArea(), "test2");
+  await userEvent.type(getTextField(screen), "test2");
 
-  await submitForm();
+  const slider = getSlider(screen);
+  (slider.element() as HTMLInputElement).value = "20";
+  slider.element().dispatchEvent(new Event("change", { bubbles: true }));
+
+  await userEvent.type(getTextArea(screen), "test2");
+
+  await submitForm(screen);
 
   expect(onSubmit.mock.calls[0][0]).toEqual({
     testTextField: "testtest2",
@@ -79,14 +86,15 @@ interface TestFormProps {
   onSubmit?: (data: TestFormValues) => void;
 }
 
-const submitForm = () =>
+const submitForm = (screen: Awaited<ReturnType<typeof render>>) =>
   userEvent.click(screen.getByRole("button", { name: "Submit" }));
 
-const getTextArea = () =>
+const getTextArea = (screen: Awaited<ReturnType<typeof render>>) =>
   screen.getByRole("textbox", { name: "Test Text Area" });
-const getTextField = () =>
+const getTextField = (screen: Awaited<ReturnType<typeof render>>) =>
   screen.getByRole("textbox", { name: "Test Text Field" });
-const getSlider = () => screen.getByRole("slider", { name: "Test Slider" });
+const getSlider = (screen: Awaited<ReturnType<typeof render>>) =>
+  screen.getByRole("slider", { name: "Test Slider" });
 
 const TestForm: React.FC<TestFormProps> = (props) => {
   const { defaultValues, onSubmit = () => {} } = props;

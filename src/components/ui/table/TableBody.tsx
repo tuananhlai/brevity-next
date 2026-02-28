@@ -1,10 +1,12 @@
 import {
   TableBody as AriaTableBody,
-  TableBodyProps as AriaTableBodyProps,
+  type TableBodyProps as AriaTableBodyProps,
 } from "react-aria-components";
 
-export interface TableBodyProps<T>
-  extends Omit<AriaTableBodyProps<T>, "className" | "style"> {
+export interface TableBodyProps<T> extends Omit<
+  AriaTableBodyProps<T>,
+  "className" | "style"
+> {
   className?: string;
   style?: React.CSSProperties;
 }

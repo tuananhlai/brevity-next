@@ -1,13 +1,15 @@
 import { mergeRefs } from "@react-aria/utils";
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { Controller } from "react-hook-form";
-import { OmitAriaFormProps, RHFFieldProps } from "@/components/rhf/utils";
-import { Select, SelectProps } from "@/components/ui/select";
+import {
+  type OmitAriaFormProps,
+  type RHFFieldProps,
+} from "@/components/rhf/utils";
+import { Select, type SelectProps } from "@/components/ui/select";
 
 export interface FormSelectProps<T extends object>
-  extends OmitAriaFormProps<SelectProps<T>>,
-    RHFFieldProps {}
+  extends OmitAriaFormProps<SelectProps<T>>, RHFFieldProps {}
 
 const FormSelect = <T extends object>(
   props: FormSelectProps<T>,
@@ -55,6 +57,6 @@ const FormSelect = <T extends object>(
 
 const _FormSelect = /*#__PURE__*/ forwardRef(FormSelect) as <T extends object>(
   props: FormSelectProps<T> & React.RefAttributes<HTMLButtonElement>,
-) => JSX.Element;
+) => React.JSX.Element;
 
 export { _FormSelect as FormSelect };

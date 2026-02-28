@@ -1,6 +1,7 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
-import { Button, TooltipTrigger } from "react-aria-components";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { TooltipTrigger } from "react-aria-components";
 import { LuPencil } from "react-icons/lu";
+import { Button } from "@/components/ui/button";
 import { Tooltip } from "./Tooltip";
 
 const meta: Meta<typeof Tooltip> = {

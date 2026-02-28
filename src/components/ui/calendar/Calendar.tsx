@@ -1,24 +1,25 @@
 import {
   Calendar as AriaCalendar,
   CalendarCell as AriaCalendarCell,
-  CalendarCellProps as AriaCalendarCellProps,
+  type CalendarCellProps as AriaCalendarCellProps,
   CalendarHeaderCell as AriaCalendarHeaderCell,
-  CalendarHeaderCellProps as AriaCalendarHeaderCellProps,
-  CalendarProps as AriaCalendarProps,
+  type CalendarHeaderCellProps as AriaCalendarHeaderCellProps,
+  type CalendarProps as AriaCalendarProps,
   CalendarGrid,
   CalendarGridBody,
   CalendarGridHeader,
-  DateValue,
+  type DateValue,
 } from "react-aria-components";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { IconButton } from "@/components/ui/button";
 import { Heading } from "@/components/ui/text";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import type { ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Calendar.module.scss";
 
-export interface CalendarProps<T extends DateValue>
-  extends ReplaceAriaRenderProps<AriaCalendarProps<T>> {}
+export interface CalendarProps<
+  T extends DateValue,
+> extends ReplaceAriaRenderProps<AriaCalendarProps<T>> {}
 
 export const Calendar = <T extends DateValue>(props: CalendarProps<T>) => {
   const { className, ...rest } = props;
@@ -53,8 +54,7 @@ export const Calendar = <T extends DateValue>(props: CalendarProps<T>) => {
   );
 };
 
-interface CalendarHeaderCellProps
-  extends ReplaceAriaRenderProps<AriaCalendarHeaderCellProps> {}
+interface CalendarHeaderCellProps extends ReplaceAriaRenderProps<AriaCalendarHeaderCellProps> {}
 
 const CalendarHeaderCell: React.FC<CalendarHeaderCellProps> = (props) => {
   const { className, ...rest } = props;
@@ -66,8 +66,7 @@ const CalendarHeaderCell: React.FC<CalendarHeaderCellProps> = (props) => {
   );
 };
 
-interface CalendarCellProps
-  extends ReplaceAriaRenderProps<AriaCalendarCellProps> {}
+interface CalendarCellProps extends ReplaceAriaRenderProps<AriaCalendarCellProps> {}
 
 const CalendarCell: React.FC<CalendarCellProps> = (props) => {
   const { className, ...rest } = props;

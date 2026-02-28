@@ -1,5 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
-import { Flex } from "@/components/ui/layout";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "../button";
 import { Menu, MenuItem, MenuTrigger } from "./Menu";
@@ -9,8 +8,10 @@ const meta: Meta<typeof Menu> = {
   title: "ui/Menu",
   argTypes: {},
   decorators: [
-    (story) => (
-      <div style={{ width: "1200px", height: "800px" }}>{story()}</div>
+    (Story) => (
+      <div style={{ width: "1200px", height: "800px" }}>
+        <Story />
+      </div>
     ),
   ],
 };
@@ -25,7 +26,7 @@ export const Default: Story = {
   render: () => (
     <MenuTrigger defaultOpen>
       <Button>Open Menu</Button>
-      <Menu>
+      <Menu items={[{ id: "one" }, { id: "two" }, { id: "three" }]}>
         <MenuItem href="https://google.com">Use this to go to Google</MenuItem>
         <MenuItem>Item 2</MenuItem>
         <MenuItem>Item 3</MenuItem>
@@ -57,7 +58,7 @@ export const VisualTest: Story = {
     <VisualTestGrid gap="48px">
       <MenuTrigger isOpen>
         <Button>Open Menu</Button>
-        <Menu>
+        <Menu items={[{ id: "one" }, { id: "two" }, { id: "three" }]}>
           <MenuItem>Item 1</MenuItem>
           <MenuItem>Item 2</MenuItem>
           <MenuItem>Item 3</MenuItem>
@@ -68,12 +69,18 @@ export const VisualTest: Story = {
         <Button variant="secondary">Open Menu</Button>
         <Menu>
           <MenuItem>
-            <Flex justify="space-between">
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+              }}
+            >
               <span style={{ fontWeight: "var(--bw-weight-medium)" }}>
                 Custom item
               </span>
               <span>❤️</span>
-            </Flex>
+            </div>
           </MenuItem>
           <MenuItem isDisabled>Disabled item</MenuItem>
           <MenuItem>
@@ -89,7 +96,7 @@ export const VisualTest: Story = {
         <Button variant="tertiary">Open Menu</Button>
         <Menu
           items={Array.from({ length: 100 }, (_, i) => ({
-            key: `item-${i}`,
+            id: `item-${i}`,
             label: `Item ${i}`,
           }))}
         >

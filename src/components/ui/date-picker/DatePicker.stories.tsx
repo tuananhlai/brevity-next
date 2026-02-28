@@ -1,8 +1,8 @@
-import { CalendarDate, DateValue } from "@internationalized/date";
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { CalendarDate, type DateValue } from "@internationalized/date";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-import { DatePicker, DatePickerProps } from "./DatePicker";
+import { DatePicker, type DatePickerProps } from "./DatePicker";
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,

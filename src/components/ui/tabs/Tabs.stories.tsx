@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Tab } from "./Tab";
 import { TabList } from "./TabList";
 import { TabPanel } from "./TabPanel";
-import { Tabs, TabsProps } from "./Tabs";
+import { Tabs, type TabsProps } from "./Tabs";
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,
@@ -24,7 +24,7 @@ export const Default: Story = {
   },
 };
 
-export const Vertial: Story = {
+export const Vertical: Story = {
   parameters: {
     layout: "centered",
   },

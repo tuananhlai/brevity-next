@@ -1,39 +1,46 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Select, SelectItem, SelectProps } from "@/components/ui/select";
+import { expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
+import { Select, SelectItem, type SelectProps } from "@/components/ui/select";
 
 it("should have the correct roles", async () => {
-  render(<ExampleSelect />);
+  const screen = await render(<ExampleSelect />);
 
-  await userEvent.click(screen.getByRole("button"));
+  await screen.getByRole("button").click();
 
   expect(screen.getByRole("listbox")).toBeInTheDocument();
-  expect(screen.getAllByRole("option")).toHaveLength(3);
+  expect(screen.getByRole("option", { name: "Option 1" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "Option 2" })).toBeInTheDocument();
+  expect(screen.getByRole("option", { name: "Option 3" })).toBeInTheDocument();
 });
 
-it("should be open by default when `defaultOpen` is true", () => {
-  render(<ExampleSelect defaultOpen />);
+it("should be open by default when `defaultOpen` is true", async () => {
+  const screen = await render(<ExampleSelect defaultOpen />);
 
   expect(screen.getByRole("listbox")).toBeInTheDocument();
 });
 
 it("should close the listbox when the user clicks outside", async () => {
-  render(<ExampleSelect defaultOpen />);
+  const screen = await render(<ExampleSelect defaultOpen />);
+
+  expect(screen.getByRole("listbox")).toBeInTheDocument();
 
   await userEvent.click(document.body);
 
-  expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
+  await expect.poll(() => screen.getByRole("listbox")).not.toBeInTheDocument();
 });
 
-it("should have label and description when provided", () => {
-  render(<ExampleSelect label="label" description="description" />);
+it("should have label and description when provided", async () => {
+  const screen = await render(
+    <ExampleSelect label="label" description="description" />,
+  );
 
   expect(screen.getByRole("button")).toHaveAccessibleName(/label/);
   expect(screen.getByRole("button")).toHaveAccessibleDescription(/description/);
 });
 
-it("should be associated with an error message when `isInvalid` is true", () => {
-  render(
+it("should be associated with an error message when `isInvalid` is true", async () => {
+  const screen = await render(
     <ExampleSelect isInvalid errorMessage="error" description="description" />,
   );
 
@@ -43,12 +50,14 @@ it("should be associated with an error message when `isInvalid` is true", () => 
 });
 
 it("should select an item when the user clicks on it", async () => {
-  render(<ExampleSelect />);
+  const screen = await render(<ExampleSelect />);
 
-  await userEvent.click(screen.getByRole("button"));
-  await userEvent.click(screen.getByRole("option", { name: "Option 1" }));
+  const selectButton = screen.getByRole("button", { name: "example" });
 
-  expect(screen.getByRole("button")).toHaveTextContent("Option 1");
+  await selectButton.click();
+  await screen.getByRole("option", { name: "Option 1" }).click();
+
+  expect(selectButton).toHaveTextContent("Option 1");
 });
 
 const ExampleSelect = (props: Partial<SelectProps<object>>) => {

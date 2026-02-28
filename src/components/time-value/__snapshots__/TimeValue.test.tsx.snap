@@ -1,4 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`RelativeTimeValue > should match snapshot 1`] = `"internal:testid=[data-testid="__vitest_0__"s] >> internal:testid=[data-testid="test-container"s]"`;
 
 exports[`RelativeTimeValue should match snapshot 1`] = `
 <div

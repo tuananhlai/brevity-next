@@ -1,6 +1,6 @@
 import {
   UNSTABLE_ToastQueue as AriaToastQueue,
-  ToastOptions,
+  type ToastOptions,
 } from "react-aria-components";
 import { ErrorToastLayout, SuccessToastLayout } from "./Toast";
 

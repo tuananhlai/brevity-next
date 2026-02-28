@@ -1,37 +1,27 @@
-import { NextPage } from "next";
-import Head from "next/head";
 import { StackedLayout } from "@/components/stacked-layout";
 import { Container } from "@/components/ui/layout";
 import { Heading } from "@/components/ui/text";
-import { ArticleRenderer } from "@/features/view-article/components/article-renderer";
-import { GetArticleDetailsResponse } from "@/lib/client";
-import { getPageTitle } from "@/utils/misc";
+import { useGetArticleDetails } from "@/features/view-article/api/getArticleDetails";
 import styles from "./ViewArticle.module.scss";
 
 export interface ViewArticleProps {
-  articleDetails: GetArticleDetailsResponse;
+  slug: string;
 }
 
-export const ViewArticle: NextPage<ViewArticleProps> = ({ articleDetails }) => {
-  const pageHeading = articleDetails.title;
-  const pageTitle = getPageTitle(pageHeading);
+export const ViewArticle: React.FC<ViewArticleProps> = ({ slug }) => {
+  const { data: articleDetails } = useGetArticleDetails(slug);
 
   return (
-    <>
-      <Head>
-        <title>{pageTitle}</title>
-      </Head>
-      <StackedLayout>
-        <div className={styles.main}>
-          <Container maxWidth="md">
-            <Heading level={1}>{pageHeading}</Heading>
-            <ArticleRenderer
-              dangerouslySetInnerHTML={{ __html: articleDetails.content }}
-              className={styles.articleRenderer}
-            />
-          </Container>
-        </div>
-      </StackedLayout>
-    </>
+    <StackedLayout>
+      <div className={styles.main}>
+        <Container maxWidth="md">
+          <Heading level={1}>{articleDetails?.title}</Heading>
+          {/* TODO: render the article content properly */}
+          <pre style={{ whiteSpace: "pre-wrap", fontSize: "1rem" }}>
+            {articleDetails?.content}
+          </pre>
+        </Container>
+      </div>
+    </StackedLayout>
   );
 };

@@ -1,19 +1,20 @@
-import { msg } from "@lingui/macro";
-import { useLingui } from "@lingui/react";
+import { useLingui } from "@lingui/react/macro";
 import React, { forwardRef } from "react";
 import {
   Button as AriaButton,
-  ButtonProps as AriaButtonProps,
+  type ButtonProps as AriaButtonProps,
   ProgressBar,
 } from "react-aria-components";
 import { LuLoaderCircle } from "react-icons/lu";
+import { TouchTarget } from "@/components/ui/touch-target";
 import { useSpinDelay } from "@/hooks/useSpinDelay";
 import { cn } from "@/styles/utils";
-import { TouchTarget } from "../touch-target";
 import styles from "./Button.module.scss";
 
-export interface ButtonProps
-  extends Omit<AriaButtonProps, "children" | "className" | "style"> {
+export interface ButtonProps extends Omit<
+  AriaButtonProps,
+  "children" | "className" | "style"
+> {
   children: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
@@ -102,13 +103,11 @@ const ButtonIcon: React.FC<{
 };
 
 const ButtonSpinner: React.FC = () => {
-  const { _ } = useLingui();
+  const { t } = useLingui();
 
   return (
-    // TODO: see if there is any simpler way to add
-    // translated aria-label to the progress bar.
     <ProgressBar
-      aria-label={_(msg`Pending`)}
+      aria-label={t`Pending`}
       className={styles.progressBar}
       isIndeterminate
     >

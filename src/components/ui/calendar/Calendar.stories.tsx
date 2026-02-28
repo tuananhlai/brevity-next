@@ -1,5 +1,5 @@
 import { CalendarDate, isWeekday } from "@internationalized/date";
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import MockDate from "mockdate";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Calendar } from "./Calendar";

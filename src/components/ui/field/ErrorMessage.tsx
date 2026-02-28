@@ -1,4 +1,4 @@
-import { FieldError, FieldErrorProps } from "react-aria-components";
+import { FieldError, type FieldErrorProps } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./ErrorMessage.module.scss";
 

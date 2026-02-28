@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { AccountMenuTrigger } from "./AccountMenu";
 
 const meta: Meta<typeof AccountMenuTrigger> = {

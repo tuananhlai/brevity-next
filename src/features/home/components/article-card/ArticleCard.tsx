@@ -1,7 +1,5 @@
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import Image from "next/image";
-import Link from "next/link";
 import { useDateFormatter } from "react-aria";
 import { LuBookmark } from "react-icons/lu";
 import { IconButton } from "@/components/ui/button";
@@ -55,10 +53,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
       </div>
       <div className={styles.header}>
         <Heading level={3} className={styles.title}>
-          <Link className={styles.titleLink} href={href}>
+          <a className={styles.titleLink} href={href}>
             <span className={styles.spanner} />
             {title}
-          </Link>
+          </a>
         </Heading>
         <Text elementType="p" className={styles.description}>
           {description}
@@ -70,7 +68,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
           align="center"
           className={styles.authorContainer}
         >
-          <Image
+          <img
             className={styles.authorAvatar}
             src={author.avatarURL}
             alt=""
@@ -78,10 +76,10 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
             height={24}
           />
           <Text elementType="p" className={styles.authorName}>
-            <Link href={authorHref} className={styles.authorNameLink}>
+            <a href={authorHref} className={styles.authorNameLink}>
               <span className={styles.spanner} />
               {author.name}
-            </Link>
+            </a>
           </Text>
         </Flex>
         <IconButton

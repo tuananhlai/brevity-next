@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { AppNavbar } from "./AppNavbar";
 
 const meta: Meta<typeof AppNavbar> = {

@@ -2,12 +2,14 @@ import { mergeRefs } from "@react-aria/utils";
 import { forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { Controller } from "react-hook-form";
-import { OmitAriaFormProps, RHFFieldProps } from "@/components/rhf/utils";
-import { Slider, SliderProps } from "@/components/ui/slider";
+import {
+  type OmitAriaFormProps,
+  type RHFFieldProps,
+} from "@/components/rhf/utils";
+import { Slider, type SliderProps } from "@/components/ui/slider";
 
 export interface FormSliderProps
-  extends OmitAriaFormProps<SliderProps>,
-    RHFFieldProps {}
+  extends OmitAriaFormProps<SliderProps>, RHFFieldProps {}
 
 const FormSlider: React.ForwardRefRenderFunction<
   HTMLInputElement,

@@ -1,6 +1,6 @@
 import {
   UNSTABLE_Toast as AriaToast,
-  ToastProps as AriaToastProps,
+  type ToastProps as AriaToastProps,
   Button,
   UNSTABLE_ToastContent as ToastContent,
 } from "react-aria-components";

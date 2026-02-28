@@ -1,7 +1,9 @@
-import { ControllerProps } from "react-hook-form";
+import { type ControllerProps } from "react-hook-form";
 
-export interface RHFFieldProps
-  extends Omit<ControllerProps, "disabled" | "render"> {
+export interface RHFFieldProps extends Omit<
+  ControllerProps,
+  "disabled" | "render"
+> {
   // Rename `disabled` prop to `isDisabled` so that the naming convention
   // is similar between normal design system components and `Form*` components.
   isDisabled?: boolean;

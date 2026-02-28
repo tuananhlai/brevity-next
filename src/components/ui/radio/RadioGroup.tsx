@@ -1,15 +1,14 @@
 import { forwardRef } from "react";
 import {
   RadioGroup as AriaRadioGroup,
-  RadioGroupProps as AriaRadioGroupProps,
+  type RadioGroupProps as AriaRadioGroupProps,
 } from "react-aria-components";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
+import { type FieldsetProps, type ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./RadioGroup.module.scss";
 
 export interface RadioGroupProps
-  extends ReplaceAriaRenderProps<AriaRadioGroupProps>,
-    FieldsetProps {}
+  extends ReplaceAriaRenderProps<AriaRadioGroupProps>, FieldsetProps {}
 
 const RadioGroup: React.ForwardRefRenderFunction<
   HTMLDivElement,

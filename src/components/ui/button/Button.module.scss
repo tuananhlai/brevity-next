@@ -1,4 +1,16 @@
-@use "src/styles/utils.scss" as *;
+@use "@/styles/utils.scss" as *;
+
+@mixin is-interacting {
+  &:where([data-hovered], [data-pressed]) {
+    @content;
+  }
+}
+
+@mixin is-inert {
+  &:where([data-disabled], [data-spinner-visible]) {
+    @content;
+  }
+}
 
 .root {
   display: inline-flex;
@@ -6,15 +18,21 @@
   column-gap: var(--bw-space-2);
   justify-content: center;
   align-items: center;
+
   border-width: 1px;
   border-style: solid;
   border-radius: var(--bw-radius-lg);
   isolation: isolate;
   padding: calc(var(--bw-space-2-5) - 1px) calc(var(--bw-space-3-5) - 1px);
+
   font-weight: var(--bw-weight-semibold);
   font-size: var(--bw-font-base);
   line-height: var(--bw-line-6);
   text-decoration: none;
+
+  &:where([data-hovered]) {
+    cursor: pointer;
+  }
 
   &:where([data-focused]) {
     outline-offset: 2px;
@@ -25,13 +43,8 @@
     outline: none;
   }
 
-  &:where([data-disabled], [data-spinner-visible]) {
-    // TODO: find a way to not apply opacity to the button's outline.
+  @include is-inert {
     opacity: 0.5;
-  }
-
-  &:where([data-hovered]) {
-    cursor: pointer;
   }
 
   @include screen-sm {
@@ -40,149 +53,126 @@
   }
 }
 
+.iconButton {
+  padding: calc(var(--bw-space-2-5) - 1px);
+  aspect-ratio: 1 / 1;
+  font-size: var(--bw-font-2xl);
+
+  @include screen-sm {
+    padding: calc(var(--bw-space-1-5) - 1px);
+  }
+}
+
 .colorBrand {
-  --bw-primary-button-background-color: #{alpha(
-      var(--bw-color-utility-brand-950),
-      90
-    )};
-  --bw-primary-button-before-background-color: var(
-    --bw-color-utility-brand-900
-  );
+  --btn-primary-bg: #{alpha(var(--bw-color-utility-brand-950), 90)};
+  --btn-primary-underlay: var(--bw-color-utility-brand-900);
 
-  --bw-secondary-button-color: var(--bw-color-text-brand-primary);
-  --bw-secondary-button-border-color: #{alpha(
-      var(--bw-color-utility-brand-900),
-      10
-    )};
-  --bw-secondary-button-hovered-background-color: var(
-    --bw-color-bg-primary_hover
-  );
+  --btn-secondary-fg: var(--bw-color-text-brand-primary);
+  --btn-secondary-border: #{alpha(var(--bw-color-utility-brand-900), 10)};
+  --btn-secondary-hover-bg: var(--bw-color-bg-primary_hover);
 
-  --bw-tertiary-button-color: var(--bw-color-text-brand-primary);
-  --bw-tertiary-button-hovered-background-color: var(
-    --bw-color-bg-primary_hover
-  );
+  --btn-tertiary-fg: var(--bw-color-text-brand-primary);
+  --btn-tertiary-hover-bg: var(--bw-color-bg-primary_hover);
 
   @include dark-mode {
-    --bw-primary-button-background-color: var(--bw-color-utility-brand-600);
-    --bw-primary-button-before-background-color: var(
-      --bw-color-utility-brand-600
-    );
-
-    --bw-secondary-button-border-color: var(--bw-color-utility-brand-700);
+    --btn-primary-bg: var(--bw-color-utility-brand-600);
+    --btn-primary-underlay: var(--bw-color-utility-brand-600);
+    --btn-secondary-border: var(--bw-color-utility-brand-700);
   }
 }
 
 .colorError {
-  --bw-primary-button-background-color: var(--bw-color-bg-error-solid);
-  --bw-primary-button-before-background-color: var(
-    --bw-color-utility-error-600
-  );
+  --btn-primary-bg: var(--bw-color-bg-error-solid);
+  --btn-primary-underlay: var(--bw-color-utility-error-600);
 
-  --bw-secondary-button-color: var(--bw-color-text-error-primary);
-  --bw-secondary-button-border-color: #{alpha(
-      var(--bw-color-utility-error-600),
-      20
-    )};
-  --bw-secondary-button-hovered-background-color: var(
-    --bw-color-bg-error-primary
-  );
+  --btn-secondary-fg: var(--bw-color-text-error-primary);
+  --btn-secondary-border: #{alpha(var(--bw-color-utility-error-600), 20)};
+  --btn-secondary-hover-bg: var(--bw-color-bg-error-primary);
 
-  --bw-tertiary-button-color: var(--bw-color-text-error-primary);
-  --bw-tertiary-button-hovered-background-color: var(
-    --bw-color-bg-error-primary
-  );
+  --btn-tertiary-fg: var(--bw-color-text-error-primary);
+  --btn-tertiary-hover-bg: var(--bw-color-bg-error-primary);
 
   @include dark-mode {
-    --bw-secondary-button-border-color: #{alpha(
-        var(--bw-color-utility-error-500),
-        50
-      )};
+    --btn-secondary-border: #{alpha(var(--bw-color-utility-error-500), 50)};
   }
 }
 
 .primary {
-  --btn-before-display: initial;
-  --btn-before-box-shadow: var(--bw-shadow-sm);
-  --btn-after-inset: 0;
-  --btn-after-border-radius: calc(var(--bw-radius-lg) - 1px);
-  --btn-after-box-shadow: inset 0 1px
-    #{alpha(var(--bw-color-utility-white), 15)};
-  --btn-after-hover-background-color: #{alpha(
-      var(--bw-color-utility-white),
-      10
-    )};
-  --btn-border-color: var(--bw-color-utility-white);
+  --p-border: var(--bw-color-utility-white);
 
-  border-color: var(--btn-border-color);
-  background-color: var(--bw-primary-button-background-color);
+  --p-before-display: initial;
+  --p-before-shadow: var(--bw-shadow-sm);
+
+  --p-after-inset: 0;
+  --p-after-radius: calc(var(--bw-radius-lg) - 1px);
+  --p-after-shadow: inset 0 1px #{alpha(var(--bw-color-utility-white), 15)};
+  --p-after-hover-bg: #{alpha(var(--bw-color-utility-white), 10)};
+
+  border-color: var(--p-border);
+  background-color: var(--btn-primary-bg);
   color: var(--bw-color-utility-white);
 
   @include dark-mode {
-    --btn-before-display: none;
-    --btn-after-inset: -1px;
-    --btn-after-border-radius: var(--bw-radius-lg);
-    --btn-after-hover-background-color: #{alpha(
-        var(--bw-color-utility-white),
-        5
-      )};
-    --btn-border-color: #{alpha(var(--bw-color-utility-white), 5)};
+    --p-border: #{alpha(var(--bw-color-utility-white), 5)};
+    --p-before-display: none;
+    --p-after-inset: -1px;
+    --p-after-radius: var(--bw-radius-lg);
+    --p-after-hover-bg: #{alpha(var(--bw-color-utility-white), 5)};
   }
 
   &::before {
-    display: var(--btn-before-display);
+    display: var(--p-before-display);
     position: absolute;
     z-index: -10;
     inset: 0;
-    box-shadow: var(--btn-before-box-shadow);
+    box-shadow: var(--p-before-shadow);
     border-radius: calc(var(--bw-radius-lg) - 1px);
-    background-color: var(--bw-primary-button-before-background-color);
+    background-color: var(--btn-primary-underlay);
     content: "";
   }
 
   &::after {
     position: absolute;
     z-index: -10;
-    inset: var(--btn-after-inset);
-    box-shadow: var(--btn-after-box-shadow);
-    border-radius: var(--btn-after-border-radius);
+    inset: var(--p-after-inset);
+    box-shadow: var(--p-after-shadow);
+    border-radius: var(--p-after-radius);
     content: "";
   }
 
-  &:where([data-hovered], [data-pressed])::after {
-    background-color: var(--btn-after-hover-background-color);
+  @include is-interacting {
+    &::after {
+      background-color: var(--p-after-hover-bg);
+    }
   }
 
-  &:where([data-disabled], [data-spinner-visible]) {
-    --btn-before-box-shadow: none;
-    --btn-after-box-shadow: none;
+  @include is-inert {
+    --p-before-shadow: none;
+    --p-after-shadow: none;
   }
 }
 
 .secondary {
-  border-color: var(--bw-secondary-button-border-color);
+  border-color: var(--btn-secondary-border);
   background-color: transparent;
-  color: var(--bw-secondary-button-color);
+  color: var(--btn-secondary-fg);
 
-  &:where([data-hovered], [data-pressed]) {
-    background-color: var(--bw-secondary-button-hovered-background-color);
+  @include is-interacting {
+    background-color: var(--btn-secondary-hover-bg);
   }
 }
 
 .tertiary {
   border-color: transparent;
   background-color: transparent;
-  color: var(--bw-tertiary-button-color);
+  color: var(--btn-tertiary-fg);
 
-  &:where([data-hovered], [data-pressed]) {
-    background-color: var(--bw-tertiary-button-hovered-background-color);
+  @include is-interacting {
+    background-color: var(--btn-tertiary-hover-bg);
   }
 }
 
 .spinnerVisible {
-  // Hide all children except for the loading indicator. Use `opacity: 0`
-  // instead of `visibility: hidden` so that the screen reader can still
-  // announce the button's content.
   & > :not([role="progressbar"]) {
     opacity: 0;
   }
@@ -209,17 +199,8 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
-  }
-}
-
-.iconButton {
-  padding: calc(var(--bw-space-2-5) - 1px);
-  aspect-ratio: 1 / 1;
-  font-size: var(--bw-font-2xl);
-
-  @include screen-sm {
-    padding: calc(var(--bw-space-1-5) - 1px);
   }
 }

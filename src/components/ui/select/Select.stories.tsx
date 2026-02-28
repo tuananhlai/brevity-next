@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
-import { Avatar } from "../avatar";
-import { Select, SelectProps } from "./Select";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
+import { Avatar } from "@/components/ui/avatar";
+import { Select, type SelectProps } from "./Select";
 import { SelectItem } from "./SelectItem";
 
 const meta: Meta<typeof Select> = {
@@ -24,6 +24,7 @@ export const Default: Story = {
         <SelectItem>Option 3</SelectItem>
       </>
     ),
+    label: "List of options",
   },
 };
 

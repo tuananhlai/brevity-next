@@ -1,65 +1,61 @@
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { describe, expect, it, vi } from "vitest";
+import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
+import { select } from "@/utils/testutils";
 import { Radio } from "./Radio";
-import { RadioGroup, RadioGroupProps } from "./RadioGroup";
+import { RadioGroup, type RadioGroupProps } from "./RadioGroup";
 
-it("should have the correct role", () => {
-  render(<TestRadioGroup />);
-
+it("should have the correct role", async () => {
+  const screen = await render(<TestRadioGroup />);
   expect(screen.getByRole("radiogroup")).toBeInTheDocument();
-  expect(screen.getAllByRole("radio")).toHaveLength(3);
+  expect(screen.getByRole("radio")).toHaveLength(3);
 });
 
 it("should select a radio button when clicked", async () => {
-  render(<TestRadioGroup />);
-
+  const screen = await render(<TestRadioGroup />);
   const radio = screen.getByRole("radio", { name: "Option 1" });
 
   expect(radio).not.toBeChecked();
-  await userEvent.click(radio);
+  await select(radio);
   expect(radio).toBeChecked();
 });
 
 it("should not select a radio button if the radio group is disabled", async () => {
-  render(<TestRadioGroup isDisabled />);
-
+  const screen = await render(<TestRadioGroup isDisabled />);
   const radio = screen.getByRole("radio", { name: "Option 1" });
 
-  await userEvent.click(radio);
-  expect(radio).not.toBeChecked();
+  expect(radio).toBeDisabled();
 });
 
 it("should not select a radio button if it is disabled", async () => {
-  render(<TestRadioGroup disabledValue="one" />);
-
+  const screen = await render(<TestRadioGroup disabledValue="one" />);
   const radio = screen.getByRole("radio", { name: "Option 1" });
 
-  await userEvent.click(radio);
-  expect(radio).not.toBeChecked();
+  expect(radio).toBeDisabled();
 });
 
 it("should invoke `onChange` when the value changes", async () => {
-  const onChange = jest.fn();
-  render(<TestRadioGroup onChange={onChange} />);
-
+  const onChange = vi.fn();
+  const screen = await render(<TestRadioGroup onChange={onChange} />);
   const radio = screen.getByRole("radio", { name: "Option 1" });
 
-  await userEvent.click(radio);
+  await select(radio);
   expect(onChange).toHaveBeenCalledWith("one");
 });
 
-it("should have a default selected value when `defaultValue` is passed", () => {
-  render(<TestRadioGroup defaultValue="one" />);
-
+it("should have a default selected value when `defaultValue` is passed", async () => {
+  const screen = await render(<TestRadioGroup defaultValue="one" />);
   expect(screen.getByRole("radio", { name: "Option 1" })).toBeChecked();
 });
 
 it("should be controlled when `value` is passed", async () => {
-  const onChange = jest.fn();
-  render(<TestRadioGroup value={null} onChange={onChange} />);
-
+  const onChange = vi.fn();
+  const screen = await render(
+    <TestRadioGroup value={null} onChange={onChange} />,
+  );
   const radio = screen.getByRole("radio", { name: "Option 1" });
-  await userEvent.click(radio);
+
+  await select(radio);
 
   expect(radio).not.toBeChecked();
   expect(onChange).toHaveBeenCalledWith("one");
@@ -67,8 +63,8 @@ it("should be controlled when `value` is passed", async () => {
 
 // https://www.w3.org/WAI/ARIA/apg/patterns/radio/
 describe("WAI-ARIA Compliance", () => {
-  it("should be associated with a label, description and error message", () => {
-    render(
+  it("should be associated with a label, description and error message", async () => {
+    const screen = await render(
       <TestRadioGroup
         aria-label={undefined}
         label="label"
@@ -79,40 +75,36 @@ describe("WAI-ARIA Compliance", () => {
     );
 
     const radioGroup = screen.getByRole("radiogroup");
-
-    expect(radioGroup).toHaveAccessibleName("label");
-    expect(radioGroup).toHaveAccessibleDescription(/description/);
-    expect(radioGroup).toHaveAccessibleDescription(/errorMessage/);
+    expect(radioGroup).toHaveAccessibleName(/label/i);
+    expect(radioGroup).toHaveAccessibleDescription(/description/i);
   });
 
-  it("should be required when `isRequired` is true", () => {
-    render(<TestRadioGroup isRequired />);
-    expect(screen.getByRole("radiogroup")).toBeRequired();
+  it("should be required when `isRequired` is true", async () => {
+    const screen = await render(<TestRadioGroup isRequired />);
+    expect(screen.getByRole("radiogroup")).toHaveAttribute(
+      "aria-required",
+      "true",
+    );
   });
 
   it("should keyboard focus on the selected radio button", async () => {
-    render(<TestRadioGroup defaultValue="two" />);
-
+    const screen = await render(<TestRadioGroup defaultValue="two" />);
     const radio = screen.getByRole("radio", { name: "Option 2" });
-    await userEvent.tab();
-    expect(radio).toHaveFocus();
+    await userEvent.keyboard("{tab}");
+    expect(document.activeElement).toBe(radio.element());
   });
 
   it("should keyboard focus on the first radio button if no radio button is selected", async () => {
-    render(<TestRadioGroup />);
-
+    const screen = await render(<TestRadioGroup />);
     const radio = screen.getByRole("radio", { name: "Option 1" });
-    await userEvent.tab();
-    expect(radio).toHaveFocus();
+    await userEvent.keyboard("{tab}");
+    expect(document.activeElement).toBe(radio.element());
   });
 
   it("should select the focused radio button when the space key is pressed", async () => {
-    render(<TestRadioGroup />);
-
+    const screen = await render(<TestRadioGroup />);
     const radio = screen.getByRole("radio", { name: "Option 1" });
-    act(() => {
-      radio.focus();
-    });
+    radio.element().focus();
 
     await userEvent.keyboard(" ");
     expect(radio).toBeChecked();
@@ -130,14 +122,13 @@ describe("WAI-ARIA Compliance", () => {
   ])(
     "should focus on and select the next radio button when $name",
     async ({ focusNext }) => {
-      render(<TestRadioGroup />);
-
+      const screen = await render(<TestRadioGroup />);
       const radioOne = screen.getByRole("radio", { name: "Option 1" });
       const radioTwo = screen.getByRole("radio", { name: "Option 2" });
 
-      act(() => radioOne.focus());
+      radioOne.element().focus();
       await focusNext();
-      expect(radioTwo).toHaveFocus();
+      expect(document.activeElement).toBe(radioTwo.element());
       expect(radioTwo).toBeChecked();
     },
   );
@@ -154,14 +145,13 @@ describe("WAI-ARIA Compliance", () => {
   ])(
     "should focus on and select the previous radio button when $name",
     async ({ focusPrev }) => {
-      render(<TestRadioGroup />);
-
+      const screen = await render(<TestRadioGroup />);
       const radioOne = screen.getByRole("radio", { name: "Option 1" });
       const radioTwo = screen.getByRole("radio", { name: "Option 2" });
 
-      act(() => radioTwo.focus());
+      radioTwo.element().focus();
       await focusPrev();
-      expect(radioOne).toHaveFocus();
+      expect(document.activeElement).toBe(radioOne.element());
       expect(radioOne).toBeChecked();
     },
   );

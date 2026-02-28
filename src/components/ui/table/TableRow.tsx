@@ -1,11 +1,11 @@
 import {
   Collection,
   Row,
-  RowProps,
+  type RowProps,
   useTableOptions,
 } from "react-aria-components";
 import { Checkbox } from "@/components/ui/checkbox";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import type { ReplaceAriaRenderProps } from "@/utils/misc";
 import { TableCell } from "./TableCell";
 
 export interface TableRowProps<T> extends ReplaceAriaRenderProps<RowProps<T>> {}

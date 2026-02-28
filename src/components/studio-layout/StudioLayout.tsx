@@ -1,9 +1,9 @@
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { AppNavbar } from "@/components/app-navbar";
 import { Container } from "@/components/ui/layout";
 import { cn } from "@/styles/utils";
-import { DesktopSidebar, MobileSidebar, SidebarItem } from "./Sidebar";
+import { DesktopSidebar, MobileSidebar, type SidebarItem } from "./Sidebar";
 import styles from "./StudioLayout.module.scss";
 
 export interface StudioLayoutProps {

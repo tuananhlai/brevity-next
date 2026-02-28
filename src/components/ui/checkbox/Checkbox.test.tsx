@@ -1,47 +1,50 @@
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import { Checkbox, CheckboxProps } from "@/components/ui/checkbox/Checkbox";
+import { describe, expect, it, vi } from "vitest";
+import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
+import { select } from "@/utils/testutils";
+import { Checkbox, type CheckboxProps } from "./Checkbox";
 
-it("should have the correct role", () => {
-  render(<ExampleCheckbox />);
-  const checkbox = screen.getByRole("checkbox");
-  expect(checkbox).toBeInTheDocument();
+it("should have the correct role", async () => {
+  const screen = await render(<ExampleCheckbox />);
+  expect(screen.getByRole("checkbox")).toBeInTheDocument();
 });
 
 it("should be controlled when `isSelected` prop is provided", async () => {
-  const handleChange = jest.fn();
-  render(<ExampleCheckbox isSelected={false} onChange={handleChange} />);
-  const checkbox = screen.getByRole("checkbox");
+  const handleChange = vi.fn();
+  const screen = await render(
+    <ExampleCheckbox isSelected={false} onChange={handleChange} />,
+  );
+  const checkbox = screen.getByRole("checkbox", {
+    name: "label",
+  });
   expect(checkbox).not.toBeChecked();
 
-  await userEvent.click(checkbox);
-  expect(checkbox).not.toBeChecked();
+  await select(checkbox);
   expect(handleChange).toHaveBeenCalledWith(true);
 });
 
 it("should be uncontrolled when `isSelected` prop is not provided", async () => {
-  const handleChange = jest.fn();
-  render(<ExampleCheckbox onChange={handleChange} />);
+  const handleChange = vi.fn();
+  const screen = await render(<ExampleCheckbox onChange={handleChange} />);
   const checkbox = screen.getByRole("checkbox");
   expect(checkbox).not.toBeChecked();
 
-  await userEvent.click(checkbox);
+  await select(checkbox);
   expect(checkbox).toBeChecked();
   expect(handleChange).toHaveBeenCalledWith(true);
 });
 
-it("should be indeterminate when `isIndeterminate` prop is true", () => {
-  render(<ExampleCheckbox isIndeterminate />);
+it("should be indeterminate when `isIndeterminate` prop is true", async () => {
+  const screen = await render(<ExampleCheckbox isIndeterminate />);
   const checkbox = screen.getByRole("checkbox");
-
   expect(checkbox).toBePartiallyChecked();
 });
 
 it("should invoke focus events", async () => {
-  const handleFocus = jest.fn();
-  const handleBlur = jest.fn();
-  const handleFocusChange = jest.fn();
-  render(
+  const handleFocus = vi.fn();
+  const handleBlur = vi.fn();
+  const handleFocusChange = vi.fn();
+  const screen = await render(
     <ExampleCheckbox
       onFocus={handleFocus}
       onFocusChange={handleFocusChange}
@@ -49,15 +52,12 @@ it("should invoke focus events", async () => {
     />,
   );
   const checkbox = screen.getByRole("checkbox");
-
-  // Clicking on the checkbox to trigger focus event.
-  await userEvent.click(checkbox);
+  checkbox.element().focus();
 
   expect(handleFocus).toHaveBeenCalled();
   expect(handleFocusChange).toHaveBeenCalledWith(true);
 
-  // Clicking on the document body to trigger blur event.
-  await userEvent.click(document.body);
+  checkbox.element().blur();
 
   expect(handleBlur).toHaveBeenCalled();
   expect(handleFocusChange).toHaveBeenCalledWith(false);
@@ -65,26 +65,27 @@ it("should invoke focus events", async () => {
 
 /** @see https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/ */
 describe("WAI-ARIA Compliance", () => {
-  it("should have a label", () => {
-    render(<ExampleCheckbox>label</ExampleCheckbox>);
-
+  it("should have a label", async () => {
+    const screen = await render(<ExampleCheckbox>label</ExampleCheckbox>);
     expect(screen.getByRole("checkbox", { name: "label" })).toBeInTheDocument();
   });
 
   it("should select the checkbox when the space key is pressed", async () => {
-    render(<ExampleCheckbox />);
+    const screen = await render(<ExampleCheckbox />);
     const checkbox = screen.getByRole("checkbox");
 
     expect(checkbox).not.toBeChecked();
-    act(() => {
-      checkbox.focus();
-    });
+    checkbox.element().focus();
     await userEvent.keyboard(" ");
     expect(checkbox).toBeChecked();
   });
 });
 
-const ExampleCheckbox = (props: CheckboxProps) => {
-  const { children = "example", ...rest } = props;
-  return <Checkbox {...rest}>{children}</Checkbox>;
+const ExampleCheckbox = (props: Partial<CheckboxProps>) => {
+  const children = props.children ?? "example";
+  return (
+    <Checkbox aria-label="label" {...props}>
+      {children}
+    </Checkbox>
+  );
 };

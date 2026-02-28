@@ -1,4 +1,4 @@
-import { FieldErrorProps } from "react-aria-components";
+import { type FieldErrorProps } from "react-aria-components";
 
 /**
  * Replace React Aria Component's render props with more conventional props.

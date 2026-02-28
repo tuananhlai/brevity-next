@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { useId } from "react";
 import { Button } from "@/components/ui/button";
 import {
   CreateDigitalAuthorForm,
-  CreateDigitalAuthorFormValues,
+  type CreateDigitalAuthorFormValues,
 } from "./CreateDigitalAuthorForm";
 
 const meta: Meta<typeof CreateDigitalAuthorForm> = {

@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { type HTMLAttributes } from "react";
 import { cn } from "@/styles/utils";
 import styles from "./ArticleRenderer.module.css";
 

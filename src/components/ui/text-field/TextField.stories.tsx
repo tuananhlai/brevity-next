@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-import { TextField, TextFieldProps } from "./TextField";
+import { TextField, type TextFieldProps } from "./TextField";
 
 const meta: Meta<typeof TextField> = {
   component: TextField,

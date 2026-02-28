@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import {
   Popover as AriaPopover,
-  PopoverProps as AriaPopoverProps,
+  type PopoverProps as AriaPopoverProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import { type ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Popover.module.scss";
 
 export type PopoverProps = ReplaceAriaRenderProps<AriaPopoverProps>;

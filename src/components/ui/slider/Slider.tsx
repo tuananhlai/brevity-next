@@ -2,26 +2,28 @@ import { forwardRef } from "react";
 import { useObjectRef } from "react-aria";
 import {
   Slider as AriaSlider,
-  SliderProps as AriaSliderProps,
+  type SliderProps as AriaSliderProps,
   SliderOutput,
   SliderThumb,
-  SliderThumbProps,
+  type SliderThumbProps,
   SliderTrack,
 } from "react-aria-components";
 import { Label } from "@/components/ui/field";
 import { Flex } from "@/components/ui/layout";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import type { ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Slider.module.scss";
 
 // Only allow horizontal orientation for now.
 export interface SliderProps
-  extends Omit<ReplaceAriaRenderProps<AriaSliderProps>, "orientation">,
+  extends
+    Omit<ReplaceAriaRenderProps<AriaSliderProps>, "orientation">,
     Pick<SliderThumbProps, "name"> {
   label: React.ReactNode;
 }
 
 // TODO: add disabled style.
+// TODO: support description and error message?
 const Slider: React.ForwardRefRenderFunction<HTMLInputElement, SliderProps> = (
   props,
   forwardedRef,

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { StackedLayout } from "./StackedLayout";
 
 const meta: Meta<typeof StackedLayout> = {

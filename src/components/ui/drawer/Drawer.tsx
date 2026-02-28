@@ -1,17 +1,18 @@
 import {
   Dialog,
-  DialogProps,
+  type DialogProps,
   Heading,
-  HeadingProps,
+  type HeadingProps,
   Modal,
   ModalOverlay,
-  ModalOverlayProps,
+  type ModalOverlayProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Drawer.module.scss";
 
 export interface DrawerProps
-  extends Omit<DialogProps, "className" | "slot" | "style">,
+  extends
+    Omit<DialogProps, "className" | "slot" | "style">,
     Pick<ModalOverlayProps, "isOpen" | "onOpenChange"> {
   /** @default 'left' */
   position?: DrawerPosition;

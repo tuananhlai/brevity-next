@@ -1,4 +1,4 @@
-import { Trans } from "@lingui/macro";
+import { Trans } from "@lingui/react/macro";
 import { RelativeTimeValue } from "@/components/time-value";
 import { Flex } from "@/components/ui/layout";
 import {

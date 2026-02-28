@@ -1,16 +1,15 @@
 import { forwardRef } from "react";
 import {
   CheckboxGroup as AriaCheckboxGroup,
-  CheckboxGroupProps as AriaCheckboxGroupProps,
+  type CheckboxGroupProps as AriaCheckboxGroupProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
+import { type FieldsetProps, type ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./CheckboxGroup.module.scss";
 
 export interface CheckboxGroupProps
-  extends ReplaceAriaRenderProps<AriaCheckboxGroupProps>,
-    FieldsetProps {}
+  extends ReplaceAriaRenderProps<AriaCheckboxGroupProps>, FieldsetProps {}
 
 const CheckboxGroup: React.ForwardRefRenderFunction<
   HTMLInputElement,

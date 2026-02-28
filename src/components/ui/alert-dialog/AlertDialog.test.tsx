@@ -1,11 +1,11 @@
-import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { expect, it, vi } from "vitest";
+import { render } from "vitest-browser-react";
 import { Button } from "@/components/ui/button";
 import { DialogTrigger } from "@/components/ui/dialog";
 import { AlertDialog } from "./AlertDialog";
 
-it("should have the correct title and content", () => {
-  render(
+it("should have the correct title and content", async () => {
+  const screen = await render(
     <DialogTrigger defaultOpen>
       <Button>Open</Button>
       <AlertDialog title="Test Title" onPrimaryAction={() => {}}>
@@ -21,8 +21,8 @@ it("should have the correct title and content", () => {
 });
 
 it("should call the primary action when the button is clicked", async () => {
-  const onPrimaryAction = jest.fn();
-  render(
+  const onPrimaryAction = vi.fn();
+  const screen = await render(
     <DialogTrigger defaultOpen>
       <Button>Open</Button>
       <AlertDialog
@@ -35,7 +35,7 @@ it("should call the primary action when the button is clicked", async () => {
     </DialogTrigger>,
   );
 
-  await userEvent.click(screen.getByRole("button", { name: "confirm" }));
+  await screen.getByRole("button", { name: "confirm" }).click();
 
   expect(onPrimaryAction).toHaveBeenCalledTimes(1);
 });

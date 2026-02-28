@@ -1,6 +1,6 @@
-import { ListBoxItem, ListBoxItemProps } from "react-aria-components";
+import { ListBoxItem, type ListBoxItemProps } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import type { ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./SelectItem.module.scss";
 
 export type SelectItemProps<T> = ReplaceAriaRenderProps<ListBoxItemProps<T>>;

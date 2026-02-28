@@ -14,179 +14,179 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/features/auth/components/sign-up-form-dialog/SignUpFormDialog.tsx:58
-msgid "Account created successfully"
-msgstr ""
+#~ msgid "Account created successfully"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:55
-msgid "Actions"
-msgstr "アクション"
+#~ msgid "Actions"
+#~ msgstr "アクション"
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:106
-msgid "Add"
-msgstr "追加"
+#~ msgid "Add"
+#~ msgstr "追加"
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:61
-msgid "Add API key"
-msgstr "APIキーを追加"
+#~ msgid "Add API key"
+#~ msgstr "APIキーを追加"
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:46
 #~ msgid "Add API Key"
 #~ msgstr "APIキーを追加"
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:81
-msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
-msgstr "デジタル著者がコンテンツを作成するには、Open Router APIキーが必要です。<0>Open Router APIキーの取得方法</0>"
+#~ msgid "An Open Router API key is required to allow your digital authors to create content. <0>How do I get an Open Router API key?</0>"
+#~ msgstr "デジタル著者がコンテンツを作成するには、Open Router APIキーが必要です。<0>Open Router APIキーの取得方法</0>"
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:155
 #~ msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key.</0>"
 #~ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:147
-msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key</0>"
-msgstr ""
+#~ msgid "An OpenRouter API key is required to create a new digital author. <0>Create a new API key</0>"
+#~ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:143
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:79
-msgid "API key"
-msgstr "APIキー"
+#~ msgid "API key"
+#~ msgstr "APIキー"
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:55
 #~ msgid "API Key"
 #~ msgstr "APIキー"
 
 #: src/app/pages/manage-api-key/ManageAPIKey.tsx:43
-msgid "API key created successfully"
-msgstr ""
+#~ msgid "API key created successfully"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
 #: src/components/studio-layout/StudioLayout.tsx:20
-msgid "API keys"
-msgstr ""
+#~ msgid "API keys"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:123
-msgid "Are you sure you want to deactivate this API key?"
-msgstr "このAPIキーを無効にしてもよろしいですか？"
+#~ msgid "Are you sure you want to deactivate this API key?"
+#~ msgstr "このAPIキーを無効にしてもよろしいですか？"
 
 #: src/features/home/components/article-card/ArticleCard.tsx:90
-msgid "Bookmark"
-msgstr ""
+#~ msgid "Bookmark"
+#~ msgstr ""
 
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:98
 #: src/components/confirm-provider/ConfirmProvider.tsx:21
-msgid "Cancel"
-msgstr "キャンセル"
+#~ msgid "Cancel"
+#~ msgstr "キャンセル"
 
 #: src/components/confirm-provider/ConfirmProvider.tsx:22
-msgid "Confirm"
-msgstr "確認"
+#~ msgid "Confirm"
+#~ msgstr "確認"
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:88
-msgid "Create a new account"
-msgstr ""
+#~ msgid "Create a new account"
+#~ msgstr ""
 
 #: src/app/pages/manage-api-key/ManageAPIKey.tsx:39
-msgid "Create new"
-msgstr ""
+#~ msgid "Create new"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:53
-msgid "Created at"
-msgstr ""
+#~ msgid "Created at"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:47
 #~ msgid "Created At"
 #~ msgstr "作成日時"
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:140
-msgid "Deactivate"
-msgstr "無効化"
+#~ msgid "Deactivate"
+#~ msgstr "無効化"
 
 #: src/components/studio-layout/StudioLayout.tsx:24
-msgid "Digital authors"
-msgstr ""
+#~ msgid "Digital authors"
+#~ msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:41
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:61
-msgid "Display name"
-msgstr ""
+#~ msgid "Display name"
+#~ msgstr ""
 
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:37
-msgid "Email"
-msgstr "メールアドレス"
+#~ msgid "Email"
+#~ msgstr "メールアドレス"
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:68
-msgid "Failed to fetch API keys"
-msgstr ""
+#~ msgid "Failed to fetch API keys"
+#~ msgstr ""
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:81
-msgid "Forgot your password?"
-msgstr "パスワードをお忘れですか？"
+#~ msgid "Forgot your password?"
+#~ msgstr "パスワードをお忘れですか？"
 
 #: src/app/pages/home/Home.tsx:19
-msgid "Home"
-msgstr ""
+#~ msgid "Home"
+#~ msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:47
-msgid "Last article"
-msgstr ""
+#~ msgid "Last article"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:54
-msgid "Last used"
-msgstr ""
+#~ msgid "Last used"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:50
 #~ msgid "Last Used"
 #~ msgstr "最終使用日時"
 
 #: src/app/pages/manage-api-key/ManageAPIKey.tsx:20
-msgid "Manage API keys"
-msgstr ""
+#~ msgid "Manage API keys"
+#~ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:102
-msgid "Max tokens"
-msgstr ""
+#~ msgid "Max tokens"
+#~ msgstr ""
 
 #: src/components/account-menu/AccountMenu.tsx:37
-msgid "My digital authors"
-msgstr ""
+#~ msgid "My digital authors"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:49
 #: src/features/digital-author/components/add-api-key-dialog/AddApiKeyDialog.tsx:72
-msgid "Name"
-msgstr "名前"
+#~ msgid "Name"
+#~ msgstr "名前"
 
 #: src/components/studio-layout/Sidebar.tsx:66
-msgid "Navigation"
-msgstr ""
+#~ msgid "Navigation"
+#~ msgstr ""
 
 #: src/app/pages/create-digital-author/CreateDigitalAuthor.tsx:25
-msgid "New digital author"
-msgstr ""
+#~ msgid "New digital author"
+#~ msgstr ""
 
 #: src/app/pages/home/Home.tsx:25
-msgid "Newest posts"
-msgstr "最新の投稿"
+#~ msgid "Newest posts"
+#~ msgstr "最新の投稿"
 
 #: src/app/pages/home/Home.tsx:17
 #~ msgid "Newest Posts"
 #~ msgstr "最新の投稿"
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:84
-msgid "No API keys found"
-msgstr ""
+#~ msgid "No API keys found"
+#~ msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:50
-msgid "Number of followers"
-msgstr ""
+#~ msgid "Number of followers"
+#~ msgstr ""
 
 #: src/components/account-menu/AccountMenu.tsx:57
-msgid "Open account menu"
-msgstr ""
+#~ msgid "Open account menu"
+#~ msgstr ""
 
 #: src/features/auth/components/sign-in-form/SignInForm.tsx:40
-msgid "Password"
-msgstr "パスワード"
+#~ msgid "Password"
+#~ msgstr "パスワード"
 
-#: src/components/ui/button/Button.tsx:111
+#: src/components/ui/button/Button.tsx:110
 msgid "Pending"
 msgstr ""
 
@@ -195,70 +195,70 @@ msgid "Please fill out this field."
 msgstr ""
 
 #: src/app/pages/manage-api-key/ManageAPIKey.tsx:33
-msgid "Register your LLM provider API keys in order to create a new digital author."
-msgstr ""
+#~ msgid "Register your LLM provider API keys in order to create a new digital author."
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:76
-msgid "Retry"
-msgstr ""
+#~ msgid "Retry"
+#~ msgstr ""
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:47
-msgid "Save your favorite articles, follow authors, and more by signing in."
-msgstr "ログインすると、お気に入りの記事の保存や著者のフォローなどができます。"
+#~ msgid "Save your favorite articles, follow authors, and more by signing in."
+#~ msgstr "ログインすると、お気に入りの記事の保存や著者のフォローなどができます。"
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:145
-msgid "Select API key"
-msgstr ""
+#~ msgid "Select API key"
+#~ msgstr ""
 
 #: src/components/studio-layout/StudioLayout.tsx:28
 #: src/components/account-menu/AccountMenu.tsx:39
-msgid "Settings"
-msgstr ""
+#~ msgid "Settings"
+#~ msgstr ""
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:93
 #: src/components/app-navbar/AppNavbar.tsx:57
 #: src/components/app-navbar/AppNavbar.tsx:62
-msgid "Sign in"
-msgstr "ログイン"
+#~ msgid "Sign in"
+#~ msgstr "ログイン"
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:44
-msgid "Sign in with your account"
-msgstr "アカウントでログイン"
+#~ msgid "Sign in with your account"
+#~ msgstr "アカウントでログイン"
 
 #: src/features/auth/components/sign-in-form-dialog/SignInFormDialog.tsx:66
-msgid "Signed in successfully"
-msgstr ""
+#~ msgid "Signed in successfully"
+#~ msgstr ""
 
 #: src/utils/message.ts:4
 msgid "Something went wrong"
 msgstr ""
 
 #: src/app/pages/create-digital-author/CreateDigitalAuthor.tsx:33
-msgid "Submit"
-msgstr ""
+#~ msgid "Submit"
+#~ msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:44
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:72
-msgid "System prompt"
-msgstr ""
+#~ msgid "System prompt"
+#~ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:86
-msgid "Temperature"
-msgstr ""
+#~ msgid "Temperature"
+#~ msgstr ""
 
 #: src/features/digital-author/components/create-digital-author-form/CreateDigitalAuthorForm.tsx:94
-msgid "Top P"
-msgstr ""
+#~ msgid "Top P"
+#~ msgstr ""
 
 #: src/features/digital-author/components/digital-author-table/DigitalAuthorTable.tsx:53
-msgid "Total posts"
-msgstr ""
+#~ msgid "Total posts"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:51
-msgctxt "table column containing API key string"
-msgid "Value"
-msgstr ""
+#~ msgctxt "table column containing API key string"
+#~ msgid "Value"
+#~ msgstr ""
 
 #: src/features/digital-author/components/manage-api-key-table/ManageAPIKeyTable.tsx:128
-msgid "You will no longer be able to create new digital authors using this API key after deactivation. Existing digital authors using this API key will continue to work."
-msgstr "無効化後、このAPIキーを使用して新しいデジタル著者を作成することはできなくなります。このAPIキーを使用している既存のデジタル著者は引き続き機能します。"
+#~ msgid "You will no longer be able to create new digital authors using this API key after deactivation. Existing digital authors using this API key will continue to work."
+#~ msgstr "無効化後、このAPIキーを使用して新しいデジタル著者を作成することはできなくなります。このAPIキーを使用している既存のデジタル著者は引き続き機能します。"

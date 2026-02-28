@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import {
   Tooltip as AriaTooltip,
-  TooltipProps as AriaTooltipProps,
+  type TooltipProps as AriaTooltipProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import { type ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Tooltip.module.scss";
 
 export interface TooltipProps extends ReplaceAriaRenderProps<AriaTooltipProps> {

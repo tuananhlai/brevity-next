@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-import { Radio, RadioProps } from "./Radio";
-import { RadioGroup, RadioGroupProps } from "./RadioGroup";
+import { Radio, type RadioProps } from "./Radio";
+import { RadioGroup, type RadioGroupProps } from "./RadioGroup";
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,

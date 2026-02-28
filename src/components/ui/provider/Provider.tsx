@@ -1,6 +1,6 @@
-import { ComponentProps } from "react";
+import type { ComponentProps } from "react";
 import { RouterProvider } from "react-aria-components";
-import { Theme, ThemeProvider } from "./ThemeProvider";
+import { type Theme, ThemeProvider } from "./ThemeProvider";
 
 export interface ProviderProps {
   /**

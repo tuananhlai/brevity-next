@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { DialogTrigger } from "react-aria-components";
 import { Button } from "../button";
 import { Popover } from "./Popover";
@@ -8,8 +8,10 @@ const meta: Meta<typeof Popover> = {
   title: "ui/Popover",
   argTypes: {},
   decorators: [
-    (story) => (
-      <div style={{ width: "1200px", height: "800px" }}>{story()}</div>
+    (Story) => (
+      <div style={{ width: "1200px", height: "800px" }}>
+        <Story />
+      </div>
     ),
   ],
 };

@@ -1,18 +1,29 @@
-import { render, screen } from "@testing-library/react";
+import { expect, it } from "vitest";
+import { render } from "vitest-browser-react";
 import { Checkbox } from "./Checkbox";
-import { CheckboxGroup, CheckboxGroupProps } from "./CheckboxGroup";
+import { CheckboxGroup, type CheckboxGroupProps } from "./CheckboxGroup";
 
-it("should be associated with label and description", () => {
-  render(<TestCheckboxGroup label="label" description="description" />);
+it("should be associated with label and description", async () => {
+  const screen = await render(
+    <TestCheckboxGroup
+      aria-label={undefined}
+      label="label"
+      description="description"
+    />,
+  );
 
-  expect(screen.getByRole("group")).toHaveAccessibleName(/label/);
-  expect(screen.getByRole("group")).toHaveAccessibleDescription("description");
+  const group = screen.getByRole("group");
+  expect(group).toHaveAccessibleName(/label/i);
+  expect(group).toHaveAccessibleDescription(/description/i);
 });
 
-it("should be associated with an error message when `isInvalid` and `errorMessage` props are provided", () => {
-  render(<TestCheckboxGroup isInvalid errorMessage="error" />);
+it("should be associated with an error message when `isInvalid` and `errorMessage` props are provided", async () => {
+  const screen = await render(
+    <TestCheckboxGroup aria-label={undefined} isInvalid errorMessage="error" />,
+  );
+  const group = screen.getByRole("group");
 
-  expect(screen.getByRole("group")).toHaveAccessibleDescription("error");
+  expect(group).toHaveAccessibleDescription(/error/i);
 });
 
 const TestCheckboxGroup = (props: CheckboxGroupProps) => {

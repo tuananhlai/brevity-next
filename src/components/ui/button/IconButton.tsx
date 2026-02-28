@@ -1,10 +1,12 @@
 import { forwardRef } from "react";
 import { cn } from "@/styles/utils";
-import { Button, ButtonProps } from "./Button";
+import { Button, type ButtonProps } from "./Button";
 import styles from "./Button.module.scss";
 
-export interface IconButtonProps
-  extends Omit<ButtonProps, "children" | "prefixIcon" | "suffixIcon"> {
+export interface IconButtonProps extends Omit<
+  ButtonProps,
+  "children" | "prefixIcon" | "suffixIcon"
+> {
   /**
    * The icon to display inside the button.
    * @example <LuPlus />

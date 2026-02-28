@@ -1,5 +1,5 @@
 import { cn } from "@/styles/utils";
-import { Text, TextProps } from "../text";
+import { Text, type TextProps } from "../text";
 import styles from "./Description.module.scss";
 
 export interface DescriptionProps extends Omit<TextProps, "slot"> {

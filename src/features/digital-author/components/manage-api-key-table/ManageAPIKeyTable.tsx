@@ -1,5 +1,6 @@
-import { Trans, msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/react/macro";
 import { LuRefreshCcw } from "react-icons/lu";
 import { useConfirm } from "@/components/confirm-provider";
 import { Button } from "@/components/ui/button";

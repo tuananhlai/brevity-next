@@ -1,4 +1,7 @@
-export { Tooltip } from "./Tooltip";
-export type { TooltipProps } from "./Tooltip";
-export { TooltipTrigger } from "react-aria-components";
-export type { TooltipTriggerComponentProps as TooltipTriggerProps } from "react-aria-components";
+import type { ComponentProps } from "react";
+import { TooltipTrigger } from "react-aria-components";
+import { Tooltip, type TooltipProps } from "./Tooltip";
+
+export { Tooltip, TooltipTrigger };
+export type { TooltipProps };
+export type TooltipTriggerProps = ComponentProps<typeof TooltipTrigger>;

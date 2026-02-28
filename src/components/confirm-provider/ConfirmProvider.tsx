@@ -1,7 +1,10 @@
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
 import { createContext, useCallback, useContext, useState } from "react";
-import { AlertDialog, AlertDialogProps } from "@/components/ui/alert-dialog";
+import {
+  AlertDialog,
+  type AlertDialogProps,
+} from "@/components/ui/alert-dialog";
 
 export interface ConfirmProviderProps {
   children: React.ReactNode;

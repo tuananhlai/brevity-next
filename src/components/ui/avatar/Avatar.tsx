@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Button, ButtonProps } from "react-aria-components";
+import { Button, type ButtonProps } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Avatar.module.scss";
 
@@ -34,12 +33,13 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
       className={cn(styles.root, className)}
     >
       {src != null ? (
-        <Image
+        <img
           width={sizeToWidth[size]}
           height={sizeToWidth[size]}
           className={styles.img}
           src={src}
           alt={alt}
+          loading="lazy"
         />
       ) : (
         <svg
@@ -66,7 +66,8 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
 };
 
 export interface AvatarButtonProps
-  extends Omit<ButtonProps, "style" | "className" | "children">,
+  extends
+    Omit<ButtonProps, "style" | "className" | "children">,
     Omit<AvatarProps, "alt"> {
   "aria-label": string;
 }

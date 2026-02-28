@@ -1,11 +1,11 @@
-import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { useId } from "react";
+import { expect, it, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 import { apiClient } from "@/lib/apiClient";
 import { renderWithProviders } from "@/utils/testutils";
 import { CreateDigitalAuthorForm } from "./CreateDigitalAuthorForm";
 
-jest.spyOn(apiClient, "getAPIKeys").mockResolvedValue({
+vi.spyOn(apiClient, "getAPIKeys").mockResolvedValue({
   items: [
     {
       id: "1",
@@ -25,8 +25,8 @@ jest.spyOn(apiClient, "getAPIKeys").mockResolvedValue({
 });
 
 it("should submit the form successfully when the form is valid", async () => {
-  const onSubmit = jest.fn();
-  renderWithProviders(<TestForm onSubmit={onSubmit} />);
+  const onSubmit = vi.fn();
+  const screen = await renderWithProviders(<TestForm onSubmit={onSubmit} />);
 
   const expectedDisplayName = "Test Digital Author";
   const expectedSystemPrompt = "You are a helpful assistant.";

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { Form } from "react-aria-components";
 import { Button } from "../button";
 import { Text } from "../text";

@@ -2,12 +2,14 @@ import { mergeRefs } from "@react-aria/utils";
 import { forwardRef } from "react";
 import { mergeProps } from "react-aria";
 import { Controller } from "react-hook-form";
-import { OmitAriaFormProps, RHFFieldProps } from "@/components/rhf/utils";
-import { TextArea, TextAreaProps } from "@/components/ui/text-field/TextArea";
+import {
+  type OmitAriaFormProps,
+  type RHFFieldProps,
+} from "@/components/rhf/utils";
+import { TextArea, type TextAreaProps } from "@/components/ui/text-field";
 
 export interface FormTextAreaProps
-  extends OmitAriaFormProps<TextAreaProps>,
-    RHFFieldProps {}
+  extends OmitAriaFormProps<TextAreaProps>, RHFFieldProps {}
 
 const FormTextArea: React.ForwardRefRenderFunction<
   HTMLTextAreaElement,

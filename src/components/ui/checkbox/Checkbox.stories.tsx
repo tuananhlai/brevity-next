@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
-import { Checkbox, CheckboxProps } from "./Checkbox";
+import { Checkbox, type CheckboxProps } from "./Checkbox";
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,

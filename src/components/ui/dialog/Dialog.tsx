@@ -1,18 +1,19 @@
 import {
   Dialog as AriaDialog,
-  DialogProps as AriaDialogProps,
-  ModalOverlayProps as AriaModalOverlayProps,
+  type DialogProps as AriaDialogProps,
+  type ModalOverlayProps as AriaModalOverlayProps,
   Heading,
-  HeadingProps,
+  type HeadingProps,
   Modal,
   ModalOverlay,
-  ModalOverlayProps,
+  type ModalOverlayProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Dialog.module.scss";
 
 export interface DialogProps
-  extends Omit<AriaDialogProps, "className" | "slot" | "style">,
+  extends
+    Omit<AriaDialogProps, "className" | "slot" | "style">,
     Pick<ModalOverlayProps, "isOpen" | "onOpenChange"> {
   classNames?: {
     overlay?: string;

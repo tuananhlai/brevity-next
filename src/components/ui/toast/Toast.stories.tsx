@@ -1,6 +1,5 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { Button } from "@/components/ui/button";
-import { Flex } from "@/components/ui/layout";
 import { ErrorToastLayout, SuccessToastLayout, Toast } from "./Toast";
 import { ToastQueue } from "./ToastQueue";
 import { ToastRegion } from "./ToastRegion";
@@ -74,11 +73,14 @@ export const VisualTest: Story = {
   },
   render: () => {
     return (
-      <Flex
-        align="start"
-        direction="column"
-        gap="var(--bw-space-2)"
-        style={{ maxWidth: "var(--bw-space-80)" }}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          gap: "var(--bw-space-2)",
+          maxWidth: "var(--bw-space-80)",
+        }}
       >
         <Toast
           toast={{
@@ -139,7 +141,7 @@ export const VisualTest: Story = {
         >
           <ErrorToastLayout title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." />
         </Toast>
-      </Flex>
+      </div>
     );
   },
 };

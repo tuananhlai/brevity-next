@@ -1,4 +1,4 @@
-@use "./utils.scss" as *;
+@use "@/styles/utils.scss" as *;
 /*
     1. Use a more-intuitive box-sizing model.
   */
@@ -73,6 +73,21 @@ h6 {
     color 0.1s ease,
     background-color 0.1s ease;
   color: var(--bw-color-utility-zinc-950);
+  font-family:
+    "Suisse Intl",
+    -apple-system,
+    BlinkMacSystemFont,
+    avenir next,
+    avenir,
+    segoe ui,
+    helvetica neue,
+    Cantarell,
+    Ubuntu,
+    roboto,
+    noto,
+    helvetica,
+    arial,
+    sans-serif;
 
   @include dark-mode {
     background-color: var(--bw-color-utility-zinc-900);

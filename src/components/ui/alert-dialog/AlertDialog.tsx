@@ -3,15 +3,17 @@ import {
   Dialog,
   DialogActions,
   DialogBody,
-  DialogProps,
+  type DialogProps,
   DialogTitle,
 } from "@/components/ui/dialog";
 import styles from "./AlertDialog.module.scss";
 
 export type CloseFn = () => void;
 
-export interface AlertDialogProps
-  extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
+export interface AlertDialogProps extends Pick<
+  DialogProps,
+  "isOpen" | "onOpenChange"
+> {
   title: React.ReactNode;
   /** The content of the dialog. */
   children: React.ReactNode;

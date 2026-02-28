@@ -1,8 +1,9 @@
-import { render, screen } from "@testing-library/react";
+import { expect, it } from "vitest";
+import { render } from "vitest-browser-react";
 import { Drawer, DrawerTitle } from "./Drawer";
 
-it("should be open when `isOpen` is true", () => {
-  render(
+it("should be open when `isOpen` is true", async () => {
+  const screen = await render(
     <Drawer isOpen>
       <DrawerTitle>Drawer Title</DrawerTitle>
     </Drawer>,
@@ -11,8 +12,8 @@ it("should be open when `isOpen` is true", () => {
   expect(screen.getByText("Drawer Title")).toBeInTheDocument();
 });
 
-it("should have the correct role and name", () => {
-  render(
+it("should have the correct role and name", async () => {
+  const screen = await render(
     <Drawer isOpen>
       <DrawerTitle>Drawer Title</DrawerTitle>
     </Drawer>,

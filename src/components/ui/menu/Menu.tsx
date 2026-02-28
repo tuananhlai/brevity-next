@@ -1,15 +1,16 @@
 import {
   Menu as AriaMenu,
   MenuItem as AriaMenuItem,
-  MenuProps as AriaMenuProps,
-  MenuItemProps,
+  type MenuProps as AriaMenuProps,
+  type MenuItemProps,
 } from "react-aria-components";
+import { Popover, type PopoverProps } from "@/components/ui/popover";
 import { cn } from "@/styles/utils";
-import { Popover, PopoverProps } from "../popover";
 import styles from "./Menu.module.scss";
 
 export interface MenuProps<T>
-  extends Omit<AriaMenuProps<T>, "style" | "className">,
+  extends
+    Omit<AriaMenuProps<T>, "style" | "className">,
     Pick<
       PopoverProps,
       | "placement"

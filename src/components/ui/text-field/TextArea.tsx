@@ -2,16 +2,15 @@ import { forwardRef } from "react";
 import {
   TextArea as AriaTextArea,
   TextField as AriaTextField,
-  TextFieldProps as AriaTextFieldProps,
+  type TextFieldProps as AriaTextFieldProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
+import { type FieldsetProps, type ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./TextField.module.scss";
 
 export interface TextAreaProps
-  extends ReplaceAriaRenderProps<AriaTextFieldProps>,
-    FieldsetProps {
+  extends ReplaceAriaRenderProps<AriaTextFieldProps>, FieldsetProps {
   placeholder?: string;
   /** Whether the textarea can be vertically resized by the user. */
   resizable?: boolean;

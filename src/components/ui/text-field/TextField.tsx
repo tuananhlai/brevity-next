@@ -1,16 +1,17 @@
 import { forwardRef } from "react";
 import {
   TextField as AriaTextField,
-  TextFieldProps as AriaTextFieldProps,
+  type TextFieldProps as AriaTextFieldProps,
   Input,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
+import { type FieldsetProps, type ReplaceAriaRenderProps } from "@/utils/misc";
 import { Description, ErrorMessage, Label } from "../field";
 import styles from "./TextField.module.scss";
 
 export interface TextFieldProps
-  extends Omit<ReplaceAriaRenderProps<AriaTextFieldProps>, "children">,
+  extends
+    Omit<ReplaceAriaRenderProps<AriaTextFieldProps>, "children">,
     FieldsetProps {
   placeholder?: string;
 }

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { ManageAPIKeyTable } from "./ManageAPIKeyTable";
 
 const meta: Meta<typeof ManageAPIKeyTable> = {

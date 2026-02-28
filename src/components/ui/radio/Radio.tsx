@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 import {
   Radio as AriaRadio,
-  RadioProps as AriaRadioProps,
+  type RadioProps as AriaRadioProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
-import { ReplaceAriaRenderProps } from "@/utils/misc";
+import { type ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Radio.module.scss";
 
 export type RadioProps = ReplaceAriaRenderProps<AriaRadioProps>;

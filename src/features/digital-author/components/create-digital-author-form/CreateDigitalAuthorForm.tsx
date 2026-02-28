@@ -1,8 +1,9 @@
-import { Trans, msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/react/macro";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormSlider, FormTextArea, FormTextField } from "@/components/rhf";
-import { FormSelect, FormSelectProps } from "@/components/rhf/FormSelect";
+import { FormSelect, type FormSelectProps } from "@/components/rhf/FormSelect";
 import { SelectItem } from "@/components/ui/select";
 import { TextLink } from "@/components/ui/text";
 import { useGetAPIKeys } from "@/features/digital-author/api/getAPIKeys";

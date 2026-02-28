@@ -1,5 +1,6 @@
-import { Trans, msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
+import { Trans } from "@lingui/react/macro";
 import { useId } from "react";
 import { Form } from "react-aria-components";
 import { toastQueue } from "@/components/toastQueue";
@@ -8,18 +9,20 @@ import {
   Dialog,
   DialogActions,
   DialogBody,
-  DialogProps,
+  type DialogProps,
   DialogTitle,
 } from "@/components/ui/dialog";
 import { TextLink } from "@/components/ui/text";
 import { TextField } from "@/components/ui/text-field";
 import { useCreateAPIKey } from "@/features/digital-author/api/createAPIKey";
-import { CreateAPIKeyRequest } from "@/lib/client";
+import { type CreateAPIKeyRequest } from "@/lib/client";
 import { somethingWentWrong } from "@/utils/message";
 import styles from "./AddApiKeyDialog.module.scss";
 
-export interface AddApiKeyDialogProps
-  extends Pick<DialogProps, "isOpen" | "onOpenChange"> {
+export interface AddApiKeyDialogProps extends Pick<
+  DialogProps,
+  "isOpen" | "onOpenChange"
+> {
   /** A callback function to be invoked when an API key is created success. */
   onSubmitted?: () => void;
 }

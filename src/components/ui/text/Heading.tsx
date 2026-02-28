@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import {
   Heading as AriaHeading,
-  HeadingProps as AriaHeadingProps,
+  type HeadingProps as AriaHeadingProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Text.module.scss";

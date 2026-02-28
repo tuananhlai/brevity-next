@@ -2,13 +2,15 @@ import { forwardRef } from "react";
 import { useObjectRef } from "react-aria";
 import {
   Checkbox as AriaCheckbox,
-  CheckboxProps as AriaCheckboxProps,
+  type CheckboxProps as AriaCheckboxProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Checkbox.module.scss";
 
-export interface CheckboxProps
-  extends Omit<AriaCheckboxProps, "style" | "className" | "children"> {
+export interface CheckboxProps extends Omit<
+  AriaCheckboxProps,
+  "style" | "className" | "children"
+> {
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;

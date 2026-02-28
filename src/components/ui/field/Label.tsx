@@ -1,6 +1,6 @@
 import {
   Label as AriaLabel,
-  LabelProps as AriaLabelProps,
+  type LabelProps as AriaLabelProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Label.module.scss";

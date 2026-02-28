@@ -1,18 +1,17 @@
-import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import { expect, it, vi } from "vitest";
+import { userEvent } from "vitest/browser";
 import { renderWithProviders } from "@/utils/testutils";
 import { ConfirmProvider, useConfirm } from "./ConfirmProvider";
 
 it("should open alert dialog when confirm() is called", async () => {
-  renderWithProviders(
+  const screen = await renderWithProviders(
     <ConfirmProvider>
       <TestComponent />
     </ConfirmProvider>,
   );
 
-  await openConfirmDialog();
+  await openConfirmDialog(screen);
 
-  // Verify dialog is opened with correct content
   expect(
     screen.getByRole("alertdialog", { name: "Test Title" }),
   ).toBeInTheDocument();
@@ -22,49 +21,54 @@ it("should open alert dialog when confirm() is called", async () => {
 });
 
 it("should resolve promise with true and close dialog when primary action is clicked", async () => {
-  const onConfirm = jest.fn();
-  renderWithProviders(
+  const onConfirm = vi.fn();
+  const screen = await renderWithProviders(
     <ConfirmProvider>
       <TestComponent onConfirm={onConfirm} />
     </ConfirmProvider>,
   );
 
-  await openConfirmDialog();
-  await userEvent.click(getPrimaryActionButton());
+  await openConfirmDialog(screen);
+  await userEvent.click(screen.getByRole("button", { name: "Yes" }).element());
 
   expect(onConfirm).toHaveBeenCalledWith(true);
-  expect(screen.queryByRole("alertdialog")).not.toBeInTheDocument();
+  await expect
+    .poll(() => screen.getByRole("alertdialog"))
+    .not.toBeInTheDocument();
 });
 
 it.each([
   {
     name: "cancel button is pressed",
-    close: () => userEvent.click(getCancelButton()),
+    close: async (screen: Awaited<ReturnType<typeof renderWithProviders>>) =>
+      userEvent.click(screen.getByRole("button", { name: "No" }).element()),
   },
   {
     name: "user clicks outside the dialog",
-    close: () => userEvent.click(document.body),
+    close: async () => userEvent.click(document.body),
   },
   {
     name: "user presses escape",
-    close: () => userEvent.keyboard("{Escape}"),
+    close: async () => userEvent.keyboard("{Escape}"),
   },
 ])(
   "should resolve promise with false and close dialog when $name",
   async ({ close }) => {
-    const onConfirm = jest.fn();
+    const onConfirm = vi.fn();
 
-    renderWithProviders(
+    const screen = await renderWithProviders(
       <ConfirmProvider>
         <TestComponent onConfirm={onConfirm} />
       </ConfirmProvider>,
     );
 
-    await openConfirmDialog();
-    await close();
+    await openConfirmDialog(screen);
+    await close(screen);
 
     expect(onConfirm).toHaveBeenCalledWith(false);
-    expect(screen.queryByRole("alertdialog")).not.toBeInTheDocument();
+    await expect
+      .poll(() => screen.getByRole("alertdialog"))
+      .not.toBeInTheDocument();
   },
 );
 
@@ -84,8 +88,10 @@ const TestComponent = (props: { onConfirm?: (result: boolean) => void }) => {
   return <button onClick={handleClick}>Open Dialog</button>;
 };
 
-const openConfirmDialog = () =>
-  userEvent.click(screen.getByRole("button", { name: "Open Dialog" }));
-const getPrimaryActionButton = () =>
-  screen.getByRole("button", { name: "Yes" });
-const getCancelButton = () => screen.getByRole("button", { name: "No" });
+const openConfirmDialog = async (
+  screen: Awaited<ReturnType<typeof renderWithProviders>>,
+) => {
+  await userEvent.click(
+    screen.getByRole("button", { name: "Open Dialog" }).element(),
+  );
+};

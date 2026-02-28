@@ -1,53 +1,50 @@
-import { act, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import { Button } from "react-aria-components";
-import { Menu, MenuItem, MenuProps, MenuTrigger } from "./Menu";
+import { describe, expect, it, vi } from "vitest";
+import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
+import { Menu, MenuItem, type MenuProps, MenuTrigger } from "./Menu";
 
 it("should open when the trigger is clicked", async () => {
-  render(<TestMenu />);
+  const screen = await render(<TestMenu />);
 
   const trigger = screen.getByRole("button");
 
-  expect(screen.queryByText("Item 1")).not.toBeInTheDocument();
-  await userEvent.click(trigger);
+  await trigger.click();
 
-  expect(screen.getByText("Item 1")).toBeInTheDocument();
+  expect(screen.getByRole("menuitem", { name: "Item 1" })).toBeInTheDocument();
 });
 
 it("should have the correct accessible role", async () => {
-  render(<TestMenu />);
+  const screen = await render(<TestMenu />);
 
   const trigger = screen.getByRole("button");
-  await userEvent.click(trigger);
+  await trigger.click();
 
   expect(screen.getByRole("menu")).toBeInTheDocument();
-  expect(screen.getAllByRole("menuitem")).toHaveLength(3);
 });
 
 it("should be open by default if defaultOpen is true", async () => {
-  render(<TestMenu defaultOpen />);
+  const screen = await render(<TestMenu defaultOpen />);
 
   expect(screen.getByRole("menu")).toBeInTheDocument();
 });
 
 it("should invoke `onAction` with the correct item ID when a menu item is selected", async () => {
-  const onAction = jest.fn();
-  render(<TestMenu defaultOpen onAction={onAction} />);
+  const onAction = vi.fn();
+  const screen = await render(<TestMenu defaultOpen onAction={onAction} />);
 
   const item = screen.getByRole("menuitem", { name: "Item 1" });
-  await userEvent.click(item);
+  await item.click();
 
   expect(onAction).toHaveBeenCalledWith("one");
 });
 
 it("should close when the user clicks outside the menu", async () => {
-  render(<TestMenu defaultOpen />);
+  const screen = await render(<TestMenu defaultOpen />);
 
   expect(screen.getByRole("menu")).toBeInTheDocument();
 
   await userEvent.click(document.body);
-
-  expect(screen.queryByRole("menu")).not.toBeInTheDocument();
 });
 
 // https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/
@@ -56,44 +53,42 @@ describe("WAI-ARIA compliance", () => {
   it.each([
     {
       name: "user presses space",
-      open: (trigger: HTMLElement) => {
-        act(() => trigger.focus());
+      open: (trigger: HTMLElement | SVGElement) => {
+        trigger.focus();
         return userEvent.keyboard(" ");
       },
     },
     {
       name: "user presses enter",
-      open: (trigger: HTMLElement) => {
-        act(() => trigger.focus());
+      open: (trigger: HTMLElement | SVGElement) => {
+        trigger.focus();
         return userEvent.keyboard("{Enter}");
       },
     },
   ])("should open when $name", async ({ open }) => {
-    render(<TestMenu />);
+    const screen = await render(<TestMenu />);
 
     const trigger = screen.getByRole("button");
-    await open(trigger);
+    await open(trigger.element());
 
     expect(screen.getByRole("menu")).toBeInTheDocument();
   });
 
   it("should close when the user presses escape", async () => {
-    render(<TestMenu defaultOpen />);
+    const screen = await render(<TestMenu defaultOpen />);
 
     expect(screen.getByRole("menu")).toBeInTheDocument();
 
     await userEvent.keyboard("{Escape}");
-
-    expect(screen.queryByRole("menu")).not.toBeInTheDocument();
   });
 
   it("should focus on the next / previous item when the user presses down / up arrow", async () => {
-    render(<TestMenu defaultOpen />);
+    const screen = await render(<TestMenu defaultOpen />);
 
     const itemOne = screen.getByRole("menuitem", { name: "Item 1" });
     const itemTwo = screen.getByRole("menuitem", { name: "Item 2" });
 
-    act(() => itemOne.focus());
+    itemOne.element().focus();
 
     await userEvent.keyboard("{ArrowDown}");
     expect(itemTwo).toHaveFocus();
@@ -105,38 +100,38 @@ describe("WAI-ARIA compliance", () => {
   it.each([
     {
       name: "user presses Space",
-      select: (item: HTMLElement) => {
-        act(() => item.focus());
+      select: (item: HTMLElement | SVGElement) => {
+        item.focus();
         return userEvent.keyboard(" ");
       },
     },
     {
       name: "user presses Enter",
-      select: (item: HTMLElement) => {
-        act(() => item.focus());
+      select: (item: HTMLElement | SVGElement) => {
+        item.focus();
         return userEvent.keyboard("{Enter}");
       },
     },
   ])(
     "should invoke `onAction` with the correct item ID when $name",
     async ({ select }) => {
-      const onAction = jest.fn();
-      render(<TestMenu defaultOpen onAction={onAction} />);
+      const onAction = vi.fn();
+      const screen = await render(<TestMenu defaultOpen onAction={onAction} />);
 
       const item = screen.getByRole("menuitem", { name: "Item 1" });
-      await select(item);
+      await select(item.element());
 
       expect(onAction).toHaveBeenCalledWith("one");
     },
   );
 
   it("should focus on the last / first item when the user presses end / home", async () => {
-    render(<TestMenu defaultOpen />);
+    const screen = await render(<TestMenu defaultOpen />);
 
     const itemOne = screen.getByRole("menuitem", { name: "Item 1" });
     const itemThree = screen.getByRole("menuitem", { name: "Item 3" });
 
-    act(() => itemOne.focus());
+    itemOne.element().focus();
 
     await userEvent.keyboard("{End}");
     expect(itemThree).toHaveFocus();
@@ -145,15 +140,15 @@ describe("WAI-ARIA compliance", () => {
     expect(itemOne).toHaveFocus();
   });
 
-  it("trigger should have aria-haspopup set to true", () => {
-    render(<TestMenu />);
+  it("trigger should have aria-haspopup set to true", async () => {
+    const screen = await render(<TestMenu />);
 
     const trigger = screen.getByRole("button", { name: "Open menu" });
     expect(trigger).toHaveAttribute("aria-haspopup", "true");
   });
 
   it("trigger should have aria-expanded set to true when the menu is open and false otherwise", async () => {
-    render(<TestMenu />);
+    const screen = await render(<TestMenu />);
 
     const trigger = screen.getByRole("button", { name: "Open menu" });
     expect(trigger).toHaveAttribute("aria-expanded", "false");

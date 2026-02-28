@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { LuLogIn, LuPlus } from "react-icons/lu";
-import { IconButton } from "@/components/ui/button/IconButton";
+import { IconButton } from "@/components/ui/button";
 import { VisualTestGrid } from "@/styles/storybookTestUtils";
 import { Button } from "./Button";
 

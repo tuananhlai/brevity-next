@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import {
   Text as AriaText,
-  TextProps as AriaTextProps,
+  type TextProps as AriaTextProps,
 } from "react-aria-components";
 import { cn } from "@/styles/utils";
 import styles from "./Text.module.scss";

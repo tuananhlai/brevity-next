@@ -1,9 +1,9 @@
 import {
   DatePicker as AriaDatePicker,
-  DatePickerProps as AriaDatePickerProps,
+  type DatePickerProps as AriaDatePickerProps,
   DateInput,
   DateSegment,
-  DateValue,
+  type DateValue,
   Dialog,
   Group,
 } from "react-aria-components";
@@ -12,12 +12,11 @@ import { IconButton } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import { Description, ErrorMessage, Label } from "@/components/ui/field";
 import { Popover } from "@/components/ui/popover";
-import { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
+import type { FieldsetProps, ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./DatePicker.module.scss";
 
 export interface DatePickerProps<T extends DateValue>
-  extends ReplaceAriaRenderProps<AriaDatePickerProps<T>>,
-    FieldsetProps {}
+  extends ReplaceAriaRenderProps<AriaDatePickerProps<T>>, FieldsetProps {}
 
 // TODO: The position of the calendar popover sometimes change when
 // navigating between months due to the different number of days.

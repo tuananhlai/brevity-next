@@ -1,66 +1,56 @@
-import { act, fireEvent, render, screen } from "@testing-library/react";
-import userEvent, { UserEvent } from "@testing-library/user-event";
-import { Button, TooltipTrigger } from "react-aria-components";
+import { TooltipTrigger } from "react-aria-components";
 import { LuPencil } from "react-icons/lu";
+import { expect, it } from "vitest";
+import { render } from "vitest-browser-react";
+import { userEvent } from "vitest/browser";
+import { Button } from "@/components/ui/button";
 import { Tooltip } from "./Tooltip";
 
-describe("Tooltip", () => {
-  const getUser = () => userEvent.setup({ delay: null });
-  let user: UserEvent;
+it("should display tooltip when trigger is focused", async () => {
+  const screen = await render(
+    <TooltipTrigger>
+      <Button>
+        <LuPencil />
+      </Button>
+      <Tooltip>Tooltip content</Tooltip>
+    </TooltipTrigger>,
+  );
 
-  beforeEach(() => {
-    user = getUser();
-  });
+  // There is some logic in React Aria where some interactions
+  // need to happen before a tooltip is correctly displayed on hover.
+  // TODO: find out the source of this workaround.
+  await userEvent.click(document.body);
 
-  it("should display tooltip when trigger is focused", () => {
-    render(
-      <TooltipTrigger>
-        <Button>
-          <LuPencil />
-        </Button>
-        <Tooltip>Tooltip content</Tooltip>
-      </TooltipTrigger>,
-    );
+  // Press Tab to focus on the tooltip trigger (a button).
+  await userEvent.tab();
 
-    const button = screen.getByRole("button");
-    act(() => {
-      button.focus();
-    });
-
-    expect(button).toHaveAccessibleDescription("Tooltip content");
-    expect(
-      screen.getByRole("tooltip", { name: "Tooltip content" }),
-    ).toBeInTheDocument();
-  });
-
-  it("should display tooltip when trigger is hovered", async () => {
-    render(
-      <TooltipTrigger delay={0}>
-        <Button>
-          <LuPencil />
-        </Button>
-        <Tooltip>Tooltip content</Tooltip>
-      </TooltipTrigger>,
-    );
-
-    const button = screen.getByRole("button");
-
-    await hover(user, button);
-
-    expect(button).toHaveAccessibleDescription("Tooltip content");
-    expect(
-      screen.getByRole("tooltip", { name: "Tooltip content" }),
-    ).toBeInTheDocument();
-  });
+  const button = screen.getByRole("button");
+  expect(button).toHaveAccessibleDescription("Tooltip content");
+  expect(
+    screen.getByRole("tooltip", { name: "Tooltip content" }),
+  ).toBeInTheDocument();
 });
 
-/**
- * A helper function to hover over an element specifically to display
- * RAC Tooltip.
- *
- * @see https://github.com/adobe/react-spectrum/blob/4b2c6e76fa97d2e00a478a152972837c1cb76938/packages/react-aria-components/test/Tooltip.test.js#L48
- */
-const hover = async (user: UserEvent, element: HTMLElement) => {
-  fireEvent.mouseMove(document.body);
-  await user.hover(element);
-};
+it("should display tooltip when trigger is hovered", async () => {
+  const screen = await render(
+    <TooltipTrigger delay={0}>
+      <Button>
+        <LuPencil />
+      </Button>
+      <Tooltip>Tooltip content</Tooltip>
+    </TooltipTrigger>,
+  );
+
+  const button = screen.getByRole("button");
+
+  // There is some logic in React Aria where some interactions
+  // need to happen before a tooltip is correctly displayed on hover.
+  // TODO: find out the source of this workaround.
+  await userEvent.click(document.body);
+  await userEvent.hover(button);
+
+  expect(button).toHaveAccessibleDescription("Tooltip content");
+  expect(
+    screen.getByRole("tooltip", { name: "Tooltip content" }),
+  ).toBeInTheDocument();
+});

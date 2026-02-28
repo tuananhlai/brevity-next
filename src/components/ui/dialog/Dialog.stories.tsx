@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { useState } from "react";
 import { DialogTrigger } from "react-aria-components";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -10,8 +10,10 @@ const meta: Meta<typeof Dialog> = {
   title: "ui/Dialog",
   argTypes: {},
   decorators: [
-    (story) => (
-      <div style={{ width: "1200px", height: "800px" }}>{story()}</div>
+    (Story) => (
+      <div style={{ width: "1200px", height: "800px" }}>
+        <Story />
+      </div>
     ),
   ],
 };

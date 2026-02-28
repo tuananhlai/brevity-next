@@ -1,12 +1,13 @@
-import { screen } from "@testing-library/react";
+import { describe, expect, it, vi } from "vitest";
 import { renderWithProviders } from "@/utils/testutils";
 import { RelativeTimeValue } from "./RelativeTimeValue";
 
-jest.useFakeTimers().setSystemTime(new Date("2020-01-01"));
+vi.useFakeTimers();
+vi.setSystemTime(new Date("2020-01-01"));
 
 describe("RelativeTimeValue", () => {
-  it("should match snapshot", () => {
-    renderWithProviders(
+  it("should match snapshot", async () => {
+    const screen = await renderWithProviders(
       <div data-testid="test-container">
         {Object.entries(timeStamps).map(([key, value]) => (
           <RelativeTimeValue key={key} dateTime={value} />

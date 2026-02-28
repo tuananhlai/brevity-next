@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/nextjs";
+import { type Meta, type StoryObj } from "@storybook/react-vite";
 import { Fragment } from "react";
 import { RelativeTimeValue } from "./RelativeTimeValue";
 import { TimeValue } from "./TimeValue";

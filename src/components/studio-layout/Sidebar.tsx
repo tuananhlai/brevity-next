@@ -1,7 +1,5 @@
-import { msg } from "@lingui/macro";
+import { msg } from "@lingui/core/macro";
 import { useLingui } from "@lingui/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import { Select, SelectItem } from "@/components/ui/select";
 import { cn } from "@/styles/utils";
 import styles from "./Sidebar.module.scss";
@@ -39,12 +37,12 @@ const DesktopSidebarItem: React.FC<{
 
   return (
     <li className={styles.item}>
-      <Link
+      <a
         className={cn(styles.link, isActive && styles.activeLink)}
         href={item.href}
       >
         {item.label}
-      </Link>
+      </a>
     </li>
   );
 };
@@ -81,7 +79,8 @@ export const MobileSidebar: React.FC<MobileSidebarProps> = (props) => {
 
 /** Return a function that checks whether a sidebar item is active. */
 const useCheckItemState = (): ((item: SidebarItem) => boolean) => {
-  const router = useRouter();
+  const pathname =
+    typeof window !== "undefined" ? window.location.pathname : "";
 
-  return (item: SidebarItem) => router.pathname.includes(item.href);
+  return (item: SidebarItem) => pathname.includes(item.href);
 };
