@@ -18,7 +18,7 @@ export const StudioLayout: React.FC<StudioLayoutProps> = (props) => {
   const items: SidebarItem[] = [
     {
       label: _(msg`Digital authors`),
-      href: "/digital-authors",
+      href: "/digital-author",
     },
   ];
 

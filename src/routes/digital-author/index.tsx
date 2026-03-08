@@ -1,10 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { StackedLayout } from "@/components/stacked-layout";
 import { StudioLayout } from "@/components/studio-layout";
 import { useListDigitalAuthors } from "@/features/digital-author/api/listDigitalAuthors";
 import { DigitalAuthorTable } from "@/features/digital-author/components/digital-author-table";
 
-export const Route = createFileRoute("/digital-authors")({
+export const Route = createFileRoute("/digital-author/")({
   component: RouteComponent,
 });
 

@@ -1,14 +1,16 @@
+import { createFileRoute } from "@tanstack/react-router";
 import { StackedLayout } from "@/components/stacked-layout";
 import { Container } from "@/components/ui/layout";
 import { Heading } from "@/components/ui/text";
 import { useGetArticleDetails } from "@/features/view-article/api/getArticleDetails";
-import styles from "./ViewArticle.module.scss";
+import styles from "./$slug.module.scss";
 
-export interface ViewArticleProps {
-  slug: string;
-}
+export const Route = createFileRoute("/article/$slug")({
+  component: RouteComponent,
+});
 
-export const ViewArticle: React.FC<ViewArticleProps> = ({ slug }) => {
+function RouteComponent() {
+  const { slug } = Route.useParams();
   const { data: articleDetails } = useGetArticleDetails(slug);
 
   return (
@@ -24,4 +26,4 @@ export const ViewArticle: React.FC<ViewArticleProps> = ({ slug }) => {
       </div>
     </StackedLayout>
   );
-};
+}

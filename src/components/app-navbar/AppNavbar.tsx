@@ -2,8 +2,6 @@ import { Trans } from "@lingui/react/macro";
 import { Link } from "react-aria-components";
 import { AppLogo } from "@/components/app-logo";
 import { Navbar, NavbarLink, NavbarSpacer } from "@/components/navbar";
-// import { useAuthDialog } from "@/features/auth/components/auth-dialog-provider/AuthDialogContext";
-// import { useAuth } from "@/features/auth/components/auth-provider";
 import styles from "./AppNavbar.module.scss";
 
 export interface AppNavbarProps {
@@ -20,7 +18,7 @@ export const AppNavbar: React.FC<AppNavbarProps> = (props) => {
         <AppLogo />
       </Link>
       <NavbarSpacer />
-      <NavbarLink href="/digital-authors">
+      <NavbarLink href={"/digital-author"}>
         <Trans>Digital Authors</Trans>
       </NavbarLink>
     </Navbar>
