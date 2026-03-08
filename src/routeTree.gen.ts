@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as DigitalAuthorsRouteImport } from './routes/digital-authors'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ArticleSlugRouteImport } from './routes/article.$slug'
 
+const DigitalAuthorsRoute = DigitalAuthorsRouteImport.update({
+  id: '/digital-authors',
+  path: '/digital-authors',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +31,43 @@ const ArticleSlugRoute = ArticleSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/digital-authors': typeof DigitalAuthorsRoute
   '/article/$slug': typeof ArticleSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/digital-authors': typeof DigitalAuthorsRoute
   '/article/$slug': typeof ArticleSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/digital-authors': typeof DigitalAuthorsRoute
   '/article/$slug': typeof ArticleSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/article/$slug'
+  fullPaths: '/' | '/digital-authors' | '/article/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/article/$slug'
-  id: '__root__' | '/' | '/article/$slug'
+  to: '/' | '/digital-authors' | '/article/$slug'
+  id: '__root__' | '/' | '/digital-authors' | '/article/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DigitalAuthorsRoute: typeof DigitalAuthorsRoute
   ArticleSlugRoute: typeof ArticleSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/digital-authors': {
+      id: '/digital-authors'
+      path: '/digital-authors'
+      fullPath: '/digital-authors'
+      preLoaderRoute: typeof DigitalAuthorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DigitalAuthorsRoute: DigitalAuthorsRoute,
   ArticleSlugRoute: ArticleSlugRoute,
 }
 export const routeTree = rootRouteImport

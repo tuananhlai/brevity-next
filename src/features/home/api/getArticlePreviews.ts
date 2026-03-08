@@ -7,5 +7,7 @@ export const useGetArticlePreviews =
     return useQuery({
       queryKey: ["article-previews"],
       queryFn: ({ signal }) => apiClient.getArticlePreviews({ signal }),
+      // display previously fetched data while refetching
+      placeholderData: (prev) => prev,
     });
   };

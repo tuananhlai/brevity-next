@@ -1,6 +1,5 @@
 import { Trans } from "@lingui/react/macro";
 import { RelativeTimeValue } from "@/components/time-value";
-import { Flex } from "@/components/ui/layout";
 import {
   Table,
   TableBody,
@@ -9,21 +8,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Text, TextLink } from "@/components/ui/text";
-import { TODO_HREF } from "@/utils/misc";
+import { Text } from "@/components/ui/text";
 import styles from "./DigitalAuthorTable.module.scss";
 
 export interface DigitalAuthorTableRowData {
   id: string;
   displayName: string;
   systemPrompt: string;
-  totalPosts: number;
-  numberOfFollowers: number;
-  lastArticle?: {
-    id: string;
-    title: string;
-    createdAt: Date;
-  };
+  createdAt: Date;
 }
 
 export interface DigitalAuthorTableProps {
@@ -44,13 +36,7 @@ export const DigitalAuthorTable: React.FC<DigitalAuthorTableProps> = (
           <Trans>System prompt</Trans>
         </TableColumn>
         <TableColumn>
-          <Trans>Last article</Trans>
-        </TableColumn>
-        <TableColumn>
-          <Trans>Number of followers</Trans>
-        </TableColumn>
-        <TableColumn>
-          <Trans>Total posts</Trans>
+          <Trans>Created at</Trans>
         </TableColumn>
       </TableHeader>
       <TableBody items={items}>
@@ -63,25 +49,8 @@ export const DigitalAuthorTable: React.FC<DigitalAuthorTableProps> = (
               <Text className={styles.systemPrompt}>{item.systemPrompt}</Text>
             </TableCell>
             <TableCell>
-              {item.lastArticle != null ? (
-                <Flex className={styles.lastArticleCell} direction="column">
-                  <TextLink
-                    className={styles.lastArticleCellTitle}
-                    href={TODO_HREF}
-                  >
-                    {item.lastArticle.title}
-                  </TextLink>
-                  <RelativeTimeValue
-                    className={styles.lastArticleCellCreatedAt}
-                    dateTime={item.lastArticle.createdAt}
-                  />
-                </Flex>
-              ) : (
-                "-"
-              )}
+              <RelativeTimeValue dateTime={item.createdAt} />
             </TableCell>
-            <TableCell>{item.numberOfFollowers}</TableCell>
-            <TableCell>{item.totalPosts}</TableCell>
           </TableRow>
         )}
       </TableBody>

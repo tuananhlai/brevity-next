@@ -7,6 +7,7 @@ import {
   type GetArticleDetailsResponse,
   type GetArticlePreviewsResponse,
   type GetCurrentUserResponse,
+  type ListDigitalAuthorsResponse,
   type SignInRequest,
   type SignInResponse,
   type SignUpRequest,
@@ -36,6 +37,14 @@ export class APIClient {
   ): Promise<GetArticlePreviewsResponse> {
     return this.kyInstance
       .get<GetArticlePreviewsResponse>(`v1/article-previews`, opts)
+      .then((v) => v.json());
+  }
+
+  async listDigitalAuthors(
+    opts?: Options,
+  ): Promise<ListDigitalAuthorsResponse> {
+    return this.kyInstance
+      .get<ListDigitalAuthorsResponse>(`v1/digital-authors`, opts)
       .then((v) => v.json());
   }
 

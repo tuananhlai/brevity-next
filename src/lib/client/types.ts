@@ -81,3 +81,15 @@ export interface GetCurrentUserResponse {
   username: string;
   email: string;
 }
+
+export interface ListDigitalAuthorsResponse {
+  items: DigitalAuthor[];
+}
+
+export interface DigitalAuthor {
+  id: string;
+  displayName: string;
+  systemPrompt: string;
+  /** @example "2025-01-01T00:00:00Z" */
+  createdAt: string;
+}
