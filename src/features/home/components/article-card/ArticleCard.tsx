@@ -1,8 +1,4 @@
-import { msg } from "@lingui/core/macro";
-import { useLingui } from "@lingui/react";
 import { useDateFormatter } from "react-aria";
-import { LuBookmark } from "react-icons/lu";
-import { IconButton } from "@/components/ui/button";
 import { Flex } from "@/components/ui/layout";
 import { Heading, Text } from "@/components/ui/text";
 import { cn } from "@/styles/utils";
@@ -38,8 +34,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   const dateFormatter = useDateFormatter({
     dateStyle: "medium",
   });
-
-  const { _ } = useLingui();
 
   return (
     <article className={cn(styles.root, className)} style={style}>
