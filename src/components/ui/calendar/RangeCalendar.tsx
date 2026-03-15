@@ -1,6 +1,6 @@
 import {
-  Calendar as AriaCalendar,
-  type CalendarProps as AriaCalendarProps,
+  RangeCalendar as AriaRangeCalendar,
+  type RangeCalendarProps as AriaRangeCalendarProps,
   CalendarCell,
   CalendarGrid,
   CalendarGridBody,
@@ -15,14 +15,16 @@ import { cn } from "@/styles/utils";
 import type { ReplaceAriaRenderProps } from "@/utils/misc";
 import styles from "./Calendar.module.scss";
 
-export interface CalendarProps<
+export interface RangeCalendarProps<
   T extends DateValue,
-> extends ReplaceAriaRenderProps<AriaCalendarProps<T>> {}
+> extends ReplaceAriaRenderProps<AriaRangeCalendarProps<T>> {}
 
-export const Calendar = <T extends DateValue>(props: CalendarProps<T>) => {
+export const RangeCalendar = <T extends DateValue>(
+  props: RangeCalendarProps<T>,
+) => {
   const { className, ...rest } = props;
   return (
-    <AriaCalendar className={cn(styles.root, className)} {...rest}>
+    <AriaRangeCalendar className={cn(styles.root, className)} {...rest}>
       <header className={styles.header}>
         <IconButton
           className={styles.headerButton}
@@ -49,9 +51,14 @@ export const Calendar = <T extends DateValue>(props: CalendarProps<T>) => {
           )}
         </CalendarGridHeader>
         <CalendarGridBody>
-          {(date) => <CalendarCell className={styles.cell} date={date} />}
+          {(date) => (
+            <CalendarCell
+              className={cn(styles.cell, styles.rangeCalendarVariant)}
+              date={date}
+            />
+          )}
         </CalendarGridBody>
       </CalendarGrid>
-    </AriaCalendar>
+    </AriaRangeCalendar>
   );
 };

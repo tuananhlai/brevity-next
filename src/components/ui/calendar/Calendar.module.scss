@@ -37,9 +37,8 @@
   --indicator-default-bg-color: var(--bw-color-utility-brand-900);
   --indicator-selected-bg-color: var(--bw-color-utility-white);
   --indicator-bg-color: var(--indicator-default-bg-color);
-  display: grid;
 
-  position: relative;
+  display: grid;
   position: relative;
   place-items: center;
   transition:
@@ -95,5 +94,13 @@
   @include dark-mode {
     --indicator-default-bg-color: var(--bw-color-utility-brand-300);
     --indicator-selected-bg-color: var(--bw-color-utility-brand-400);
+  }
+}
+
+.rangeCalendarVariant {
+  &:where([data-selected]:not([data-selection-start], [data-selection-end])) {
+    // TODO: update styling
+    background-color: alpha(var(--bw-color-bg-brand-solid), 5);
+    color: var(--bw-color-text-primary);
   }
 }
